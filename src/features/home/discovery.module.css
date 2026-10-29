@@ -1,0 +1,104 @@
+.brands { padding-block: 40px 20px; }
+:global(html[data-design="salon"]) .brands { padding-block: 64px; }
+:global(html[data-design="salon"]) .brandHeading { margin-bottom: 48px; }
+:global(html[data-design="salon"]) .brandHeading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin-bottom: 20px; }
+:global(html[data-design="salon"]) .brandHeading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 45ch; }
+:global(html[data-design="salon"]) .allBrands { font-size: 16px; padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
+:global(html[data-design="salon"]) .allBrands b { border-radius: 0; padding: 0; background: none; }
+:global(html[data-design="salon"]) .brandGrid { gap: 32px; }
+:global(html[data-design="salon"]) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
+:global(html[data-design="salon"]) .houseName { font-size: 34px; line-height: 1.1; }
+:global(html[data-design="salon"]) .houseMeta { font-size: 16px; color: var(--ink); }
+:global(html[data-design="salon"]) .houseArrow { background: none; color: var(--ink); }
+:global(html[data-design="salon"]) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+:global(html[data-design="salon"]) .brandDialog { border: 0; border-radius: 0; }
+:global(html[data-design="salon"]) .brandDialog::backdrop { backdrop-filter: none; }
+:global(html[data-design="salon"]) .brandSearch, :global(html[data-design="salon"]) .directoryGrid a, :global(html[data-design="salon"]) .houseCount { font-size: 16px; }
+:global(html[data-design="salon"]) .categories { padding-block: 80px; }
+:global(html[data-design="salon"]) .categoryGrid { gap: 0; background: var(--gold-surface); }
+:global(html[data-design="salon"]) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
+:global(html[data-design="salon"]) .categoryImage { height: 210px; padding: 28px; }
+:global(html[data-design="salon"]) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
+:global(html[dir="rtl"][data-design="salon"]) .categoryCaption { padding: 20px 0 20px 24px; }
+:global(html[data-design="salon"]) .categoryCaption h3 { font: 500 32px/1.1 var(--display); }
+:global(html[data-design="salon"]) .categoryCaption p { font-size: 14px; line-height: 1.5; color: var(--ink); }
+:global(html[data-design="salon"]) .categoryArrow { background: none; color: var(--ink); width: 24px; }
+:global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-family: var(--body); font-size: 44px; line-height: 1.4; letter-spacing: 0; }
+:global(html[lang="ar"][data-design="salon"]) .categoryCaption h3 { font-family: var(--body); font-size: 26px; line-height: 1.5; }
+@media (max-width: 900px) {
+  :global(html[data-design="salon"]) .brandGrid { gap: 24px 32px; }
+  :global(html[data-design="salon"]) .categoryGrid { grid-template-columns: 1fr; }
+  :global(html[data-design="salon"]) .category { grid-template-columns: 160px 1fr; }
+  :global(html[data-design="salon"]) .categoryImage { height: 180px; }
+}
+@media (max-width: 650px) {
+  :global(html[data-design="salon"]) .brands { padding-block: 40px 48px; }
+  :global(html[data-design="salon"]) .brandHeading { margin-bottom: 32px; }
+  :global(html[data-design="salon"]) .brandHeading h2 { font-size: 36px; }
+  :global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-size: 30px; }
+  :global(html[data-design="salon"]) .houseName { font-size: 28px; }
+  :global(html[data-design="salon"]) .categories { padding-block: 56px; }
+  :global(html[data-design="salon"]) .categoryCaption { padding-inline-end: 20px; }
+}
+.brandHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.brandHeading h2 { font: 600 clamp(28px, 2.8vw, 40px)/1.25 var(--body); letter-spacing: -1px; margin: 0 0 12px; }
+.brandHeading p { font-size: 13px; color: var(--muted); line-height: 1.8; max-width: 60ch; margin: 0; }
+.allBrands { display: inline-flex; flex-shrink: 0; align-items: center; gap: 10px; min-height: 44px; padding: 10px 16px; border: 1px solid var(--brand-green); border-radius: 24px; color: var(--brand-green); background: white; font-size: 12px; }
+.allBrands:hover { background: var(--sage); text-decoration: underline; }
+.allBrands b { font-weight: 600; background: var(--stone); padding: 2px 7px; border-radius: 12px; }
+.brandGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.brandCard { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: white; text-decoration: none; }
+.houseName { font: 500 25px/1.2 var(--display); overflow-wrap: anywhere; }
+.houseMeta { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 11px; }
+.houseArrow { display: grid; place-items: center; width: 28px; height: 28px; background: var(--brand-green); color: white; border-radius: 50%; }
+.brandDialog { width: min(780px, calc(100% - 32px)); height: min(720px, calc(100dvh - 40px)); max-height: calc(100dvh - 40px); scrollbar-gutter: stable; padding: 26px; color: var(--ink); background: #fbfaf6; border: 1px solid var(--brand-gold); border-radius: 12px; overflow: auto; overscroll-behavior: contain; }
+.brandDialog::backdrop { background: #07363cb3; backdrop-filter: blur(4px); }
+.dialogHeader { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.dialogHeader h2 { font-size: 26px; line-height: 1.4; margin: 0; }
+.brandSearch { width: 100%; min-height: 48px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); background: white; }
+.houseCount { color: var(--muted); font-size: 12px; margin-block: 16px; }
+.directoryGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.directoryGrid a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--line); border-radius: 5px; text-decoration: none; background: white; font-size: 13px; }
+.directoryGrid a:hover { background: var(--sage); border-color: var(--brand-green); }
+.directoryGrid bdi { overflow-wrap: anywhere; }
+.directoryGrid span { flex-shrink: 0; color: var(--muted); }
+.noHouses { padding: 20px 0; color: var(--muted); }
+:global(body):has(.brandDialog[open]) { overflow: hidden; }
+:global([dir="rtl"]) .brandHeading h2 { letter-spacing: 0; line-height: 1.6; }
+.categories { padding-block: 40px 48px; }
+.categoryGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.category { min-width: 0; text-decoration: none; background: #eaf1ed; border-radius: 8px; overflow: hidden; }
+.category:nth-child(2) { background: #f5eddf; }
+.category:nth-child(3) { background: #e1e9e4; }
+.categoryImage { height: 290px; padding: 32px 42px 12px; display: grid; place-items: center; }
+.bottle { width: 100%; height: 100%; min-height: 0; object-fit: contain; mix-blend-mode: multiply; }
+.categoryCaption { display: flex; align-items: center; justify-content: space-between; padding: 24px; border-top: 1px solid #07363c12; }
+.categoryCaption h3 { font: 600 23px/1.4 var(--body); margin: 0; }
+.categoryCaption > div { min-width: 0; }
+.categoryCaption p { overflow-wrap: anywhere; font-size: 10px; line-height: 1.7; color: var(--muted); margin: 7px 0 0; }
+.categoryArrow { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: var(--brand-green); color: white; }
+:global(html[data-design="gallery"]) .category,
+:global(html[data-design="gallery"]) .brandCard { border-radius: 0; }
+:global(html[data-design="linen"]) .categoryImage { background: #ffffff44; border-radius: 140px 140px 0 0; }
+@media (max-width: 900px) {
+  .brandGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brandHeading { align-items: start; flex-direction: column; gap: 18px; }
+  .categoryImage { height: 240px; padding: 24px 18px 12px; }
+  .categoryCaption { padding: 18px; }
+  .categoryCaption h3 { font-size: 20px; }
+}
+@media (max-width: 650px) {
+  .brands { padding-block: 32px 16px; }
+  .brandGrid { gap: 10px; }
+  .brandCard { padding: 15px; gap: 14px; }
+  .houseName { font-size: 21px; }
+  .houseMeta { font-size: 10px; }
+  .brandDialog { padding: 20px; }
+  .dialogHeader h2 { font-size: 22px; }
+  .directoryGrid { grid-template-columns: 1fr; }
+  .categories { padding-block: 32px; }
+  .categoryGrid { grid-template-columns: 1fr; gap: 16px; }
+  .category { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; }
+  .categoryImage { height: 220px; padding: 22px; }
+  .categoryCaption { border: 0; padding-inline: 4px 24px; gap: 12px; }
+}

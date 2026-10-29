@@ -1,0 +1,38 @@
+/* Tailwind utilities for vendored shadcn/ui only. No Preflight reset of the existing site. */
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "tw-animate-css";
+@source "../";
+
+@theme inline {
+  --color-background: var(--ui-background);
+  --color-foreground: var(--ui-foreground);
+  --color-card: var(--ui-card);
+  --color-card-foreground: var(--ui-foreground);
+  --color-muted: var(--ui-muted);
+  --color-muted-foreground: var(--ui-muted-foreground);
+  --color-accent: var(--ui-accent);
+  --color-border: var(--ui-border);
+  --color-input: var(--ui-border);
+  --color-ring: var(--ui-ring);
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+}
+
+:root {
+  --ui-background: #ffffff;
+  --ui-foreground: #07363c;
+  --ui-card: #fbf8f0;
+  --ui-muted: #eaf1ed;
+  --ui-muted-foreground: #56645e;
+  --ui-accent: #e4d6bc;
+  --ui-border: #e5dbc8;
+  --ui-ring: #07363c;
+}
+
+/* Shared shadcn entry transitions are triggered only after an actual deferred mount. */
+.scroll-entry { animation-duration: 650ms; animation-fill-mode: both; }
+@media (prefers-reduced-motion: reduce) {
+  .scroll-entry, [data-slot="skeleton"] { animation: none !important; }
+}

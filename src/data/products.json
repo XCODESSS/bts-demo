@@ -1,0 +1,4573 @@
+[
+  {
+    "id": "P0574",
+    "slug": "xerjoff-torino21-p0574",
+    "brand": "Xerjoff",
+    "name": "Torino21",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "citrus"
+    ],
+    "notes": {
+      "en": [
+        "Mint",
+        "Lemon",
+        "Basil",
+        "Thyme",
+        "Blackcurrant",
+        "Jasmine"
+      ],
+      "ar": [
+        "النعناع",
+        "الليمون",
+        "الريحان",
+        "الزعتر",
+        "الكشمش الأسود",
+        "الياسمين"
+      ]
+    },
+    "description": {
+      "en": "Torino21 by Xerjoff brings together aromatic and citrus facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Torino21 من Xerjoff وعائلاته العطرية: عطري، حمضي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0574.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0170",
+    "slug": "diptyque-philosykos-p0170",
+    "brand": "Diptyque",
+    "name": "Philosykos",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Fig leaf",
+        "Fig",
+        "Coconut",
+        "Green notes",
+        "Cedar",
+        "Woody notes"
+      ],
+      "ar": [
+        "ورق التين",
+        "التين",
+        "جوز الهند",
+        "نفحات خضراء",
+        "الأرز",
+        "نفحات خشبية"
+      ]
+    },
+    "description": {
+      "en": "Philosykos by Diptyque brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Philosykos من Diptyque وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0170.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0433",
+    "slug": "parfums-de-marly-haltane-p0433",
+    "brand": "Parfums de Marly",
+    "name": "Haltane",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "oud",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lavender",
+        "Clary sage",
+        "Bergamot",
+        "Saffron",
+        "Praline",
+        "Oud"
+      ],
+      "ar": [
+        "الخزامى",
+        "المريمية",
+        "البرغموت",
+        "الزعفران",
+        "البرالين",
+        "العود"
+      ]
+    },
+    "description": {
+      "en": "Haltane by Parfums de Marly brings together aromatic and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Haltane من Parfums de Marly وعائلاته العطرية: عطري، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0433.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0074",
+    "slug": "burberry-her-p0074",
+    "brand": "Burberry",
+    "name": "Her",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "women",
+    "familyIds": [
+      "amber",
+      "fruity",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Red berries",
+        "Dark berries",
+        "White woods",
+        "Amber"
+      ],
+      "ar": [
+        "التوت الأحمر",
+        "التوت الداكن",
+        "أخشاب بيضاء",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "Her by Burberry brings together amber and fruity and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Her من Burberry وعائلاته العطرية: عنبري، فاكهي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0074.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0100",
+    "slug": "chanel-allure-sensuelle-p0100",
+    "brand": "Chanel",
+    "name": "Allure Sensuelle",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "women",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Pink pepper",
+        "Mandarin orange",
+        "Bergamot",
+        "Orange",
+        "Jasmine",
+        "Candied fruits"
+      ],
+      "ar": [
+        "الفلفل الوردي",
+        "اليوسفي",
+        "البرغموت",
+        "البرتقال",
+        "الياسمين",
+        "فواكه مسكرة"
+      ]
+    },
+    "description": {
+      "en": "Allure Sensuelle by Chanel brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Allure Sensuelle من Chanel وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0100.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0041",
+    "slug": "giorgio-armani-emporio-armani-stronger-with-you-intensely-p0041",
+    "brand": "Giorgio Armani",
+    "name": "Emporio Armani Stronger With You Intensely",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "gourmand",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Pink pepper",
+        "Juniper",
+        "Violet",
+        "Toffee",
+        "Cinnamon",
+        "Vanilla"
+      ],
+      "ar": [
+        "الفلفل الوردي",
+        "العرعر",
+        "البنفسج",
+        "التوفي",
+        "القرفة",
+        "الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Emporio Armani Stronger With You Intensely by Giorgio Armani brings together gourmand and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Emporio Armani Stronger With You Intensely من Giorgio Armani وعائلاته العطرية: حلو، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0041.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0577",
+    "slug": "xerjoff-casamorati-regio-p0577",
+    "brand": "Xerjoff",
+    "name": "Casamorati Regio",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lavender",
+        "Bergamot",
+        "Lemon flowers",
+        "Grapefruit",
+        "Damascus rose",
+        "Ylang-ylang"
+      ],
+      "ar": [
+        "الخزامى",
+        "البرغموت",
+        "زهر الليمون",
+        "الجريب فروت",
+        "الورد الدمشقي",
+        "الإيلنغ"
+      ]
+    },
+    "description": {
+      "en": "Casamorati Regio by Xerjoff brings together aromatic and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Casamorati Regio من Xerjoff وعائلاته العطرية: عطري، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0577.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0168",
+    "slug": "dior-spice-blend-p0168",
+    "brand": "Dior",
+    "name": "Spice Blend",
+    "sizeLabel": "250 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Rum",
+        "Black pepper",
+        "Ginger",
+        "Cinnamon",
+        "Clove",
+        "Nutmeg"
+      ],
+      "ar": [
+        "الروم",
+        "الفلفل الأسود",
+        "الزنجبيل",
+        "القرفة",
+        "القرنفل",
+        "جوزة الطيب"
+      ]
+    },
+    "description": {
+      "en": "Spice Blend by Dior brings together amber and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Spice Blend من Dior وعائلاته العطرية: عنبري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0168.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": true
+  },
+  {
+    "id": "P0028",
+    "slug": "armaf-club-de-nuit-iconic-p0028",
+    "brand": "Armaf",
+    "name": "Club de Nuit Iconic",
+    "sizeLabel": "105 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber"
+    ],
+    "notes": {
+      "en": [
+        "Grapefruit",
+        "Lemon",
+        "Mint",
+        "Pink pepper",
+        "Ginger",
+        "Nutmeg"
+      ],
+      "ar": [
+        "الجريب فروت",
+        "الليمون",
+        "النعناع",
+        "الفلفل الوردي",
+        "الزنجبيل",
+        "جوزة الطيب"
+      ]
+    },
+    "description": {
+      "en": "Club de Nuit Iconic by Armaf brings together amber facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Iconic من Armaf وعائلاته العطرية: عنبري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0028.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0038",
+    "slug": "giorgio-armani-power-of-you-p0038",
+    "brand": "Giorgio Armani",
+    "name": "Power of You",
+    "sizeLabel": "90 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "women",
+    "familyIds": [
+      "fruity",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Passion fruit",
+        "Frangipani",
+        "Vanilla"
+      ],
+      "ar": [
+        "فاكهة العاطفة",
+        "الفرانجيباني",
+        "الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Power of You by Giorgio Armani brings together fruity and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Power of You من Giorgio Armani وعائلاته العطرية: فاكهي، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0038.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0042",
+    "slug": "giorgio-armani-emporio-armani-stronger-with-you-powerfully-p0042",
+    "brand": "Giorgio Armani",
+    "name": "Emporio Armani Stronger With You Powerfully",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "gourmand",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Cherry",
+        "Mandarin",
+        "Lavender",
+        "Spice accord",
+        "Vanilla",
+        "Ambery wood"
+      ],
+      "ar": [
+        "الكرز",
+        "اليوسفي",
+        "الخزامى",
+        "توليفة توابل",
+        "الفانيليا",
+        "أخشاب عنبرية"
+      ]
+    },
+    "description": {
+      "en": "Emporio Armani Stronger With You Powerfully by Giorgio Armani brings together aromatic and gourmand and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Emporio Armani Stronger With You Powerfully من Giorgio Armani وعائلاته العطرية: عطري، حلو، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0042.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0043",
+    "slug": "giorgio-armani-emporio-armani-stronger-with-you-spices-p0043",
+    "brand": "Giorgio Armani",
+    "name": "Emporio Armani Stronger With You Spices",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "gourmand",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Black pepper",
+        "Bergamot",
+        "Mandarin",
+        "Clove",
+        "Saffron",
+        "Cinnamon"
+      ],
+      "ar": [
+        "الفلفل الأسود",
+        "البرغموت",
+        "اليوسفي",
+        "القرنفل",
+        "الزعفران",
+        "القرفة"
+      ]
+    },
+    "description": {
+      "en": "Emporio Armani Stronger With You Spices by Giorgio Armani brings together aromatic and gourmand and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Emporio Armani Stronger With You Spices من Giorgio Armani وعائلاته العطرية: عطري، حلو، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0043.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0073",
+    "slug": "burberry-brit-for-him-p0073",
+    "brand": "Burberry",
+    "name": "Brit for Him",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Ginger",
+        "Cardamom",
+        "Bergamot",
+        "Green mandarin",
+        "Nutmeg",
+        "Wild rose"
+      ],
+      "ar": [
+        "الزنجبيل",
+        "الهيل",
+        "البرغموت",
+        "اليوسفي الأخضر",
+        "جوزة الطيب",
+        "الورد البري"
+      ]
+    },
+    "description": {
+      "en": "Brit for Him by Burberry brings together spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Brit for Him من Burberry وعائلاته العطرية: متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0073.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0077",
+    "slug": "burberry-mr-burberry-p0077",
+    "brand": "Burberry",
+    "name": "Mr. Burberry",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Tarragon",
+        "Cinnamon",
+        "Patchouli",
+        "Amber",
+        "Smoky vetiver"
+      ],
+      "ar": [
+        "الطرخون",
+        "القرفة",
+        "الباتشولي",
+        "العنبر",
+        "نجيل الهند المدخن"
+      ]
+    },
+    "description": {
+      "en": "Mr. Burberry by Burberry brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Mr. Burberry من Burberry وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0077.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0171",
+    "slug": "diptyque-tam-dao-p0171",
+    "brand": "Diptyque",
+    "name": "Tam Dao",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Sandalwood",
+        "Cedar",
+        "Amberwood",
+        "Coriander",
+        "Musk",
+        "Lime"
+      ],
+      "ar": [
+        "الصندل",
+        "الأرز",
+        "الأخشاب العنبرية",
+        "الكزبرة",
+        "المسك",
+        "الليمون الأخضر"
+      ]
+    },
+    "description": {
+      "en": "Tam Dao by Diptyque brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tam Dao من Diptyque وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0171.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0265",
+    "slug": "kayali-vanilla-28-p0265",
+    "brand": "Kayali",
+    "name": "Vanilla 28",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Vanilla orchid",
+        "Jasmine",
+        "Vanilla",
+        "Tonka bean",
+        "Brown sugar",
+        "Musk"
+      ],
+      "ar": [
+        "أوركيد الفانيليا",
+        "الياسمين",
+        "الفانيليا",
+        "حبوب التونكا",
+        "السكر البني",
+        "المسك"
+      ]
+    },
+    "description": {
+      "en": "Vanilla 28 by Kayali brings together amber and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Vanilla 28 من Kayali وعائلاته العطرية: عنبري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0265.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0390",
+    "slug": "nishane-fan-your-flames-p0390",
+    "brand": "Nishane",
+    "name": "Fan Your Flames",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Coconut",
+        "Rum",
+        "Tobacco",
+        "Tonka bean",
+        "Oakmoss",
+        "Chinese cedarwood"
+      ],
+      "ar": [
+        "جوز الهند",
+        "الروم",
+        "التبغ",
+        "حبوب التونكا",
+        "طحلب البلوط",
+        "الأرز الصيني"
+      ]
+    },
+    "description": {
+      "en": "Fan Your Flames by Nishane brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Fan Your Flames من Nishane وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0390.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0395",
+    "slug": "nishane-nefs-p0395",
+    "brand": "Nishane",
+    "name": "NEFS",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "floral",
+      "fruity"
+    ],
+    "notes": {
+      "en": [
+        "Honey",
+        "Violet",
+        "Sage",
+        "Saffron",
+        "Fig"
+      ],
+      "ar": [
+        "العسل",
+        "البنفسج",
+        "المريمية",
+        "الزعفران",
+        "التين"
+      ]
+    },
+    "description": {
+      "en": "NEFS by Nishane brings together aromatic and floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر NEFS من Nishane وعائلاته العطرية: عطري، زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0395.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0440",
+    "slug": "parfums-de-marly-perseus-p0440",
+    "brand": "Parfums de Marly",
+    "name": "Perseus",
+    "sizeLabel": "125 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "citrus",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Grapefruit",
+        "Geranium",
+        "Blackcurrant Bud",
+        "Vetiver",
+        "Amberwood"
+      ],
+      "ar": [
+        "البرغموت",
+        "الجريب فروت",
+        "إبرة الراعي",
+        "براعم الكشمش الأسود",
+        "نجيل الهند",
+        "الأخشاب العنبرية"
+      ]
+    },
+    "description": {
+      "en": "Perseus by Parfums de Marly brings together amber and citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Perseus من Parfums de Marly وعائلاته العطرية: عنبري، حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0440.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0444",
+    "slug": "prada-paradigme-p0444",
+    "brand": "Prada",
+    "name": "Paradigme",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "aromatic"
+    ],
+    "notes": {
+      "en": [
+        "Calabrian bergamot",
+        "Musk",
+        "Bourbon Geranium",
+        "Rose Geranium",
+        "Benzoin",
+        "Peru Balsam"
+      ],
+      "ar": [
+        "برغموت كالابريا",
+        "المسك",
+        "إبرة الراعي البوربونية",
+        "إبرة الراعي الوردية",
+        "الجاوي",
+        "بلسم بيرو"
+      ]
+    },
+    "description": {
+      "en": "Paradigme by Prada brings together amber and aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Paradigme من Prada وعائلاته العطرية: عنبري، عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0444.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0446",
+    "slug": "prada-paradoxe-intense-p0446",
+    "brand": "Prada",
+    "name": "Paradoxe Intense",
+    "sizeLabel": "90 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "women",
+    "familyIds": [
+      "amber",
+      "floral",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Neroli",
+        "Pear",
+        "Bergamot",
+        "Jasmine",
+        "Neroli Essence",
+        "Moss"
+      ],
+      "ar": [
+        "النيرولي",
+        "الكمثرى",
+        "البرغموت",
+        "الياسمين",
+        "خلاصة النيرولي",
+        "الطحلب"
+      ]
+    },
+    "description": {
+      "en": "Paradoxe Intense by Prada brings together amber and floral and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Paradoxe Intense من Prada وعائلاته العطرية: عنبري، زهري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0446.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0540",
+    "slug": "tom-ford-tuscan-leather-p0540",
+    "brand": "Tom Ford",
+    "name": "Tuscan Leather",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "leather"
+    ],
+    "notes": {
+      "en": [
+        "Raspberry",
+        "Saffron",
+        "Thyme",
+        "Frankincense",
+        "Jasmine",
+        "Leather"
+      ],
+      "ar": [
+        "التوت العليق",
+        "الزعفران",
+        "الزعتر",
+        "اللبان",
+        "الياسمين",
+        "الجلد"
+      ]
+    },
+    "description": {
+      "en": "Tuscan Leather by Tom Ford brings together leather facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tuscan Leather من Tom Ford وعائلاته العطرية: جلدي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0540.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0565",
+    "slug": "versace-eros-parfum-p0565",
+    "brand": "Versace",
+    "name": "Eros Parfum",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "citrus",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Italian lemon",
+        "Clary sage",
+        "Haitian vetiver"
+      ],
+      "ar": [
+        "الليمون الإيطالي",
+        "المريمية",
+        "نجيل الهند الهايتي"
+      ]
+    },
+    "description": {
+      "en": "Eros Parfum by Versace brings together citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eros Parfum من Versace وعائلاته العطرية: حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0565.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0568",
+    "slug": "versace-pour-homme-p0568",
+    "brand": "Versace",
+    "name": "Pour Homme",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "citrus"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Neroli",
+        "Citron",
+        "Rose",
+        "Hyacinth",
+        "Clary sage"
+      ],
+      "ar": [
+        "البرغموت",
+        "النيرولي",
+        "الأترج",
+        "الورد",
+        "الياقوتية",
+        "المريمية"
+      ]
+    },
+    "description": {
+      "en": "Pour Homme by Versace brings together aromatic and citrus facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Pour Homme من Versace وعائلاته العطرية: عطري، حمضي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0568.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0569",
+    "slug": "versace-red-jeans-p0569",
+    "brand": "Versace",
+    "name": "Red Jeans",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "women",
+    "familyIds": [
+      "floral",
+      "fruity"
+    ],
+    "notes": {
+      "en": [
+        "Peach",
+        "Apricot",
+        "Freesia",
+        "Black Currant",
+        "Rose",
+        "Violet"
+      ],
+      "ar": [
+        "الخوخ",
+        "المشمش",
+        "الفريزيا",
+        "الكشمش الأسود",
+        "الورد",
+        "البنفسج"
+      ]
+    },
+    "description": {
+      "en": "Red Jeans by Versace brings together floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Red Jeans من Versace وعائلاته العطرية: زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0569.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0590",
+    "slug": "xerjoff-muse-p0590",
+    "brand": "Xerjoff",
+    "name": "Muse",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "fruity",
+      "leather"
+    ],
+    "notes": {
+      "en": [
+        "Amber",
+        "Raspberries",
+        "Davana",
+        "Labdanum",
+        "Leather",
+        "Plum"
+      ],
+      "ar": [
+        "العنبر",
+        "التوت العليق",
+        "الدافانا",
+        "اللابدانوم",
+        "الجلد",
+        "البرقوق"
+      ]
+    },
+    "description": {
+      "en": "Muse by Xerjoff brings together amber and fruity and leather facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Muse من Xerjoff وعائلاته العطرية: عنبري، فاكهي، جلدي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0590.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0601",
+    "slug": "xerjoff-torino22-p0601",
+    "brand": "Xerjoff",
+    "name": "Torino22",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Eucalyptus",
+        "Saffron",
+        "Bergamot",
+        "Mate",
+        "Clary sage",
+        "Guaiac wood"
+      ],
+      "ar": [
+        "الأوكالبتوس",
+        "الزعفران",
+        "البرغموت",
+        "المتة",
+        "المريمية",
+        "خشب الغاياك"
+      ]
+    },
+    "description": {
+      "en": "Torino22 by Xerjoff brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Torino22 من Xerjoff وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0601.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0604",
+    "slug": "xerjoff-uden-p0604",
+    "brand": "Xerjoff",
+    "name": "Uden",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Rhum Absolute",
+        "Rose",
+        "Sandalwood",
+        "Guaiac Wood",
+        "Lemon",
+        "Grapefruit"
+      ],
+      "ar": [
+        "خلاصة الروم",
+        "الورد",
+        "الصندل",
+        "خشب الغاياك",
+        "الليمون",
+        "الجريب فروت"
+      ]
+    },
+    "description": {
+      "en": "Uden by Xerjoff brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Uden من Xerjoff وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0604.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0169",
+    "slug": "diptyque-eau-capitale-p0169",
+    "brand": "Diptyque",
+    "name": "Eau Capitale",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "chypre",
+      "floral"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Pink pepper",
+        "Rose",
+        "Moss",
+        "Patchouli",
+        "Bergamot leaf"
+      ],
+      "ar": [
+        "البرغموت",
+        "الفلفل الوردي",
+        "الورد",
+        "الطحلب",
+        "الباتشولي",
+        "ورق البرغموت"
+      ]
+    },
+    "description": {
+      "en": "Eau Capitale by Diptyque brings together chypre and floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eau Capitale من Diptyque وعائلاته العطرية: شيبر، زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0169.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0539",
+    "slug": "tom-ford-patchouli-absolu-p0539",
+    "brand": "Tom Ford",
+    "name": "Patchouli Absolu",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Patchouli",
+        "Violet Wood",
+        "Cypriol",
+        "Cashmere Wood",
+        "Rosemary",
+        "Bay Leaves"
+      ],
+      "ar": [
+        "الباتشولي",
+        "خشب البنفسج",
+        "السعد",
+        "خشب الكشمير",
+        "إكليل الجبل",
+        "أوراق الغار"
+      ]
+    },
+    "description": {
+      "en": "Patchouli Absolu by Tom Ford brings together aromatic and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Patchouli Absolu من Tom Ford وعائلاته العطرية: عطري، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0539.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0602",
+    "slug": "xerjoff-torino23-p0602",
+    "brand": "Xerjoff",
+    "name": "Torino23",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Rose",
+        "Nutmeg",
+        "Cardamom",
+        "Bergamot",
+        "Neroli",
+        "Jasmine"
+      ],
+      "ar": [
+        "الورد",
+        "جوزة الطيب",
+        "الهيل",
+        "البرغموت",
+        "النيرولي",
+        "الياسمين"
+      ]
+    },
+    "description": {
+      "en": "Torino23 by Xerjoff brings together citrus and floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Torino23 من Xerjoff وعائلاته العطرية: حمضي، زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0602.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0019",
+    "slug": "argos-danae-p0019",
+    "brand": "Argos",
+    "name": "Danaë",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Sicilian lemon",
+        "Pink peppercorn",
+        "Cashmere wood",
+        "Cedar",
+        "Cistus"
+      ],
+      "ar": [
+        "البرغموت",
+        "ليمون صقلية",
+        "حبوب الفلفل الوردي",
+        "خشب الكشمير",
+        "الأرز",
+        "القستوس"
+      ]
+    },
+    "description": {
+      "en": "Danaë by Argos brings together amber and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Danaë من Argos وعائلاته العطرية: عنبري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0019.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0020",
+    "slug": "argos-fall-of-phaeton-p0020",
+    "brand": "Argos",
+    "name": "Fall of Phaeton",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "aromatic",
+      "oud",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Lemon",
+        "Cardamom",
+        "Pink peppercorn",
+        "Ginger",
+        "Labdanum"
+      ],
+      "ar": [
+        "البرغموت",
+        "الليمون",
+        "الهيل",
+        "حبوب الفلفل الوردي",
+        "الزنجبيل",
+        "اللابدانوم"
+      ]
+    },
+    "description": {
+      "en": "Fall of Phaeton by Argos brings together amber and aromatic and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Fall of Phaeton من Argos وعائلاته العطرية: عنبري، عطري، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0020.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0023",
+    "slug": "argos-triumph-of-bacchus-p0023",
+    "brand": "Argos",
+    "name": "Triumph of Bacchus",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Saffron",
+        "Rum",
+        "White peach",
+        "Green apple",
+        "Patchouli",
+        "Jasmine"
+      ],
+      "ar": [
+        "الزعفران",
+        "الروم",
+        "الخوخ الأبيض",
+        "التفاح الأخضر",
+        "الباتشولي",
+        "الياسمين"
+      ]
+    },
+    "description": {
+      "en": "Triumph of Bacchus by Argos brings together amber and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Triumph of Bacchus من Argos وعائلاته العطرية: عنبري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0023.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0027",
+    "slug": "armaf-club-de-nuit-woman-p0027",
+    "brand": "Armaf",
+    "name": "Club de Nuit Woman",
+    "sizeLabel": "105 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "women",
+    "familyIds": [
+      "floral"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Grapefruit",
+        "Peach",
+        "Orange",
+        "Geranium",
+        "Jasmine"
+      ],
+      "ar": [
+        "البرغموت",
+        "الجريب فروت",
+        "الخوخ",
+        "البرتقال",
+        "إبرة الراعي",
+        "الياسمين"
+      ]
+    },
+    "description": {
+      "en": "Club de Nuit Woman by Armaf brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Woman من Armaf وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0027.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0029",
+    "slug": "armaf-club-de-nuit-intense-man-p0029",
+    "brand": "Armaf",
+    "name": "Club de Nuit Intense Man",
+    "sizeLabel": "200 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Apple",
+        "Bergamot",
+        "Blackcurrant",
+        "Pineapple",
+        "Lemon",
+        "Rose"
+      ],
+      "ar": [
+        "التفاح",
+        "البرغموت",
+        "الكشمش الأسود",
+        "الأناناس",
+        "الليمون",
+        "الورد"
+      ]
+    },
+    "description": {
+      "en": "Club de Nuit Intense Man by Armaf brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Intense Man من Armaf وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0029.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0030",
+    "slug": "armaf-club-de-nuit-intense-man-p0030",
+    "brand": "Armaf",
+    "name": "Club de Nuit Intense Man",
+    "sizeLabel": "105 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Apple",
+        "Bergamot",
+        "Blackcurrant",
+        "Pineapple",
+        "Lemon",
+        "Rose"
+      ],
+      "ar": [
+        "التفاح",
+        "البرغموت",
+        "الكشمش الأسود",
+        "الأناناس",
+        "الليمون",
+        "الورد"
+      ]
+    },
+    "description": {
+      "en": "Club de Nuit Intense Man by Armaf brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Intense Man من Armaf وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0030.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0031",
+    "slug": "armaf-club-de-nuit-intense-man-pure-parfum-p0031",
+    "brand": "Armaf",
+    "name": "Club de Nuit Intense Man Pure Parfum",
+    "sizeLabel": "150 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Apple",
+        "Bergamot",
+        "Blackcurrant",
+        "Pineapple",
+        "Lemon",
+        "Rose"
+      ],
+      "ar": [
+        "التفاح",
+        "البرغموت",
+        "الكشمش الأسود",
+        "الأناناس",
+        "الليمون",
+        "الورد"
+      ]
+    },
+    "description": {
+      "en": "Club de Nuit Intense Man Pure Parfum by Armaf brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Intense Man Pure Parfum من Armaf وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0031.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0044",
+    "slug": "atelier-des-ors-rose-omeyyade-p0044",
+    "brand": "Atelier des Ors",
+    "name": "Rose Omeyyade",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "floral",
+      "oud"
+    ],
+    "notes": {
+      "en": [
+        "Raspberry",
+        "Rose buds",
+        "Pink pepper",
+        "Brown sugar",
+        "Patchouli",
+        "Guaiac wood"
+      ],
+      "ar": [
+        "التوت العليق",
+        "براعم الورد",
+        "الفلفل الوردي",
+        "السكر البني",
+        "الباتشولي",
+        "خشب الغاياك"
+      ]
+    },
+    "description": {
+      "en": "Rose Omeyyade by Atelier des Ors brings together amber and floral and oud facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Rose Omeyyade من Atelier des Ors وعائلاته العطرية: عنبري، زهري، عود. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0044.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0045",
+    "slug": "azzaro-solarissimo-levanzo-p0045",
+    "brand": "Azzaro",
+    "name": "Solarissimo Levanzo",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "citrus",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lemon",
+        "Basil",
+        "Cedar",
+        "Passionfruit",
+        "Peppermint",
+        "Tea"
+      ],
+      "ar": [
+        "الليمون",
+        "الريحان",
+        "الأرز",
+        "فاكهة العاطفة",
+        "النعناع الفلفلي",
+        "الشاي"
+      ]
+    },
+    "description": {
+      "en": "Solarissimo Levanzo by Azzaro brings together aromatic and citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Solarissimo Levanzo من Azzaro وعائلاته العطرية: عطري، حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0045.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0046",
+    "slug": "azzaro-wanted-by-night-p0046",
+    "brand": "Azzaro",
+    "name": "Wanted by Night",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "gourmand",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Cinnamon",
+        "Mandarin",
+        "Lavender",
+        "Incense",
+        "Red cedar",
+        "Tobacco"
+      ],
+      "ar": [
+        "القرفة",
+        "اليوسفي",
+        "الخزامى",
+        "البخور",
+        "الأرز الأحمر",
+        "التبغ"
+      ]
+    },
+    "description": {
+      "en": "Wanted by Night by Azzaro brings together aromatic and gourmand and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Wanted by Night من Azzaro وعائلاته العطرية: عطري، حلو، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0046.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0047",
+    "slug": "bentley-infinite-p0047",
+    "brand": "Bentley",
+    "name": "Infinite",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Citrus",
+        "Cedar",
+        "Lavender",
+        "Violet",
+        "Bourbon pepper",
+        "Geranium"
+      ],
+      "ar": [
+        "الحمضيات",
+        "الأرز",
+        "الخزامى",
+        "البنفسج",
+        "فلفل بوربون",
+        "إبرة الراعي"
+      ]
+    },
+    "description": {
+      "en": "Infinite by Bentley brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Infinite من Bentley وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0047.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0048",
+    "slug": "bentley-infinite-intense-p0048",
+    "brand": "Bentley",
+    "name": "Infinite Intense",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Black pepper",
+        "Violet",
+        "Lavender",
+        "Geranium",
+        "Ambergris",
+        "Elemi"
+      ],
+      "ar": [
+        "الفلفل الأسود",
+        "البنفسج",
+        "الخزامى",
+        "إبرة الراعي",
+        "العنبر الرمادي",
+        "الإليمي"
+      ]
+    },
+    "description": {
+      "en": "Infinite Intense by Bentley brings together aromatic and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Infinite Intense من Bentley وعائلاته العطرية: عطري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0048.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0084",
+    "slug": "bvlgari-le-gemme-falkar-p0084",
+    "brand": "Bvlgari",
+    "name": "Le Gemme Falkar",
+    "sizeLabel": "125 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "musky",
+      "oud",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Black musk",
+        "Oud"
+      ],
+      "ar": [
+        "المسك الأسود",
+        "العود"
+      ]
+    },
+    "description": {
+      "en": "Le Gemme Falkar by Bvlgari brings together musky and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Le Gemme Falkar من Bvlgari وعائلاته العطرية: مسكي، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0084.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0085",
+    "slug": "bvlgari-le-gemme-tygar-p0085",
+    "brand": "Bvlgari",
+    "name": "Le Gemme Tygar",
+    "sizeLabel": "125 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Grapefruit Essence",
+        "Ginger from India",
+        "Ambrox"
+      ],
+      "ar": [
+        "خلاصة الجريب فروت",
+        "الزنجبيل الهندي",
+        "أمبروكس"
+      ]
+    },
+    "description": {
+      "en": "Le Gemme Tygar by Bvlgari brings together citrus and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Le Gemme Tygar من Bvlgari وعائلاته العطرية: حمضي، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0085.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0092",
+    "slug": "cartier-declaration-p0092",
+    "brand": "Cartier",
+    "name": "Déclaration",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Cedar",
+        "Amber",
+        "Vanilla"
+      ],
+      "ar": [
+        "الأرز",
+        "العنبر",
+        "الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Déclaration by Cartier brings together amber and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Déclaration من Cartier وعائلاته العطرية: عنبري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0092.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0094",
+    "slug": "cartier-pasha-de-cartier-parfum-p0094",
+    "brand": "Cartier",
+    "name": "Pasha de Cartier Parfum",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "aromatic"
+    ],
+    "notes": {
+      "en": [
+        "Sandalwood",
+        "Liquor",
+        "Benzoin",
+        "Balsam fir",
+        "Tonka bean",
+        "Patchouli"
+      ],
+      "ar": [
+        "الصندل",
+        "نفحات كحولية",
+        "الجاوي",
+        "التنوب البلسمي",
+        "حبوب التونكا",
+        "الباتشولي"
+      ]
+    },
+    "description": {
+      "en": "Pasha de Cartier Parfum by Cartier brings together amber and aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Pasha de Cartier Parfum من Cartier وعائلاته العطرية: عنبري، عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0094.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0129",
+    "slug": "calvin-klein-eternity-aqua-for-men-p0129",
+    "brand": "Calvin Klein",
+    "name": "Eternity Aqua for Men",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Cucumber",
+        "Citrus",
+        "Green notes",
+        "Lotus",
+        "Lavender",
+        "Plum"
+      ],
+      "ar": [
+        "الخيار",
+        "الحمضيات",
+        "نفحات خضراء",
+        "اللوتس",
+        "الخزامى",
+        "البرقوق"
+      ]
+    },
+    "description": {
+      "en": "Eternity Aqua for Men by Calvin Klein brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eternity Aqua for Men من Calvin Klein وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0129.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0131",
+    "slug": "calvin-klein-euphoria-men-p0131",
+    "brand": "Calvin Klein",
+    "name": "Euphoria Men",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Ginger",
+        "Pepper",
+        "Black basil",
+        "Sage",
+        "Cedar",
+        "Amber"
+      ],
+      "ar": [
+        "الزنجبيل",
+        "الفلفل",
+        "الريحان الأسود",
+        "المريمية",
+        "الأرز",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "Euphoria Men by Calvin Klein brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Euphoria Men من Calvin Klein وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0131.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0136",
+    "slug": "calvin-klein-sheer-beauty-p0136",
+    "brand": "Calvin Klein",
+    "name": "Sheer Beauty",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "women",
+    "familyIds": [
+      "floral",
+      "fruity",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Bellini",
+        "Bergamot",
+        "Red berries",
+        "Peony",
+        "Jasmine",
+        "Pink lily"
+      ],
+      "ar": [
+        "بيليني",
+        "البرغموت",
+        "التوت الأحمر",
+        "الفاوانيا",
+        "الياسمين",
+        "الزنبق الوردي"
+      ]
+    },
+    "description": {
+      "en": "Sheer Beauty by Calvin Klein brings together floral and fruity and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Sheer Beauty من Calvin Klein وعائلاته العطرية: زهري، فاكهي، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0136.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0293",
+    "slug": "lanvin-eclat-d-arpege-p0293",
+    "brand": "Lanvin",
+    "name": "Eclat d'Arpege",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "women",
+    "familyIds": [
+      "floral",
+      "fruity"
+    ],
+    "notes": {
+      "en": [
+        "Green lilac",
+        "Tea leaves",
+        "Peony",
+        "Peach blossom",
+        "Wisteria",
+        "Musk"
+      ],
+      "ar": [
+        "الليلك الأخضر",
+        "أوراق الشاي",
+        "الفاوانيا",
+        "زهر الخوخ",
+        "الوستارية",
+        "المسك"
+      ]
+    },
+    "description": {
+      "en": "Eclat d'Arpege by Lanvin brings together floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eclat d'Arpege من Lanvin وعائلاته العطرية: زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0293.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0305",
+    "slug": "l-entropiste-jodhpur-6am-p0305",
+    "brand": "L'Entropiste",
+    "name": "Jodhpur 6AM",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Ginger",
+        "Fruity notes",
+        "Cardamom",
+        "Tea",
+        "Tuberose",
+        "Spices"
+      ],
+      "ar": [
+        "الزنجبيل",
+        "نفحات فاكهية",
+        "الهيل",
+        "الشاي",
+        "مسك الروم",
+        "التوابل"
+      ]
+    },
+    "description": {
+      "en": "Jodhpur 6AM by L'Entropiste brings together floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Jodhpur 6AM من L'Entropiste وعائلاته العطرية: زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0305.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0307",
+    "slug": "l-entropiste-semence-douce-p0307",
+    "brand": "L'Entropiste",
+    "name": "Semence Douce",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral"
+    ],
+    "notes": {
+      "en": [
+        "Almond milk",
+        "Saffron",
+        "Green tulip sap",
+        "Hyacinth",
+        "Almond blossom"
+      ],
+      "ar": [
+        "حليب اللوز",
+        "الزعفران",
+        "عصارة التوليب",
+        "الياقوتية",
+        "زهر اللوز"
+      ]
+    },
+    "description": {
+      "en": "Semence Douce by L'Entropiste brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Semence Douce من L'Entropiste وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0307.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0309",
+    "slug": "lesquendieu-bonne-fortune-unisex-p0309",
+    "brand": "Lesquendieu",
+    "name": "Bonne Fortune Unisex",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Grapefruit",
+        "Bergamot",
+        "Mandarin",
+        "Ginger",
+        "Mint",
+        "Vetiver"
+      ],
+      "ar": [
+        "الجريب فروت",
+        "البرغموت",
+        "اليوسفي",
+        "الزنجبيل",
+        "النعناع",
+        "نجيل الهند"
+      ]
+    },
+    "description": {
+      "en": "Bonne Fortune Unisex by Lesquendieu brings together citrus and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Bonne Fortune Unisex من Lesquendieu وعائلاته العطرية: حمضي، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0309.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0310",
+    "slug": "lesquendieu-cuir-vetyver-p0310",
+    "brand": "Lesquendieu",
+    "name": "Cuir Vetyver",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "aromatic"
+    ],
+    "notes": {
+      "en": [
+        "Vetiver",
+        "Leather",
+        "White woods"
+      ],
+      "ar": [
+        "نجيل الهند",
+        "الجلد",
+        "أخشاب بيضاء"
+      ]
+    },
+    "description": {
+      "en": "Cuir Vetyver by Lesquendieu brings together amber and aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Cuir Vetyver من Lesquendieu وعائلاته العطرية: عنبري، عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0310.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0311",
+    "slug": "lesquendieu-glorilis-unisex-p0311",
+    "brand": "Lesquendieu",
+    "name": "Glorilis Unisex",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Black pepper",
+        "Carnation",
+        "Rose",
+        "Labdanum",
+        "Geranium"
+      ],
+      "ar": [
+        "البرغموت",
+        "الفلفل الأسود",
+        "القرنفل الزهري",
+        "الورد",
+        "اللابدانوم",
+        "إبرة الراعي"
+      ]
+    },
+    "description": {
+      "en": "Glorilis Unisex by Lesquendieu brings together floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Glorilis Unisex من Lesquendieu وعائلاته العطرية: زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0311.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0313",
+    "slug": "lesquendieu-lilice-p0313",
+    "brand": "Lesquendieu",
+    "name": "Lilice",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lemon",
+        "Bergamot",
+        "Amber",
+        "Cedar",
+        "Vanilla",
+        "Rose"
+      ],
+      "ar": [
+        "الليمون",
+        "البرغموت",
+        "العنبر",
+        "الأرز",
+        "الفانيليا",
+        "الورد"
+      ]
+    },
+    "description": {
+      "en": "Lilice by Lesquendieu brings together citrus and floral and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Lilice من Lesquendieu وعائلاته العطرية: حمضي، زهري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0313.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0314",
+    "slug": "lesquendieu-orris-amber-p0314",
+    "brand": "Lesquendieu",
+    "name": "Orris Amber",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Pink pepper",
+        "Elemi",
+        "Black pepper",
+        "Bergamot",
+        "Iris",
+        "Cedar"
+      ],
+      "ar": [
+        "الفلفل الوردي",
+        "الإليمي",
+        "الفلفل الأسود",
+        "البرغموت",
+        "السوسن",
+        "الأرز"
+      ]
+    },
+    "description": {
+      "en": "Orris Amber by Lesquendieu brings together amber and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Orris Amber من Lesquendieu وعائلاته العطرية: عنبري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0314.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0387",
+    "slug": "nicolai-patchouli-intense-p0387",
+    "brand": "Nicolai",
+    "name": "Patchouli Intense",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lavender",
+        "Orange absolute",
+        "Geranium",
+        "Rose",
+        "Cinnamon",
+        "Patchouli"
+      ],
+      "ar": [
+        "الخزامى",
+        "خلاصة البرتقال",
+        "إبرة الراعي",
+        "الورد",
+        "القرفة",
+        "الباتشولي"
+      ]
+    },
+    "description": {
+      "en": "Patchouli Intense by Nicolai brings together amber and aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Patchouli Intense من Nicolai وعائلاته العطرية: عنبري، عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0387.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0415",
+    "slug": "ormonde-jayne-evernia-p0415",
+    "brand": "Ormonde Jayne",
+    "name": "Evernia",
+    "sizeLabel": "120 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral"
+    ],
+    "notes": {
+      "en": [
+        "Orris butter",
+        "Lily of the valley",
+        "Freesia",
+        "Jasmine",
+        "Violet",
+        "Moroccan rose absolute"
+      ],
+      "ar": [
+        "زبدة السوسن",
+        "زنبق الوادي",
+        "الفريزيا",
+        "الياسمين",
+        "البنفسج",
+        "خلاصة الورد المغربي"
+      ]
+    },
+    "description": {
+      "en": "Evernia by Ormonde Jayne brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Evernia من Ormonde Jayne وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0415.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0419",
+    "slug": "paco-rabanne-invictus-p0419",
+    "brand": "Paco Rabanne",
+    "name": "Invictus",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aquatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Marine notes",
+        "Grapefruit",
+        "Mandarin Orange",
+        "Bay Leaf",
+        "Jasmine",
+        "Ambergris"
+      ],
+      "ar": [
+        "نفحات بحرية",
+        "الجريب فروت",
+        "اليوسفي",
+        "ورق الغار",
+        "الياسمين",
+        "العنبر الرمادي"
+      ]
+    },
+    "description": {
+      "en": "Invictus by Paco Rabanne brings together aquatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Invictus من Paco Rabanne وعائلاته العطرية: مائي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0419.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0420",
+    "slug": "paco-rabanne-invictus-victory-elixir-parfum-intense-p0420",
+    "brand": "Paco Rabanne",
+    "name": "Invictus Victory Elixir Parfum Intense",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "gourmand",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Fresh Aromatic Lavadin",
+        "Green Cardamom",
+        "Black Pepper",
+        "Mysterious Incense",
+        "Woody Patchouli",
+        "Vanilla Bean"
+      ],
+      "ar": [
+        "اللافاندين العطري",
+        "الهيل الأخضر",
+        "الفلفل الأسود",
+        "البخور",
+        "الباتشولي الخشبي",
+        "حبوب الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Invictus Victory Elixir Parfum Intense by Paco Rabanne brings together gourmand and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Invictus Victory Elixir Parfum Intense من Paco Rabanne وعائلاته العطرية: حلو، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0420.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0448",
+    "slug": "ralph-lauren-polo-black-p0448",
+    "brand": "Ralph Lauren",
+    "name": "Polo Black",
+    "sizeLabel": "125 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "citrus",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Mandarin oil",
+        "Lemon oil",
+        "Tonka Bean absolute",
+        "Patchouli Noir oil"
+      ],
+      "ar": [
+        "زيت اليوسفي",
+        "زيت الليمون",
+        "خلاصة التونكا",
+        "زيت الباتشولي الداكن"
+      ]
+    },
+    "description": {
+      "en": "Polo Black by Ralph Lauren brings together citrus and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Polo Black من Ralph Lauren وعائلاته العطرية: حمضي، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0448.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0449",
+    "slug": "ralph-lauren-polo-blue-p0449",
+    "brand": "Ralph Lauren",
+    "name": "Polo Blue",
+    "sizeLabel": "125 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic"
+    ],
+    "notes": {
+      "en": [
+        "Cucumber",
+        "Melon",
+        "Mandarin Orange",
+        "Basil",
+        "Sage",
+        "Geranium"
+      ],
+      "ar": [
+        "الخيار",
+        "الشمام",
+        "اليوسفي",
+        "الريحان",
+        "المريمية",
+        "إبرة الراعي"
+      ]
+    },
+    "description": {
+      "en": "Polo Blue by Ralph Lauren brings together aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Polo Blue من Ralph Lauren وعائلاته العطرية: عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0449.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0452",
+    "slug": "rasasi-hawas-ice-p0452",
+    "brand": "Rasasi",
+    "name": "Hawas Ice",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aquatic",
+      "citrus",
+      "musky"
+    ],
+    "notes": {
+      "en": [
+        "Grapefruit",
+        "Marine notes",
+        "White musk"
+      ],
+      "ar": [
+        "الجريب فروت",
+        "نفحات بحرية",
+        "المسك الأبيض"
+      ]
+    },
+    "description": {
+      "en": "Hawas Ice by Rasasi brings together aquatic and citrus and musky facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Hawas Ice من Rasasi وعائلاته العطرية: مائي، حمضي، مسكي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0452.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0453",
+    "slug": "rasasi-hawas-kobra-p0453",
+    "brand": "Rasasi",
+    "name": "Hawas Kobra",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Ginger",
+        "Bergamot",
+        "Tangerine",
+        "Green Tea",
+        "Cinnamon",
+        "Neroli"
+      ],
+      "ar": [
+        "الزنجبيل",
+        "البرغموت",
+        "اليوسفي",
+        "الشاي الأخضر",
+        "القرفة",
+        "النيرولي"
+      ]
+    },
+    "description": {
+      "en": "Hawas Kobra by Rasasi brings together amber and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Hawas Kobra من Rasasi وعائلاته العطرية: عنبري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0453.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0455",
+    "slug": "roberto-cavalli-just-cavalli-p0455",
+    "brand": "Roberto Cavalli",
+    "name": "Just Cavalli",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "women",
+    "familyIds": [
+      "floral"
+    ],
+    "notes": {
+      "en": [
+        "Neroli",
+        "Tahitian Tiare Flower",
+        "Palisander Rosewood"
+      ],
+      "ar": [
+        "النيرولي",
+        "زهرة التياري التاهيتية",
+        "خشب الورد"
+      ]
+    },
+    "description": {
+      "en": "Just Cavalli by Roberto Cavalli brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Just Cavalli من Roberto Cavalli وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0455.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0461",
+    "slug": "scentologia-tra-ce-p0461",
+    "brand": "Scentologia",
+    "name": "Tra.ce.",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "oud",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bulgarian Rose",
+        "Bergamot",
+        "Coriander",
+        "Oud",
+        "Orris Root",
+        "Cedar"
+      ],
+      "ar": [
+        "الورد البلغاري",
+        "البرغموت",
+        "الكزبرة",
+        "العود",
+        "جذور السوسن",
+        "الأرز"
+      ]
+    },
+    "description": {
+      "en": "Tra.ce. by Scentologia brings together amber and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tra.ce. من Scentologia وعائلاته العطرية: عنبري، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0461.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0464",
+    "slug": "stephane-humbert-lucas-panthea-iris-p0464",
+    "brand": "Stéphane Humbert Lucas",
+    "name": "Panthea Iris",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Pink berries",
+        "Bergamot",
+        "Tangerine",
+        "White tea",
+        "Iris",
+        "Jasmine"
+      ],
+      "ar": [
+        "التوت الوردي",
+        "البرغموت",
+        "اليوسفي",
+        "الشاي الأبيض",
+        "السوسن",
+        "الياسمين"
+      ]
+    },
+    "description": {
+      "en": "Panthea Iris by Stéphane Humbert Lucas brings together floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Panthea Iris من Stéphane Humbert Lucas وعائلاته العطرية: زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0464.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0483",
+    "slug": "soleil-de-grace-l-ambre-vanille-p0483",
+    "brand": "Soleil de Grâce",
+    "name": "L'Ambre Vanillé",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Coconut",
+        "Milk",
+        "Myrrh",
+        "Frankincense",
+        "Labdanum",
+        "Juniper"
+      ],
+      "ar": [
+        "جوز الهند",
+        "الحليب",
+        "المر",
+        "اللبان",
+        "اللابدانوم",
+        "العرعر"
+      ]
+    },
+    "description": {
+      "en": "L'Ambre Vanillé by Soleil de Grâce brings together amber and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر L'Ambre Vanillé من Soleil de Grâce وعائلاته العطرية: عنبري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0483.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0500",
+    "slug": "superz-abu-dhabi-p0500",
+    "brand": "Superz",
+    "name": "Abu Dhabi",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "gourmand",
+      "oud",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Saffron",
+        "Oud",
+        "Bulgarian rose",
+        "Tonka bean",
+        "White musk",
+        "Vanilla"
+      ],
+      "ar": [
+        "الزعفران",
+        "العود",
+        "الورد البلغاري",
+        "حبوب التونكا",
+        "المسك الأبيض",
+        "الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Abu Dhabi by Superz brings together amber and gourmand and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Abu Dhabi من Superz وعائلاته العطرية: عنبري، حلو، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0500.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0501",
+    "slug": "superz-caesar-ultra-p0501",
+    "brand": "Superz",
+    "name": "Caesar Ultra",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "floral",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Ginger",
+        "Lime",
+        "Aromatic notes",
+        "Magnolia",
+        "Saffron",
+        "Musky notes"
+      ],
+      "ar": [
+        "الزنجبيل",
+        "الليمون الأخضر",
+        "نفحات عطرية",
+        "الماغنوليا",
+        "الزعفران",
+        "نفحات مسكية"
+      ]
+    },
+    "description": {
+      "en": "Caesar Ultra by Superz brings together floral and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Caesar Ultra من Superz وعائلاته العطرية: زهري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0501.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0503",
+    "slug": "superz-gentleman-p0503",
+    "brand": "Superz",
+    "name": "Gentleman",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Tobacco",
+        "Spices",
+        "Sweet notes",
+        "Fruity notes",
+        "Vanilla",
+        "Cocoa"
+      ],
+      "ar": [
+        "التبغ",
+        "التوابل",
+        "نفحات حلوة",
+        "نفحات فاكهية",
+        "الفانيليا",
+        "الكاكاو"
+      ]
+    },
+    "description": {
+      "en": "Gentleman by Superz brings together gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Gentleman من Superz وعائلاته العطرية: حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0503.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0504",
+    "slug": "superz-khalifa-p0504",
+    "brand": "Superz",
+    "name": "Khalifa",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "musky",
+      "oud",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Powdery notes",
+        "Woody notes",
+        "Leather notes",
+        "Warm spices",
+        "Amber",
+        "Oud"
+      ],
+      "ar": [
+        "نفحات بودرية",
+        "نفحات خشبية",
+        "نفحات جلدية",
+        "توابل دافئة",
+        "العنبر",
+        "العود"
+      ]
+    },
+    "description": {
+      "en": "Khalifa by Superz brings together amber and musky and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Khalifa من Superz وعائلاته العطرية: عنبري، مسكي، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0504.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0505",
+    "slug": "superz-smesh-p0505",
+    "brand": "Superz",
+    "name": "Smesh",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lavender",
+        "Blood Orange",
+        "Neroli",
+        "Spices",
+        "Cashmeran",
+        "Cinnamon"
+      ],
+      "ar": [
+        "الخزامى",
+        "البرتقال الأحمر",
+        "النيرولي",
+        "التوابل",
+        "الكشميران",
+        "القرفة"
+      ]
+    },
+    "description": {
+      "en": "Smesh by Superz brings together aromatic and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Smesh من Superz وعائلاته العطرية: عطري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0505.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0506",
+    "slug": "superz-soho-p0506",
+    "brand": "Superz",
+    "name": "Soho",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Mimosa",
+        "Coconut",
+        "Jasmine",
+        "Patchouli",
+        "Tonka bean",
+        "Vanilla"
+      ],
+      "ar": [
+        "الميموزا",
+        "جوز الهند",
+        "الياسمين",
+        "الباتشولي",
+        "حبوب التونكا",
+        "الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Soho by Superz brings together floral and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Soho من Superz وعائلاته العطرية: زهري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0506.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0508",
+    "slug": "superz-whoosh-p0508",
+    "brand": "Superz",
+    "name": "Whoosh",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "citrus",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Apple",
+        "Melon",
+        "Powdery Notes",
+        "Sicilian citrus fruits",
+        "Orange",
+        "Peach"
+      ],
+      "ar": [
+        "التفاح",
+        "الشمام",
+        "نفحات بودرية",
+        "حمضيات صقلية",
+        "البرتقال",
+        "الخوخ"
+      ]
+    },
+    "description": {
+      "en": "Whoosh by Superz brings together amber and citrus and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Whoosh من Superz وعائلاته العطرية: عنبري، حمضي، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0508.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0510",
+    "slug": "superz-budapest-endless-sea-extrait-p0510",
+    "brand": "Superz",
+    "name": "Budapest Endless Sea Extrait",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "floral",
+      "musky"
+    ],
+    "notes": {
+      "en": [
+        "Pelargonium",
+        "Rose",
+        "Musk",
+        "Amber"
+      ],
+      "ar": [
+        "إبرة الراعي",
+        "الورد",
+        "المسك",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "Budapest Endless Sea Extrait by Superz brings together amber and floral and musky facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Budapest Endless Sea Extrait من Superz وعائلاته العطرية: عنبري، زهري، مسكي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0510.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0512",
+    "slug": "superz-memories-gold-p0512",
+    "brand": "Superz",
+    "name": "Memories Gold",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Honey",
+        "Caramel",
+        "Vanilla",
+        "Milk",
+        "Iris",
+        "Balsamic sugar"
+      ],
+      "ar": [
+        "العسل",
+        "الكراميل",
+        "الفانيليا",
+        "الحليب",
+        "السوسن",
+        "سكر بلسمي"
+      ]
+    },
+    "description": {
+      "en": "Memories Gold by Superz brings together floral and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Memories Gold من Superz وعائلاته العطرية: زهري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0512.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0513",
+    "slug": "superz-morocco-extrait-de-parfum-p0513",
+    "brand": "Superz",
+    "name": "Morocco Extrait de Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "aromatic",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Mandarin",
+        "Vanilla",
+        "Lavender",
+        "Freesia",
+        "Amber"
+      ],
+      "ar": [
+        "البرغموت",
+        "اليوسفي",
+        "الفانيليا",
+        "الخزامى",
+        "الفريزيا",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "Morocco Extrait de Parfum by Superz brings together amber and aromatic and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Morocco Extrait de Parfum من Superz وعائلاته العطرية: عنبري، عطري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0513.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0516",
+    "slug": "superz-budapest-unique-blue-extrait-de-parfum-p0516",
+    "brand": "Superz",
+    "name": "Budapest Unique Blue Extrait de Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "fruity"
+    ],
+    "notes": {
+      "en": [
+        "Lemon",
+        "Yuzu",
+        "Pineapple",
+        "Passion Fruit"
+      ],
+      "ar": [
+        "الليمون",
+        "اليوزو",
+        "الأناناس",
+        "فاكهة العاطفة"
+      ]
+    },
+    "description": {
+      "en": "Budapest Unique Blue Extrait de Parfum by Superz brings together citrus and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Budapest Unique Blue Extrait de Parfum من Superz وعائلاته العطرية: حمضي، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0516.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0517",
+    "slug": "swiss-arabian-shaghaf-men-p0517",
+    "brand": "Swiss Arabian",
+    "name": "Shaghaf Men",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "amber",
+      "aromatic",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lemon",
+        "Lavender",
+        "Nutgrass",
+        "Marine notes",
+        "Patchouli",
+        "Amber"
+      ],
+      "ar": [
+        "الليمون",
+        "الخزامى",
+        "السعد",
+        "نفحات بحرية",
+        "الباتشولي",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "Shaghaf Men by Swiss Arabian brings together amber and aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Shaghaf Men من Swiss Arabian وعائلاته العطرية: عنبري، عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0517.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0518",
+    "slug": "swiss-arabian-shaghaf-oud-royale-p0518",
+    "brand": "Swiss Arabian",
+    "name": "SHAGHAF OUD ROYALE",
+    "sizeLabel": "75 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "oud",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Saffron",
+        "Lavender",
+        "Oud",
+        "Nutmeg",
+        "Musk",
+        "Patchouli"
+      ],
+      "ar": [
+        "الزعفران",
+        "الخزامى",
+        "العود",
+        "جوزة الطيب",
+        "المسك",
+        "الباتشولي"
+      ]
+    },
+    "description": {
+      "en": "SHAGHAF OUD ROYALE by Swiss Arabian brings together aromatic and oud and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر SHAGHAF OUD ROYALE من Swiss Arabian وعائلاته العطرية: عطري، عود، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0518.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0526",
+    "slug": "the-harmonist-matrix-metal-parfum-p0526",
+    "brand": "The Harmonist",
+    "name": "Matrix Metal Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Metallic Notes",
+        "Cardamom",
+        "Nutmeg",
+        "White Tea",
+        "Cyclamen",
+        "Vetiver"
+      ],
+      "ar": [
+        "نفحات معدنية",
+        "الهيل",
+        "جوزة الطيب",
+        "الشاي الأبيض",
+        "بخور مريم",
+        "نجيل الهند"
+      ]
+    },
+    "description": {
+      "en": "Matrix Metal Parfum by The Harmonist brings together spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Matrix Metal Parfum من The Harmonist وعائلاته العطرية: متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0526.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0528",
+    "slug": "the-harmonist-oud-nebula-parfum-p0528",
+    "brand": "The Harmonist",
+    "name": "Oud Nebula Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bulgarian Rose",
+        "Laurel",
+        "Saffron",
+        "Leather",
+        "Sandalwood",
+        "Tonka Bean"
+      ],
+      "ar": [
+        "الورد البلغاري",
+        "الغار",
+        "الزعفران",
+        "الجلد",
+        "الصندل",
+        "حبوب التونكا"
+      ]
+    },
+    "description": {
+      "en": "Oud Nebula Parfum by The Harmonist brings together amber and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Oud Nebula Parfum من The Harmonist وعائلاته العطرية: عنبري، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0528.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0530",
+    "slug": "the-harmonist-royal-earth-parfum-p0530",
+    "brand": "The Harmonist",
+    "name": "Royal Earth Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "floral",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Carrot seed",
+        "Angelica seed",
+        "Passion fruit",
+        "Iris",
+        "Ylang-ylang",
+        "Egyptian rose"
+      ],
+      "ar": [
+        "بذور الجزر",
+        "بذور حشيشة الملاك",
+        "فاكهة العاطفة",
+        "السوسن",
+        "الإيلنغ",
+        "الورد المصري"
+      ]
+    },
+    "description": {
+      "en": "Royal Earth Parfum by The Harmonist brings together amber and floral and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Royal Earth Parfum من The Harmonist وعائلاته العطرية: عنبري، زهري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0530.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0538",
+    "slug": "thomas-kosmala-no-4-apres-l-amour-p0538",
+    "brand": "Thomas Kosmala",
+    "name": "No. 4 Apres L'Amour",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "musky",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bitter orange",
+        "Lemon zest",
+        "Aromatic accord",
+        "Fresh spice",
+        "Dry wood",
+        "Amber"
+      ],
+      "ar": [
+        "البرتقال المر",
+        "قشر الليمون",
+        "توليفة عطرية",
+        "توابل منعشة",
+        "الأخشاب الجافة",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "No. 4 Apres L'Amour by Thomas Kosmala brings together amber and musky and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر No. 4 Apres L'Amour من Thomas Kosmala وعائلاته العطرية: عنبري، مسكي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0538.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0541",
+    "slug": "tommy-hilfiger-tommy-girl-p0541",
+    "brand": "Tommy Hilfiger",
+    "name": "Tommy Girl",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "women",
+    "familyIds": [
+      "floral",
+      "fruity"
+    ],
+    "notes": {
+      "en": [
+        "Apple Tree Blossom",
+        "Mandarin Orange",
+        "Camelia",
+        "Black Currant",
+        "Lemon",
+        "Honeysuckle"
+      ],
+      "ar": [
+        "زهر التفاح",
+        "اليوسفي",
+        "الكاميليا",
+        "الكشمش الأسود",
+        "الليمون",
+        "صريمة الجدي"
+      ]
+    },
+    "description": {
+      "en": "Tommy Girl by Tommy Hilfiger brings together floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tommy Girl من Tommy Hilfiger وعائلاته العطرية: زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0541.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0546",
+    "slug": "unique-e-luxury-akdeniz-p0546",
+    "brand": "Unique'e Luxury",
+    "name": "Akdeniz",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aquatic",
+      "citrus",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Marine notes",
+        "Lemon",
+        "Grapefruit",
+        "Pineapple",
+        "Lavandin",
+        "Thyme"
+      ],
+      "ar": [
+        "نفحات بحرية",
+        "الليمون",
+        "الجريب فروت",
+        "الأناناس",
+        "اللافاندين",
+        "الزعتر"
+      ]
+    },
+    "description": {
+      "en": "Akdeniz by Unique'e Luxury brings together aquatic and citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Akdeniz من Unique'e Luxury وعائلاته العطرية: مائي، حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0546.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0550",
+    "slug": "unique-e-luxury-chocolate-makes-me-happy-p0550",
+    "brand": "Unique'e Luxury",
+    "name": "Chocolate Makes Me Happy",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "aromatic",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Dark chocolate",
+        "Cacao",
+        "Grapefruit",
+        "Mandarin",
+        "Lavender",
+        "Ginger"
+      ],
+      "ar": [
+        "الشوكولاتة الداكنة",
+        "الكاكاو",
+        "الجريب فروت",
+        "اليوسفي",
+        "الخزامى",
+        "الزنجبيل"
+      ]
+    },
+    "description": {
+      "en": "Chocolate Makes Me Happy by Unique'e Luxury brings together aromatic and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Chocolate Makes Me Happy من Unique'e Luxury وعائلاته العطرية: عطري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0550.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0554",
+    "slug": "unique-e-luxury-mashumaro-p0554",
+    "brand": "Unique'e Luxury",
+    "name": "MASHUMARO マシュマロ",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Extrait de Parfum",
+      "ar": "خلاصة عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "gourmand"
+    ],
+    "notes": {
+      "en": [
+        "Marshmallow",
+        "Rose",
+        "Incense",
+        "Muguet",
+        "Caramel",
+        "Cashmere wood"
+      ],
+      "ar": [
+        "المارشميلو",
+        "الورد",
+        "البخور",
+        "زنبق الوادي",
+        "الكراميل",
+        "خشب الكشمير"
+      ]
+    },
+    "description": {
+      "en": "MASHUMARO マシュマロ by Unique'e Luxury brings together floral and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر MASHUMARO マシュマロ من Unique'e Luxury وعائلاته العطرية: زهري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0554.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0563",
+    "slug": "viktor-rolf-spicebomb-extreme-p0563",
+    "brand": "Viktor & Rolf",
+    "name": "Spicebomb Extreme",
+    "sizeLabel": "90 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "aromatic",
+      "gourmand",
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Lavender",
+        "Cinnamon",
+        "Saffron",
+        "Tobacco",
+        "Vanilla",
+        "Bourbon"
+      ],
+      "ar": [
+        "الخزامى",
+        "القرفة",
+        "الزعفران",
+        "التبغ",
+        "الفانيليا",
+        "بوربون"
+      ]
+    },
+    "description": {
+      "en": "Spicebomb Extreme by Viktor & Rolf brings together aromatic and gourmand and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Spicebomb Extreme من Viktor & Rolf وعائلاته العطرية: عطري، حلو، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0563.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0083",
+    "slug": "bvlgari-le-gemme-azaran-p0083",
+    "brand": "Bvlgari",
+    "name": "Le Gemme Azaran",
+    "sizeLabel": "125 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "spicy",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Saffron",
+        "Virginia cedarwood"
+      ],
+      "ar": [
+        "الزعفران",
+        "أرز فرجينيا"
+      ]
+    },
+    "description": {
+      "en": "Le Gemme Azaran by Bvlgari brings together spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Le Gemme Azaran من Bvlgari وعائلاته العطرية: متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0083.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0413",
+    "slug": "designer-shaik-chic-shaik-no-70-p0413",
+    "brand": "Designer Shaik",
+    "name": "Chic Shaik No. 70",
+    "sizeLabel": "80 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "men",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Orange",
+        "Lemon",
+        "Clary sage",
+        "Lily-of-the-valley",
+        "Jasmine"
+      ],
+      "ar": [
+        "البرغموت",
+        "البرتقال",
+        "الليمون",
+        "المريمية",
+        "زنبق الوادي",
+        "الياسمين"
+      ]
+    },
+    "description": {
+      "en": "Chic Shaik No. 70 by Designer Shaik brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Chic Shaik No. 70 من Designer Shaik وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0413.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0443",
+    "slug": "paco-rabanne-pr-one-million-p0443",
+    "brand": "Paco Rabanne",
+    "name": "PR ONE MILLION",
+    "sizeLabel": "100 ml",
+    "concentration": {
+      "en": "Eau de Toilette",
+      "ar": "ماء تواليت"
+    },
+    "gender": "men",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Grapefruit",
+        "Mint",
+        "Blood orange",
+        "Rose",
+        "Cinnamon",
+        "Spice notes"
+      ],
+      "ar": [
+        "الجريب فروت",
+        "النعناع",
+        "البرتقال الأحمر",
+        "الورد",
+        "القرفة",
+        "نفحات متبلة"
+      ]
+    },
+    "description": {
+      "en": "PR ONE MILLION by Paco Rabanne brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر PR ONE MILLION من Paco Rabanne وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0443.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0466",
+    "slug": "stephane-humbert-lucas-rose-de-petra-p0466",
+    "brand": "Stéphane Humbert Lucas",
+    "name": "Rose de Petra",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "floral",
+      "spicy"
+    ],
+    "notes": {
+      "en": [
+        "Rose Oxide",
+        "Pomegranate",
+        "Litchi",
+        "Bulgarian Rose",
+        "Pepper",
+        "Cardomom"
+      ],
+      "ar": [
+        "أكسيد الورد",
+        "الرمان",
+        "الليتشي",
+        "الورد البلغاري",
+        "الفلفل",
+        "الهيل"
+      ]
+    },
+    "description": {
+      "en": "Rose de Petra by Stéphane Humbert Lucas brings together floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Rose de Petra من Stéphane Humbert Lucas وعائلاته العطرية: زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0466.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0468",
+    "slug": "stephane-humbert-lucas-sea-my-love-p0468",
+    "brand": "Stéphane Humbert Lucas",
+    "name": "Sea My Love",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "floral",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Mandarin",
+        "Salt",
+        "Leather",
+        "Jasmine",
+        "Marine",
+        "Amber"
+      ],
+      "ar": [
+        "اليوسفي",
+        "الملح",
+        "الجلد",
+        "الياسمين",
+        "نفحات بحرية",
+        "العنبر"
+      ]
+    },
+    "description": {
+      "en": "Sea My Love by Stéphane Humbert Lucas brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Sea My Love من Stéphane Humbert Lucas وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0468.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0470",
+    "slug": "stephane-humbert-lucas-taklamakan-p0470",
+    "brand": "Stéphane Humbert Lucas",
+    "name": "Taklamakan",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Eau de Parfum",
+      "ar": "ماء عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Osmanthus",
+        "Neroli",
+        "Cedar",
+        "Patchouli",
+        "Vanilla"
+      ],
+      "ar": [
+        "البرغموت",
+        "الأوسمانثوس",
+        "النيرولي",
+        "الأرز",
+        "الباتشولي",
+        "الفانيليا"
+      ]
+    },
+    "description": {
+      "en": "Taklamakan by Stéphane Humbert Lucas brings together amber and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Taklamakan من Stéphane Humbert Lucas وعائلاته العطرية: عنبري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0470.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0521",
+    "slug": "the-harmonist-golden-wood-parfum-p0521",
+    "brand": "The Harmonist",
+    "name": "Golden Wood Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "citrus",
+      "gourmand",
+      "woody"
+    ],
+    "notes": {
+      "en": [
+        "Bergamot",
+        "Mandarin",
+        "Bitter Orange",
+        "Bee Wax",
+        "Pear Granita",
+        "Guaiac Wood"
+      ],
+      "ar": [
+        "البرغموت",
+        "اليوسفي",
+        "البرتقال المر",
+        "شمع العسل",
+        "الكمثرى المثلجة",
+        "خشب الغاياك"
+      ]
+    },
+    "description": {
+      "en": "Golden Wood Parfum by The Harmonist brings together citrus and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Golden Wood Parfum من The Harmonist وعائلاته العطرية: حمضي، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0521.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  },
+  {
+    "id": "P0533",
+    "slug": "the-harmonist-sacred-water-parfum-p0533",
+    "brand": "The Harmonist",
+    "name": "Sacred Water Parfum",
+    "sizeLabel": "50 ml",
+    "concentration": {
+      "en": "Parfum",
+      "ar": "عطر"
+    },
+    "gender": "unisex",
+    "familyIds": [
+      "amber",
+      "citrus",
+      "floral"
+    ],
+    "notes": {
+      "en": [
+        "Citron",
+        "Mandarin",
+        "Fresh Ginger",
+        "Magnolia",
+        "Orange Blossom",
+        "Laminaria Seaweed"
+      ],
+      "ar": [
+        "الأترج",
+        "اليوسفي",
+        "الزنجبيل الطازج",
+        "الماغنوليا",
+        "زهر البرتقال",
+        "طحالب البحر"
+      ]
+    },
+    "description": {
+      "en": "Sacred Water Parfum by The Harmonist brings together amber and citrus and floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Sacred Water Parfum من The Harmonist وعائلاته العطرية: عنبري، حمضي، زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    },
+    "image": {
+      "src": "/perfumes/P0533.webp",
+      "caveat": {
+        "en": "Reference photograph. Bottle size and packaging may differ. Demo selection; availability on enquiry.",
+        "ar": "صورة مرجعية. قد يختلف حجم العبوة وتغليفها. تشكيلة تجريبية؛ يرجى الاستفسار عن التوفر."
+      }
+    },
+    "featured": false
+  }
+]

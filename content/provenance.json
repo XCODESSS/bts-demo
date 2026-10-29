@@ -1,0 +1,606 @@
+{
+  "permission": "User confirmed permission to publish existing photos on 2026-10-26.",
+  "selectionRule": "Exact perfume match, known gender, positive size, no source warnings, existing reference photo. One size per fragrance/concentration.",
+  "products": [
+    {
+      "id": "P0574",
+      "sourceImage": "assets/perfumes/P0574.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0170",
+      "sourceImage": "assets/perfumes/P0170.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0433",
+      "sourceImage": "assets/perfumes/P0433.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0074",
+      "sourceImage": "assets/perfumes/P0074.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0100",
+      "sourceImage": "assets/perfumes/P0100.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0041",
+      "sourceImage": "assets/perfumes/P0041.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0577",
+      "sourceImage": "assets/perfumes/P0577.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0168",
+      "sourceImage": "assets/perfumes/P0168.jpg",
+      "sourceCondition": "Tester; No box",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0028",
+      "sourceImage": "assets/perfumes/P0028.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0038",
+      "sourceImage": "assets/perfumes/P0038.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0042",
+      "sourceImage": "assets/perfumes/P0042.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0043",
+      "sourceImage": "assets/perfumes/P0043.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0073",
+      "sourceImage": "assets/perfumes/P0073.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0077",
+      "sourceImage": "assets/perfumes/P0077.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0171",
+      "sourceImage": "assets/perfumes/P0171.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0265",
+      "sourceImage": "assets/perfumes/P0265.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0390",
+      "sourceImage": "assets/perfumes/P0390.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0395",
+      "sourceImage": "assets/perfumes/P0395.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0440",
+      "sourceImage": "assets/perfumes/P0440.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0444",
+      "sourceImage": "assets/perfumes/P0444.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0446",
+      "sourceImage": "assets/perfumes/P0446.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0540",
+      "sourceImage": "assets/perfumes/P0540.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0565",
+      "sourceImage": "assets/perfumes/P0565.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0568",
+      "sourceImage": "assets/perfumes/P0568.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0569",
+      "sourceImage": "assets/perfumes/P0569.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0590",
+      "sourceImage": "assets/perfumes/P0590.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0601",
+      "sourceImage": "assets/perfumes/P0601.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0604",
+      "sourceImage": "assets/perfumes/P0604.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0169",
+      "sourceImage": "assets/perfumes/P0169.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0539",
+      "sourceImage": "assets/perfumes/P0539.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0602",
+      "sourceImage": "assets/perfumes/P0602.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0019",
+      "sourceImage": "assets/perfumes/P0019.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0020",
+      "sourceImage": "assets/perfumes/P0020.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0023",
+      "sourceImage": "assets/perfumes/P0023.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0027",
+      "sourceImage": "assets/perfumes/P0027.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0029",
+      "sourceImage": "assets/perfumes/P0029.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0030",
+      "sourceImage": "assets/perfumes/P0030.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0031",
+      "sourceImage": "assets/perfumes/P0031.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0044",
+      "sourceImage": "assets/perfumes/P0044.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0045",
+      "sourceImage": "assets/perfumes/P0045.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0046",
+      "sourceImage": "assets/perfumes/P0046.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0047",
+      "sourceImage": "assets/perfumes/P0047.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0048",
+      "sourceImage": "assets/perfumes/P0048.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0084",
+      "sourceImage": "assets/perfumes/P0084.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0085",
+      "sourceImage": "assets/perfumes/P0085.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0092",
+      "sourceImage": "assets/perfumes/P0092.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0094",
+      "sourceImage": "assets/perfumes/P0094.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0129",
+      "sourceImage": "assets/perfumes/P0129.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0131",
+      "sourceImage": "assets/perfumes/P0131.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0136",
+      "sourceImage": "assets/perfumes/P0136.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0293",
+      "sourceImage": "assets/perfumes/P0293.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0305",
+      "sourceImage": "assets/perfumes/P0305.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0307",
+      "sourceImage": "assets/perfumes/P0307.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0309",
+      "sourceImage": "assets/perfumes/P0309.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0310",
+      "sourceImage": "assets/perfumes/P0310.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0311",
+      "sourceImage": "assets/perfumes/P0311.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0313",
+      "sourceImage": "assets/perfumes/P0313.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0314",
+      "sourceImage": "assets/perfumes/P0314.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0387",
+      "sourceImage": "assets/perfumes/P0387.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0415",
+      "sourceImage": "assets/perfumes/P0415.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0419",
+      "sourceImage": "assets/perfumes/P0419.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0420",
+      "sourceImage": "assets/perfumes/P0420.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0448",
+      "sourceImage": "assets/perfumes/P0448.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0449",
+      "sourceImage": "assets/perfumes/P0449.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0452",
+      "sourceImage": "assets/perfumes/P0452.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0453",
+      "sourceImage": "assets/perfumes/P0453.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0455",
+      "sourceImage": "assets/perfumes/P0455.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0461",
+      "sourceImage": "assets/perfumes/P0461.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0464",
+      "sourceImage": "assets/perfumes/P0464.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0483",
+      "sourceImage": "assets/perfumes/P0483.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0500",
+      "sourceImage": "assets/perfumes/P0500.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0501",
+      "sourceImage": "assets/perfumes/P0501.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0503",
+      "sourceImage": "assets/perfumes/P0503.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0504",
+      "sourceImage": "assets/perfumes/P0504.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0505",
+      "sourceImage": "assets/perfumes/P0505.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0506",
+      "sourceImage": "assets/perfumes/P0506.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0508",
+      "sourceImage": "assets/perfumes/P0508.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0510",
+      "sourceImage": "assets/perfumes/P0510.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0512",
+      "sourceImage": "assets/perfumes/P0512.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0513",
+      "sourceImage": "assets/perfumes/P0513.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0516",
+      "sourceImage": "assets/perfumes/P0516.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0517",
+      "sourceImage": "assets/perfumes/P0517.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0518",
+      "sourceImage": "assets/perfumes/P0518.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0526",
+      "sourceImage": "assets/perfumes/P0526.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0528",
+      "sourceImage": "assets/perfumes/P0528.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0530",
+      "sourceImage": "assets/perfumes/P0530.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0538",
+      "sourceImage": "assets/perfumes/P0538.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0541",
+      "sourceImage": "assets/perfumes/P0541.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0546",
+      "sourceImage": "assets/perfumes/P0546.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0550",
+      "sourceImage": "assets/perfumes/P0550.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0554",
+      "sourceImage": "assets/perfumes/P0554.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0563",
+      "sourceImage": "assets/perfumes/P0563.jpg",
+      "sourceCondition": "Not stated",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0083",
+      "sourceImage": "assets/perfumes/P0083.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0413",
+      "sourceImage": "assets/perfumes/P0413.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0443",
+      "sourceImage": "assets/perfumes/P0443.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0466",
+      "sourceImage": "assets/perfumes/P0466.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0468",
+      "sourceImage": "assets/perfumes/P0468.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0470",
+      "sourceImage": "assets/perfumes/P0470.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0521",
+      "sourceImage": "assets/perfumes/P0521.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    },
+    {
+      "id": "P0533",
+      "sourceImage": "assets/perfumes/P0533.jpg",
+      "sourceCondition": "Tester",
+      "representation": "representative-packaging"
+    }
+  ]
+}

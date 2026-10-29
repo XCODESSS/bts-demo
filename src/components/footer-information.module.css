@@ -1,0 +1,9 @@
+.dialog { width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 40px); padding: 28px; border: 1px solid var(--brand-gold); border-radius: 12px; background: #fbfaf6; color: var(--brand-green); overflow: auto; overscroll-behavior: contain; }
+.dialog::backdrop { background: #07363caa; backdrop-filter: blur(4px); }
+.heading { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+.heading h2 { font: 600 26px/1.4 var(--body); margin: 4px 0 16px; color: #07363c; }
+.heading button { flex-shrink: 0; color: #07363c; }
+.dialog > p { font-size: 14px; line-height: 1.9; color: #56645e; margin: 0 0 24px; }
+.dialog :global(.button:not(:disabled)) { background: var(--brand-green); color: white; border-color: var(--brand-green); }
+:global(body):has(.dialog[open]) { overflow: hidden; }
+@media (max-width: 650px) { .dialog { padding: 22px; } .heading h2 { font-size: 22px; } }

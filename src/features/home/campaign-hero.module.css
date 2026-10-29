@@ -1,0 +1,170 @@
+.hero { padding-block: 26px 36px; }
+.stage {
+  position: relative;
+  isolation: isolate;
+  min-height: 400px;
+  background: var(--brand-green, #07363c);
+  color: #fbfaf6;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: .9fr 1.3fr;
+  gap: 28px;
+  align-items: center;
+  padding: 38px 44px;
+  overflow: hidden;
+}
+.stage::before {
+  content: "";
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  border: 1px solid #d4b99155;
+  border-radius: 50%;
+  inset-inline-end: -270px;
+  top: -190px;
+  z-index: -1;
+  box-shadow: 0 0 0 30px #d4b99108, 0 0 0 31px #d4b99125;
+}
+.statement { padding-inline-end: 18px; }
+.brandLogo { display: block; width: 76px; height: 76px; object-fit: contain; border-radius: 50%; }
+.statement p {
+  font: 500 clamp(36px, 4vw, 56px)/1.06 var(--display);
+  letter-spacing: -1px;
+  margin: 20px 0 14px;
+  max-width: 16ch;
+  color: var(--brand-gold, #d4b991);
+}
+.signature { display: inline-block; font-size: 34px; color: #d4b991; }
+.products { display: flex; align-items: center; justify-content: center; gap: 14px; min-width: 0; }
+.product { flex: 1; min-width: 0; text-align: center; text-decoration: none; }
+.photo {
+  background: #fbfaf6;
+  height: 230px;
+  display: grid;
+  place-items: center;
+  border-radius: 100px 100px 3px 3px;
+  border-bottom: 5px solid #d4b991;
+  padding: 18px;
+}
+.product:nth-child(2) { flex: 1.15; }
+.product:nth-child(2) .photo { height: 280px; }
+.bottle { width: 100%; height: 100%; min-height: 0; object-fit: contain; mix-blend-mode: multiply; transition: transform .3s ease; }
+.caption { display: block; margin-top: 14px; font-size: 10px; line-height: 1.6; color: #fbfaf6; overflow-wrap: anywhere; }
+.caption strong { display: block; font-weight: 500; margin-top: 2px; }
+.stage a:focus-visible { outline: 2px solid #d4b991; outline-offset: 5px; border-radius: 6px; }
+.empty { font-size: 15px; line-height: 1.8; max-width: 30ch; }
+.intro { text-align: center; max-width: 760px; margin: 38px auto 0; }
+.intro h1 { font: 600 clamp(32px, 3.3vw, 46px)/1.2 var(--body); letter-spacing: -1.8px; margin: 0 0 16px; }
+.intro > p { font-size: 14px; line-height: 1.85; color: var(--muted); margin: 0 auto 22px; max-width: 69ch; }
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 48px;
+  padding: 12px 26px;
+  border-radius: 28px;
+  background: var(--brand-gold, #d4b991);
+  color: var(--brand-green, #07363c);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.action:hover { background: #e3cba8; }
+:global([dir="rtl"]) .statement p { font-family: var(--body); font-size: clamp(27px, 3vw, 42px); line-height: 1.6; letter-spacing: 0; max-width: 16ch; }
+:global([dir="rtl"]) .intro h1 { letter-spacing: 0; line-height: 1.6; }
+:global(html[data-design="gallery"]) .photo { border-radius: 2px; }
+:global(html[data-design="linen"]) .photo { border-radius: 120px 120px 8px 8px; }
+@keyframes campaign-float {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -12px; }
+}
+@keyframes campaign-light {
+  0%, 15% { transform: translateX(-200%) skewX(-18deg); opacity: 0; }
+  25% { opacity: 1; }
+  65%, 100% { transform: translateX(650%) skewX(-18deg); opacity: 0; }
+}
+@keyframes campaign-star { to { rotate: 180deg; } }
+@keyframes campaign-intro {
+  from { opacity: .35; translate: 0 16px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bottle { animation: campaign-float 3.2s ease-in-out 1; }
+  .product:nth-child(2) .bottle { animation-delay: .15s; }
+  .product:nth-child(3) .bottle { animation-delay: .3s; }
+  .signature { animation: campaign-star 3.2s ease-out 1 both; }
+  .intro { animation: campaign-intro .75s var(--motion-ease) both; }
+  .stage::after { content: ""; position: absolute; z-index: -1; pointer-events: none; top: 0; bottom: 0; left: 0; width: 38%; background: linear-gradient(90deg, transparent, #d4b99138, transparent); animation: campaign-light 3.2s ease-in-out 1 both; }
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .product:hover .bottle { transform: translateY(-4px); }
+}
+/* The original three campaign compositions remain unchanged. */
+:global(html[data-design="salon"]) .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-block: 24px 0;
+  margin-bottom: 0;
+}
+:global(html[data-design="salon"]) .stage { display: none; }
+:global(html[data-design="salon"]) .intro {
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  min-width: 0; max-width: none; min-height: 600px;
+  margin: 0; padding: 48px 42px;
+  text-align: start; background: var(--brand-green); color: var(--white);
+  animation: none;
+}
+:global(html[data-design="salon"]) .intro h1 {
+  font: 500 clamp(64px, 6.5vw, 96px)/.96 var(--display);
+  letter-spacing: -.035em; max-width: 11ch; margin: 0;
+}
+:global(html[data-design="salon"]) .intro > p {
+  margin: 36px 0 28px; max-width: 39ch;
+  font-size: 18px; line-height: 1.6; color: var(--white);
+}
+:global(html[data-design="salon"]) .action {
+  border-radius: 0; font-size: 16px; min-height: 54px; padding: 14px 24px;
+}
+:global(html[data-design="salon"]) .intro :focus-visible { outline-color: var(--brand-gold); }
+:global(html[data-design="salon"]) .action:active { transform: translateY(2px); }
+:global(html[dir="rtl"][data-design="salon"]) .intro h1 {
+  font-family: var(--body); font-size: clamp(48px, 5vw, 72px); line-height: 1.25; letter-spacing: 0; max-width: 12ch;
+}
+:global(html[data-design="salon"]) .hero:not(.withSpotlight) { grid-template-columns: 1fr; }
+@media (max-width: 1100px) {
+  :global(html[data-design="salon"]) .intro { padding: 32px 28px; min-height: 580px; }
+  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(54px, 7.3vw, 80px); }
+  :global(html[data-design="salon"]) .intro > p { font-size: 16px; }
+}
+@media (max-width: 650px) {
+  :global(html[data-design="salon"]) .hero { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 0; }
+  :global(html[data-design="salon"]) .intro { min-height: 0; padding: 24px; }
+  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(48px, 13.3vw, 56px); max-width: 11ch; }
+  :global(html[data-design="salon"]) .intro > p { margin: 20px 0; font-size: 16px; line-height: 1.5; }
+  :global(html[dir="rtl"][data-design="salon"]) .intro h1 { font-size: 42px; line-height: 1.35; }
+}
+@media (max-width: 950px) {
+  .stage { grid-template-columns: .8fr 1.3fr; gap: 18px; padding: 30px; min-height: 350px; }
+  .statement p { font-size: 42px; }
+  .photo { padding: 12px; height: 190px; }
+  .product:nth-child(2) .photo { height: 230px; }
+  .products { gap: 10px; }
+}
+@media (max-width: 650px) {
+  .hero { padding-block: 18px 28px; }
+  .stage { grid-template-columns: 1fr; padding: 24px 16px 20px; gap: 22px; min-height: 0; border-radius: 8px; }
+  .statement { padding: 0; text-align: center; }
+  .brandLogo { width: 56px; height: 56px; margin-inline: auto; }
+  .statement p { font-size: 33px; line-height: 1.1; max-width: 22ch; margin: 10px auto 0; }
+  .signature { display: none; }
+  .photo { height: 154px; padding: 12px 8px; border-bottom-width: 3px; }
+  .product:nth-child(2) .photo { height: 181px; }
+  .products { gap: 9px; }
+  .caption { font-size: 9px; line-height: 1.6; margin-top: 9px; }
+  .caption strong { font-size: 9px; }
+  .intro { margin-top: 28px; }
+  .intro h1 { font-size: 30px; letter-spacing: -1.1px; }
+  .intro > p { font-size: 12px; line-height: 1.9; }
+  :global([dir="rtl"]) .statement p { font-size: 24px; line-height: 1.5; max-width: 22ch; }
+}

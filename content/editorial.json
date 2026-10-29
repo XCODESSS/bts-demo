@@ -1,0 +1,702 @@
+{
+  "P0574": {
+    "featured": true,
+    "description": {
+      "en": "Torino21 by Xerjoff brings together aromatic and citrus facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Torino21 من Xerjoff وعائلاته العطرية: عطري، حمضي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0170": {
+    "featured": true,
+    "description": {
+      "en": "Philosykos by Diptyque brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Philosykos من Diptyque وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0433": {
+    "featured": true,
+    "description": {
+      "en": "Haltane by Parfums de Marly brings together aromatic and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Haltane من Parfums de Marly وعائلاته العطرية: عطري، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0074": {
+    "featured": true,
+    "description": {
+      "en": "Her by Burberry brings together amber and fruity and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Her من Burberry وعائلاته العطرية: عنبري، فاكهي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0100": {
+    "featured": true,
+    "description": {
+      "en": "Allure Sensuelle by Chanel brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Allure Sensuelle من Chanel وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0041": {
+    "featured": true,
+    "description": {
+      "en": "Emporio Armani Stronger With You Intensely by Giorgio Armani brings together gourmand and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Emporio Armani Stronger With You Intensely من Giorgio Armani وعائلاته العطرية: حلو، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0577": {
+    "featured": true,
+    "description": {
+      "en": "Casamorati Regio by Xerjoff brings together aromatic and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Casamorati Regio من Xerjoff وعائلاته العطرية: عطري، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0168": {
+    "featured": true,
+    "description": {
+      "en": "Spice Blend by Dior brings together amber and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Spice Blend من Dior وعائلاته العطرية: عنبري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0028": {
+    "featured": false,
+    "description": {
+      "en": "Club de Nuit Iconic by Armaf brings together amber facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Iconic من Armaf وعائلاته العطرية: عنبري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0038": {
+    "featured": false,
+    "description": {
+      "en": "Power of You by Giorgio Armani brings together fruity and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Power of You من Giorgio Armani وعائلاته العطرية: فاكهي، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0042": {
+    "featured": false,
+    "description": {
+      "en": "Emporio Armani Stronger With You Powerfully by Giorgio Armani brings together aromatic and gourmand and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Emporio Armani Stronger With You Powerfully من Giorgio Armani وعائلاته العطرية: عطري، حلو، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0043": {
+    "featured": false,
+    "description": {
+      "en": "Emporio Armani Stronger With You Spices by Giorgio Armani brings together aromatic and gourmand and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Emporio Armani Stronger With You Spices من Giorgio Armani وعائلاته العطرية: عطري، حلو، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0073": {
+    "featured": false,
+    "description": {
+      "en": "Brit for Him by Burberry brings together spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Brit for Him من Burberry وعائلاته العطرية: متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0077": {
+    "featured": false,
+    "description": {
+      "en": "Mr. Burberry by Burberry brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Mr. Burberry من Burberry وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0171": {
+    "featured": false,
+    "description": {
+      "en": "Tam Dao by Diptyque brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tam Dao من Diptyque وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0265": {
+    "featured": false,
+    "description": {
+      "en": "Vanilla 28 by Kayali brings together amber and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Vanilla 28 من Kayali وعائلاته العطرية: عنبري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0390": {
+    "featured": false,
+    "description": {
+      "en": "Fan Your Flames by Nishane brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Fan Your Flames من Nishane وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0395": {
+    "featured": false,
+    "description": {
+      "en": "NEFS by Nishane brings together aromatic and floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر NEFS من Nishane وعائلاته العطرية: عطري، زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0440": {
+    "featured": false,
+    "description": {
+      "en": "Perseus by Parfums de Marly brings together amber and citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Perseus من Parfums de Marly وعائلاته العطرية: عنبري، حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0444": {
+    "featured": false,
+    "description": {
+      "en": "Paradigme by Prada brings together amber and aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Paradigme من Prada وعائلاته العطرية: عنبري، عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0446": {
+    "featured": false,
+    "description": {
+      "en": "Paradoxe Intense by Prada brings together amber and floral and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Paradoxe Intense من Prada وعائلاته العطرية: عنبري، زهري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0540": {
+    "featured": false,
+    "description": {
+      "en": "Tuscan Leather by Tom Ford brings together leather facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tuscan Leather من Tom Ford وعائلاته العطرية: جلدي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0565": {
+    "featured": false,
+    "description": {
+      "en": "Eros Parfum by Versace brings together citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eros Parfum من Versace وعائلاته العطرية: حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0568": {
+    "featured": false,
+    "description": {
+      "en": "Pour Homme by Versace brings together aromatic and citrus facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Pour Homme من Versace وعائلاته العطرية: عطري، حمضي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0569": {
+    "featured": false,
+    "description": {
+      "en": "Red Jeans by Versace brings together floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Red Jeans من Versace وعائلاته العطرية: زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0590": {
+    "featured": false,
+    "description": {
+      "en": "Muse by Xerjoff brings together amber and fruity and leather facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Muse من Xerjoff وعائلاته العطرية: عنبري، فاكهي، جلدي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0601": {
+    "featured": false,
+    "description": {
+      "en": "Torino22 by Xerjoff brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Torino22 من Xerjoff وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0604": {
+    "featured": false,
+    "description": {
+      "en": "Uden by Xerjoff brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Uden من Xerjoff وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0169": {
+    "featured": false,
+    "description": {
+      "en": "Eau Capitale by Diptyque brings together chypre and floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eau Capitale من Diptyque وعائلاته العطرية: شيبر، زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0539": {
+    "featured": false,
+    "description": {
+      "en": "Patchouli Absolu by Tom Ford brings together aromatic and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Patchouli Absolu من Tom Ford وعائلاته العطرية: عطري، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0602": {
+    "featured": false,
+    "description": {
+      "en": "Torino23 by Xerjoff brings together citrus and floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Torino23 من Xerjoff وعائلاته العطرية: حمضي، زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0019": {
+    "featured": false,
+    "description": {
+      "en": "Danaë by Argos brings together amber and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Danaë من Argos وعائلاته العطرية: عنبري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0020": {
+    "featured": false,
+    "description": {
+      "en": "Fall of Phaeton by Argos brings together amber and aromatic and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Fall of Phaeton من Argos وعائلاته العطرية: عنبري، عطري، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0023": {
+    "featured": false,
+    "description": {
+      "en": "Triumph of Bacchus by Argos brings together amber and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Triumph of Bacchus من Argos وعائلاته العطرية: عنبري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0027": {
+    "featured": false,
+    "description": {
+      "en": "Club de Nuit Woman by Armaf brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Woman من Armaf وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0029": {
+    "featured": false,
+    "description": {
+      "en": "Club de Nuit Intense Man by Armaf brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Intense Man من Armaf وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0030": {
+    "featured": false,
+    "description": {
+      "en": "Club de Nuit Intense Man by Armaf brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Intense Man من Armaf وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0031": {
+    "featured": false,
+    "description": {
+      "en": "Club de Nuit Intense Man Pure Parfum by Armaf brings together gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Club de Nuit Intense Man Pure Parfum من Armaf وعائلاته العطرية: حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0044": {
+    "featured": false,
+    "description": {
+      "en": "Rose Omeyyade by Atelier des Ors brings together amber and floral and oud facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Rose Omeyyade من Atelier des Ors وعائلاته العطرية: عنبري، زهري، عود. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0045": {
+    "featured": false,
+    "description": {
+      "en": "Solarissimo Levanzo by Azzaro brings together aromatic and citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Solarissimo Levanzo من Azzaro وعائلاته العطرية: عطري، حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0046": {
+    "featured": false,
+    "description": {
+      "en": "Wanted by Night by Azzaro brings together aromatic and gourmand and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Wanted by Night من Azzaro وعائلاته العطرية: عطري، حلو، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0047": {
+    "featured": false,
+    "description": {
+      "en": "Infinite by Bentley brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Infinite من Bentley وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0048": {
+    "featured": false,
+    "description": {
+      "en": "Infinite Intense by Bentley brings together aromatic and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Infinite Intense من Bentley وعائلاته العطرية: عطري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0084": {
+    "featured": false,
+    "description": {
+      "en": "Le Gemme Falkar by Bvlgari brings together musky and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Le Gemme Falkar من Bvlgari وعائلاته العطرية: مسكي، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0085": {
+    "featured": false,
+    "description": {
+      "en": "Le Gemme Tygar by Bvlgari brings together citrus and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Le Gemme Tygar من Bvlgari وعائلاته العطرية: حمضي، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0092": {
+    "featured": false,
+    "description": {
+      "en": "Déclaration by Cartier brings together amber and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Déclaration من Cartier وعائلاته العطرية: عنبري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0094": {
+    "featured": false,
+    "description": {
+      "en": "Pasha de Cartier Parfum by Cartier brings together amber and aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Pasha de Cartier Parfum من Cartier وعائلاته العطرية: عنبري، عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0129": {
+    "featured": false,
+    "description": {
+      "en": "Eternity Aqua for Men by Calvin Klein brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eternity Aqua for Men من Calvin Klein وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0131": {
+    "featured": false,
+    "description": {
+      "en": "Euphoria Men by Calvin Klein brings together aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Euphoria Men من Calvin Klein وعائلاته العطرية: عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0136": {
+    "featured": false,
+    "description": {
+      "en": "Sheer Beauty by Calvin Klein brings together floral and fruity and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Sheer Beauty من Calvin Klein وعائلاته العطرية: زهري، فاكهي، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0293": {
+    "featured": false,
+    "description": {
+      "en": "Eclat d'Arpege by Lanvin brings together floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Eclat d'Arpege من Lanvin وعائلاته العطرية: زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0305": {
+    "featured": false,
+    "description": {
+      "en": "Jodhpur 6AM by L'Entropiste brings together floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Jodhpur 6AM من L'Entropiste وعائلاته العطرية: زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0307": {
+    "featured": false,
+    "description": {
+      "en": "Semence Douce by L'Entropiste brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Semence Douce من L'Entropiste وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0309": {
+    "featured": false,
+    "description": {
+      "en": "Bonne Fortune Unisex by Lesquendieu brings together citrus and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Bonne Fortune Unisex من Lesquendieu وعائلاته العطرية: حمضي، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0310": {
+    "featured": false,
+    "description": {
+      "en": "Cuir Vetyver by Lesquendieu brings together amber and aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Cuir Vetyver من Lesquendieu وعائلاته العطرية: عنبري، عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0311": {
+    "featured": false,
+    "description": {
+      "en": "Glorilis Unisex by Lesquendieu brings together floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Glorilis Unisex من Lesquendieu وعائلاته العطرية: زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0313": {
+    "featured": false,
+    "description": {
+      "en": "Lilice by Lesquendieu brings together citrus and floral and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Lilice من Lesquendieu وعائلاته العطرية: حمضي، زهري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0314": {
+    "featured": false,
+    "description": {
+      "en": "Orris Amber by Lesquendieu brings together amber and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Orris Amber من Lesquendieu وعائلاته العطرية: عنبري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0387": {
+    "featured": false,
+    "description": {
+      "en": "Patchouli Intense by Nicolai brings together amber and aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Patchouli Intense من Nicolai وعائلاته العطرية: عنبري، عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0415": {
+    "featured": false,
+    "description": {
+      "en": "Evernia by Ormonde Jayne brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Evernia من Ormonde Jayne وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0419": {
+    "featured": false,
+    "description": {
+      "en": "Invictus by Paco Rabanne brings together aquatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Invictus من Paco Rabanne وعائلاته العطرية: مائي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0420": {
+    "featured": false,
+    "description": {
+      "en": "Invictus Victory Elixir Parfum Intense by Paco Rabanne brings together gourmand and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Invictus Victory Elixir Parfum Intense من Paco Rabanne وعائلاته العطرية: حلو، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0448": {
+    "featured": false,
+    "description": {
+      "en": "Polo Black by Ralph Lauren brings together citrus and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Polo Black من Ralph Lauren وعائلاته العطرية: حمضي، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0449": {
+    "featured": false,
+    "description": {
+      "en": "Polo Blue by Ralph Lauren brings together aromatic facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Polo Blue من Ralph Lauren وعائلاته العطرية: عطري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0452": {
+    "featured": false,
+    "description": {
+      "en": "Hawas Ice by Rasasi brings together aquatic and citrus and musky facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Hawas Ice من Rasasi وعائلاته العطرية: مائي، حمضي، مسكي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0453": {
+    "featured": false,
+    "description": {
+      "en": "Hawas Kobra by Rasasi brings together amber and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Hawas Kobra من Rasasi وعائلاته العطرية: عنبري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0455": {
+    "featured": false,
+    "description": {
+      "en": "Just Cavalli by Roberto Cavalli brings together floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Just Cavalli من Roberto Cavalli وعائلاته العطرية: زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0461": {
+    "featured": false,
+    "description": {
+      "en": "Tra.ce. by Scentologia brings together amber and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tra.ce. من Scentologia وعائلاته العطرية: عنبري، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0464": {
+    "featured": false,
+    "description": {
+      "en": "Panthea Iris by Stéphane Humbert Lucas brings together floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Panthea Iris من Stéphane Humbert Lucas وعائلاته العطرية: زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0483": {
+    "featured": false,
+    "description": {
+      "en": "L'Ambre Vanillé by Soleil de Grâce brings together amber and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر L'Ambre Vanillé من Soleil de Grâce وعائلاته العطرية: عنبري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0500": {
+    "featured": false,
+    "description": {
+      "en": "Abu Dhabi by Superz brings together amber and gourmand and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Abu Dhabi من Superz وعائلاته العطرية: عنبري، حلو، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0501": {
+    "featured": false,
+    "description": {
+      "en": "Caesar Ultra by Superz brings together floral and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Caesar Ultra من Superz وعائلاته العطرية: زهري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0503": {
+    "featured": false,
+    "description": {
+      "en": "Gentleman by Superz brings together gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Gentleman من Superz وعائلاته العطرية: حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0504": {
+    "featured": false,
+    "description": {
+      "en": "Khalifa by Superz brings together amber and musky and oud and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Khalifa من Superz وعائلاته العطرية: عنبري، مسكي، عود، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0505": {
+    "featured": false,
+    "description": {
+      "en": "Smesh by Superz brings together aromatic and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Smesh من Superz وعائلاته العطرية: عطري، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0506": {
+    "featured": false,
+    "description": {
+      "en": "Soho by Superz brings together floral and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Soho من Superz وعائلاته العطرية: زهري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0508": {
+    "featured": false,
+    "description": {
+      "en": "Whoosh by Superz brings together amber and citrus and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Whoosh من Superz وعائلاته العطرية: عنبري، حمضي، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0510": {
+    "featured": false,
+    "description": {
+      "en": "Budapest Endless Sea Extrait by Superz brings together amber and floral and musky facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Budapest Endless Sea Extrait من Superz وعائلاته العطرية: عنبري، زهري، مسكي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0512": {
+    "featured": false,
+    "description": {
+      "en": "Memories Gold by Superz brings together floral and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Memories Gold من Superz وعائلاته العطرية: زهري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0513": {
+    "featured": false,
+    "description": {
+      "en": "Morocco Extrait de Parfum by Superz brings together amber and aromatic and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Morocco Extrait de Parfum من Superz وعائلاته العطرية: عنبري، عطري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0516": {
+    "featured": false,
+    "description": {
+      "en": "Budapest Unique Blue Extrait de Parfum by Superz brings together citrus and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Budapest Unique Blue Extrait de Parfum من Superz وعائلاته العطرية: حمضي، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0517": {
+    "featured": false,
+    "description": {
+      "en": "Shaghaf Men by Swiss Arabian brings together amber and aromatic and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Shaghaf Men من Swiss Arabian وعائلاته العطرية: عنبري، عطري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0518": {
+    "featured": false,
+    "description": {
+      "en": "SHAGHAF OUD ROYALE by Swiss Arabian brings together aromatic and oud and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر SHAGHAF OUD ROYALE من Swiss Arabian وعائلاته العطرية: عطري، عود، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0526": {
+    "featured": false,
+    "description": {
+      "en": "Matrix Metal Parfum by The Harmonist brings together spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Matrix Metal Parfum من The Harmonist وعائلاته العطرية: متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0528": {
+    "featured": false,
+    "description": {
+      "en": "Oud Nebula Parfum by The Harmonist brings together amber and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Oud Nebula Parfum من The Harmonist وعائلاته العطرية: عنبري، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0530": {
+    "featured": false,
+    "description": {
+      "en": "Royal Earth Parfum by The Harmonist brings together amber and floral and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Royal Earth Parfum من The Harmonist وعائلاته العطرية: عنبري، زهري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0538": {
+    "featured": false,
+    "description": {
+      "en": "No. 4 Apres L'Amour by Thomas Kosmala brings together amber and musky and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر No. 4 Apres L'Amour من Thomas Kosmala وعائلاته العطرية: عنبري، مسكي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0541": {
+    "featured": false,
+    "description": {
+      "en": "Tommy Girl by Tommy Hilfiger brings together floral and fruity facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Tommy Girl من Tommy Hilfiger وعائلاته العطرية: زهري، فاكهي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0546": {
+    "featured": false,
+    "description": {
+      "en": "Akdeniz by Unique'e Luxury brings together aquatic and citrus and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Akdeniz من Unique'e Luxury وعائلاته العطرية: مائي، حمضي، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0550": {
+    "featured": false,
+    "description": {
+      "en": "Chocolate Makes Me Happy by Unique'e Luxury brings together aromatic and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Chocolate Makes Me Happy من Unique'e Luxury وعائلاته العطرية: عطري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0554": {
+    "featured": false,
+    "description": {
+      "en": "MASHUMARO マシュマロ by Unique'e Luxury brings together floral and gourmand facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر MASHUMARO マシュマロ من Unique'e Luxury وعائلاته العطرية: زهري، حلو. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0563": {
+    "featured": false,
+    "description": {
+      "en": "Spicebomb Extreme by Viktor & Rolf brings together aromatic and gourmand and spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Spicebomb Extreme من Viktor & Rolf وعائلاته العطرية: عطري، حلو، متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0083": {
+    "featured": false,
+    "description": {
+      "en": "Le Gemme Azaran by Bvlgari brings together spicy and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Le Gemme Azaran من Bvlgari وعائلاته العطرية: متبل، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0413": {
+    "featured": false,
+    "description": {
+      "en": "Chic Shaik No. 70 by Designer Shaik brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Chic Shaik No. 70 من Designer Shaik وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0443": {
+    "featured": false,
+    "description": {
+      "en": "PR ONE MILLION by Paco Rabanne brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر PR ONE MILLION من Paco Rabanne وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0466": {
+    "featured": false,
+    "description": {
+      "en": "Rose de Petra by Stéphane Humbert Lucas brings together floral and spicy facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Rose de Petra من Stéphane Humbert Lucas وعائلاته العطرية: زهري، متبل. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0468": {
+    "featured": false,
+    "description": {
+      "en": "Sea My Love by Stéphane Humbert Lucas brings together citrus and floral and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Sea My Love من Stéphane Humbert Lucas وعائلاته العطرية: حمضي، زهري، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0470": {
+    "featured": false,
+    "description": {
+      "en": "Taklamakan by Stéphane Humbert Lucas brings together amber and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Taklamakan من Stéphane Humbert Lucas وعائلاته العطرية: عنبري، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0521": {
+    "featured": false,
+    "description": {
+      "en": "Golden Wood Parfum by The Harmonist brings together citrus and gourmand and woody facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Golden Wood Parfum من The Harmonist وعائلاته العطرية: حمضي، حلو، خشبي. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  },
+  "P0533": {
+    "featured": false,
+    "description": {
+      "en": "Sacred Water Parfum by The Harmonist brings together amber and citrus and floral facets. Discover its selected notes below, and ask us about the fragrance before choosing your next signature.",
+      "ar": "اكتشف عطر Sacred Water Parfum من The Harmonist وعائلاته العطرية: عنبري، حمضي، زهري. تعرّف على نفحاته المختارة أدناه، واستفسر عنه قبل اختيار عطرك القادم."
+    }
+  }
+}
