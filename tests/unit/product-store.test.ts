@@ -6,6 +6,27 @@ import products from "../../src/data/products.json";
 import { openProductStore } from "../../src/features/products/product-store";
 import { validateProduct } from "../../src/features/products/product-validation";
 
+test("mismatched notes identify the paired form controls", () => {
+  let failure: unknown;
+  try { validateProduct({ ...products[0], notes: { en: ["Vanilla"], ar: [] } }); }
+  catch (error) { failure = error; }
+  expect(failure).toMatchObject({ fields: ["notesEn", "notesAr"] });
+});
+
+test("invalid images and missing families identify their controls", () => {
+  for (const [change, fields] of [
+    [{ image: { ...products[0].image, src: "https://example.com/a.jpg" } }, ["image"]],
+    [{ familyIds: [] }, ["familyIds"]],
+    [{ description: { en: "", ar: "وصف" } }, ["descriptionEn"]],
+    [{ id: "../bad" }, ["id"]],
+    [{ slug: "../bad" }, ["slug"]],
+  ] as const) {
+    let failure: unknown;
+    try { validateProduct({ ...products[0], ...change }); } catch (error) { failure = error; }
+    expect(failure).toMatchObject({ fields });
+  }
+});
+
 test("saved edits and new products survive closing and reopening storage", () => {
   const dir = mkdtempSync(path.join(tmpdir(), "bts-store-"));
   const file = path.join(dir, "catalogue.sqlite");

@@ -6,5 +6,5 @@ export default async function LoginPage({ params }: { params: Promise<{ locale: 
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   if (await hasAdminSession()) redirect(`/${locale}/admin/products`);
-  return <><h1>Admin sign in</h1><p>Single-operator demo. Customer accounts and checkout are not enabled.</p><LoginForm locale={locale} configured={adminConfigured()} /></>;
+  return <><h1>Admin Sign In</h1><p>Single-operator demo. Customer accounts and checkout are not enabled.</p><LoginForm locale={locale} configured={adminConfigured()} /></>;
 }

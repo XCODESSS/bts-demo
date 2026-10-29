@@ -18,7 +18,7 @@ export async function login(locale: string, _previous: string, data: FormData): 
   attempts.count++;
   const username = String(data.get("username") || "");
   const validPassword = verifyPassword(String(data.get("password") || ""), process.env.ADMIN_PASSWORD_HASH || "");
-  if (username !== process.env.ADMIN_USERNAME || !validPassword) return "Invalid username or password.";
+  if (username !== process.env.ADMIN_USERNAME || !validPassword) return "Check your username and password, then try again.";
   attempts.count = 0;
   await establishSession();
   redirect(`/${locale}/admin/products`);

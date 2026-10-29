@@ -11,5 +11,5 @@ export default async function EditProductPage({ params }: { params: Promise<{ lo
   await requireAdmin(locale);
   const product = withProductStore((store) => store.findById(id));
   if (!product) notFound();
-  return <><h1>Edit {product.name}</h1><AdminNav locale={locale} /><ProductForm product={product} locale={locale} images={productImages} /></>;
+  return <><h1>Edit {product.name}</h1><AdminNav locale={locale} /><ProductForm key={product.id} product={product} locale={locale} images={productImages} /></>;
 }

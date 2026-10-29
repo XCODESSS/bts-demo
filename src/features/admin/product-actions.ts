@@ -4,12 +4,14 @@ import { revalidatePath } from "next/cache";
 import { isLocale } from "../../i18n/config";
 import { concentrations } from "../../i18n/taxonomy";
 import { withProductStore } from "../products/repository";
-import { validateProduct } from "../products/product-validation";
+import { ProductValidationError, validateProduct } from "../products/product-validation";
 import { requireAdmin, verifyActionOrigin } from "./session";
-export async function saveProduct(locale: string, existingId: string | null, _previous: string, form: FormData): Promise<string> {
+import { submittedProductValues, type ProductFormState } from "./product-form-state";
+export async function saveProduct(locale: string, existingId: string | null, previousState: ProductFormState, form: FormData): Promise<ProductFormState> {
   if (!isLocale(locale)) throw new Error("Unsupported locale.");
   await requireAdmin(locale);
   await verifyActionOrigin();
+  const values = submittedProductValues(form);
   let slug = "";
   try {
     const value = (key: string) => String(form.get(key) || "");
@@ -30,8 +32,16 @@ export async function saveProduct(locale: string, existingId: string | null, _pr
       slug = p.slug;
     });
   } catch (error) {
-    if (error instanceof Error && /UNIQUE constraint/.test(error.message)) return "A product with that ID or slug already exists.";
-    return error instanceof Error && !/SQLITE|database|ENOENT/i.test(error.message) ? error.message : "Unable to save. Check the private database configuration.";
+    const fieldErrors: ProductFormState["fieldErrors"] = {};
+    let message = "Unable to save. Check the product details and private database configuration.";
+    if (error instanceof ProductValidationError) {
+      message = error.message;
+      for (const field of error.fields) fieldErrors[field] = message;
+    } else if (error instanceof Error && /UNIQUE constraint/.test(error.message)) {
+      message = existingId ? "Unable to save this product. Reload and try again." : "Choose a different Product ID or URL Slug; that identifier is already in use.";
+      if (!existingId) { fieldErrors.id = message; fieldErrors.slug = message; }
+    }
+    return { attempt: previousState.attempt + 1, message, fieldErrors, values };
   }
   for (const language of ["en", "ar"]) {
     revalidatePath(`/${language}`);

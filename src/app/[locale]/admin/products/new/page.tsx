@@ -8,5 +8,5 @@ export default async function NewProductPage({ params }: { params: Promise<{ loc
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
   await requireAdmin(locale);
-  return <><h1>Add a sample product</h1><AdminNav locale={locale} /><ProductForm locale={locale} images={productImages} /></>;
+  return <><h1>Add a Sample Product</h1><AdminNav locale={locale} /><ProductForm key="new" locale={locale} images={productImages} /></>;
 }
