@@ -1,7 +1,43 @@
 import { expect, test } from "@playwright/test";
 import { getDictionary } from "../../src/i18n/dictionaries";
 
+test("root negotiation preserves queries and explicit routes remain authoritative", async ({ request }) => {
+  for (const [language, expected] of [["ar-AE,ar;q=0.9,en;q=0.5", "ar"], ["en-US", "en"], ["fr-FR", "en"], ["", "en"]]) {
+    const response = await request.get("/?discovery=families", { headers: { "accept-language": language }, maxRedirects: 0 });
+    expect(response.status()).toBe(307);
+    const target = new URL(response.headers().location, response.url());
+    expect(target.pathname).toBe(`/${expected}`);
+    expect(target.searchParams.get("discovery")).toBe("families");
+    expect(response.headers().vary).toContain("Accept-Language");
+    expect(response.headers()["cache-control"]).toBe("private, no-store");
+  }
+  for (const route of ["/en/catalogue", "/ar", "/brand/logo.png", "/en/admin/login"]) {
+    const response = await request.get(route, { headers: { "accept-language": "ar" }, maxRedirects: 0 });
+    expect(response.status()).toBe(200);
+  }
+});
+
 for (const locale of ["en", "ar"] as const) {
+  test(`${locale} product disclosures preserve return context, history and locale`, async ({ page }) => {
+    const d = getDictionary(locale);
+    await page.goto(`/${locale}/perfumes/diptyque-philosykos-p0170?return=note%3Dvanilla&details=notes`);
+    const description = page.getByRole("article", { name: "Philosykos", exact: true }).getByRole("button", { name: d.details, exact: true });
+    await expect(description).toHaveAttribute("aria-expanded", "false");
+    await expect(page.getByRole("button", { name: d.notes, exact: true })).toHaveAttribute("aria-expanded", "true");
+    await description.click();
+    await page.goBack();
+    await expect(description).toHaveAttribute("aria-expanded", "false");
+    await page.goForward();
+    await expect(description).toHaveAttribute("aria-expanded", "true");
+    await page.reload();
+    await expect(description).toHaveAttribute("aria-expanded", "true");
+    expect(new URL(page.url()).searchParams.get("return")).toBe("note=vanilla");
+    await description.click();
+    await page.getByRole("link", { name: locale === "en" ? "العربية" : "English", exact: true }).click();
+    const other = getDictionary(locale === "en" ? "ar" : "en");
+    await expect(page.getByRole("button", { name: other.details, exact: true })).toHaveAttribute("aria-expanded", "false");
+  });
+
   test(`${locale} information supports direct entry and history without losing filters`, async ({ page }) => {
     const d = getDictionary(locale);
     await page.goto(`/${locale}/catalogue?brand=Dior&info=shipping`);

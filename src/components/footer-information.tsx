@@ -29,7 +29,7 @@ export function FooterInformation({ locale, contactAction }: { locale: Locale; c
       if (!element.open) element.showModal();
     } else if (element.open) element.close();
   }, [topic]);
-  const visible = topics[topic || opened.current];
+  const visible = topics[topic || "contact"];
   function onClose() {
     if (dialog.current?.open) return;
     // A history-driven close must not replace the new URL or destroy Forward.

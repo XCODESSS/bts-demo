@@ -1,5 +1,15 @@
 import { expect, test } from "vitest";
-import { readDiscoveryTab, readInformationTopic, withSearchValue } from "../../src/lib/interface-state";
+import { readDiscoveryTab, readInformationTopic, readDetailPanels, serializeDetailPanels, withSearchValue } from "../../src/lib/interface-state";
+
+test("detail panels have canonical defaults and allowlisted tokens", () => {
+  for (const search of ["", "details=invalid", "details=description,notes", "details=notes,description,notes"]) expect(readDetailPanels(search)).toEqual(["description", "notes"]);
+  expect(readDetailPanels("details=none")).toEqual([]);
+  expect(readDetailPanels("details=notes,unknown,notes")).toEqual(["notes"]);
+  expect(readDetailPanels("details=description")).toEqual(["description"]);
+  expect(serializeDetailPanels(["notes", "description", "notes"])).toBeNull();
+  expect(serializeDetailPanels([])).toBe("none");
+  expect(serializeDetailPanels(["notes"])).toBe("notes");
+});
 
 test("information topics accept only known help panels", () => {
   for (const topic of ["contact", "tracking", "shipping", "returns"]) expect(readInformationTopic(`info=${topic}`)).toBe(topic);

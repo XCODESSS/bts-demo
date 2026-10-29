@@ -10,7 +10,7 @@ import { ProductGallery } from "./product-gallery";
 import { DemoPrice } from "./demo-price";
 import { EnquiryLink } from "../enquiry/enquiry-link";
 import { Icon } from "../../components/icon";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../components/ui/accordion";
+import { ProductDetailsAccordion } from "./product-details-accordion";
 import styles from "./product.module.css";
 
 export function ProductDetail({ product, locale, returnQuery }: {
@@ -51,24 +51,13 @@ export function ProductDetail({ product, locale, returnQuery }: {
           <div className={styles.brandRow}>
             <span>{d.brand}</span><Link href={`/${locale}/catalogue?brand=${encodeURIComponent(product.brand)}`}><bdi translate="no">{product.brand}</bdi></Link>
           </div>
-          <Accordion key={product.id} type="multiple" defaultValue={["description", "notes"]} className={styles.detailsAccordion}>
-            <AccordionItem value="description" className={styles.accordionItem}>
-              <AccordionTrigger headingLevel={2} className={styles.accordionTrigger}>{d.details}</AccordionTrigger>
-              <AccordionContent className={styles.accordionBody}>
-                <p className={styles.description}>{product.description[locale]}</p>
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="notes" className={styles.accordionItem}>
-              <AccordionTrigger headingLevel={2} className={styles.accordionTrigger}>{d.notes}</AccordionTrigger>
-              <AccordionContent className={styles.accordionBody}>
-                <div className={styles.notes}>
-                  {product.notes[locale].length ? <ul>{product.notes[locale].map((note) => <li key={note}>{note}</li>)}</ul>
-                    : <p className={styles.description}>{d.noNotes}</p>}
-                  <small>{d.notesCaption}</small>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
+          <ProductDetailsAccordion key={product.id} descriptionLabel={d.details} notesLabel={d.notes}
+            description={<p className={styles.description}>{product.description[locale]}</p>}
+            notes={<div className={styles.notes}>
+              {product.notes[locale].length ? <ul>{product.notes[locale].map(note => <li key={note}>{note}</li>)}</ul>
+                : <p className={styles.description}>{d.noNotes}</p>}
+              <small>{d.notesCaption}</small>
+            </div>} />
         </div>
       </article>
       <section id="fragrance-details" className={styles.profile} aria-labelledby="fragrance-details-title">

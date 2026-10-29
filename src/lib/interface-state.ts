@@ -9,6 +9,20 @@ export function readInformationTopic(search: string): InformationTopic | null {
   return topic === "contact" || topic === "tracking" || topic === "shipping" || topic === "returns" ? topic : null;
 }
 
+export type DetailPanel = "description" | "notes";
+const detailPanels: readonly DetailPanel[] = ["description", "notes"];
+export function readDetailPanels(search: string): DetailPanel[] {
+  const value = new URLSearchParams(search).get("details");
+  if (value === "none") return [];
+  const tokens = value?.split(",") || [];
+  const selected = detailPanels.filter(panel => tokens.includes(panel));
+  return selected.length ? selected : [...detailPanels];
+}
+export function serializeDetailPanels(panels: readonly DetailPanel[]): string | null {
+  const selected = detailPanels.filter(panel => panels.includes(panel));
+  return selected.length === 2 ? null : selected.join(",") || "none";
+}
+
 /** Mutate one UI key, retaining other state and hashes, never a navigation origin. */
 export function withSearchValue(href: string, key: string, value: string | null): string {
   if (!href.startsWith("/") || href.startsWith("//") || /[\\\u0000-\u0020]/.test(href)) {
