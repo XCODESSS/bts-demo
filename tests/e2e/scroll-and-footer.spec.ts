@@ -6,7 +6,7 @@ test("server-rendered sections keep stable geometry while product photographs la
   await page.evaluate(() => document.fonts.ready);
   const section = page.locator("#customer-experiences");
   const height = await section.evaluate((element) => element.getBoundingClientRect().height);
-  await expect(page.getByRole("region", { name: "Customer experiences", exact: true })).toHaveCount(1);
+  await expect(page.getByRole("region", { name: "Customer Experiences", exact: true })).toHaveCount(1);
   await expect(page.locator('#featured img').first()).toHaveAttribute("loading", "lazy");
   await revealHomeSection(page, "customer-experiences");
   expect(Math.abs((await section.evaluate((element) => element.getBoundingClientRect().height)) - height)).toBeLessThan(1);
@@ -15,7 +15,7 @@ test("server-rendered sections keep stable geometry while product photographs la
   await expect(section.getByText("Sample review", { exact: true })).toHaveCount(3);
   await expect(section.getByText("Demo testimonials for layout preview only. These are not verified customer reviews.", { exact: true })).toBeVisible();
   await revealHomeSection(page, "approach");
-  await expect(page.getByRole("region", { name: "The best fragrance is personal.", exact: true }).getByRole("heading", { level: 2 })).toContainText("100 fragrances.");
+  await expect(page.getByRole("region", { name: "The Best Fragrance Is Personal.", exact: true }).getByRole("heading", { level: 2 })).toContainText("100 fragrances.");
 });
 
 test("shadcn scent tabs highlight on hover and smoothly slide the selected green pill in both directions", async ({ page }) => {
@@ -49,9 +49,9 @@ test("dark footer links the approved Instagram and opens honest shipping informa
     await expect(footer).toHaveCSS("background-color", "rgb(7, 54, 60)");
     await expect(footer.getByRole("link", { name: "@beyond_the_space_perfumes", exact: true }))
       .toHaveAttribute("href", "https://www.instagram.com/beyond_the_space_perfumes/");
-    const shipping = footer.getByRole("button", { name: locale === "en" ? "Shipping information" : "معلومات الشحن", exact: true });
+    const shipping = footer.getByRole("button", { name: locale === "en" ? "Shipping Information" : "معلومات الشحن", exact: true });
     await shipping.click();
-    const dialog = page.getByRole("dialog", { name: locale === "en" ? "Shipping information" : "معلومات الشحن", exact: true });
+    const dialog = page.getByRole("dialog", { name: locale === "en" ? "Shipping Information" : "معلومات الشحن", exact: true });
     await expect(dialog).toBeVisible();
     await expect(dialog).toContainText(locale === "en" ? "must be confirmed with the store" : "يرجى تأكيد");
     await page.keyboard.press("Escape");
@@ -66,8 +66,8 @@ test("the complete catalogue remains accessible when JavaScript is disabled", as
     const page = await context.newPage();
     await page.goto("/en");
     await expect(page.getByTestId("product-card")).toHaveCount(8);
-    await expect(page.getByRole("region", { name: "Customer experiences", exact: true })).toHaveCount(1);
-    await page.getByRole("main").getByRole("link", { name: "View the collection", exact: true }).click();
+    await expect(page.getByRole("region", { name: "Customer Experiences", exact: true })).toHaveCount(1);
+    await page.getByRole("main").getByRole("link", { name: "View the Collection", exact: true }).click();
     await expect(page).toHaveURL(/\/en\/catalogue$/);
     await expect(page.getByTestId("product-card")).toHaveCount(12);
   } finally { await context.close(); }

@@ -37,8 +37,8 @@ for (const locale of ["en", "ar"] as const) {
 
 test("notes and families show matching category illustrations, never mislabeled or repeated bottles", async ({ page }) => {
   await page.goto("/en#scents");
-  const section = page.getByRole("region", { name: "Shop perfume collections", exact: true });
-  for (const tab of ["Fragrance note", "Fragrance family"]) {
+  const section = page.getByRole("region", { name: "Shop Perfume Collections", exact: true });
+  for (const tab of ["Fragrance Note", "Fragrance Family"]) {
     await section.getByRole("tab", { name: tab, exact: true }).click();
     await expect(section.locator('img[src*="/perfumes/"]')).toHaveCount(0);
     const cards = section.getByRole("tabpanel").getByRole("link");
@@ -54,14 +54,14 @@ test("notes and families show matching category illustrations, never mislabeled 
 
 test("perfume houses use compact cards and a searchable, keyboard-dismissible directory", async ({ page, isMobile }) => {
   await page.goto("/en#houses");
-  const brands = page.getByRole("region", { name: "Shop by perfume house", exact: true });
+  const brands = page.getByRole("region", { name: "Shop by Perfume House", exact: true });
   await expect(brands.getByRole("link")).toHaveCount(8);
   await expect(brands.getByRole("link", { name: "Dior", exact: true })).toContainText(/1 fragrance$/);
   await expect(brands.locator("details")).toHaveCount(0);
-  const trigger = brands.getByRole("button", { name: "View all perfume houses", exact: true });
+  const trigger = brands.getByRole("button", { name: "View All Perfume Houses", exact: true });
   await trigger.click();
-  const dialog = page.getByRole("dialog", { name: "Shop by perfume house", exact: true });
-  const search = dialog.getByRole("searchbox", { name: "Search perfume houses", exact: true });
+  const dialog = page.getByRole("dialog", { name: "Shop by Perfume House", exact: true });
+  const search = dialog.getByRole("searchbox", { name: "Search Perfume Houses", exact: true });
   if (isMobile) await expect(dialog.getByRole("button", { name: getDictionary("en").closeHouses })).toBeFocused();
   else await expect(search).toBeFocused();
   await page.evaluate(() => document.fonts.ready);
@@ -69,7 +69,7 @@ test("perfume houses use compact cards and a searchable, keyboard-dismissible di
   await search.fill("__not_a_house__");
   expect(Math.abs((await search.evaluate((el) => el.getBoundingClientRect().top)) - fieldTop)).toBeLessThan(1);
   await expect(dialog.getByText("No perfume houses match your search.", { exact: true })).toBeVisible();
-  await dialog.getByRole("button", { name: "Clear search", exact: true }).click();
+  await dialog.getByRole("button", { name: "Clear Search", exact: true }).click();
   await expect(search).toBeFocused();
   await expect(dialog.getByRole("link")).toHaveCount(40);
   await page.keyboard.press("Escape");
@@ -91,10 +91,10 @@ test("header and main campaign share aligned gutters at wide and phone widths", 
     await page.setViewportSize({ width, height: 1000 });
     await page.goto("/en");
     const brand = page.getByRole("banner").getByRole("link", { name: "Beyond the Space Perfume — Home", exact: true });
-    const campaign = page.getByRole("region", { name: "Fragrances in focus", exact: true });
+    const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
     const left = (locator: Locator) => locator.evaluate((el) => el.getBoundingClientRect().left);
     expect(Math.abs((await left(brand)) - (await left(campaign)))).toBeLessThan(1);
-    expect(await page.getByRole("region", { name: "Customer experiences", exact: true }).evaluate((el) =>
+    expect(await page.getByRole("region", { name: "Customer Experiences", exact: true }).evaluate((el) =>
       Math.abs(el.getBoundingClientRect().width - innerWidth))).toBeLessThan(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   }
@@ -104,7 +104,7 @@ test("product and discovery cards share the same hover lift", async ({ page, isM
   test.skip(isMobile, "Touch has no persistent hover interaction.");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
-  const note = page.getByRole("region", { name: "Shop perfume collections", exact: true }).getByRole("link", { name: "Lemon", exact: true });
+  const note = page.getByRole("region", { name: "Shop Perfume Collections", exact: true }).getByRole("link", { name: "Lemon", exact: true });
   const product = page.locator("#featured").getByTestId("product-card").first().getByRole("link");
   for (const card of [note, product]) {
     await card.hover();

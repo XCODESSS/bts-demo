@@ -6,10 +6,10 @@ test("homepage opens the real collection and product journey", async ({
   await page.goto("/");
   await expect(page).toHaveURL(/\/en$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
-    "Discover your next fragrance.",
+    "Discover Your Next Fragrance.",
   );
   await page
-    .getByRole("link", { name: "Explore collection", exact: true })
+    .getByRole("link", { name: "Explore Collection", exact: true })
     .click();
   await expect(page.getByTestId("product-card")).toHaveCount(12);
   await page
@@ -55,7 +55,7 @@ test("100 products paginate and oversized page requests clamp", async ({
 test("search, clear and empty states are real", async ({ page }) => {
   await page.goto("/en/catalogue");
   await page.getByRole("main")
-    .getByRole("searchbox", { name: "Search fragrances" })
+    .getByRole("searchbox", { name: "Search Fragrances" })
     .fill("armaf iconic");
   await page.getByRole("main").getByRole("searchbox").press("Enter");
   await expect(page.getByTestId("product-card")).toHaveCount(1);
@@ -65,9 +65,9 @@ test("search, clear and empty states are real", async ({ page }) => {
   await page.getByRole("main").getByRole("searchbox").fill("there-is-no-perfume-with-this-name");
   await page.getByRole("main").getByRole("searchbox").press("Enter");
   await expect(
-    page.getByRole("heading", { name: "A different direction, perhaps?" }),
+    page.getByRole("heading", { name: "A Different Direction, Perhaps?" }),
   ).toBeVisible();
-  await page.getByRole("link", { name: "Clear filters", exact: true }).click();
+  await page.getByRole("link", { name: "Clear Filters", exact: true }).click();
   await expect(page.getByTestId("product-card")).toHaveCount(12);
 });
 
@@ -79,7 +79,7 @@ test("filter state survives locale switching, reload and product return", async 
   if (isMobile)
     await page.getByRole("button", { name: "Filters", exact: true }).click();
   await page
-    .getByLabel("Perfume house", { exact: true })
+    .getByLabel("Perfume House", { exact: true })
     .selectOption("Burberry");
   await expect(page).toHaveURL(/brand=Burberry/);
   await page.reload();
@@ -93,7 +93,7 @@ test("filter state survives locale switching, reload and product return", async 
   await expect(page).toHaveURL(new RegExp(productPath));
   await expect(page.locator("html")).toHaveAttribute("dir", "ltr");
   await page
-    .getByRole("link", { name: "Back to the collection", exact: true })
+    .getByRole("link", { name: "Back to the Collection", exact: true })
     .click();
   await expect(page).toHaveURL(/\/en\/catalogue\?brand=Burberry/);
 });
@@ -105,10 +105,10 @@ test("sort, combined filters and browser back preserve query state", async ({
   await page.goto("/en/catalogue");
   if (isMobile)
     await page.getByRole("button", { name: "Filters", exact: true }).click();
-  await page.getByLabel("Perfume house", { exact: true }).selectOption("Armaf");
+  await page.getByLabel("Perfume House", { exact: true }).selectOption("Armaf");
   await expect(page).toHaveURL(/brand=Armaf/);
   await page
-    .getByLabel("Fragrance family", { exact: true })
+    .getByLabel("Fragrance Family", { exact: true })
     .selectOption("amber");
   await expect(page).toHaveURL(/family=amber/);
   await expect(
@@ -133,7 +133,7 @@ for (const design of [
   }) => {
     await page.goto("/en/catalogue?page=3");
     await page
-      .getByRole("button", { name: "Choose design", exact: true })
+      .getByRole("button", { name: "Choose Design", exact: true })
       .click();
     await page
       .getByRole("button", { name: `Preview ${design}`, exact: true })
@@ -141,19 +141,19 @@ for (const design of [
     if (isMobile)
       await page.getByRole("button", { name: "Filters", exact: true }).click();
     await page
-      .getByLabel("Fragrance note", { exact: true })
+      .getByLabel("Fragrance Note", { exact: true })
       .selectOption("mint");
     await expect(page).toHaveURL(/note=mint/);
     await expect(page).not.toHaveURL(/page=/);
     await expect(page.getByTestId("product-card")).toHaveCount(4);
     await page
-      .getByLabel("Perfume house", { exact: true })
+      .getByLabel("Perfume House", { exact: true })
       .selectOption("Armaf");
     await expect(page).toHaveURL(/brand=Armaf/);
     await page.getByLabel("For", { exact: true }).selectOption("men");
     await expect(page).toHaveURL(/gender=men/);
     await page
-      .getByLabel("Fragrance family", { exact: true })
+      .getByLabel("Fragrance Family", { exact: true })
       .selectOption("amber");
     await expect(page).toHaveURL(/family=amber/);
     await page.getByRole("main").getByRole("searchbox").fill("iconic");
@@ -212,7 +212,7 @@ test("note filtering survives pagination and invalid note URLs fail safely", asy
   await page.goto("/en/catalogue?note=not-a-real-note");
   await expect(page.getByTestId("product-card")).toHaveCount(12);
   await expect(page.getByRole("status")).toContainText("100 fragrances");
-  await expect(page.getByLabel("Fragrance note", { exact: true })).toHaveValue(
+  await expect(page.getByLabel("Fragrance Note", { exact: true })).toHaveValue(
     "",
   );
 });
@@ -222,10 +222,10 @@ test("unknown products and missing photographs fail safely", async ({
 }) => {
   await page.goto("/en/perfumes/not-a-real-perfume");
   await expect(
-    page.getByRole("heading", { name: "This scent is still a mystery." }),
+    page.getByRole("heading", { name: "This Scent Is Still a Mystery." }),
   ).toBeVisible();
   await page
-    .getByRole("link", { name: "Explore collection", exact: true })
+    .getByRole("link", { name: "Explore Collection", exact: true })
     .click();
   await expect(page.getByTestId("product-card")).toHaveCount(12);
   await page.route("**/perfumes/*.webp", (route) => route.abort());
@@ -239,10 +239,10 @@ test("design cards switch the same site and preserve filters, locale and reload"
   await page.goto("/en/catalogue?brand=Burberry");
   const originalUrl = page.url();
   await page
-    .getByRole("button", { name: "Choose design", exact: true })
+    .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   const chooser = page.getByRole("dialog", {
-    name: "Choose a design",
+    name: "Choose a Design",
     exact: true,
   });
   await expect(chooser).toBeVisible();
@@ -288,7 +288,7 @@ test("design switching still works when browser storage is blocked", async ({
   });
   await page.goto("/en");
   await page
-    .getByRole("button", { name: "Choose design", exact: true })
+    .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
     .getByRole("button", { name: "Preview Modern Gallery", exact: true })
@@ -316,10 +316,10 @@ test("mobile menu has meaningful keyboard close behavior", async ({
 }) => {
   test.skip(!isMobile, "Menu is only shown at mobile widths");
   await page.goto("/en");
-  await page.getByRole("button", { name: "Open menu" }).click();
+  await page.getByRole("button", { name: "Open Menu" }).click();
   await expect(
-    page.getByRole("button", { name: "Close menu" }),
+    page.getByRole("button", { name: "Close Menu" }),
   ).toHaveAttribute("aria-expanded", "true");
   await page.keyboard.press("Escape");
-  await expect(page.getByRole("button", { name: "Open menu" })).toBeFocused();
+  await expect(page.getByRole("button", { name: "Open Menu" })).toBeFocused();
 });

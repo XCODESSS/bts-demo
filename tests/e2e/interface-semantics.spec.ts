@@ -1,6 +1,18 @@
 import { expect, test } from "@playwright/test";
 import { getDictionary } from "../../src/i18n/dictionaries";
 
+test("local font failure leaves readable bilingual content and navigation", async ({ page }) => {
+  await page.route("**/*.woff2", route => route.abort());
+  for (const locale of ["en", "ar"] as const) {
+    await page.goto(`/${locale}/catalogue`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(getDictionary(locale).allTitle);
+    await expect(page.getByTestId("product-card")).toHaveCount(12);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await page.getByTestId("product-card").first().getByRole("link").click();
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+  }
+});
+
 test("product disclosure headings do not skip a level", async ({ page }) => {
   await page.goto("/en/perfumes/diptyque-philosykos-p0170");
   for (const name of [getDictionary("en").details, getDictionary("en").notes]) {

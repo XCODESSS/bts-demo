@@ -11,12 +11,12 @@ test("cards show stable, clearly labelled demo discounts that match product deta
     const original = await price.locator("del").innerText();
     const discounted = await price.locator("strong").innerText();
     expect(original).not.toBe(discounted);
-    await expect(card.getByText(/−\d+%/)).toBeVisible();
+    await expect(card.getByText(locale === "en" ? "−30%" : "−٣٠٪؜", { exact: true })).toBeVisible();
     const productName = await card.getByRole("heading").innerText();
     const photograph = await card.locator("img").getAttribute("src");
     await card.getByRole("link").click();
     await expect(page.getByRole("article", { name: productName, exact: true }).getByRole("button", {
-      name: locale === "en" ? "Enlarge product photograph" : "تكبير صورة العطر", exact: true,
+      name: locale === "en" ? "Enlarge Product Photograph" : "تكبير صورة العطر", exact: true,
     }).locator("img")).toHaveAttribute("src", photograph!);
     const detailPrice = page.getByRole("article", { name: productName, exact: true }).getByTestId("demo-price");
     await expect(detailPrice.locator("del")).toHaveText(original);
@@ -32,7 +32,7 @@ test("cards show stable, clearly labelled demo discounts that match product deta
 test("hero motion has no pause button and respects reduced-motion preferences", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
-  const campaign = page.getByRole("region", { name: "Fragrances in focus", exact: true });
+  const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
   const running = () => campaign.evaluate((element) => element.getAnimations({ subtree: true }).some((animation) => animation.playState === "running"));
   await expect.poll(running).toBe(true);
   await expect(campaign.getByRole("button", { name: /Pause animations|Resume animations/ })).toHaveCount(0);
@@ -44,7 +44,7 @@ test("hero motion has no pause button and respects reduced-motion preferences", 
 test("product photograph zoom supports Escape and focus restoration in both languages", async ({ page }) => {
   for (const locale of ["en", "ar"]) {
     await page.goto(`/${locale}/perfumes/xerjoff-torino21-p0574`);
-    const name = locale === "en" ? "Enlarge product photograph" : "تكبير صورة العطر";
+    const name = locale === "en" ? "Enlarge Product Photograph" : "تكبير صورة العطر";
     const trigger = page.getByRole("button", { name, exact: true });
     await trigger.click();
     await expect(page.getByRole("dialog", { name, exact: true })).toBeVisible();
@@ -56,7 +56,7 @@ test("product photograph zoom supports Escape and focus restoration in both lang
 
 test("campaign displays the supplied BS logo instead of a typed brand name", async ({ page }) => {
   await page.goto("/en");
-  const campaign = page.getByRole("region", { name: "Fragrances in focus", exact: true });
+  const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
   await expect(campaign.getByRole("img", { name: "Beyond the Space Perfume", exact: true }))
     .toHaveAttribute("src", /\/brand\/logo\.png$/);
   await expect(campaign.getByText("Beyond the Space", { exact: true })).toHaveCount(0);
@@ -65,11 +65,11 @@ test("campaign displays the supplied BS logo instead of a typed brand name", asy
 test("homepage uses substantial gold and green section backgrounds", async ({ page }) => {
   await page.goto("/en");
   await loadHomeSections(page);
-  await expect(page.getByRole("region", { name: "Shop perfume collections", exact: true }))
+  await expect(page.getByRole("region", { name: "Shop Perfume Collections", exact: true }))
     .toHaveCSS("background-color", "rgb(234, 215, 185)");
   await expect(page.getByRole("region", { name: "Explore. Discover. Enquire.", exact: true }))
     .toHaveCSS("background-color", "rgb(212, 185, 145)");
-  await expect(page.getByRole("region", { name: "The best fragrance is personal.", exact: true }))
+  await expect(page.getByRole("region", { name: "The Best Fragrance Is Personal.", exact: true }))
     .toHaveCSS("background-color", "rgb(7, 54, 60)");
 });
 
@@ -129,7 +129,7 @@ test("Arabic header search and empty search keep safe catalogue routes", async (
 test("campaign missing photos fail safely", async ({ page }) => {
   await page.route("**/perfumes/*.webp", (route) => route.abort());
   await page.goto("/en");
-  const campaign = page.getByRole("region", { name: "Fragrances in focus", exact: true });
+  const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
   await expect(campaign.getByText("Photograph unavailable", { exact: true })).toHaveCount(3);
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 });
@@ -164,13 +164,13 @@ test("green and gold storefront is responsive, bilingual and usable with reduced
 
 test("discovery tabs lead to actual note and family results", async ({ page }) => {
   await page.goto("/en");
-  const collections = page.getByRole("region", { name: "Shop perfume collections", exact: true });
-  await expect(collections.getByRole("tab", { name: "Fragrance note", exact: true })).toHaveAttribute("aria-selected", "true");
+  const collections = page.getByRole("region", { name: "Shop Perfume Collections", exact: true });
+  await expect(collections.getByRole("tab", { name: "Fragrance Note", exact: true })).toHaveAttribute("aria-selected", "true");
   await collections.getByRole("link", { name: "Lemon", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/catalogue\?note=lemon$/);
   await expect(page.getByTestId("product-card").first()).toBeVisible();
   await page.goto("/en");
-  const families = collections.getByRole("tab", { name: "Fragrance family", exact: true });
+  const families = collections.getByRole("tab", { name: "Fragrance Family", exact: true });
   await families.click();
   await expect(families).toHaveAttribute("aria-selected", "true");
   await collections.getByRole("link", { name: "Woody", exact: true }).click();
@@ -181,14 +181,14 @@ test("discovery tabs lead to actual note and family results", async ({ page }) =
 test("all three designs use logo green and gold on a light page", async ({ page }) => {
   await page.goto("/en");
   for (const name of ["Botanical Atelier", "Modern Gallery", "Linen Boutique"]) {
-    await page.getByRole("button", { name: "Choose design", exact: true }).click();
+    await page.getByRole("button", { name: "Choose Design", exact: true }).click();
     await page.getByRole("button", { name: `Preview ${name}`, exact: true }).click();
     const tokens = await page.evaluate(() => {
       const style = getComputedStyle(document.documentElement);
       return { green: style.getPropertyValue("--brand-green").trim(), gold: style.getPropertyValue("--brand-gold").trim() };
     });
     expect(tokens).toEqual({ green: "#07363c", gold: "#d4b991" });
-    await expect(page.getByRole("region", { name: "Fragrances in focus", exact: true }))
+    await expect(page.getByRole("region", { name: "Fragrances in Focus", exact: true }))
       .toHaveCSS("background-color", "rgb(7, 54, 60)");
   }
 });
@@ -196,8 +196,8 @@ test("all three designs use logo green and gold on a light page", async ({ page 
 test("header search starts a fresh real catalogue query", async ({ page }) => {
   await page.goto("/en/perfumes/xerjoff-torino21-p0574?return=brand%3DBurberry");
   const header = page.getByRole("banner");
-  await header.getByRole("searchbox", { name: "Search the collection", exact: true }).fill("armaf iconic");
-  await header.getByRole("button", { name: "Search the catalogue", exact: true }).click();
+  await header.getByRole("searchbox", { name: "Search the Collection", exact: true }).fill("armaf iconic");
+  await header.getByRole("button", { name: "Search the Catalogue", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/catalogue\?q=armaf\+iconic$/);
   await expect(page.getByTestId("product-card")).toHaveCount(1);
   await expect(page.getByTestId("product-card")).toContainText("Club de Nuit Iconic");
@@ -205,8 +205,8 @@ test("header search starts a fresh real catalogue query", async ({ page }) => {
 
 test("retail campaign uses current products and leads to the collection", async ({ page }) => {
   await page.goto("/en");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Discover your next fragrance.");
-  const campaign = page.getByRole("region", { name: "Fragrances in focus", exact: true });
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("Discover Your Next Fragrance.");
+  const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
   await expect(campaign.getByRole("link")).toHaveCount(3);
   for (const link of await campaign.getByRole("link").all()) {
     await expect(link).toHaveAttribute("href", /^\/en\/perfumes\//);
@@ -214,6 +214,6 @@ test("retail campaign uses current products and leads to the collection", async 
     expect(imageUrl.origin).toBe(new URL(page.url()).origin);
     expect(imageUrl.pathname).toMatch(/^\/perfumes\/.+\.webp$/);
   }
-  await page.getByRole("main").getByRole("link", { name: "Explore collection", exact: true }).click();
+  await page.getByRole("main").getByRole("link", { name: "Explore Collection", exact: true }).click();
   await expect(page.getByTestId("product-card")).toHaveCount(12);
 });

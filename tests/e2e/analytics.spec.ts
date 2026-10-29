@@ -7,7 +7,7 @@ test("consent gates analytics; navigation and enquiry events are safe and single
     await route.fulfill({ status: 200, contentType: "application/javascript", body: "/* mocked external GA4 boundary */" });
   });
   await page.goto("/en/catalogue?q=private-contact-text");
-  const consent = page.getByRole("button", { name: "Allow analytics", exact: true });
+  const consent = page.getByRole("button", { name: "Allow Analytics", exact: true });
   test.skip(!(await consent.count()), "Build with NEXT_PUBLIC_GA_MEASUREMENT_ID=G-BTSTEST001 to exercise the mocked GA adapter.");
   expect(requests).toHaveLength(0);
   await consent.click();
@@ -15,7 +15,7 @@ test("consent gates analytics; navigation and enquiry events are safe and single
   await expect.poll(async () => (await events()).filter((entry) => entry[1] === "page_view").length).toBe(1);
   expect(JSON.stringify(await events())).not.toContain("private-contact-text");
   // A query-only navigation should not count as another page view.
-  await page.getByRole("link", { name: "Clear filters", exact: true }).click();
+  await page.getByRole("link", { name: "Clear Filters", exact: true }).click();
   expect((await events()).filter((entry) => entry[1] === "page_view")).toHaveLength(1);
   await page.getByRole("link", { name: "View Club de Nuit Iconic", exact: true }).click();
   await expect.poll(async () => (await events()).filter((entry) => entry[1] === "page_view").length).toBe(2);
@@ -39,7 +39,7 @@ test("consent gates analytics; navigation and enquiry events are safe and single
   expect((await events()).length).toBe(before);
   await page.reload();
   expect(await page.evaluate(() => window.dataLayer?.length || 0)).toBe(0);
-  await expect(page.getByRole("button", { name: "Analytics preferences" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Analytics Preferences" })).toBeVisible();
 });
 
 test("no Google tags load without consent", async ({ page }) => {

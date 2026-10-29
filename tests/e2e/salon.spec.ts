@@ -2,8 +2,8 @@ import { expect, test } from "@playwright/test";
 
 test("Scent Salon is an additional persisted option; existing designs and filters survive", async ({ page }) => {
   await page.goto("/en/catalogue?brand=Burberry");
-  await page.getByRole("button", { name: "Choose design", exact: true }).click();
-  const dialog = page.getByRole("dialog", { name: "Choose a design", exact: true });
+  await page.getByRole("button", { name: "Choose Design", exact: true }).click();
+  const dialog = page.getByRole("dialog", { name: "Choose a Design", exact: true });
   await expect(dialog.getByRole("button", { name: /^Preview / })).toHaveCount(4);
   for (const design of ["Botanical Atelier", "Modern Gallery", "Linen Boutique", "Scent Salon"]) {
     await expect(dialog.getByRole("button", { name: `Preview ${design}`, exact: true })).toHaveCount(1);
@@ -25,8 +25,8 @@ test("Scent Salon is an additional persisted option; existing designs and filter
 test("salon note selection changes a real perfume and opens its exact collection", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("bts-demo-design", "salon"));
   await page.goto("/en");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A space for your scent.");
-  const notes = page.getByRole("navigation", { name: "Explore a fragrance note", exact: true });
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A Space for Your Scent.");
+  const notes = page.getByRole("navigation", { name: "Explore a Fragrance Note", exact: true });
   await expect(notes.getByRole("link")).toHaveCount(4);
   await expect(page.locator("figure")).toContainText("Torino21");
   const rose = notes.getByRole("link", { name: "Rose", exact: true });
@@ -35,7 +35,7 @@ test("salon note selection changes a real perfume and opens its exact collection
   await expect(rose).toHaveAttribute("aria-current", "true");
   await expect(page.locator("figure")).toContainText("Pour Homme");
   await expect(page.locator("figure")).toContainText("14 fragrances with Rose");
-  await page.getByRole("link", { name: "Explore matching fragrances", exact: true }).click();
+  await page.getByRole("link", { name: "Explore Matching Fragrances", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/catalogue\?note=rose/);
   await expect(page.getByRole("status")).toContainText("14 fragrances");
 });
@@ -81,11 +81,11 @@ test("salon keeps note discovery usable when photographs fail", async ({ page })
   await page.addInitScript(() => localStorage.setItem("bts-demo-design", "salon"));
   await page.route("**/perfumes/*.webp", (route) => route.abort());
   await page.goto("/en");
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A space for your scent.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A Space for Your Scent.");
   await expect(page.locator("figure").getByText("Photograph unavailable", { exact: true })).toBeVisible();
-  await page.getByRole("navigation", { name: "Explore a fragrance note", exact: true }).getByRole("link", { name: "Oud", exact: true }).click();
+  await page.getByRole("navigation", { name: "Explore a Fragrance Note", exact: true }).getByRole("link", { name: "Oud", exact: true }).click();
   await expect(page.locator("figure")).toContainText("Haltane");
-  await page.getByRole("link", { name: "Explore matching fragrances", exact: true }).click();
+  await page.getByRole("link", { name: "Explore Matching Fragrances", exact: true }).click();
   await expect(page).toHaveURL(/note=oud/);
   await expect(page.getByRole("status")).toContainText("6 fragrances");
 });
@@ -94,7 +94,7 @@ test("salon note changes respect reduced motion and keep their full content", as
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.addInitScript(() => localStorage.setItem("bts-demo-design", "salon"));
   await page.goto("/en");
-  await page.getByRole("navigation", { name: "Explore a fragrance note", exact: true }).getByRole("link", { name: "Vanilla", exact: true }).click();
+  await page.getByRole("navigation", { name: "Explore a Fragrance Note", exact: true }).getByRole("link", { name: "Vanilla", exact: true }).click();
   await expect(page.locator("figure")).toContainText("13 fragrances with Vanilla");
   const imageLink = page.locator("figure").getByRole("link").first();
   await expect(imageLink).toBeVisible();
@@ -104,9 +104,9 @@ test("salon note changes respect reduced motion and keep their full content", as
 test("salon selection works for the session when persistent storage is blocked", async ({ page }) => {
   await page.addInitScript(() => Object.defineProperty(Storage.prototype, "setItem", { value() { throw new DOMException("Blocked", "SecurityError"); } }));
   await page.goto("/en");
-  await page.getByRole("button", { name: "Choose design", exact: true }).click();
+  await page.getByRole("button", { name: "Choose Design", exact: true }).click();
   await page.getByRole("button", { name: "Preview Scent Salon", exact: true }).click();
-  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A space for your scent.");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("A Space for Your Scent.");
   await page.getByRole("link", { name: "العربية", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("مساحة تشبه عطرك.");

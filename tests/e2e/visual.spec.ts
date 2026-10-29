@@ -21,7 +21,7 @@ for (const [design, name] of [
     });
     await page.goto("/en");
     await page
-      .getByRole("button", { name: "Choose design", exact: true })
+      .getByRole("button", { name: "Choose Design", exact: true })
       .click();
     await page
       .getByRole("button", { name: `Preview ${name}`, exact: true })
@@ -111,7 +111,7 @@ test("design changes animate without overriding reduced-motion preferences", asy
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
   await page
-    .getByRole("button", { name: "Choose design", exact: true })
+    .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
     .getByRole("button", { name: "Preview Modern Gallery", exact: true })
@@ -134,7 +134,7 @@ test("design changes animate without overriding reduced-motion preferences", asy
     .toBe(true);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page
-    .getByRole("button", { name: "Choose design", exact: true })
+    .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
     .getByRole("button", { name: "Preview Linen Boutique", exact: true })
@@ -166,7 +166,7 @@ test("design selection still works without native view-transition support", asyn
     }),
   );
   await page
-    .getByRole("button", { name: "Choose design", exact: true })
+    .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
     .getByRole("button", { name: "Preview Modern Gallery", exact: true })
@@ -174,7 +174,7 @@ test("design selection still works without native view-transition support", asyn
   await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await page
-    .getByRole("link", { name: "Explore collection", exact: true })
+    .getByRole("link", { name: "Explore Collection", exact: true })
     .click();
   await expect(page.getByTestId("product-card")).toHaveCount(12);
   expect(errors).toEqual([]);
@@ -185,12 +185,12 @@ test("the design dialog supports keyboard dismissal and focus restoration", asyn
 }, testInfo) => {
   await page.goto("/en");
   const trigger = page.getByRole("button", {
-    name: "Choose design",
+    name: "Choose Design",
     exact: true,
   });
   await trigger.click();
   const dialog = page.getByRole("dialog", {
-    name: "Choose a design",
+    name: "Choose a Design",
     exact: true,
   });
   await expect(dialog).toBeVisible();

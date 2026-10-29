@@ -30,4 +30,8 @@ test("navigation and discovery controls visibly respond to hover", async ({ page
   await feedback(page.getByRole("navigation", { name: d.breadcrumbs }).getByRole("link").first());
   await feedback(page.getByRole("link", { name: d.additionalInfo, exact: true }));
   await feedback(page.getByRole("button", { name: d.details, exact: true }));
+  await feedback(page.getByRole("article", { name: "Philosykos", exact: true }).getByRole("link", { name: "Woody", exact: true }));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: d.menu, exact: true }).click();
+  await feedback(page.getByRole("banner").getByRole("link", { name: d.collection, exact: true }));
 });

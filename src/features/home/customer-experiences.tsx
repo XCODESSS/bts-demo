@@ -22,7 +22,7 @@ export function CustomerExperiences({ locale }: { locale: Locale }) {
     </div>
     <div className={styles.instagram}>
       <Icon name="instagram" size={32} />
-      <div><h3>{d.instagramTitle}</h3><p>{d.instagramCopy}</p></div>
+      <div><h3>{d.instagramTitle}</h3><p>{d.instagramCopy.split("{brand}")[0]}<span translate="no">{d.instagramBrand}</span>{d.instagramCopy.split("{brand}")[1]}</p></div>
       <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="button button-light">
         {d.instagramAction}<Icon name="arrow" size={17} className="directional" />
       </a>
