@@ -7,11 +7,12 @@ export const manrope = localFont({
     { path: "../../node_modules/@fontsource/manrope/files/manrope-latin-600-normal.woff2", weight: "600" },
   ], display: "swap", preload: true, variable: "--font-manrope",
 });
-export const cormorant = localFont({
+export const bodoni = localFont({
   src: [
-    { path: "../../node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2", weight: "500" },
-    { path: "../../node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2", weight: "600" },
-  ], display: "swap", preload: true, variable: "--font-cormorant",
+    { path: "../../node_modules/@fontsource/bodoni-moda/files/bodoni-moda-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "../../node_modules/@fontsource/bodoni-moda/files/bodoni-moda-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ], display: "swap", preload: true, variable: "--font-bodoni",
+  fallback: ["Georgia", "Times New Roman", "serif"], adjustFontFallback: "Times New Roman",
 });
 export const arabic = localFont({
   src: [

@@ -1,4 +1,4 @@
-.consent { margin: 24px auto; padding: 16px 24px; max-width: 760px; border: 1px solid #b5c7b8; border-radius: 12px; background: #f5f8f2; color: #213c2c; }
+.consent { font-size: var(--type-body); line-height: var(--leading-body); margin: 24px auto; padding: 16px 24px; max-width: 760px; border: 1px solid #b5c7b8; border-radius: 12px; background: #f5f8f2; color: #213c2c; }
 .consent button:hover { background: #eaf1ed; border-color: #07363c; text-decoration: underline; }
 .consent p { margin-bottom: 12px; }
-.consent button { min-height: 44px; padding: 10px 16px; margin-inline-end: 12px; border: 1px solid #657f6b; border-radius: 8px; background: white; color: inherit; cursor: pointer; }
+.consent button { font-size: var(--type-label); min-height: 44px; padding: 10px 16px; margin-inline-end: 12px; border: 1px solid #657f6b; border-radius: 8px; background: white; color: inherit; cursor: pointer; }

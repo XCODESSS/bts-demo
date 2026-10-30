@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { manrope, cormorant, arabic } from "../../styles/fonts";
+import { manrope, bodoni, arabic } from "../../styles/fonts";
 import { Suspense } from "react";
 import { AnalyticsProvider } from "../../features/analytics/analytics-provider";
 import { siteOrigin } from "../../features/seo/metadata";
 import { notFound } from "next/navigation";
 import "../../styles/shadcn.css";
 import "./globals.css";
+import "../../styles/typography.css";
 import { isLocale } from "../../i18n/config";
 import { getDictionary } from "../../i18n/dictionaries";
 import { SiteHeader } from "../../components/site-header";
@@ -45,7 +46,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       data-design="atelier"
-      className={`${manrope.variable} ${cormorant.variable} ${arabic.variable}`}
+      className={`${manrope.variable} ${bodoni.variable} ${arabic.variable}`}
       suppressHydrationWarning
     >
       <head>

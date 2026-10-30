@@ -1,9 +1,13 @@
 import { expect, test } from "@playwright/test";
 import { getDictionary } from "../../src/i18n/dictionaries";
+import { expectDocumentFits } from "./helpers/typography";
 
 test("local font failure leaves readable bilingual content and navigation", async ({ page }) => {
   await page.route("**/*.woff2", route => route.abort());
   for (const locale of ["en", "ar"] as const) {
+    await page.goto(`/${locale}`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(getDictionary(locale).storefrontTitle);
+    await expectDocumentFits(page);
     await page.goto(`/${locale}/catalogue`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(getDictionary(locale).allTitle);
     await expect(page.getByTestId("product-card")).toHaveCount(12);

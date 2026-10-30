@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { expectFamily, expectMinSize } from "./helpers/typography";
 
 test("Scent Salon is an additional persisted option; existing designs and filters survive", async ({ page }) => {
   await page.goto("/en/catalogue?brand=Burberry");
@@ -59,7 +60,7 @@ for (const locale of ["en", "ar"] as const) {
   });
 }
 
-test("salon keeps long official product titles complete and within two lines", async ({ page }) => {
+test("salon keeps official product titles complete, readable and unclipped", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("bts-demo-design", "salon"));
   for (const locale of ["en", "ar"]) {
     await page.goto(`/${locale}/perfumes/giorgio-armani-emporio-armani-stronger-with-you-powerfully-p0042`);
@@ -68,11 +69,16 @@ test("salon keeps long official product titles complete and within two lines", a
     await expect(title).toHaveText("Emporio Armani Stronger With You Powerfully");
     for (const width of [360, 768, 1440]) {
       await page.setViewportSize({ width, height: 1000 });
-      const lines = await title.evaluate((element) => {
-        const range = document.createRange(); range.selectNodeContents(element);
-        return new Set([...range.getClientRects()].map((rect) => Math.round(rect.top))).size;
-      });
-      expect(lines).toBeLessThanOrEqual(2);
+      await expectFamily(title.locator("bdi"), "--font-manrope");
+      await expectMinSize(title, 26);
+      const dimensions = await title.evaluate(el => ({
+        width: el.clientWidth, contentWidth: el.scrollWidth,
+        height: el.clientHeight, contentHeight: el.scrollHeight,
+        overflow: getComputedStyle(el).overflow,
+      }));
+      expect(dimensions.contentWidth).toBeLessThanOrEqual(dimensions.width + 1);
+      expect(dimensions.contentHeight).toBeLessThanOrEqual(dimensions.height + 1);
+      expect(dimensions.overflow).not.toBe("hidden");
     }
   }
 });

@@ -4,13 +4,13 @@
 :global(html[data-design="salon"]) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
 :global(html[data-design="salon"]) .collections :global(.section-heading h2) { max-width: 13ch; }
 :global(html[data-design="salon"]) .featured { padding-block: 64px 96px; }
-:global(html[data-design="salon"]) .demoDisclaimer { margin: 0 0 28px; font-size: 14px; color: var(--ink); max-width: 70ch; }
+:global(html[data-design="salon"]) .demoDisclaimer { margin: 0 0 28px; font-size: var(--type-label); color: var(--ink); max-width: 70ch; }
 :global(html[data-design="salon"]) .guideBand { background: var(--gold-surface); border: 0; }
 :global(html[data-design="salon"]) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
-:global(html[data-design="salon"]) .guide h2 { font: 500 40px/1.05 var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
+:global(html[data-design="salon"]) .guide h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
 :global(html[data-design="salon"]) .guide ul { grid-template-columns: 1fr; gap: 12px; }
-:global(html[data-design="salon"]) .guide li { justify-content: start; border: 0; padding: 0; font-size: 16px; }
-:global(html[lang="ar"][data-design="salon"]) .guide h2 { font-family: var(--body); font-size: 32px; line-height: 1.5; }
+:global(html[data-design="salon"]) .guide li { justify-content: start; border: 0; padding: 0; font-size: var(--type-body); }
+:global(html[lang="ar"][data-design="salon"]) .guide h2 { font-family: var(--body); font-size: 2rem; line-height: var(--leading-display); }
 @media (max-width: 900px) {
   :global(html[data-design="salon"]) .collections { column-gap: 32px; }
 }
@@ -20,22 +20,23 @@
   :global(html[data-design="salon"]) .collections :global(.section-heading h2) { max-width: none; }
   :global(html[data-design="salon"]) .featured { padding-block: 48px 64px; }
   :global(html[data-design="salon"]) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
-  :global(html[data-design="salon"]) .guide h2 { font-size: 36px; max-width: none; }
+  :global(html[data-design="salon"]) .guide h2 { font-size: var(--type-section); max-width: none; }
 }
 .collectionsBand { background: var(--gold-surface); border-block: 1px solid #d4b991; }
 .collections { padding-block: 48px; }
+.collections :global(.section-heading p) { color: var(--ink); }
 .collectionsHeading { text-align: center; }
-.collectionsHeading h2 { font: 600 clamp(28px, 3vw, 40px)/1.25 var(--body); letter-spacing: -1.2px; margin: 0 0 14px; }
-.collectionsHeading p { max-width: 58ch; font-size: 14px; color: var(--muted); line-height: 1.8; margin: 0 auto; }
+.collectionsHeading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin: 0 0 14px; }
+.collectionsHeading p { max-width: 58ch; font-size: var(--type-body); color: var(--ink); line-height: var(--leading-body); margin: 0 auto; }
 :global([dir="rtl"]) .collectionsHeading h2 { line-height: 1.6; letter-spacing: 0; }
 .featured { padding-block: 24px 48px; }
 .viewAll { display: flex; justify-content: center; margin-top: 28px; }
-.demoDisclaimer { font-size: 11px; line-height: 1.8; color: var(--muted); margin: -12px 0 22px; }
+.demoDisclaimer { font-size: var(--type-label); line-height: var(--leading-body); color: var(--muted); margin: -12px 0 22px; }
 .guideBand { background: var(--brand-gold); border-block: 1px solid #07363c22; }
 .guide { padding-block: 34px; }
-.guide h2 { font: 600 25px/1.4 var(--body); margin: 0 0 26px; text-align: center; letter-spacing: -.7px; }
+.guide h2 { font: 600 1.5rem/1.4 var(--body); margin: 0 0 26px; text-align: center; letter-spacing: -.7px; }
 .guide ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; }
-.guide li { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 10px 22px; font-size: 13px; line-height: 1.8; }
+.guide li { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 10px 22px; font-size: var(--type-body); line-height: var(--leading-body); }
 .guide li + li { border-inline-start: 1px solid #07363c22; }
 .guide li > svg { flex-shrink: 0; }
 :global(html[data-design="linen"]) .featured :global(.product-grid) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
@@ -44,11 +45,11 @@
 }
 @media (max-width: 650px) {
   .collections { padding-block: 32px; }
-  .collectionsHeading p { font-size: 12px; }
+  .collectionsHeading p { font-size: var(--type-body); }
   .featured { padding-block: 20px 32px; }
   .guide { padding-block: 30px; }
-  .guide h2 { font-size: 22px; }
+  .guide h2 { font-size: 1.5rem; }
   .guide ul { grid-template-columns: 1fr; gap: 12px; }
-  .guide li { justify-content: flex-start; padding: 8px 12px; font-size: 12px; }
+  .guide li { justify-content: flex-start; padding: 8px 12px; font-size: var(--type-body); }
   .guide li + li { border: 0; }
 }

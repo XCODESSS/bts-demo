@@ -22,9 +22,25 @@ The result is not a pixel-identical competitor clone or an expansion into checko
 | Pale gold | `#F5EDDF` | Alternating discovery/category cards |
 | Warm gold surface | `#EAD7B9` | Full-width perfume-collections background |
 
-Secondary text is `#56645E`, borders `#DEE7E1`. Green/gold contrast is approximately **6.96:1**. Gold-on-white small text and white-on-gold buttons are not used. Focus on the green campaign uses gold; focus on light surfaces uses green.
+Secondary text is `#56645E`, borders `#DEE7E1`. On the warm-gold collections surface, supporting copy now uses brand ink `#07363C` rather than the former marginal-contrast muted color. Green/gold contrast is approximately **6.96:1**. Gold-on-white small text and white-on-gold buttons are not used. Focus on the green campaign uses gold; focus on light surfaces uses green.
 
-Manrope carries retail headings/UI; Cormorant Garamond carries the wordmark/campaign statement and selected legacy design treatments; Noto Sans Arabic carries Arabic. Fonts remain locally bundled. Arabic line height and natural script spacing take precedence over English headline tracking.
+### Typography follow-up — current contract
+
+Bodoni Moda 500/600 replaces Cormorant Garamond for large English editorial headings in Atelier, Linen and Salon. **Modern Gallery deliberately retains Manrope display headings.** Manrope 400/500/600 carries official Latin product/house identities, wordmark, prices/controls and the English admin UI. Noto Sans Arabic 400/600 carries Arabic copy; the editor's Arabic textareas retain their natural RTL script inside the English admin shell. Product titles remain Manrope even in Salon and on Arabic pages.
+
+All three families remain locally bundled through `next/font/local`; only the two editorial WOFF2 files were replaced, with no runtime font-service requests. Shared family/size/leading roles live in `src/styles/typography.css`. Font-size tokens use rem rather than overriding the browser root size. Arabic line height and natural script spacing take precedence over English headline tracking.
+
+| Role | Current default-browser target |
+|---|---|
+| Product-card names | 16px phone / 18px desktop, complete natural wrapping |
+| Supporting product facts, discounts, demo labels and caveats | At least 14px |
+| Body copy and input/select text | 16px |
+| Card price / product-page price | 20px / 30px |
+| Product-page identity | 30–40px; long names can use 26–34px, never clamped |
+| Editorial section / campaign headings | 28–40px / 36–56px; Salon hero up to 88px |
+| Footer legal/disclosure | 13px; shopping disclosures remain at least 14px |
+
+The only scaled-down mock text is inside the chooser's existing `aria-hidden` decorative miniatures; actual design names, descriptions and actions are at least 14px. Header/search/filter/chooser rows wrap as needed rather than shrinking type. This typography follow-up intentionally changes all previews' type sizes, not their data, palette, routing or merchandising hierarchy. It does not claim to fix the separate photography/homepage/admin-image-preview critique items.
 
 ## Shared hierarchy
 
@@ -80,7 +96,7 @@ The design picker is now inline in the footer's bottom row, not a fixed overlay.
 
 One shared semantic homepage, not duplicated storefront routes or datasets. The chooser's decorative miniatures are isolated in `design-preview.tsx`/its CSS Module. The later **Scent Salon (`salon`)** addition is opt-in and uses the same approved palette, fonts, repository and routes. Its bounded note spotlight is a separate client island; shared server components continue to supply the rest of the page. A shared `designs.ts` registry keeps pre-paint restoration and picker validation aligned. See [SCENT_SALON.md](SCENT_SALON.md) for its direction, scope and verification.
 
-Salon retains `#07363C` / `#D4B991` / `#FBFAF6`, the existing pale gold `#EAD7B9`, pale green `#EAF1ED`, and a photo ground `#F1F3EE`. It uses Cormorant display at up to 96px, Manrope UI/running copy at 16–18px, and naturally spaced Noto Arabic. The main opening is one combined headline/action and working note-selection composition rather than the original campaign plus centred introduction. Four real notes swap the displayed matching product and exact collection count; every selector is also a real filter link. The original sample-review fixture is omitted in this alternative, not represented as genuine proof. Product rows on phones give full names more measure; related products use two columns on tablets. Product summary/gallery/body wrappers preserve the original layouts while allowing Salon's mobile enquiry to precede the large gallery. All visual overrides are scoped to `html[data-design="salon"]`, apart from the necessary four-option picker layout.
+Salon retains `#07363C` / `#D4B991` / `#FBFAF6`, the existing pale gold `#EAD7B9`, pale green `#EAF1ED`, and a photo ground `#F1F3EE`. It now uses Bodoni Moda editorial display at up to 88px, Manrope UI/running copy at 16–18px, and naturally spaced Noto Arabic. Official Latin product titles use Manrope, not the editorial face; long names wrap completely without the older two-line compression requirement. The main opening is one combined headline/action and working note-selection composition rather than the original campaign plus centred introduction. Four real notes swap the displayed matching product and exact collection count; every selector is also a real filter link. The original sample-review fixture is omitted in this alternative, not represented as genuine proof. Product rows on phones give full names more measure; related products use two columns on tablets. Product summary/gallery/body wrappers preserve the original layouts while allowing Salon's mobile enquiry to precede the large gallery. All visual overrides are scoped to `html[data-design="salon"]`, apart from the necessary four-option picker layout.
 
 ## Motion, accessibility and critique
 

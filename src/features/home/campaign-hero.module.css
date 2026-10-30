@@ -28,8 +28,8 @@
 .statement { padding-inline-end: 18px; }
 .brandLogo { display: block; width: 76px; height: 76px; object-fit: contain; border-radius: 50%; }
 .statement p {
-  font: 500 clamp(36px, 4vw, 56px)/1.06 var(--display);
-  letter-spacing: -1px;
+  font: 500 var(--type-campaign)/var(--leading-display) var(--display);
+  letter-spacing: -.015em;
   margin: 20px 0 14px;
   max-width: 16ch;
   color: var(--brand-gold, #d4b991);
@@ -49,13 +49,13 @@
 .product:nth-child(2) { flex: 1.15; }
 .product:nth-child(2) .photo { height: 280px; }
 .bottle { width: 100%; height: 100%; min-height: 0; object-fit: contain; mix-blend-mode: multiply; transition: transform .3s ease; }
-.caption { display: block; margin-top: 14px; font-size: 10px; line-height: 1.6; color: #fbfaf6; overflow-wrap: anywhere; }
+.caption { display: block; margin-top: 14px; font-size: var(--type-label); line-height: var(--leading-label); color: #fbfaf6; overflow-wrap: anywhere; }
 .caption strong { display: block; font-weight: 500; margin-top: 2px; }
 .stage a:focus-visible { outline: 2px solid #d4b991; outline-offset: 5px; border-radius: 6px; }
-.empty { font-size: 15px; line-height: 1.8; max-width: 30ch; }
+.empty { font-size: var(--type-body); line-height: 1.8; max-width: 30ch; }
 .intro { text-align: center; max-width: 760px; margin: 38px auto 0; }
-.intro h1 { font: 600 clamp(32px, 3.3vw, 46px)/1.2 var(--body); letter-spacing: -1.8px; margin: 0 0 16px; }
-.intro > p { font-size: 14px; line-height: 1.85; color: var(--muted); margin: 0 auto 22px; max-width: 69ch; }
+.intro h1 { font: 500 var(--type-campaign)/var(--leading-display) var(--display); letter-spacing: -.015em; margin: 0 0 16px; }
+.intro > p { font-size: var(--type-body); line-height: var(--leading-body); color: var(--muted); margin: 0 auto 22px; max-width: 69ch; }
 .action {
   display: inline-flex;
   align-items: center;
@@ -66,12 +66,12 @@
   border-radius: 28px;
   background: var(--brand-gold, #d4b991);
   color: var(--brand-green, #07363c);
-  font-size: 13px;
+  font-size: var(--type-label);
   font-weight: 600;
   text-decoration: none;
 }
 .action:hover { background: #e3cba8; }
-:global([dir="rtl"]) .statement p { font-family: var(--body); font-size: clamp(27px, 3vw, 42px); line-height: 1.6; letter-spacing: 0; max-width: 16ch; }
+:global([dir="rtl"]) .statement p { font-family: var(--body); font-size: var(--type-campaign); line-height: var(--leading-display); letter-spacing: 0; max-width: 16ch; }
 :global([dir="rtl"]) .intro h1 { letter-spacing: 0; line-height: 1.6; }
 :global(html[data-design="gallery"]) .photo { border-radius: 2px; }
 :global(html[data-design="linen"]) .photo { border-radius: 120px 120px 8px 8px; }
@@ -116,37 +116,37 @@
   animation: none;
 }
 :global(html[data-design="salon"]) .intro h1 {
-  font: 500 clamp(64px, 6.5vw, 96px)/.96 var(--display);
-  letter-spacing: -.035em; max-width: 11ch; margin: 0;
+  font: 500 var(--type-salon-hero)/var(--leading-display) var(--display);
+  letter-spacing: -.015em; max-width: 11ch; margin: 0;
 }
 :global(html[data-design="salon"]) .intro > p {
   margin: 36px 0 28px; max-width: 39ch;
-  font-size: 18px; line-height: 1.6; color: var(--white);
+  font-size: var(--type-card); line-height: var(--leading-body); color: var(--white);
 }
 :global(html[data-design="salon"]) .action {
-  border-radius: 0; font-size: 16px; min-height: 54px; padding: 14px 24px;
+  border-radius: 0; font-size: var(--type-body); min-height: 54px; padding: 14px 24px;
 }
 :global(html[data-design="salon"]) .intro :focus-visible { outline-color: var(--brand-gold); }
 :global(html[data-design="salon"]) .action:active { transform: translateY(2px); }
 :global(html[dir="rtl"][data-design="salon"]) .intro h1 {
-  font-family: var(--body); font-size: clamp(48px, 5vw, 72px); line-height: 1.25; letter-spacing: 0; max-width: 12ch;
+  font-family: var(--body); font-weight: 600; font-size: clamp(2.5rem, 5vw, 4rem); line-height: var(--leading-display); letter-spacing: 0; max-width: 12ch;
 }
 :global(html[data-design="salon"]) .hero:not(.withSpotlight) { grid-template-columns: 1fr; }
 @media (max-width: 1100px) {
   :global(html[data-design="salon"]) .intro { padding: 32px 28px; min-height: 580px; }
-  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(54px, 7.3vw, 80px); }
-  :global(html[data-design="salon"]) .intro > p { font-size: 16px; }
+  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(3rem, 7.3vw, 5rem); }
+  :global(html[data-design="salon"]) .intro > p { font-size: var(--type-body); }
 }
 @media (max-width: 650px) {
   :global(html[data-design="salon"]) .hero { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 0; }
   :global(html[data-design="salon"]) .intro { min-height: 0; padding: 24px; }
-  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(48px, 13.3vw, 56px); max-width: 11ch; }
-  :global(html[data-design="salon"]) .intro > p { margin: 20px 0; font-size: 16px; line-height: 1.5; }
-  :global(html[dir="rtl"][data-design="salon"]) .intro h1 { font-size: 42px; line-height: 1.35; }
+  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(3rem, 13.3vw, 3.5rem); max-width: 11ch; }
+  :global(html[data-design="salon"]) .intro > p { margin: 20px 0; font-size: var(--type-body); line-height: var(--leading-body); }
+  :global(html[dir="rtl"][data-design="salon"]) .intro h1 { font-size: 2.5rem; line-height: var(--leading-display); }
 }
 @media (max-width: 950px) {
   .stage { grid-template-columns: .8fr 1.3fr; gap: 18px; padding: 30px; min-height: 350px; }
-  .statement p { font-size: 42px; }
+  .statement p { font-size: var(--type-campaign); }
   .photo { padding: 12px; height: 190px; }
   .product:nth-child(2) .photo { height: 230px; }
   .products { gap: 10px; }
@@ -156,15 +156,15 @@
   .stage { grid-template-columns: 1fr; padding: 24px 16px 20px; gap: 22px; min-height: 0; border-radius: 8px; }
   .statement { padding: 0; text-align: center; }
   .brandLogo { width: 56px; height: 56px; margin-inline: auto; }
-  .statement p { font-size: 33px; line-height: 1.1; max-width: 22ch; margin: 10px auto 0; }
+  .statement p { font-size: var(--type-campaign); line-height: var(--leading-display); max-width: 22ch; margin: 10px auto 0; }
   .signature { display: none; }
   .photo { height: 154px; padding: 12px 8px; border-bottom-width: 3px; }
   .product:nth-child(2) .photo { height: 181px; }
   .products { gap: 9px; }
-  .caption { font-size: 9px; line-height: 1.6; margin-top: 9px; }
-  .caption strong { font-size: 9px; }
+  .caption { font-size: var(--type-label); line-height: var(--leading-label); margin-top: 9px; }
+  .caption strong { font-size: inherit; }
   .intro { margin-top: 28px; }
-  .intro h1 { font-size: 30px; letter-spacing: -1.1px; }
-  .intro > p { font-size: 12px; line-height: 1.9; }
-  :global([dir="rtl"]) .statement p { font-size: 24px; line-height: 1.5; max-width: 22ch; }
+  .intro h1 { font-size: var(--type-campaign); letter-spacing: -.015em; }
+  .intro > p { font-size: var(--type-body); line-height: var(--leading-body); }
+  :global([dir="rtl"]) .statement p { font-size: 2rem; line-height: var(--leading-display); max-width: 22ch; }
 }

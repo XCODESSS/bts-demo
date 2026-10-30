@@ -17,6 +17,7 @@
   align-items: center;
 }
 .brand {
+  min-width: 0;
   display: inline-flex;
   gap: 11px;
   align-items: center;
@@ -26,15 +27,15 @@
 .search button:hover { background: #1e392f; }
 .mobileNavigation a:hover { text-decoration: underline; background: var(--sage); }
 .brand img { border-radius: 50%; flex-shrink: 0; }
-.wordmark { font: 600 25px/1 var(--display); white-space: nowrap; }
-.wordmark > span { display: block; font: 400 10px/1.6 var(--body); margin-top: 6px; }
+.wordmark { font: 600 clamp(1rem, 1.4vw, 1.25rem)/1.2 var(--font-ui-latin); white-space: normal; max-width: 12ch; }
+.wordmark > span { display: block; font: 400 var(--type-label)/1.5 var(--body); margin-top: 6px; }
 .navigation, .actions { display: flex; gap: 22px; align-items: center; }
 .navigation a {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  font-size: 12px;
+  font-size: var(--type-label);
   white-space: nowrap;
   border-bottom: 1px solid transparent;
 }
@@ -56,7 +57,7 @@
   border-radius: 20px;
   background: transparent;
   padding: 9px 14px;
-  font-size: 12px;
+  font-size: var(--type-body);
   color: var(--ink);
 }
 .search input::placeholder { color: var(--muted); opacity: 1; }
@@ -71,12 +72,12 @@
   color: white;
 }
 :global(html[data-design="salon"]) .header { border-bottom: 0; }
-:global(html[data-design="salon"]) .navigation a { font-size: 16px; }
+:global(html[data-design="salon"]) .navigation a { font-size: var(--type-body); }
 :global(html[data-design="salon"]) .search { border-radius: 0; background: var(--sage); border: 0; }
-:global(html[data-design="salon"]) .search input { font-size: 16px; border-radius: 0; }
+:global(html[data-design="salon"]) .search input { font-size: var(--type-body); border-radius: 0; }
 :global(html[data-design="salon"]) .search button { border-radius: 0; }
-:global(html[data-design="salon"]) .actions :global(.language-switch) { font-size: 14px; }
-:global(html[data-design="salon"]) .mobileNavigation { font-size: 16px; }
+:global(html[data-design="salon"]) .actions :global(.language-switch) { font-size: var(--type-label); }
+:global(html[data-design="salon"]) .mobileNavigation { font-size: var(--type-body); }
 .mobileMenu { display: none; }
 .mobileNavigation {
   position: absolute;
@@ -92,7 +93,7 @@
 @media (max-width: 1200px) {
   .inner { gap: 20px; }
   .navigation { gap: 14px; }
-  .wordmark { font-size: 22px; }
+  .wordmark { font-size: 1.125rem; }
 }
 @media (max-width: 1100px) {
   .inner { grid-template-columns: auto minmax(160px, 1fr) auto; }
@@ -104,8 +105,8 @@
   .inner { padding-block: 12px; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; }
   .search { grid-column: 1 / -1; grid-row: 2; }
   .brand { gap: 8px; }
-  .brand img { width: 40px; height: 40px; }
-  .wordmark { font-size: 20px; }
-  .wordmark > span { font-size: 9px; margin-top: 4px; }
+  .brand img { width: 34px; height: 34px; }
+  .wordmark { font-size: 1rem; }
+  .wordmark > span { font-size: var(--type-label); margin-top: 4px; }
   .actions { gap: 3px; }
 }

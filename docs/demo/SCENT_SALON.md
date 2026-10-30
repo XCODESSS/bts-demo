@@ -1,8 +1,10 @@
 # Scent Salon — additional design
 
+**Current typography override:** The later typography plan replaces Cormorant with locally bundled Bodoni Moda 500/600 for editorial display, retains Manrope for official Latin product identities and UI, and retains Noto Sans Arabic for Arabic copy. Functional supporting text is at least 14px; body/inputs are 16px. Long names wrap completely at a readable size instead of being constrained to two lines. Earlier pixel-identical and two-line measurements below describe the original delivery, not the updated font metrics. See `DESIGN.md` and the latest `QA.md` section for current evidence.
+
 ## Scope and context
 
-The user requests a bolder alternative in the existing design menu, preserving the current designs and green/gold theme. This authorizes a fourth opt-in design, superseding the older brief's three-design limit for this work only. Botanical Atelier remains the default. No backend, credentials, inventory, dependency, checkout or deployment changes.
+The user requests a bolder alternative in the existing design menu, preserving the current designs and green/gold theme. This authorizes a fourth opt-in design, superseding the older brief's three-design limit for this work only. Botanical Atelier remains the default. No backend, credentials, inventory, checkout or deployment changes. The later typography request separately authorizes replacing the editorial-font dependency.
 
 Existing approved context is in DESIGN.md, STOREFRONT_REDESIGN.md and README.md: English/Arabic perfume shoppers browse actual designer/niche products and enquire through WhatsApp; the brand is premium, light, deep green/champagne gold. The previous frontend review supplies the problems to address. Homepage mode: Persuade; catalogue/product browsing remains task-oriented.
 
@@ -12,7 +14,7 @@ Impeccable's official skill and bolder/new-work/craft-floor guidance were read r
 
 **Thesis:** Beyond the Space becomes a space to find a scent: a working note selector changes a real featured bottle and exposes the matching collection. Refuse the campaign-plus-second-introduction opening.
 
-**Own-world:** Retain logo green, champagne gold, ivory, bundled Cormorant/Manrope and Noto Arabic. Replace soft frames and decorative rings with substantial flat fields, oversized type, generous pictures and quieter supporting UI. Never overlay a headline with a bottle.
+**Own-world:** Retain logo green, champagne gold, ivory, bundled Bodoni Moda/Manrope and Noto Sans Arabic. Replace soft frames and decorative rings with substantial flat fields, oversized type, generous pictures and quieter supporting UI. Never overlay a headline with a bottle.
 
 **Story:** Understand the offer, choose a real note, see a matching perfume, browse its results, then ask about actual price/availability. No invented proof. Existing sample prices remain explicitly labelled; the alternative omits the sample-review marketing section.
 

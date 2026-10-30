@@ -1,0 +1,32 @@
+/* Shared roles. Families are registered locally in fonts.ts; do not set a root pixel size. */
+:root {
+  --font-ui-latin: var(--font-manrope), Arial, sans-serif;
+  --font-ui: var(--font-ui-latin);
+  --font-editorial: var(--font-bodoni), Georgia, "Times New Roman", serif;
+  --body: var(--font-ui);
+  --display: var(--font-editorial);
+  --type-legal: .8125rem;
+  --type-label: .875rem;
+  --type-body: 1rem;
+  --type-card: 1.125rem;
+  --type-price: 1.25rem;
+  --type-price-detail: 1.875rem;
+  --type-product-title: clamp(1.875rem, 3vw, 2.5rem);
+  --type-section: clamp(1.75rem, 2.8vw, 2.5rem);
+  --type-page: clamp(2.25rem, 4.5vw, 4rem);
+  --type-campaign: clamp(2.25rem, 4vw, 3.5rem);
+  --type-salon-hero: clamp(3rem, 6.5vw, 5.5rem);
+  --leading-body: 1.65;
+  --leading-label: 1.5;
+  --leading-display: 1.12;
+}
+html[lang="ar"] {
+  --font-ui: var(--font-arabic), var(--font-manrope), Arial, sans-serif;
+  --body: var(--font-ui);
+  --display: var(--font-ui);
+  --leading-body: 1.85;
+  --leading-display: 1.5;
+}
+/* Gallery deliberately retains its sans-serif editorial direction. */
+html[data-design="gallery"] { --display: var(--font-ui); }
+body { font-size: var(--type-body); line-height: var(--leading-body); }

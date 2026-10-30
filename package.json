@@ -18,7 +18,7 @@
     "test:e2e:admin": "playwright test --config=playwright.admin.config.ts"
   },
   "dependencies": {
-    "@fontsource/cormorant-garamond": "5.3.0",
+    "@fontsource/bodoni-moda": "5.3.0",
     "@fontsource/manrope": "5.3.0",
     "@fontsource/noto-sans-arabic": "5.3.0",
     "class-variance-authority": "0.7.1",

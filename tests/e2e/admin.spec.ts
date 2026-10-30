@@ -10,6 +10,7 @@ import { openProductStore } from "../../src/features/products/product-store";
 import { hashPassword } from "../../src/features/admin/auth-core";
 import { getDictionary } from "../../src/i18n/dictionaries";
 import { revealHomeSection } from "./helpers/home-sections";
+import { expectFamily, expectMinSize } from "./helpers/typography";
 
 let child: ChildProcess;
 let dir: string;
@@ -76,6 +77,10 @@ test("admin login, search, edit, add, authorization and actual process-restart p
   await expect(page.getByRole("status")).toHaveText("1 product");
   await page.getByRole("link", { name: "Edit Club de Nuit Iconic", exact: true }).click();
   await expect(page.getByRole("heading", { name: "Edit Club de Nuit Iconic", exact: true })).toBeVisible();
+  await expectFamily(page.getByLabel("English description", { exact: true }), "--font-manrope");
+  await expectFamily(page.getByLabel("Arabic description", { exact: true }), "--font-arabic");
+  await expectMinSize(page.getByLabel("English description", { exact: true }), 16);
+  await expectMinSize(page.getByLabel("Arabic description", { exact: true }), 16);
   await page.getByLabel("English description", { exact: true }).fill("Saved admin demonstration description.");
   await page.getByLabel("Arabic description", { exact: true }).fill("وصف تجريبي محفوظ من الإدارة.");
   await page.getByLabel("English notes — one per line", { exact: true }).fill("Vanilla");

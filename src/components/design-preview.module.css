@@ -19,12 +19,12 @@
 .preview[data-variant="linen"] { background: #fcf9f3; }
 .preview[data-variant="linen"] .tiles i { border-radius: 9px 9px 0 0; }
 .salonPreview { height: 200px; padding: 15px; background: #fbfaf6; direction: ltr; text-align: left; }
-.salonNav { font: 500 10px/1.5 var(--font-cormorant), serif; color: #07363c; margin-bottom: 7px; }
+.salonNav { font: 500 10px/1.5 var(--font-editorial); color: #07363c; margin-bottom: 7px; }
 .salonCampaign { height: 130px; display: grid; grid-template-columns: 1fr 1fr; color: #fff; background: #07363c; }
 .salonCampaign > div:first-child { display: flex; flex-direction: column; justify-content: center; padding: 12px; }
-.salonCampaign p { margin: 0 0 14px; font: 500 26px/.95 var(--font-cormorant), serif; }
+.salonCampaign p { margin: 0 0 14px; font: 500 26px/1.08 var(--font-editorial); }
 .salonCampaign span { width: fit-content; padding: 5px; font-size: 7px; background: #d4b991; color: #07363c; }
 .salonPhoto { display: grid; place-items: center; padding: 5px; background: #ead7b9; min-width: 0; }
 .salonPhoto small { color: #07363c; font-size: 7px; }
 .salonPhoto img { width: 100%; height: 100px; object-fit: contain; mix-blend-mode: multiply; }
-.salonPreviewTitle { margin: 10px 0 0; font: 500 16px/1 var(--font-cormorant), serif; color: #07363c; }
+.salonPreviewTitle { margin: 10px 0 0; font: 500 16px/1.08 var(--font-editorial); color: #07363c; }

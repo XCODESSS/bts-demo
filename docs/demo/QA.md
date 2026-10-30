@@ -275,3 +275,40 @@ Final checks for this addition (not a replacement for the broader historical cov
 - With page script execution disabled after loading Salon, the Rose selector performs native navigation to the real 14-result filtered catalogue. No WhatsApp message was sent.
 
 No new dependency, shipping image, business claim, backend/config/database edit, migration or publication was introduced. Admin persistence, analytics transport, physical-device and exhaustive accessibility/performance checks were not rerun in this visual pass. The official Impeccable/taste launcher and detector were unavailable; no official detector pass or independent-review verdict is claimed.
+
+## Typography/readability follow-up — 2026-10-30
+
+Implemented `docs/superpowers/plans/2026-10-29-typography-readability.md` directly, without subagents. Bodoni Moda 500/600 replaces Cormorant for large English editorial headings; Manrope remains the official-product/UI/English-admin face, and Noto Sans Arabic remains the Arabic face. Modern Gallery retains its intentional sans display. All four previews receive the same readable supporting sizes; their catalogue, palette, images and routing are unchanged.
+
+Functional supporting copy, product facts, demo labels and caveats are at least 14px at default browser text size; body and input/select text is 16px; card names are 16–18px. Sizes use rem tokens, not a forced browser root size. Real chooser controls are readable; only existing `aria-hidden` miniature mock text is scaled down. Footer legal text uses 13px. Long official names wrap completely instead of being compressed into a two-line limit. Collections help copy uses brand ink on gold, resolving the previously measured 4.41:1 contrast issue.
+
+### Final validation
+
+| Check | Actual result |
+|---|---|
+| Unit tests | **60 passed**, 17 files |
+| ESLint | Passed |
+| TypeScript | Passed; explicit typecheck plus the production build's type check |
+| Production build | Passed with the project's default **Turbopack**; font manifest has seven local preloaded files |
+| Complete public Playwright suite | **214 passed / 16 expected skips / 0 failures**, 230 cases, desktop and emulated phone |
+| Isolated admin suite | **5 passed**, including English/Arabic editor fonts, real save/error/dirty-state/restart persistence |
+| Impeccable 4.8.0 rendered mobile scan | **4 flags** versus the critique's 328; **no undersized-functional-text, tiny-body-text or low-contrast flags** in the four scanned pages |
+
+The 16 public skips are explicit project/configuration gates, including the intentionally unconfigured analytics opt-in cases, touch/desktop-only cases and the duplicate mobile-project copy of the explicit multi-width typography capture matrix. No live analytics ID was enabled to force those cases to run.
+
+Testing used fresh Chrome contexts and immutable seed data. To avoid overwriting the already-running dev/production previews' `.next` output, production validation ran in disposable source snapshots with a shared node_modules junction and generated snapshot-only tracing/root configuration. Public tests owned port 3120; admin tests owned 3101 with temporary credentials and SQLite. A fictional WhatsApp test number was set only for the snapshot build; no message was sent and `.env.local` was not changed. Temporary source/build copies were removed afterward so they cannot be swept into the real project's broad TypeScript include patterns. The actual application config was not changed by this validation setup.
+
+An initial Webpack diagnostic build passed compilation but produced an empty Next font-preload manifest on this Windows setup. The existing asset-hint tests caught that; they were retained unchanged. The final default-Turbopack build generated all seven hints and passed those tests. An early concurrent admin/public run also collided in the default trace output directory; separate owned result directories resolved that harness issue. Logs preserve those exploratory failures rather than representing them as application fixes or final passes.
+
+### Evidence and limits
+
+- `artifacts/typography/before/`: 12 baseline Atelier home/catalogue/product images in English/Arabic at 390/1440px.
+- `artifacts/typography/after/`: 48 production route/design/locale captures plus eight directly reviewed opening captures.
+- The type reflow matrix covers 320/390/768/1440px in all four designs and both locales; the existing layout suite additionally covers 360px. No document overflow in tested combinations.
+- Root text-size scaling to 200% passes for the English/Arabic catalogue; blocked-WOFF2 home/catalogue/product recovery and the existing short-product Salon first-viewport enquiry regressions pass. This is not a claim of physical-device or actual browser-zoom certification.
+- Directly inspected Atelier phone home/catalogue and Arabic home, Salon phone product, and the generated matrix. Both scripts retain natural flow; photos, branding and all original functional links remain.
+- `font-loading-observations.json`: seven same-origin font requests/preloads in each language, no Cormorant request. Under one artificial 300ms font delay at 390×900, observed layout-shift sums were about 0.00048 (EN) and 0.01434 (AR). These are local smoke observations, not field Core Web Vitals or a zero-CLS guarantee.
+- Logs: `unit.log`, `lint.log`, `typecheck-turbo.log`, `build-turbo.log`, `public-turbo-e2e.log`, `admin-turbo-e2e.log`, with completion receipts alongside them.
+- Raw detector: `artifacts/typography/detector/rendered-mobile-turbo.json`. The remaining three hero-arch border warnings are aesthetic judgments; the one single-word paragraph ending is a minor advisory. Exit 2 means completed with findings, not a clean scan or an operational failure.
+
+This completes the typography portion only. Photographic backgrounds, homepage section simplification, ambiguous plus icons, singular/plural copy and the admin image-preview enhancement remain separate critique work. No deployment, commit, push, global skill edit or independent-review claim was made in this implementation.
