@@ -78,7 +78,7 @@ export function ProductDetail({ product, locale, returnQuery }: {
       </article>
       <section className={styles.related} aria-labelledby="related-title">
         <div className="section-heading"><div><h2 id="related-title">{d.related}</h2><p>{d.relatedCopy}</p></div></div>
-        <div className="product-grid">
+        <div className="product-grid four-up">
           {getRelated(product).map((item) => <ProductCard key={item.id} product={item} locale={locale} returnQuery={returnQuery || ""} />)}
         </div>
       </section>

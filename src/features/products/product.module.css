@@ -212,7 +212,7 @@
 .facts dt { color: var(--muted); font-size: var(--type-label); line-height: var(--leading-body); }
 .facts dd { margin: 0; min-width: 0; color: var(--ink); font-size: var(--type-body); font-weight: 600; line-height: var(--leading-body); overflow-wrap: anywhere; }
 .facts dd a { text-decoration: underline; text-decoration-color: var(--line-strong); text-underline-offset: 4px; }
-.facts dd a:hover { text-decoration-color: currentColor; }
+.facts dd a:hover { color: var(--gold-ink); text-decoration-color: currentColor; }
 .familyList { display: flex; flex-wrap: wrap; gap: 4px 14px; }
 
 .detailsAccordion { margin-top: 8px; }

@@ -157,6 +157,8 @@ html[lang="ar"] .section-heading h2 { font-weight: 600; }
   gap: clamp(36px, 4vw, 56px) clamp(14px, 2vw, 28px);
 }
 @media (max-width: 1000px) { .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* Four-up rows (featured, related) become 2×2 on tablets instead of leaving an orphan card. */
+@media (max-width: 1000px) { .product-grid.four-up { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 700px) { .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 14px; } }
 
 /* Enquiries that are not yet connected read as an intentional state, not a broken control. */

@@ -32,7 +32,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div><h2 id="featured-title">{d.featuredTitle}</h2><p>{d.featuredIntro}</p></div>
           <Link href={`/${locale}/catalogue`} className="text-link">{d.viewAll}<Icon name="arrow" size={18} className="directional" /></Link>
         </div>
-        <div className="product-grid">{model.featuredProducts.map((product) => <ProductCard key={product.id} product={product} locale={locale} />)}</div>
+        <div className="product-grid four-up">{model.featuredProducts.map((product) => <ProductCard key={product.id} product={product} locale={locale} />)}</div>
         <p className={styles.demoDisclaimer}>{d.demoPricingDisclaimer}</p>
       </section>
     </ScrollSection>}
