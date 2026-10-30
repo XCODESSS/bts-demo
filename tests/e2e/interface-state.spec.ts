@@ -53,6 +53,8 @@ for (const locale of ["en", "ar"] as const) {
     await expect(dialog).toBeVisible();
     await page.goBack();
     await expect(dialog).not.toBeVisible();
+    // Closed DOM retains its last topic throughout CSS exit, not Contact copy.
+    await expect(page.locator("#footer-information-title")).toHaveText(d.shippingInfo);
     await page.goForward();
     await expect(dialog).toBeVisible();
     await page.getByRole("button", { name: d.closeInformation, exact: true }).click();

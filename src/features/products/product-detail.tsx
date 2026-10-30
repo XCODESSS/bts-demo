@@ -7,6 +7,7 @@ import { getProducts, getRelated } from "./repository";
 import { catalogueReturnHref } from "../../i18n/routing";
 import { ProductCard } from "./product-card";
 import { ProductGallery } from "./product-gallery";
+import { ProductNavigationLink } from "./product-transition";
 import { DemoPrice } from "./demo-price";
 import { EnquiryLink } from "../enquiry/enquiry-link";
 import { Icon } from "../../components/icon";
@@ -26,7 +27,7 @@ export function ProductDetail({ product, locale, returnQuery }: {
           <Link href={returnHref}>{d.collection}</Link><span aria-hidden="true">/</span>
           <bdi translate="no" aria-current="page">{product.name}</bdi>
         </nav>
-        <Link href={returnHref} className={styles.back}><Icon name="arrow" size={17} />{d.back}</Link>
+        <ProductNavigationLink productId={product.id} href={returnHref} className={styles.back}><Icon name="arrow" size={17} />{d.back}</ProductNavigationLink>
       </div>
       <article className={styles.detail} aria-label={product.name}>
         <div className={`${styles.detailInfo} ${styles.purchaseSummary}`}>

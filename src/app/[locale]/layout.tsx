@@ -14,6 +14,7 @@ import { SiteFooter } from "../../components/site-footer";
 import { HashNavigation } from "../../components/hash-navigation";
 import { designIds } from "../../components/designs";
 import "../../styles/salon.css";
+import "../../styles/transitions.css";
 export const viewport: Viewport = {
   width: "device-width", initialScale: 1, viewportFit: "cover",
   themeColor: "#fbfaf6", colorScheme: "light",

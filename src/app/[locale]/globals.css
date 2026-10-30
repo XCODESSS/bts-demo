@@ -439,44 +439,10 @@ html[data-design="linen"] .button { border-radius: 28px; padding-inline: 28px; }
   overflow-y: auto;
   overscroll-behavior: contain;
   box-shadow: 0 30px 100px #172c2826;
-  opacity: 0;
-  transform: translateY(12px) scale(0.988);
-  pointer-events: none;
-  transition:
-    opacity 0.22s ease,
-    transform 0.3s var(--motion-ease),
-    overlay 0.22s allow-discrete,
-    display 0.22s allow-discrete;
-}
-.design-dialog[open] {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
 }
 .design-dialog::backdrop {
   background: #21332d60;
   backdrop-filter: blur(5px);
-  opacity: 0;
-  transition:
-    opacity 0.22s ease,
-    overlay 0.22s allow-discrete,
-    display 0.22s allow-discrete;
-}
-.design-dialog[open]::backdrop {
-  opacity: 1;
-}
-.design-dialog[data-instant-close],
-.design-dialog[data-instant-close]::backdrop {
-  transition: none !important;
-}
-@starting-style {
-  .design-dialog[open] {
-    opacity: 0;
-    transform: translateY(12px) scale(0.988);
-  }
-  .design-dialog[open]::backdrop {
-    opacity: 0;
-  }
 }
 body:has(.design-dialog[open]) {
   overflow: hidden;
@@ -653,18 +619,7 @@ body:has(.design-dialog[open]) {
   }
 }
 
-/* Native design crossfades are progressive enhancement; functionality never waits on them. */
-::view-transition {
-  pointer-events: none;
-}
-::view-transition-old(root) {
-  animation: design-fade-out 0.18s ease-out both;
-  mix-blend-mode: normal;
-}
-::view-transition-new(root) {
-  animation: design-fade-in 0.4s var(--motion-ease) both;
-  mix-blend-mode: normal;
-}
+/* Activated only by the design-switch type in transitions.css. */
 @keyframes design-fade-out {
   to {
     opacity: 0;

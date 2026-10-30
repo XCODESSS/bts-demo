@@ -113,6 +113,24 @@ Botanical Atelier remains the default green/gold, arched, rounded presentation, 
 
 Sample reviews remain explicitly labelled in Atelier. No dependency/font, product data, primary/secondary image, image API or composite was added. The separate photographic-background work is still paused. All integration styling is Atelier-scoped; comparison openings for the other three designs are pixel-identical in the tested matrix. Actual gates/evidence and limits are recorded in [QA.md](QA.md).
 
+## Storefront transition contract — 2026-10-30
+
+Shared interaction enhancement, not a fifth design or a layout change. Existing React `ViewTransition` boundaries receive server-rendered public page content; the locale/admin layout, header and footer are not inside the public boundary. Route identity includes locale/slug, not filters or disclosure query keys. There is no animation router, navigation store, cloned interactive image or extra dependency.
+
+| Surface | Normal-motion treatment |
+|---|---|
+| Public route content | 120ms old fade; 220ms arrival with 40ms delay and at most 8px upward travel |
+| Selected card photograph | 400ms browser-generated shared geometry, `cubic-bezier(.22,1,.36,1)` |
+| Phone Filters | 220ms natural-height grid disclosure at ≤600px |
+| Mobile Menu | 180ms opacity/6px movement; immediate inert closed state |
+| Existing native dialogs | 180ms panel opacity/8px movement; 160ms backdrop |
+
+`src/styles/transitions.css` owns timing and snapshot rules. Only the clicked product's typed real Link enables its photo pair. Catalogue, Featured and related cards participate; only the actual main detail photograph participates at the destination, never the zoom-dialog image. Failed-image fallback labels remain unnamed. Full dynamic-route prefetch starts on genuine hover/focus intent; navigation never waits for a custom prefetch gate. Warm/visible endpoints can pair; cold, offscreen and short-window cases retain usable page arrival. The existing return link is the explicit reverse path; browser Back/Forward receive no invented transition identity or scroll manager.
+
+At ≤760px, shared-image positional motion is disabled in all designs: Atelier/Salon enquiries stay before the gallery, with no forced photo scroll. Reduced motion cancels actual View Transition pseudo-element durations/delays as well as panel/backdrop transitions. Unsupported APIs retain ordinary links. Native dialogs close and restore focus/history independently of CSS completion; closed panels/backdrops cannot intercept clicks. Footer exits retain the last topic. Design selection still closes its chooser instantly before snapshotting; only `design-switch` activates the existing root crossfade.
+
+Settled layouts, typography, native filters/search, URL behavior, English/Arabic, assets/caveats, sample-price/review disclosures, enquiry wording, SEO, analytics and admin boundaries are unchanged. Campaign/spotlight morphs, guaranteed gesture reversal, result reordering and zoom shared motion remain outside this first delivery. Actual Chrome evidence and limits are in [QA.md](QA.md#storefront-transitions--2026-10-30).
+
 ## Motion, accessibility and critique
 
 At the user's request, the homepage now has three gently floating hero bottles, a moving gold light sweep, a slow decorative-star turn, an introductory entrance and one-time section reveals. Card hover lifts the card and enlarges the photo, while the full-width action changes from green to gold. The user subsequently requested removal of the Pause/Resume animations button; it is now absent. System reduced motion still disables decorative motion; existing chooser crossfades retain their reduced-motion/fallback behavior.

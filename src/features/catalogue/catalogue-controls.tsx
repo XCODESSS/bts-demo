@@ -1,6 +1,7 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
-import { useState, useTransition, type FormEvent } from "react";
+import { useRef, useState, useTransition, type FormEvent } from "react";
+import { useMediaQuery } from "../../components/use-media-query";
 import type { CatalogueQuery, NoteOption } from "./query";
 import { serializeCatalogueQuery } from "./query";
 import type { Locale } from "../../i18n/config";
@@ -22,6 +23,8 @@ export function CatalogueControls({
   noteOptions: NoteOption[];
 }) {
   const [expanded, setExpanded] = useState(false);
+  const isPhone = useMediaQuery("(max-width: 600px)");
+  const toggle = useRef<HTMLButtonElement>(null);
   const [pending, startTransition] = useTransition();
   const router = useRouter();
   const pathname = usePathname();
@@ -79,9 +82,10 @@ export function CatalogueControls({
         <button
           type="button"
           className={styles.filterToggle}
+          ref={toggle}
           aria-expanded={expanded}
           aria-controls="catalogue-filters"
-          onClick={() => setExpanded(!expanded)}
+          onClick={() => setExpanded(value => !value)}
         >
           <Icon name="filter" size={19} />
           {d.filters}
@@ -89,8 +93,19 @@ export function CatalogueControls({
       </div>
       <div
         id="catalogue-filters"
-        className={`${styles.filterRow} ${expanded ? styles.expanded : ""}`}
+        className={styles.filterDisclosure}
+        data-expanded={expanded}
+        aria-hidden={isPhone && !expanded}
+        inert={isPhone && !expanded}
+        onKeyDown={event => {
+          if (event.key !== "Escape" || !isPhone || !expanded) return;
+          event.preventDefault();
+          toggle.current?.focus();
+          setExpanded(false);
+        }}
       >
+        <div className={styles.filterClip}>
+        <div className={styles.filterRow}>
         <label>
           <span>{d.brand}</span>
           <select
@@ -175,6 +190,8 @@ export function CatalogueControls({
             <option value="name-desc">{d.nameDesc}</option>
           </select>
         </label>
+        </div>
+        </div>
       </div>
       {active.length > 0 && (
         <div className={styles.activeFilters} aria-label={d.activeFilters}>

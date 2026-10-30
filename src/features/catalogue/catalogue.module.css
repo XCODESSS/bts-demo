@@ -15,6 +15,8 @@
 .activeFilters button:hover, .filterToggle:hover { background: var(--stone); border-color: var(--forest); }
 .activeFilters .clear:hover, .breadcrumb:hover { text-decoration: underline; }
 .filterToggle { display: none; }
+.filterDisclosure { display: grid; grid-template-rows: 1fr; }
+.filterClip { min-height: 0; }
 .filterRow { display: grid; grid-template-columns: 1.15fr .75fr 1fr 1.1fr 1fr; gap: 24px; margin-top: 24px; }
 .filterRow label { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .filterRow label > span { font-size: var(--type-label); color: var(--muted); }
@@ -106,8 +108,11 @@
   .searchForm button { padding-inline: 10px; }
   .filterToggle { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; background: none; border: 1px solid var(--line); padding: 10px; gap: 6px; color: var(--ink); font-size: var(--type-label); flex-shrink: 0; }
   .filterToggle svg { width: 21px; height: 21px; flex-shrink: 0; }
-  .filterRow { display: none; }
-  .filterRow.expanded { display: grid; gap: 20px 16px; }
+  .filterDisclosure { grid-template-rows: 0fr; transition: grid-template-rows var(--motion-disclosure) var(--motion-ease); }
+  .filterDisclosure[data-expanded="true"] { grid-template-rows: 1fr; }
+  .filterClip { overflow: hidden; }
+  .filterRow { display: grid; gap: 20px 16px; margin-top: 0; padding-top: 24px; }
+  .filterRow select:focus-visible { outline: 2px solid var(--forest); outline-offset: -2px; }
   .resultLine { padding-block: 23px; }
   .empty { padding-block: 60px; }
   .pagination { padding-top: 40px; gap: 2px; }

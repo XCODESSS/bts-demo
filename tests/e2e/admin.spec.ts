@@ -296,7 +296,8 @@ test("an empty persistent catalogue renders honest recovery in both languages", 
         ? "The collection is being prepared. Ask us about a fragrance."
         : "يجري إعداد المجموعة. تواصل معنا للاستفسار عن عطر.", { exact: true })).toBeVisible();
       await expect(page.locator("#featured")).toHaveCount(0);
-      await page.getByRole("banner").locator(`a[href="/${locale}#scents"]`).click();
+      // The closed mobile menu stays mounted for its exit; use the accessible link.
+      await page.getByRole("banner").getByRole("link", { name: getDictionary(locale === "en" ? "en" : "ar").discover, exact: true }).click();
       await expect(page.locator("#scents")).toBeInViewport();
       await page.getByRole("contentinfo").locator(`a[href="/${locale}#houses"]`).click();
       await expect(page.locator("#houses")).toBeInViewport();

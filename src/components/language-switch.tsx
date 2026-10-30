@@ -35,8 +35,11 @@ function transitionDesign(id: DesignId) {
     return;
   }
   try {
-    const transition = document.startViewTransition(() => {
-      if (version === designMotionVersion) applyDesign(id, true);
+    const transition = document.startViewTransition({
+      types: ["design-switch"],
+      update: () => {
+        if (version === designMotionVersion) applyDesign(id, true);
+      },
     });
     designTransition = transition;
     // Navigation or a hidden tab can cancel a snapshot, not the selected design.
@@ -170,6 +173,7 @@ export function DesignChooser({ locale }: { locale: Locale }) {
       </button>
       <dialog
         ref={dialog}
+        data-motion-dialog
         className="design-dialog"
         aria-labelledby="design-dialog-title"
         aria-describedby="design-dialog-description"

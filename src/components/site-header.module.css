@@ -88,6 +88,19 @@
   background: var(--canvas);
   border-block: 1px solid var(--line);
   box-shadow: 0 10px 18px #07363c14;
+  opacity: 0;
+  transform: translateY(-6px);
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--motion-panel) var(--motion-ease),
+    transform var(--motion-panel) var(--motion-ease), visibility 0s var(--motion-panel);
+}
+.mobileNavigation[data-open="true"] {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
 }
 .mobileNavigation a { min-height: 48px; display: flex; align-items: center; text-decoration: none; }
 @media (max-width: 1200px) {

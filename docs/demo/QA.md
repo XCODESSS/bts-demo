@@ -342,3 +342,58 @@ The after matrix covers Atelier home/catalogue/Spice Blend/long Powerfully detai
 - The first whole-suite run found new test-selector/navigation-timing mistakes in the house test; the final run corrects those assertions without weakening name/count/route checks. Pixel comparison caught a Salon mobile-padding specificity regression; restoring the existing selector recovered all 36 identical openings.
 
 Primary/secondary scene photographs, bottle-free masters/composites and hover image swapping remain **separately paused**. Physical iOS/Safari/hybrid-pointer testing, actual browser zoom certification, comprehensive accessibility/performance audits and client approval of Arabic/business copy remain unverified. No deployment, commit, publication, independent reviewer or official design-detector verdict is claimed.
+
+## Storefront transitions — 2026-10-30
+
+Executed `docs/superpowers/plans/2026-10-30-storefront-transitions.md` inline after approval. Added public page reveals, selected card-photo continuity, natural-height mobile filters, interruptible mobile navigation and consistent motion on the four existing native dialogs. All four design IDs, settled layouts, English/Arabic, enquiry-first phone layouts, photography, exact enquiry copy and data/security/analytics contracts are retained. No package, font, asset, schema or backend change.
+
+### Actual final gates
+
+| Check | Result / evidence under `artifacts/transitions/` |
+|---|---|
+| `npm run data:audit` | Passed: **100 unique bilingual products / 40 houses**, approved local photos, no private fields; `audit.log` |
+| `npm test` | **60 passed**, 17 files; `unit.log` |
+| `npm run typecheck` | Passed; `final-typecheck.log` |
+| `npm run lint` | Passed; `final-lint.log` |
+| Production `npm run build` | Passed, default Turbopack; `final-build.log` |
+| `BTS_TEST_PORT=3102 npm run test:e2e` | **322 passed / 16 expected skips / 0 failures**, 338 cases; `public-final-e2e.log` |
+| `npm run test:e2e:admin` | **5 passed** with disposable credentials/SQLite; `admin-final-e2e.log` |
+| Reduced-motion layout comparison | **192/192 matching image dimensions; 187 pixel-identical**; five differ only by 1–2 RGB levels, no pixels exceeding delta 8; `comparison.json`, `comparison.log` |
+| Normal-motion recordings | **28 real interactions**, zero recorded page errors; `motion/observations.json`, `motion/{1440,390}-normal-motion.webm` |
+
+Installed **Google Chrome 156.0.8078.49**, Playwright's isolated Chrome contexts, desktop and emulated phone. Public/capture servers blank database/admin settings; the build uses a fictional WhatsApp fixture number and unconfigured analytics. No external message or transport was enabled. The 16 skips remain existing configuration/project gates, including unconfigured analytics opt-in cases; no skips were added to the transition cases.
+
+Active operator previews were left running. Production validation used the existing isolated-snapshot pattern (`artifacts/typography/prepare-validation.mjs`), a shared node_modules junction and snapshot-only tracing/root config; the real app configuration was unchanged. Each application slice received a fresh production build. The full final run reused that final output after test-only timing/selector corrections. The disposable source/build snapshot was removed after verification; retained logs/evidence are outside it. `.env.local`, operator inventory and `D:/perfume-search` were not inspected or edited.
+
+### Behavioral evidence and diagnosis
+
+- Public Home/catalogue/detail transitions are keyed by locale/path, not `details`, `scent`, `info` or catalogue filters. Actual `bts-page-enter` snapshots occur on route navigation, never the design root fade. The existing non-fixed header retains its document position; native scrolling is not misreported as animation. Admin/not-found screens have no public boundary.
+- Warm catalogue → Spice Blend → explicit one-result Dior return shows exactly one moving bottle group, with changing browser-generated transforms and the same actual photo/return query. Featured and related-card routes also move only the selected photograph. Full intent prefetch is observed through a real RSC response; no router/repository mock, cloned image or production test flag is used. Next can keep RSC streams open after route delivery; tests do not wait for indefinite stream closure.
+- At 360/390px, no positional bottle animation or forced photo scroll; enquiry precedes photography. Existing first-viewport regressions for Spice Blend, Torino21 and Powerfully, tablet related grids, 320px fit, full names, RTL and 200% text reflow all pass in the complete suite.
+- Filters have actual intermediate heights; closed controls are inert/absent from accessible roles. Escape restores focus; repeated toggles, 320px Arabic, preserved filter values and phone/tablet resizing pass. Menu has actual entry/exit opacity, interruption, Escape/focus return and pathname-reset coverage, including header locale navigation and native Back.
+- House, information, photo and chooser dialogs have actual intermediate entrance **and exit** frames, immediate native `open=false`, restored focus and no closing pointer interception. Footer topics survive Back/Forward/close without changing to Contact. Design selection retains instant chooser removal and its isolated root crossfade. Reduced-motion dialogs change state without running panel animations.
+- Unsupported View Transition API, delayed cold RSC, failed images, short windows, direct entry/reload, Ctrl/Meta new tabs, repeated navigation and native history reach correct destinations. Existing failed-font, no-JavaScript, SEO, consent, save/error/dirty-state/auth and process-restart persistence suites remain green.
+
+Exploratory failures are retained, not counted as passes: `task-*-red.log`, `public-first-e2e.log`, `admin-first-e2e.log`, and `timing-reproduction.log`. The initial whole-suite run found a directory test measuring during the newly added entrance, a header assertion conflating viewport/document coordinates, and the admin test's raw selector matching a hidden mounted link. The directory now waits for settled transform before the unchanged <1px search-position assertion; normal-motion tests separately require entrance/exit frames. Header observations include scroll position. The admin test uses the accessible link without weakening route/count/focus checks. Focused timing verification passed **24 repeated cases** (`timing-instrumented.json`), then the complete final public/admin runs passed.
+
+### Visual review and reproduction
+
+- `before/` and `after/`: **96 route/design/locale/viewport cases per phase**, opening plus full-page captures, across Atelier/Gallery/Linen/Salon, EN/AR and 320/390/768/1440px. Both measurement files report zero overflow, failed visible images or recorded page errors. All 96 opening images are pixel-identical. The five nonidentical full-page images have only ≤2-level RGB rounding, not changed geometry/content.
+- `motion/`: start/during/settled screenshots, two real videos and RAF/WAAPI observations for page arrival, forward/reverse bottle, filters, interrupted menu, all four dialog entrances/exits and design switching. Phone records show a single constant bottle-group position, not a flight; desktop forward/reverse records have more than 50 distinct sampled transforms.
+- Decoded actual video frames and contact sheets (`motion/video-frames-*`, `motion/*-sequence-*.png`) permit slow inspection without slowing application navigation. Directly reviewed the forward bottle at full size, forward/reverse sequences, phone filters/directory/footer sequences, English product/catalogue and Arabic phone enquiry openings. One proportional photograph travels; no second interactive image or dark snapshot halo was introduced. Settled screenshots preserve all disclosures and readable names.
+
+Reproduce captures from an **owned seed-only production snapshot**, never an operator database/preview:
+
+```bash
+BTS_CAPTURE_OUTPUT=/absolute/evidence/before node /absolute/repo/scripts/capture-transitions.mjs before
+# Repeat after building the changed source, using a different output directory:
+BTS_CAPTURE_OUTPUT=/absolute/evidence/after node /absolute/repo/scripts/capture-transitions.mjs after
+BTS_MOTION_OUTPUT=/absolute/evidence/motion node /absolute/repo/scripts/record-transitions.mjs
+# From the repository (existing Next-provided sharp; no new installation):
+node scripts/compare-transitions.mjs /absolute/evidence
+node scripts/review-transition-video.mjs /absolute/evidence/motion
+```
+
+Capture scripts own **3122**; public tests own **3102**; isolated admin owns **3101**. Confirm ports are free and build current source first. Videos record real normal motion; screenshots alone are not presented as proof of intermediate animation.
+
+Limits: physical iOS/Safari/hybrid-pointer, old browsers lacking discrete-dialog transitions, comprehensive accessibility/performance certification and client approval of Arabic/business copy remain unverified. Native close is not timer-gated, but an older browser's exit paint was not independently certified. Cold/offscreen routes are honest ordinary-navigation fallbacks, not a guaranteed morph. Campaign/spotlight morphs, guaranteed browser-gesture reversal, result reordering and photo-to-zoom shared motion were **not** delivered. Scene/composite/hover-photo work stays separately paused. No commit, push, deployment, independent-review verdict or publication is claimed.

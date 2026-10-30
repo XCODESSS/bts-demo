@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ProductNavigationLink } from "./product-transition";
 import { formatDiscount } from "../../lib/format";
 import type { Locale } from "../../i18n/config";
 import type { Product } from "./model";
@@ -27,16 +27,18 @@ export function ProductCard({
   const href = `/${locale}/perfumes/${product.slug}${returnQuery ? `?return=${encodeURIComponent(returnQuery)}` : ""}`;
   return (
     <article className={styles.card} data-testid="product-card">
-      <Link
+      <ProductNavigationLink
+        productId={product.id}
         href={href}
         className={`${styles.cardLink} ${motion.interactive}`}
-        aria-label={`${d.view} ${product.name}`}
+        label={`${d.view} ${product.name}`}
       >
         <div className={styles.imageStage}>
           <span className={styles.discountBadge} title={d.demoPrice}>{formatDiscount(pricing.discountPercent, locale)}</span>
           <ProductImage
             product={product}
             locale={locale}
+            transition
             className={`${styles.cardImage} ${motion.visual}`}
           />
           <span className={`${styles.viewCircle} ${motion.action}`}>
@@ -53,7 +55,7 @@ export function ProductCard({
           <DemoPrice productId={product.id} locale={locale} />
           <span className={`${styles.cardAction} ${motion.action}`}>{d.viewFragrance}<Icon name="arrow" size={16} className="directional" /></span>
         </div>
-      </Link>
+      </ProductNavigationLink>
     </article>
   );
 }

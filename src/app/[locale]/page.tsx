@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "../../i18n/config";
+import { PageTransition } from "../../components/page-transition";
 import { HomePage } from "../../features/home/home-page";
 import { buildPageMetadata } from "../../features/seo/metadata";
 import { getDictionary } from "../../i18n/dictionaries";
@@ -17,5 +18,5 @@ export default async function Page({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  return <HomePage locale={locale} />;
+  return <PageTransition routeKey={`/${locale}`}><HomePage locale={locale} /></PageTransition>;
 }

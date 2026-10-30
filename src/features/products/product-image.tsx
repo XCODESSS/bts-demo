@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { ProductImageTransition } from "./product-transition";
 import type { Product } from "./model";
 import type { Locale } from "../../i18n/config";
 import { getDictionary } from "../../i18n/dictionaries";
@@ -9,11 +10,13 @@ export function ProductImage({
   locale,
   priority = false,
   className = "",
+  transition = false,
 }: {
   product: Product;
   locale: Locale;
   priority?: boolean;
   className?: string;
+  transition?: boolean;
 }) {
   const [failedSource, setFailedSource] = useState<string | null>(null);
   const source = product.image.src;
@@ -28,7 +31,7 @@ export function ProductImage({
         <bdi translate="no">{product.name}</bdi>
       </div>
     );
-  return (
+  const image = (
     <Image
       className={className}
       key={source}
@@ -42,4 +45,5 @@ export function ProductImage({
       onError={() => setFailedSource(source)}
     />
   );
+  return transition ? <ProductImageTransition productId={product.id}>{image}</ProductImageTransition> : image;
 }

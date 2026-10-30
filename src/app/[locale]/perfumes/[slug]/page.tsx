@@ -5,6 +5,7 @@ import { isLocale } from "../../../../i18n/config";
 import {
   getProduct,
 } from "../../../../features/products/repository";
+import { PageTransition } from "../../../../components/page-transition";
 import { ProductDetail } from "../../../../features/products/product-detail";
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -28,10 +29,12 @@ export default async function Page({ params, searchParams }: Props) {
     ? query.return[0]
     : query.return || null;
   return (
-    <ProductDetail
-      product={product}
-      locale={locale}
-      returnQuery={returnQuery}
-    />
+    <PageTransition routeKey={`/${locale}/perfumes/${slug}`}>
+      <ProductDetail
+        product={product}
+        locale={locale}
+        returnQuery={returnQuery}
+      />
+    </PageTransition>
   );
 }

@@ -32,6 +32,14 @@ The homepage includes floating hero bottles, a gold light sweep and stronger car
 
 The new green/gold feature banner uses the actual current catalogue count, not an invented stock figure. Customer-experience cards are clearly labelled sample reviews, not verified testimonials. The dark expanded footer has functional contact/shipping/returns/tracking information dialogs, real catalogue links, and the owner-supplied Instagram link: https://www.instagram.com/beyond_the_space_perfumes/. No shipping guarantee, payment gateway, order-tracking backend or unconfirmed business address/hours is invented. See `docs/demo/SHADCN.md` for the official component sources, dependencies and no-Preflight setup.
 
+## Storefront transitions
+
+All four designs share five motion enhancements: public page reveals with a steady shell; selected card-photo continuity into product details; natural-height mobile Filters; interruptible mobile Menu; and consistent entrance/exit for the house, information, photo and design dialogs. The existing design-change crossfade is isolated from route motion. Query-only changes do not replay page arrival.
+
+Photo continuity covers catalogue, Featured and related-product cards, plus the existing return-to-collection link when the matching photograph is visible and ready. It needs supported APIs and a warm route; real hover/focus intent prefetches the destination without delaying clicks. At widths **≤760px**, positional photo motion is disabled, preserving the enquiry-first phone layout. Cold/offscreen/failed-photo paths retain normal navigation; browser Back/Forward keep native history and scroll without guaranteeing a reverse morph. Reduced motion makes state changes immediate; unsupported APIs and no JavaScript retain real links/content.
+
+Campaign/spotlight photo morphs, guaranteed browser-gesture reverse choreography, result reordering and photo-to-zoom shared motion are not included. Photography/composite work remains paused. Timings and actual verification/evidence: [DESIGN.md](docs/demo/DESIGN.md) and [QA.md](docs/demo/QA.md#storefront-transitions--2026-10-30).
+
 ## Compare designs
 
 Click **Design previews** in the footer (Arabic: **معاينة التصاميم**) to open four clickable preview cards. The picker is inline rather than floating, so it needs no extra reserved footer space:

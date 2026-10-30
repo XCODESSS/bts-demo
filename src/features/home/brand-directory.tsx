@@ -36,7 +36,7 @@ export function BrandDirectory({ locale, brands }: { locale: Locale; brands: Sto
         </span>
       </Link>)}
     </div>
-    <dialog ref={dialog} className={styles.brandDialog} aria-labelledby="brand-directory-title" onClose={() => trigger.current?.focus()}
+    <dialog ref={dialog} data-motion-dialog className={styles.brandDialog} aria-labelledby="brand-directory-title" onClose={() => trigger.current?.focus()}
       onClick={(event) => {
         if (event.target !== event.currentTarget) return;
         const b = event.currentTarget.getBoundingClientRect();

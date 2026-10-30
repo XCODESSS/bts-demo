@@ -1,0 +1,79 @@
+:root {
+  --motion-exit: 120ms;
+  --motion-enter: 220ms;
+  --motion-bottle: 400ms;
+  --motion-panel: 180ms;
+  --motion-disclosure: 220ms;
+  --motion-backdrop: 160ms;
+}
+
+/* Leave the persistent shell still and interactive; only public content arrives. */
+::view-transition { pointer-events: none; }
+::view-transition-old(root) { animation: none; opacity: 0; mix-blend-mode: normal; }
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-group(.bts-page) { animation: none; }
+::view-transition-old(.bts-page) { animation: bts-page-exit var(--motion-exit) ease-in both; }
+::view-transition-new(.bts-page) { animation: bts-page-enter var(--motion-enter) 40ms var(--motion-ease) both; }
+@keyframes bts-page-exit { to { opacity: 0; } }
+@keyframes bts-page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* The chooser's imperative design switch is not a route transition. */
+:root:active-view-transition-type(design-switch)::view-transition-old(root) {
+  opacity: 1;
+  animation: design-fade-out 180ms ease-out both;
+}
+:root:active-view-transition-type(design-switch)::view-transition-new(root) {
+  animation: design-fade-in 400ms var(--motion-ease) both;
+}
+
+/* Browser snapshots supply the real endpoint geometry, never a cloned DOM image. */
+::view-transition-group(.bts-bottle) {
+  animation-duration: var(--motion-bottle);
+  animation-timing-function: var(--motion-ease);
+  z-index: 2;
+}
+::view-transition-image-pair(.bts-bottle) { isolation: isolate; mix-blend-mode: normal; }
+::view-transition-old(.bts-bottle), ::view-transition-new(.bts-bottle) {
+  height: 100%; width: 100%; object-fit: contain; mix-blend-mode: normal;
+}
+/* Enquiry precedes photography on phones; do not chase an offscreen destination. */
+@media (max-width: 760px) {
+  ::view-transition-group(.bts-bottle) { animation: none !important; }
+  ::view-transition-old(.bts-bottle) { animation: none !important; opacity: 0; }
+  ::view-transition-new(.bts-bottle) { animation: none !important; }
+}
+
+/* Native close/focus/history happen immediately; CSS alone retains the exit paint. */
+dialog[data-motion-dialog] {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity var(--motion-panel) var(--motion-ease),
+    transform var(--motion-panel) var(--motion-ease),
+    overlay var(--motion-panel) allow-discrete, display var(--motion-panel) allow-discrete;
+}
+dialog[data-motion-dialog][open] { opacity: 1; transform: none; pointer-events: auto; }
+dialog[data-motion-dialog]::backdrop {
+  opacity: 0;
+  transition: opacity var(--motion-backdrop) ease-out,
+    overlay var(--motion-backdrop) allow-discrete, display var(--motion-backdrop) allow-discrete;
+}
+dialog[data-motion-dialog][open]::backdrop { opacity: 1; }
+dialog[data-motion-dialog]:not([open])::backdrop { pointer-events: none; }
+@starting-style {
+  dialog[data-motion-dialog][open] { opacity: 0; transform: translateY(8px); }
+  dialog[data-motion-dialog][open]::backdrop { opacity: 0; }
+}
+dialog[data-motion-dialog][data-instant-close],
+dialog[data-motion-dialog][data-instant-close]::backdrop { transition: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  dialog[data-motion-dialog], dialog[data-motion-dialog]::backdrop { transition: none !important; }
+  ::view-transition-old(*), ::view-transition-new(*), ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

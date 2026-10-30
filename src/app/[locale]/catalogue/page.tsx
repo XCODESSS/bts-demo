@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { isLocale } from "../../../i18n/config";
+import { PageTransition } from "../../../components/page-transition";
 import { CatalogueView } from "../../../features/catalogue/catalogue-view";
 import { buildPageMetadata } from "../../../features/seo/metadata";
 import { getDictionary } from "../../../i18n/dictionaries";
@@ -24,5 +25,5 @@ export default async function Page({
     if (value !== undefined)
       query.set(key, Array.isArray(value) ? value[0] : value);
   }
-  return <CatalogueView locale={locale} params={query} />;
+  return <PageTransition routeKey={`/${locale}/catalogue`}><CatalogueView locale={locale} params={query} /></PageTransition>;
 }

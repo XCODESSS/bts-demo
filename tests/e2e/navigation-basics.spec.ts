@@ -67,6 +67,9 @@ test("perfume houses use compact cards and a searchable, keyboard-dismissible di
   if (isMobile) await expect(dialog.getByRole("button", { name: getDictionary("en").closeHouses })).toBeFocused();
   else await expect(search).toBeFocused();
   await page.evaluate(() => document.fonts.ready);
+  // Compare resting search geometry, not two frames of the dialog entrance.
+  // Actual entry/exit motion has dedicated normal-motion browser coverage.
+  await expect.poll(() => dialog.evaluate(el => getComputedStyle(el).transform)).toBe("none");
   const fieldTop = await search.evaluate((el) => el.getBoundingClientRect().top);
   await search.fill("__not_a_house__");
   expect(Math.abs((await search.evaluate((el) => el.getBoundingClientRect().top)) - fieldTop)).toBeLessThan(1);

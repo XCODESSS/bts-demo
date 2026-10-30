@@ -1,6 +1,25 @@
 import { expect, test } from "@playwright/test";
 import { mkdirSync } from "node:fs";
 import { loadHomeSections } from "./helpers/home-sections";
+import { readMotionObservation, startMotionObservation } from "./helpers/motion-observer";
+
+test("design crossfades stay isolated from subsequent route navigation", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("/en");
+  await page.getByRole("button", { name: "Choose Design", exact: true }).click();
+  await page.getByRole("button", { name: "Preview Modern Gallery", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => document.getAnimations().some(animation =>
+    animation instanceof CSSAnimation && animation.animationName === "design-fade-in")),
+  { intervals: [16, 32, 64] }).toBe(true);
+  await expect.poll(() => page.evaluate(() => document.getAnimations().some(animation =>
+    animation instanceof CSSAnimation && animation.animationName === "design-fade-in"))).toBe(false);
+  await page.evaluate(() => scrollTo(0, 0));
+  await startMotionObservation(page);
+  await page.getByRole("main").getByRole("link", { name: "Explore Collection", exact: true }).click();
+  await expect(page).toHaveURL(/\/en\/catalogue$/);
+  await expect.poll(async () => (await readMotionObservation(page)).some(frame => frame.names.includes("bts-page-enter"))).toBe(true);
+  expect((await readMotionObservation(page)).some(frame => frame.names.includes("design-fade-in"))).toBe(false);
+});
 
 for (const [design, name] of [
   ["atelier", "Botanical Atelier"],

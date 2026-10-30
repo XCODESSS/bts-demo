@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Locale } from "../i18n/config";
 import { getDictionary } from "../i18n/dictionaries";
@@ -29,7 +29,9 @@ export function FooterInformation({ locale, contactAction }: { locale: Locale; c
       if (!element.open) element.showModal();
     } else if (element.open) element.close();
   }, [topic]);
-  const visible = topics[topic || "contact"];
+  const [lastTopic, setLastTopic] = useState<InformationTopic>("contact");
+  if (topic && topic !== lastTopic) setLastTopic(topic);
+  const visible = topics[topic || lastTopic];
   function onClose() {
     if (dialog.current?.open) return;
     // A history-driven close must not replace the new URL or destroy Forward.
@@ -50,7 +52,7 @@ export function FooterInformation({ locale, contactAction }: { locale: Locale; c
           window.history.pushState(null, "", withSearchValue(href, "info", key));
         }}>{topics[key].title}</button>)}
     </nav>
-    <dialog ref={dialog} className={styles.dialog} aria-labelledby="footer-information-title"
+    <dialog ref={dialog} data-motion-dialog className={styles.dialog} aria-labelledby="footer-information-title"
       onClose={onClose} onClick={event => {
         if (event.target !== event.currentTarget) return;
         const b = event.currentTarget.getBoundingClientRect();

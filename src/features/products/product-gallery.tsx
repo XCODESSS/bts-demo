@@ -20,12 +20,12 @@ export function ProductGallery({ product, locale }: { product: Product; locale: 
       <span className={styles.detailDiscount}>{formatDiscount(pricing.discountPercent, locale)}</span>
       <button type="button" ref={trigger} className={styles.imageButton} aria-label={d.zoomImage}
         aria-haspopup="dialog" onClick={() => dialog.current?.showModal()}>
-        <ProductImage product={product} locale={locale} priority className={styles.detailImage} />
+        <ProductImage product={product} locale={locale} priority transition className={styles.detailImage} />
         <span className={styles.zoomMark}><Icon name="plus" size={22} /></span>
       </button>
     </div>
     <p className={styles.caveat}>{product.image.caveat[locale]}</p>
-    <dialog ref={dialog} className={styles.photoDialog} aria-label={d.zoomImage}
+    <dialog ref={dialog} data-motion-dialog className={styles.photoDialog} aria-label={d.zoomImage}
       onClose={() => trigger.current?.focus()}
       onClick={(event) => {
         if (event.target !== event.currentTarget) return;

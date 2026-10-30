@@ -7,9 +7,13 @@ import { getDictionary } from "../i18n/dictionaries";
 import { Icon } from "./icon";
 import styles from "./site-header.module.css";
 export function MobileMenu({ locale }: { locale: Locale }) {
+  const pathname = usePathname();
+  return <MobileMenuContent key={pathname} locale={locale} />;
+}
+
+function MobileMenuContent({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const button = useRef<HTMLButtonElement>(null);
-  const pathname = usePathname();
   const d = getDictionary(locale);
   useEffect(() => {
     if (!open) return;
@@ -23,7 +27,7 @@ export function MobileMenu({ locale }: { locale: Locale }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
   return (
-    <div className={styles.mobileMenu} key={pathname}>
+    <div className={styles.mobileMenu}>
       <button
         ref={button}
         type="button"
@@ -31,14 +35,16 @@ export function MobileMenu({ locale }: { locale: Locale }) {
         aria-label={open ? d.close : d.menu}
         aria-expanded={open}
         aria-controls="mobile-navigation"
-        onClick={() => setOpen(!open)}
+        onClick={() => setOpen(value => !value)}
       >
         <Icon name={open ? "close" : "menu"} />
       </button>
-      {open && (
         <nav
           id="mobile-navigation"
           className={styles.mobileNavigation}
+          data-open={open}
+          aria-hidden={!open}
+          inert={!open}
           aria-label={d.menu}
         >
           <Link onClick={() => setOpen(false)} href={`/${locale}/catalogue`}>
@@ -51,7 +57,6 @@ export function MobileMenu({ locale }: { locale: Locale }) {
             {d.approach}
           </a>
         </nav>
-      )}
     </div>
   );
 }
