@@ -312,3 +312,33 @@ An initial Webpack diagnostic build passed compilation but produced an empty Nex
 - Raw detector: `artifacts/typography/detector/rendered-mobile-turbo.json`. The remaining three hero-arch border warnings are aesthetic judgments; the one single-word paragraph ending is a minor advisory. Exit 2 means completed with findings, not a clean scan or an operational failure.
 
 This completes the typography portion only. Photographic backgrounds, homepage section simplification, ambiguous plus icons, singular/plural copy and the admin image-preview enhancement remain separate critique work. No deployment, commit, push, global skill edit or independent-review claim was made in this implementation.
+
+## Atelier–Salon usability integration — 2026-10-30
+
+Executed `docs/superpowers/plans/2026-10-29-atelier-salon-integration.md` inline after implementation approval. Reused the already-installed typography tokens rather than repeating the earlier font work. Atelier retains green/gold, the supplied logo, three arched bottle photographs, rounded actions and sample-review disclosures. It gains an integrated introduction/action, enquiry-before-gallery phone layout, image/text phone cards, 2×2 tablet related products, a four-note real-perfume preview inside Notes and lighter house links. Phone cards intentionally trade catalogue density for complete readable facts. No new dependencies, images, composite, database fields or backend changes.
+
+### Final checks
+
+| Check | Result |
+|---|---|
+| Data audit | **100 unique bilingual products / 40 houses**, local images present, no private fields/documents |
+| Unit tests | **60 passed**, 17 files, including bounded/empty/small spotlight projection |
+| Typecheck / lint / production build | **Passed** |
+| Complete public Playwright suite | **260 passed / 16 expected skips / 0 failures**, 276 cases across desktop/emulated phone |
+| Isolated admin suite | **5 passed**, including edit/add/error/dirty-state/restart persistence and empty-catalogue recovery in both languages |
+| Other-theme opening comparisons | **36/36 pixel-identical** to fresh pre-integration build (Gallery/Linen/Salon; home/catalogue/product; EN/AR; 390/1440px) |
+| Capture measurements | **60 before + 76 after route/viewport captures + 40 open-state captures**; no document overflow, visible image-load failures or uncaught page errors in those measurements |
+
+Logs and images are under `artifacts/atelier-salon/`: `audit.log`, `unit.log`, `typecheck.log`, `lint.log`, `final-build.log`, `public-final-e2e.log`, `admin-e2e.log`, `theme-comparison.json`, `before/`, `after/` and `after/states/`. `scripts/capture-atelier-salon.mjs before|after [--states]` reproduces the isolated seed-only capture setup and uses the real chooser for theme comparisons. The initial pre-existing build proved stale, so it was preserved separately as `before-existing-build/`; accepted baseline images were captured after rebuilding current source. Exploratory failed runs and initial captures remain separate, not passed off as final evidence.
+
+The after matrix covers Atelier home/catalogue/Spice Blend/long Powerfully detail in English/Arabic at **320/360/390/768/1440px**, plus the other-theme comparison routes. Open states cover Rose, Families, filters, house directory and original-photo modal at 320/390/768/1440px in both locales. Directly inspected full-page home/catalogue, full-size openings, long Arabic product opening, Rose preview, narrow filters/directory and photo-modal images. Final screenshots retain the actual approved bottles and all price/review caveats.
+
+### Behavioral coverage and boundaries
+
+- Both languages: full enquiry visible **before** the large gallery at 360/390×844 for Spice Blend, Torino21 and Powerfully. Full official names, single-link cards, RTL image/text direction, tablet related rows and 320px fit are asserted through the rendered interface.
+- Notes: four actual choices, Rose → **Pour Homme / 14 real matches**, accurate catalogue destination, lazy preview image, reload/direct entry, Back/Forward, locale, tab round-trip, unknown-ID fallback, first-choice key removal, unrelated query/hash preservation and no note-selection scroll jump. Normal no-JavaScript links and modified clicks open the real filtered catalogue. Missing photos preserve usable note controls/results. Exactly one visible preview in Atelier/Salon, no preview in Gallery/Linen; other themes retain eight Notes links and all designs retain eight Family links.
+- Existing suites also cover keyboard tabs/focus, Escape/focus restoration, blocked storage, filters/return journeys, native no-JavaScript catalogue, finite/reduced motion, failed fonts, 200% text resizing and consent/security behaviors. Analytics opt-in remains intentionally unconfigured/skipped; no external transport was enabled or WhatsApp message sent.
+- Public tests own port 3102, captures 3122, admin regression 3101. Operator database/admin settings are blanked for public/capture processes; admin uses its existing disposable credentials/SQLite fixture. Existing preview processes were not stopped. `.env.local`, operator inventory and `D:/perfume-search` were not inspected or edited.
+- The first whole-suite run found new test-selector/navigation-timing mistakes in the house test; the final run corrects those assertions without weakening name/count/route checks. Pixel comparison caught a Salon mobile-padding specificity regression; restoring the existing selector recovered all 36 identical openings.
+
+Primary/secondary scene photographs, bottle-free masters/composites and hover image swapping remain **separately paused**. Physical iOS/Safari/hybrid-pointer testing, actual browser zoom certification, comprehensive accessibility/performance audits and client approval of Arabic/business copy remain unverified. No deployment, commit, publication, independent reviewer or official design-detector verdict is claimed.

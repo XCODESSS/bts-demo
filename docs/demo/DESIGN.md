@@ -1,6 +1,6 @@
 # Frontend direction — green and gold retail storefront
 
-Updated: 2026-10-29. Implemented and locally verified following the user's authorization. Requirements: [STOREFRONT_REDESIGN.md](STOREFRONT_REDESIGN.md). The old fragrance-journal/single-bottle homepage is superseded; historical videos show that earlier design.
+Updated: 2026-10-30. Implemented and locally verified following the user's authorization. Requirements: [STOREFRONT_REDESIGN.md](STOREFRONT_REDESIGN.md). The old fragrance-journal/single-bottle homepage is superseded; historical videos show that earlier design.
 
 ## Direction and reference
 
@@ -43,6 +43,8 @@ All three families remain locally bundled through `next/font/local`; only the tw
 The only scaled-down mock text is inside the chooser's existing `aria-hidden` decorative miniatures; actual design names, descriptions and actions are at least 14px. Header/search/filter/chooser rows wrap as needed rather than shrinking type. This typography follow-up intentionally changes all previews' type sizes, not their data, palette, routing or merchandising hierarchy. It does not claim to fix the separate photography/homepage/admin-image-preview critique items.
 
 ## Shared hierarchy
+
+The diagram describes Gallery/Linen’s retained retail composition. Atelier’s later integration below supersedes its campaign/intro, Notes and phone-card layout; shared sections and data remain.
 
 ```text
 Logo / navigation / actual catalogue search / language
@@ -97,6 +99,19 @@ The design picker is now inline in the footer's bottom row, not a fixed overlay.
 One shared semantic homepage, not duplicated storefront routes or datasets. The chooser's decorative miniatures are isolated in `design-preview.tsx`/its CSS Module. The later **Scent Salon (`salon`)** addition is opt-in and uses the same approved palette, fonts, repository and routes. Its bounded note spotlight is a separate client island; shared server components continue to supply the rest of the page. A shared `designs.ts` registry keeps pre-paint restoration and picker validation aligned. See [SCENT_SALON.md](SCENT_SALON.md) for its direction, scope and verification.
 
 Salon retains `#07363C` / `#D4B991` / `#FBFAF6`, the existing pale gold `#EAD7B9`, pale green `#EAF1ED`, and a photo ground `#F1F3EE`. It now uses Bodoni Moda editorial display at up to 88px, Manrope UI/running copy at 16–18px, and naturally spaced Noto Arabic. Official Latin product titles use Manrope, not the editorial face; long names wrap completely without the older two-line compression requirement. The main opening is one combined headline/action and working note-selection composition rather than the original campaign plus centred introduction. Four real notes swap the displayed matching product and exact collection count; every selector is also a real filter link. The original sample-review fixture is omitted in this alternative, not represented as genuine proof. Product rows on phones give full names more measure; related products use two columns on tablets. Product summary/gallery/body wrappers preserve the original layouts while allowing Salon's mobile enquiry to precede the large gallery. All visual overrides are scoped to `html[data-design="salon"]`, apart from the necessary four-option picker layout.
+
+## Atelier–Salon usability integration — 2026-10-30
+
+Botanical Atelier remains the default green/gold, arched, rounded presentation, not a renamed Salon. It borrows layout behavior while reusing the already-installed typography roles:
+
+- A neutral `display: contents` wrapper leaves Gallery/Linen/Salon geometry intact. In Atelier it combines the localized H1, intro and collection action with the same three campaign bottles; phones place the action before photography. One decorative supplied logo is visible in that intro. The cropped decorative ring was removed only from Atelier’s product stage; finite bottle/sweep motion and reduced motion remain.
+- Mobile product summary/enquiry precedes the gallery below 760px, retaining desktop photo/details columns, truthful price disclosures and the original photo dialog. Enquiries fit at 360/390×844 in both languages for Spice Blend, Torino21 and the long Powerfully fixture without shrinking or hiding names/disclosures.
+- Below 600px, product cards become single-column image/text rows with rounded frames and green actions. This deliberately increases catalogue height to give complete names and facts room. Related products form a 2×2 grid at tablet widths; desktop remains four across.
+- Notes replaces only Atelier’s legacy tile grid with a compact rounded preview from the same bounded four real note matches Salon uses. Families retains eight category illustrations; Gallery/Linen/Salon retain their legacy Notes tiles. The optional server-rendered slot falls back to tiles when no preview exists. No whole-catalogue client fetch or new repository is introduced.
+- Discovery placement uses allowlisted `scent` IDs from current choices. Missing/unknown values select the first actual choice; choosing it removes the key. Native History updates preserve other queries/hash and scroll; reload, Back/Forward, tabs and locale keep selection. Note links remain real catalogue links without script or on modified clicks. Salon’s hero retains local selection and eager image scheduling; Atelier’s below-fold preview is lazy.
+- Eight featured house links become a quiet transparent index with readable counts, bottom rules and retained green rounded arrow/directory controls. The 40-house searchable modal, keyboard dismissal and real brand filters are unchanged.
+
+Sample reviews remain explicitly labelled in Atelier. No dependency/font, product data, primary/secondary image, image API or composite was added. The separate photographic-background work is still paused. All integration styling is Atelier-scoped; comparison openings for the other three designs are pixel-identical in the tested matrix. Actual gates/evidence and limits are recorded in [QA.md](QA.md).
 
 ## Motion, accessibility and critique
 

@@ -137,6 +137,7 @@
   .profileGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .imageButton { min-height: 470px; padding: 32px 22px; }
   .detailImage { height: 400px; }
+  :global(html[data-design="atelier"]) .related :global(.product-grid),
   :global(html[data-design="linen"]) .related :global(.product-grid),
   :global(html[data-design="salon"]) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
@@ -187,6 +188,27 @@
   :global(html[data-design="salon"]) .discountBadge { padding: 6px; }
   :global(html[data-design="salon"]) .cardAction { gap: 8px; margin-top: 8px; }
   :global(html[data-design="salon"]) .related :global(.product-grid) { grid-template-columns: 1fr; }
+}
+/* Atelier borrows the early enquiry, retaining its rounded green/gold framing. */
+@media (max-width: 760px) {
+  :global(html[data-design="atelier"]) .purchaseSummary { grid-row: 1; }
+  :global(html[data-design="atelier"]) .gallery { grid-row: 2; margin-block: 24px 28px; }
+  :global(html[data-design="atelier"]) .imageButton { min-height: 300px; padding: 24px; }
+  :global(html[data-design="atelier"]) .detailImage { height: 260px; }
+  :global(html[data-design="atelier"]) .productTopBar { padding-block: 12px; }
+  :global(html[data-design="atelier"]) .detailInfo h1 { margin-block: 8px 14px; }
+  :global(html[data-design="atelier"]) .variantLine { margin-block: 12px; }
+  :global(html[data-design="atelier"]) .familyList { margin-bottom: 16px; }
+}
+@media (max-width: 600px) {
+  :global(html[data-design="atelier"]) .cardLink {
+    display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.3fr);
+    column-gap: 16px; align-items: center;
+  }
+  :global(html[data-design="atelier"]) .imageStage { height: 220px; aspect-ratio: auto; }
+  :global(html[data-design="atelier"]) .cardBody { min-width: 0; padding-block: 8px; }
+  :global(html[data-design="atelier"]) .cardTitle { min-height: 0; }
+  :global(html[data-design="atelier"]) .related :global(.product-grid) { grid-template-columns: minmax(0, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
   .cardLink:hover, .cardLink:hover .cardImage, .imageButton:hover .detailImage { transform: none; }

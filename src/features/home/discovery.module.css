@@ -80,6 +80,14 @@
 :global(html[data-design="gallery"]) .category,
 :global(html[data-design="gallery"]) .brandCard { border-radius: 0; }
 :global(html[data-design="linen"]) .categoryImage { background: #ffffff44; border-radius: 140px 140px 0 0; }
+/* Atelier house links are a quiet index, not a second catalogue of boxed cards. */
+:global(html[data-design="atelier"]) .brandCard {
+  background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  border-radius: 0; padding: 16px 0;
+}
+:global(html[data-design="atelier"]) .houseName { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+:global(html[data-design="atelier"]) .houseMeta { color: var(--ink); }
+:global(html[data-design="atelier"]) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 900px) {
   .brandGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .brandHeading { align-items: start; flex-direction: column; gap: 18px; }

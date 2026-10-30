@@ -1,5 +1,22 @@
 # Atelier Design With Salon Usability Implementation Plan
 
+## Execution Record — 2026-10-30
+
+The user's “Implement the salon-altier integration” request approved execution against Botanical Atelier. Implemented inline, without delegation, commits or deployment. The proposal/checklists below are preserved as planning history; this record and [QA.md](../../demo/QA.md#atelier–salon-usability-integration--2026-10-30) describe actual delivery.
+
+- [x] Task 1: Reused the intervening typography implementation; card facts, catalogue/search controls and narrow fit pass the existing and new public checks. No duplicate font/type system introduced.
+- [x] Task 2: Atelier enquiry before mobile gallery; short/long products pass at 360/390×844 in EN/AR without disclaimer reordering or hiding content.
+- [x] Task 3: RTL-aware phone product rows and 2×2 tablet related grid, complete official names and intact native product links.
+- [x] Task 4: One actionable Atelier introduction with the retained three arched bottles; neutral wrapper preserves other themes and finite/reduced motion.
+- [x] Task 5: Compact four-note preview in Notes with allowlisted `scent` history/reload/locale/tab behavior, real counts/links, no-script/modified-click fallback and lazy photography; Families/other themes retained.
+- [x] Task 6: Transparent house index, real filters/directory, full public/admin gates, before/after/open-state evidence and documentation.
+
+Final gates: data audit passed, 60 unit tests, typecheck/lint/build passed, **260 public tests passed / 16 expected skips**, **5 isolated admin tests passed**. All **36** other-theme opening comparisons are pixel-identical. Capture measurements: 60 before / 76 after route combinations and 40 open states, with no measured overflow/image/runtime failures. Evidence: `artifacts/atelier-salon/`.
+
+Protected operator data/configuration and the separately paused image/composite work remain untouched. Physical devices/Safari, comprehensive accessibility/performance certification and analytics opt-in transport remain outside the verified scope; see QA for limits.
+
+---
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Bring Salon’s readable information, early mobile enquiry, responsive product layouts and useful scent discovery into Botanical Atelier without replacing Atelier’s visual identity.

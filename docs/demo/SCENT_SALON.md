@@ -2,6 +2,14 @@
 
 **Current typography override:** The later typography plan replaces Cormorant with locally bundled Bodoni Moda 500/600 for editorial display, retains Manrope for official Latin product identities and UI, and retains Noto Sans Arabic for Arabic copy. Functional supporting text is at least 14px; body/inputs are 16px. Long names wrap completely at a readable size instead of being constrained to two lines. Earlier pixel-identical and two-line measurements below describe the original delivery, not the updated font metrics. See `DESIGN.md` and the latest `QA.md` section for current evidence.
 
+## Atelier integration follow-up — 2026-10-30
+
+Salon remains an independent opt-in preview with its existing composition and local hero-note selection. Its usability principles now also improve the default Botanical Atelier: early mobile enquiry, image/text phone cards, 2×2 tablet related products, one actionable three-bottle opening, a compact real-note preview inside Notes and quieter house browsing. Atelier keeps its arches, rounded controls, green/gold identity and honestly labelled sample reviews; Salon’s square framing/oversized hero are not copied.
+
+`ScentSpotlight` now accepts an optional `placement` (`hero` by default). Atelier’s `discovery` placement is backed by allowlisted `scent` query state and lazy photography; Salon’s hero retains local state/eager photography. Both reuse the same bounded four-choice projection and real filtered links. The other themes’ note/family illustrations remain intact.
+
+Final integration run: **260 public cases passed, 16 expected skips; 5 isolated admin cases passed**. All **36** Gallery/Linen/Salon opening comparisons (home/catalogue/product, EN/AR, 390/1440px) are pixel-identical to the fresh pre-integration build. Evidence: `artifacts/atelier-salon/theme-comparison.json`; full checks and limitations: [QA.md](QA.md). No photographs, font dependencies or operator data were changed; the separate bottle-composite/background-image work remains paused. The original delivery record below is preserved as historical evidence.
+
 ## Scope and context
 
 The user requests a bolder alternative in the existing design menu, preserving the current designs and green/gold theme. This authorizes a fourth opt-in design, superseding the older brief's three-design limit for this work only. Botanical Atelier remains the default. No backend, credentials, inventory, checkout or deployment changes. The later typography request separately authorizes replacing the editorial-font dependency.

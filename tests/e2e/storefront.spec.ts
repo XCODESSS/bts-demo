@@ -57,8 +57,8 @@ test("product photograph zoom supports Escape and focus restoration in both lang
 test("campaign displays the supplied BS logo instead of a typed brand name", async ({ page }) => {
   await page.goto("/en");
   const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
-  await expect(campaign.getByRole("img", { name: "Beyond the Space Perfume", exact: true }))
-    .toHaveAttribute("src", /\/brand\/logo\.png$/);
+  await expect(page.getByRole("main").locator('img[src="/brand/logo.png"]:visible'))
+    .toHaveCount(1);
   await expect(campaign.getByText("Beyond the Space", { exact: true })).toHaveCount(0);
 });
 
@@ -98,6 +98,7 @@ test("Arabic notes, brand directory and gender cards open real filtered results"
   await page.goto("/ar");
   await page.getByRole("region", { name: "تسوّق مجموعات العطور", exact: true })
     .getByRole("link", { name: "الليمون", exact: true }).click();
+  await page.getByRole("link", { name: "استكشف العطور المطابقة", exact: true }).click();
   await expect(page).toHaveURL(/\/ar\/catalogue\?note=lemon$/);
   await expect(page.getByTestId("product-card").first()).toBeVisible();
   await page.goto("/ar");
@@ -167,6 +168,7 @@ test("discovery tabs lead to actual note and family results", async ({ page }) =
   const collections = page.getByRole("region", { name: "Shop Perfume Collections", exact: true });
   await expect(collections.getByRole("tab", { name: "Fragrance Note", exact: true })).toHaveAttribute("aria-selected", "true");
   await collections.getByRole("link", { name: "Lemon", exact: true }).click();
+  await collections.getByRole("link", { name: "Explore Matching Fragrances", exact: true }).click();
   await expect(page).toHaveURL(/\/en\/catalogue\?note=lemon$/);
   await expect(page.getByTestId("product-card").first()).toBeVisible();
   await page.goto("/en");
@@ -188,7 +190,8 @@ test("all three designs use logo green and gold on a light page", async ({ page 
       return { green: style.getPropertyValue("--brand-green").trim(), gold: style.getPropertyValue("--brand-gold").trim() };
     });
     expect(tokens).toEqual({ green: "#07363c", gold: "#d4b991" });
-    await expect(page.getByRole("region", { name: "Fragrances in Focus", exact: true }))
+    const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
+    await expect(name === "Botanical Atelier" ? campaign.locator("..") : campaign)
       .toHaveCSS("background-color", "rgb(7, 54, 60)");
   }
 });

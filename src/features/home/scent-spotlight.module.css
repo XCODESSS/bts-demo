@@ -48,4 +48,33 @@
   .name { font-size: 1.625rem; }
   .caption { gap: 5px; }
 }
+/* A compact Atelier discovery tool, not another oversized campaign. */
+:global(html[data-design="atelier"]) .discovery {
+  display: block; padding: 24px; border: 1px solid #07363c26;
+  border-radius: 12px; background: #fbfaf6; color: var(--ink);
+}
+.discovery .selection { display: flex; gap: 16px; }
+.discovery .prompt { margin: 0; }
+.discovery .notes { width: auto; justify-content: start; gap: 8px; }
+.discovery .notes a { min-height: 44px; min-width: 44px; border: 1px solid var(--line); border-radius: 24px; }
+.discovery .notes a[aria-current] { border-color: var(--brand-green); }
+.discovery .figure { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; gap: 24px; margin-top: 20px; }
+.discovery .product { background: var(--stone); border-radius: 100px 100px 8px 8px; padding: 16px; }
+.discovery .bottle { height: 220px; }
+.discovery .caption { display: flex; flex-direction: column; align-items: start; gap: 8px; padding: 0; }
+.discovery .name { font-size: 1.5rem; }
+.discovery .browse { border-bottom: 1px solid var(--brand-gold); }
+@media (max-width: 650px) {
+  :global(html[data-design="atelier"]) .discovery { padding: 16px; }
+  .discovery .figure { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 16px; }
+  .discovery .bottle { height: 170px; }
+  .discovery .product { padding: 12px; }
+  .discovery .name { font-size: var(--type-card); }
+  .discovery .house, .discovery .count, .discovery .browse { font-size: var(--type-label); }
+  .discovery .browse svg { flex-shrink: 0; }
+}
+@media (max-width: 360px) {
+  .discovery .figure { grid-template-columns: minmax(0, 1fr); }
+  .discovery .product { width: 100%; }
+}
 @media (prefers-reduced-motion: reduce) { .notes a { transition: none; } }

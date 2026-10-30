@@ -6,6 +6,7 @@ import { getStorefrontModel } from "./storefront-model";
 import { getProducts } from "../products/repository";
 import { CampaignHero } from "./campaign-hero";
 import { getScentSpotlights } from "./scent-spotlights";
+import { ScentSpotlight } from "./scent-spotlight";
 import { CollectionsBrowser } from "./collections-browser";
 import { BrandDirectory } from "./brand-directory";
 import { StorefrontCategories } from "./storefront-categories";
@@ -26,7 +27,8 @@ export function HomePage({ locale }: { locale: Locale }) {
       <section className={styles.collectionsBand} aria-label={d.collectionsTitle}>
         <div className={`${styles.collections} page-width`}>
           <div className="section-heading"><h2>{d.collectionsTitle}</h2><p>{d.collectionsIntro}</p></div>
-          <CollectionsBrowser groups={model.groups} label={d.discover} locale={locale} />
+          <CollectionsBrowser groups={model.groups} label={d.discover} locale={locale}
+            notePreview={spotlights.length ? <ScentSpotlight choices={spotlights} locale={locale} placement="discovery" /> : undefined} />
         </div>
       </section>
     </ScrollSection>}

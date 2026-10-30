@@ -1,4 +1,6 @@
 .hero { padding-block: 26px 36px; }
+.campaign { display: contents; }
+.introLogo { display: none; }
 .stage {
   position: relative;
   isolation: isolate;
@@ -100,7 +102,7 @@
 @media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .product:hover .bottle { transform: translateY(-4px); }
 }
-/* The original three campaign compositions remain unchanged. */
+/* Gallery/Linen retain the original campaign; Salon keeps its split spotlight. */
 :global(html[data-design="salon"]) .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -167,4 +169,30 @@
   .intro h1 { font-size: var(--type-campaign); letter-spacing: -.015em; }
   .intro > p { font-size: var(--type-body); line-height: var(--leading-body); }
   :global([dir="rtl"]) .statement p { font-size: 2rem; line-height: var(--leading-display); max-width: 22ch; }
+}
+
+/* One Atelier opening: the original arches beside the introduction, not a second hero. */
+:global(html[data-design="atelier"]) .campaign {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.3fr);
+  align-items: center; gap: 28px; padding: 32px;
+  border-radius: 10px; background: var(--brand-green); color: #fbfaf6;
+}
+:global(html[data-design="atelier"]) .stage {
+  grid-column: 2; grid-row: 1; grid-template-columns: minmax(0, 1fr);
+  min-width: 0; min-height: 0; background: transparent; padding: 24px 0;
+}
+:global(html[data-design="atelier"]) .stage::before { content: none; }
+:global(html[data-design="atelier"]) .statement { display: none; }
+:global(html[data-design="atelier"]) .intro {
+  grid-column: 1; grid-row: 1; margin: 0; min-width: 0; text-align: start;
+}
+:global(html[data-design="atelier"]) .introLogo { display: block; margin-bottom: 20px; border-radius: 50%; }
+:global(html[data-design="atelier"]) .intro h1 { color: var(--brand-gold); font-size: var(--type-campaign); }
+:global(html[data-design="atelier"]) .intro > p { color: #fbfaf6; }
+:global(html[data-design="atelier"]) .intro :focus-visible { outline-color: var(--brand-gold); }
+@media (max-width: 650px) {
+  :global(html[data-design="atelier"]) .campaign { grid-template-columns: minmax(0, 1fr); padding: 24px 16px; gap: 16px; }
+  :global(html[data-design="atelier"]) .intro { grid-column: 1; grid-row: 1; }
+  :global(html[data-design="atelier"]) .stage { grid-column: 1; grid-row: 2; padding-block: 8px; }
+  :global(html[data-design="atelier"]) .introLogo { width: 56px; height: 56px; }
 }

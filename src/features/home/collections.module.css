@@ -46,6 +46,9 @@
 .indicator { position: absolute; z-index: 0; left: 0; top: 0; width: var(--pill-width, 0px); height: var(--pill-height, 44px); transform: translate(var(--pill-x, 5px), var(--pill-y, 5px)); background: var(--brand-green); border-radius: 26px; pointer-events: none; opacity: 0; transition: transform .38s var(--motion-ease); }
 .tabs[data-indicator-ready="true"] .indicator { opacity: 1; }
 .panel { margin: 0; }
+.atelierNotePreview { display: none; }
+:global(html[data-design="atelier"]) .atelierNotePreview { display: block; }
+:global(html[data-design="atelier"]) .legacyNoteTiles { display: none; }
 @media (prefers-reduced-motion: reduce) { .indicator, .tab { transition: none; } }
 .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .tile { min-width: 0; background: #f8faf7; border-radius: 8px; overflow: hidden; text-decoration: none; border: 1px solid #07363c14; }

@@ -35,10 +35,12 @@ for (const locale of ["en", "ar"] as const) {
   });
 }
 
-test("notes and families show matching category illustrations, never mislabeled or repeated bottles", async ({ page }) => {
+test("Atelier Notes previews real fragrances while Families retains distinct category illustrations", async ({ page }) => {
   await page.goto("/en#scents");
   const section = page.getByRole("region", { name: "Shop Perfume Collections", exact: true });
-  for (const tab of ["Fragrance Note", "Fragrance Family"]) {
+  await expect(section.getByRole("navigation").getByRole("link")).toHaveCount(4);
+  await expect(section.getByRole("figure")).toHaveCount(1);
+  for (const tab of ["Fragrance Family"]) {
     await section.getByRole("tab", { name: tab, exact: true }).click();
     await expect(section.locator('img[src*="/perfumes/"]')).toHaveCount(0);
     const cards = section.getByRole("tabpanel").getByRole("link");
@@ -93,7 +95,7 @@ test("header and main campaign share aligned gutters at wide and phone widths", 
     const brand = page.getByRole("banner").getByRole("link", { name: "Beyond the Space Perfume — Home", exact: true });
     const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
     const left = (locator: Locator) => locator.evaluate((el) => el.getBoundingClientRect().left);
-    expect(Math.abs((await left(brand)) - (await left(campaign)))).toBeLessThan(1);
+    expect(Math.abs((await left(brand)) - (await left(campaign.locator(".."))))).toBeLessThan(1);
     expect(await page.getByRole("region", { name: "Customer Experiences", exact: true }).evaluate((el) =>
       Math.abs(el.getBoundingClientRect().width - innerWidth))).toBeLessThan(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
@@ -104,7 +106,8 @@ test("product and discovery cards share the same hover lift", async ({ page, isM
   test.skip(isMobile, "Touch has no persistent hover interaction.");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
-  const note = page.getByRole("region", { name: "Shop Perfume Collections", exact: true }).getByRole("link", { name: "Lemon", exact: true });
+  await page.getByRole("tab", { name: "Fragrance Family", exact: true }).click();
+  const note = page.getByRole("region", { name: "Shop Perfume Collections", exact: true }).getByRole("link", { name: "Woody", exact: true });
   const product = page.locator("#featured").getByTestId("product-card").first().getByRole("link");
   for (const card of [note, product]) {
     await card.hover();

@@ -16,6 +16,7 @@ export function CampaignHero({ locale, products, spotlights }: {
   const d = getDictionary(locale);
   return (
     <div className={`${styles.hero} ${spotlights.length ? styles.withSpotlight : ""} page-width`}>
+      <div className={styles.campaign}>
       <section className={styles.stage} aria-label={d.campaignProducts}>
         <div className={styles.statement}>
           <Image src="/brand/logo.png" width={76} height={76} alt={d.footerBrand}
@@ -37,11 +38,14 @@ export function CampaignHero({ locale, products, spotlights }: {
         </div>
       </section>
       <div className={styles.intro}>
+        <Image src="/brand/logo.png" width={76} height={76} alt=""
+          className={styles.introLogo} loading="eager" fetchPriority="high" unoptimized />
         <h1><DesignText classic={d.storefrontTitle} salon={d.salonTitle} /></h1>
         <p><DesignText classic={d.storefrontIntro} salon={d.salonIntro} /></p>
         <Link href={`/${locale}/catalogue`} className={styles.action}>
           {d.campaignAction}<Icon name="arrow" size={18} className="directional" />
         </Link>
+      </div>
       </div>
       <ScentSpotlight choices={spotlights} locale={locale} />
     </div>
