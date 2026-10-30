@@ -1,1 +1,2 @@
-.section { display: flow-root; }
+/* Anchored jumps land on the section heading, not on the band's top padding. */
+.section { display: flow-root; scroll-margin-top: calc(24px - clamp(64px, 8vw, 120px)); }

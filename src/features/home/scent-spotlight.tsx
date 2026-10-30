@@ -1,59 +1,65 @@
 "use client";
 
 import Link from "next/link";
-import { useState, type MouseEvent } from "react";
+import type { MouseEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { withSearchValue } from "../../lib/interface-state";
 import type { Locale } from "../../i18n/config";
 import { getDictionary } from "../../i18n/dictionaries";
 import { Icon } from "../../components/icon";
+import type { Product } from "../products/model";
 import { ProductImage } from "../products/product-image";
 import type { ScentSpotlight as Spotlight } from "./scent-spotlights";
-import styles from "./scent-spotlight.module.css";
+import styles from "./hero.module.css";
 
-export function ScentSpotlight({ choices, locale, placement = "hero" }: {
+/**
+ * A note choice previews one real matching perfume. The choice lives in `?scent=` so reload,
+ * Back/Forward and language switching keep it; without script the chips are real catalogue links.
+ */
+export function ScentSpotlight({ choices, locale, fallback }: {
   choices: readonly Spotlight[];
   locale: Locale;
-  placement?: "hero" | "discovery";
+  fallback?: Product;
 }) {
   const search = useSearchParams();
-  const [localSelected, setLocalSelected] = useState(choices[0]?.id);
-  const requested = placement === "discovery" ? search.get("scent") : localSelected;
-  const current = choices.find((choice) => choice.id === requested) || choices[0];
+  const current = choices.find((choice) => choice.id === search.get("scent")) || choices[0];
+  const product = current?.product || fallback;
   const d = getDictionary(locale);
-  if (!current) return null;
+  if (!product) return <p className={styles.empty}>{d.cataloguePreparing}</p>;
 
   function choose(event: MouseEvent<HTMLAnchorElement>, id: string) {
-    // Without script (or with a modified click), these remain real filtered links.
     if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-    if (placement === "hero") { setLocalSelected(id); return; }
     if (!choices.some(choice => choice.id === id)) return;
     const href = `${window.location.pathname}${window.location.search}${window.location.hash}`;
     const next = withSearchValue(href, "scent", id === choices[0]?.id ? null : id);
     if (next !== href) window.history.pushState(null, "", next);
   }
 
-  return <div className={`${styles.spotlight} ${placement === "discovery" ? styles.discovery : ""}`}
-    data-placement={placement} role="region" aria-label={d.spotlightLabel}>
-    <div className={styles.selection}>
+  return <div className={styles.spotlight} role="region" aria-label={d.spotlightLabel} data-spotlight>
+    {current && <div className={styles.selection}>
       <p className={styles.prompt}>{d.spotlightPrompt}</p>
       <nav className={styles.notes} aria-label={d.spotlightLabel}>
         {choices.map((choice) => <a key={choice.id} href={choice.href}
           aria-current={current.id === choice.id ? "true" : undefined}
           onClick={(event) => choose(event, choice.id)}>{choice.label}</a>)}
       </nav>
-    </div>
+    </div>}
     <figure className={styles.figure}>
-      <Link key={current.product.id} href={`/${locale}/perfumes/${current.product.slug}`}
-        className={styles.product} aria-label={`${d.view} ${current.product.name}`}>
-        <ProductImage product={current.product} locale={locale} priority={placement === "hero"} className={styles.bottle} />
+      <div className={styles.orbit} aria-hidden="true" />
+      <Link key={product.id} href={`/${locale}/perfumes/${product.slug}`}
+        className={styles.aperture} aria-label={`${d.view} ${product.name}`}>
+        <ProductImage product={product} locale={locale} priority className={styles.bottle} />
       </Link>
       <figcaption className={styles.caption} aria-live="polite" aria-atomic="true">
-        <p className={styles.house} translate="no"><bdi>{current.product.brand}</bdi></p>
-        <p className={styles.name} translate="no"><bdi>{current.product.name}</bdi></p>
-        <p className={styles.count}>{new Intl.NumberFormat(locale).format(current.count)} {d.results} {d.spotlightWith} {current.label}</p>
-        <Link href={current.href} className={styles.browse}>{d.spotlightBrowse}<Icon name="arrow" size={20} className="directional" /></Link>
+        <span className={styles.house} translate="no"><bdi>{product.brand}</bdi></span>
+        <span className={styles.name} translate="no"><bdi>{product.name}</bdi></span>
+        {current && <span className={styles.count}>
+          {new Intl.NumberFormat(locale).format(current.count)} {current.count === 1 ? d.resultSingular : d.results} {d.spotlightWith} {current.label}
+        </span>}
+        {current && <Link href={current.href} className={styles.browse}>
+          {d.spotlightBrowse}<Icon name="arrow" size={18} className="directional" />
+        </Link>}
       </figcaption>
     </figure>
   </div>;

@@ -5,21 +5,21 @@ import { ProductImage } from "../products/product-image";
 import { Icon } from "../../components/icon";
 import type { StorefrontTile } from "./storefront-model";
 import styles from "./discovery.module.css";
-import motion from "../../components/card-motion.module.css";
 
 export function StorefrontCategories({ locale, items }: { locale: Locale; items: readonly StorefrontTile[] }) {
   const d = getDictionary(locale);
   if (!items.length) return null;
   return (
-    <section data-reveal className={`${styles.categories} page-width`} aria-label={d.categoriesTitle}>
-      <div className="section-heading"><h2>{d.categoriesTitle}</h2><p>{d.categoriesIntro}</p></div>
+    <section className={`${styles.categories} section page-width`} aria-labelledby="for-you-title">
+      <div className="section-heading"><div><h2 id="for-you-title">{d.categoriesTitle}</h2><p>{d.categoriesIntro}</p></div></div>
       <div className={styles.categoryGrid}>
-        {items.map((item) => <Link key={item.id} href={item.href} className={`${styles.category} ${motion.interactive}`} aria-label={item.label}>
-          <div className={styles.categoryImage}><ProductImage product={item.product} locale={locale} className={`${styles.bottle} ${motion.visual}`} /></div>
-          <div className={styles.categoryCaption}>
-            <div><h3>{item.label}</h3><p>{d.featuring} <bdi>{item.product.brand} {item.product.name}</bdi></p></div>
-            <span className={`${styles.categoryArrow} ${motion.action}`}><Icon name="arrow" size={18} className="directional" /></span>
-          </div>
+        {items.map((item) => <Link key={item.id} href={item.href} className={styles.category} aria-label={item.label}>
+          <span className={styles.categoryImage}><ProductImage product={item.product} locale={locale} className={styles.bottle} /></span>
+          <span className={styles.categoryCaption}>
+            <span className={styles.categoryLabel}>{item.label}</span>
+            <span className={styles.categoryNote}>{d.featuring} <bdi translate="no">{item.product.brand} {item.product.name}</bdi></span>
+          </span>
+          <span className={styles.categoryArrow}><Icon name="arrow" size={18} className="directional" /></span>
         </Link>)}
       </div>
     </section>

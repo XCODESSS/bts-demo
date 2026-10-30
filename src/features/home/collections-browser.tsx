@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { readDiscoveryTab, withSearchValue } from "../../lib/interface-state";
 import type { Locale } from "../../i18n/config";
@@ -8,12 +8,11 @@ import { Icon } from "../../components/icon";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs";
 import { getDictionary } from "../../i18n/dictionaries";
 import { ScentVisual } from "./scent-visual";
-import motion from "../../components/card-motion.module.css";
 import type { DiscoveryGroup } from "./storefront-model";
 import styles from "./collections.module.css";
 
-export function CollectionsBrowser({ groups, label, locale, notePreview }: {
-  groups: readonly DiscoveryGroup[]; label: string; locale: Locale; notePreview?: ReactNode;
+export function CollectionsBrowser({ groups, label, locale }: {
+  groups: readonly DiscoveryGroup[]; label: string; locale: Locale;
 }) {
   const d = getDictionary(locale);
   const active = readDiscoveryTab(useSearchParams().toString());
@@ -52,22 +51,20 @@ export function CollectionsBrowser({ groups, label, locale, notePreview }: {
       <TabsList ref={list} aria-label={label} className={styles.tabs}>
         <span data-slot="tabs-indicator" className={styles.indicator} aria-hidden="true" />
         {groups.map((group) => <TabsTrigger key={group.id} value={group.id} className={styles.tab}>
-          <Icon name={group.id === "notes" ? "plus" : "filter"} size={16} />{group.label}
+          {group.label}
         </TabsTrigger>)}
       </TabsList>
       {groups.map((group) => <TabsContent key={group.id} value={group.id} className={styles.panel}>
-        {selected === group.id && <>
-          {group.id === "notes" && notePreview && <div className={styles.atelierNotePreview}>{notePreview}</div>}
-          <div className={`${styles.grid} ${group.id === "notes" && notePreview ? styles.legacyNoteTiles : ""}`}>
-            {group.items.map((item) => <Link key={item.id} href={item.href} aria-label={item.label} className={`${styles.tile} ${motion.interactive}`}>
-              <div className={styles.imageStage}><ScentVisual id={item.id} group={group.id} label={item.label} className={`${styles.image} ${motion.visual}`} /></div>
-              <div className={styles.caption}>
-                <div><h3>{item.label}</h3><span>{new Intl.NumberFormat(locale).format(item.count)} {item.count === 1 ? d.resultSingular : d.results}</span></div>
-                <span className={`${styles.arrow} ${motion.action}`}><Icon name="arrow" size={18} className="directional" /></span>
-              </div>
-            </Link>)}
-          </div>
-        </>}
+        {selected === group.id && <div className={styles.grid}>
+          {group.items.map((item) => <Link key={item.id} href={item.href} aria-label={item.label} className={styles.tile}>
+            <ScentVisual id={item.id} group={group.id} label={item.label} className={styles.image} />
+            <span className={styles.caption}>
+              <span className={styles.label}>{item.label}</span>
+              <span className={styles.count}>{new Intl.NumberFormat(locale).format(item.count)} {item.count === 1 ? d.resultSingular : d.results}</span>
+            </span>
+            <span className={styles.arrow}><Icon name="arrow" size={18} className="directional" /></span>
+          </Link>)}
+        </div>}
       </TabsContent>)}
     </Tabs>
   );

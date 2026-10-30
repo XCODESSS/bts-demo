@@ -1,112 +1,150 @@
-.brands { padding-block: 40px 20px; }
-:global(html[data-design="salon"]) .brands { padding-block: 64px; }
-:global(html[data-design="salon"]) .brandHeading { margin-bottom: 48px; }
-:global(html[data-design="salon"]) .brandHeading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin-bottom: 20px; }
-:global(html[data-design="salon"]) .brandHeading p { font-size: var(--type-body); line-height: 1.6; color: var(--ink); max-width: 45ch; }
-:global(html[data-design="salon"]) .allBrands { font-size: var(--type-body); padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
-:global(html[data-design="salon"]) .allBrands b { border-radius: 0; padding: 0; background: none; }
-:global(html[data-design="salon"]) .brandGrid { gap: 32px; }
-:global(html[data-design="salon"]) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
-:global(html[data-design="salon"]) .houseName { font-size: 1.25rem; line-height: 1.4; }
-:global(html[data-design="salon"]) .houseMeta { font-size: var(--type-label); color: var(--ink); }
-:global(html[data-design="salon"]) .houseArrow { background: none; color: var(--ink); }
-:global(html[data-design="salon"]) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-:global(html[data-design="salon"]) .brandDialog { border: 0; border-radius: 0; }
-:global(html[data-design="salon"]) .brandDialog::backdrop { backdrop-filter: none; }
-:global(html[data-design="salon"]) .brandSearch, :global(html[data-design="salon"]) .directoryGrid a, :global(html[data-design="salon"]) .houseCount { font-size: var(--type-body); }
-:global(html[data-design="salon"]) .categories { padding-block: 80px; }
-:global(html[data-design="salon"]) .categoryGrid { gap: 0; background: var(--gold-surface); }
-:global(html[data-design="salon"]) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
-:global(html[data-design="salon"]) .categoryImage { height: 210px; padding: 28px; }
-:global(html[data-design="salon"]) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
-:global(html[dir="rtl"][data-design="salon"]) .categoryCaption { padding: 20px 0 20px 24px; }
-:global(html[data-design="salon"]) .categoryCaption h3 { font: 600 1.5rem/1.4 var(--body); }
-:global(html[data-design="salon"]) .categoryCaption p { font-size: var(--type-label); line-height: 1.5; color: var(--ink); }
-:global(html[data-design="salon"]) .categoryArrow { background: none; color: var(--ink); width: 24px; }
-:global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-family: var(--body); font-size: var(--type-section); line-height: var(--leading-display); letter-spacing: 0; }
-:global(html[lang="ar"][data-design="salon"]) .categoryCaption h3 { font-family: var(--body); font-size: 1.5rem; line-height: 1.5; }
-@media (max-width: 900px) {
-  :global(html[data-design="salon"]) .brandGrid { gap: 24px 32px; }
-  :global(html[data-design="salon"]) .categoryGrid { grid-template-columns: 1fr; }
-  :global(html[data-design="salon"]) .category { grid-template-columns: 160px 1fr; }
-  :global(html[data-design="salon"]) .categoryImage { height: 180px; }
+/* ---------- Perfume houses: a typographic index ---------- */
+.houses { border-top: 1px solid var(--line); }
+.allHouses b { display: grid; place-items: center; min-width: 28px; height: 24px; padding-inline: 8px; border-radius: var(--radius-pill); background: var(--brand-gold); color: var(--brand-green); font-size: .8125rem; }
+.houseIndex {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
 }
-@media (max-width: 650px) {
-  :global(html[data-design="salon"]) .brands { padding-block: 40px 48px; }
-  :global(html[data-design="salon"]) .brandHeading { margin-bottom: 32px; }
-  :global(html[data-design="salon"]) .brandHeading h2 { font-size: var(--type-section); }
-  :global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-size: var(--type-section); }
-  :global(html[data-design="salon"]) .houseName { font-size: 1.25rem; }
-  :global(html[data-design="salon"]) .categories { padding-block: 56px; }
-  :global(html[data-design="salon"]) .categoryCaption { padding-inline-end: 20px; }
+.houseIndex li { min-width: 0; border-bottom: 1px solid var(--line); }
+.house {
+  display: grid;
+  gap: 6px;
+  height: 100%;
+  padding: clamp(20px, 2.4vw, 32px) clamp(12px, 1.4vw, 20px) clamp(18px, 2vw, 26px);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color .3s ease, color .3s ease;
 }
-.brandHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
-.brandHeading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin: 0 0 12px; }
-.brandHeading p { font-size: var(--type-body); color: var(--muted); line-height: 1.8; max-width: 60ch; margin: 0; }
-.allBrands { display: inline-flex; flex-shrink: 0; align-items: center; gap: 10px; min-height: 44px; padding: 10px 16px; border: 1px solid var(--brand-green); border-radius: 24px; color: var(--brand-green); background: white; font-size: var(--type-label); }
-.allBrands:hover { background: var(--sage); text-decoration: underline; }
-.allBrands b { font-weight: 600; background: var(--stone); padding: 2px 7px; border-radius: 12px; }
-.brandGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-.brandCard { display: flex; flex-direction: column; justify-content: space-between; gap: 18px; min-width: 0; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: white; text-decoration: none; }
-.houseName { font: 500 1.25rem/1.4 var(--font-ui-latin); overflow-wrap: anywhere; }
-.houseMeta { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted); font-size: var(--type-label); }
-.houseArrow { display: grid; place-items: center; width: 28px; height: 28px; background: var(--brand-green); color: white; border-radius: 50%; }
-.brandDialog { width: min(780px, calc(100% - 32px)); height: min(720px, calc(100dvh - 40px)); max-height: calc(100dvh - 40px); scrollbar-gutter: stable; padding: 26px; color: var(--ink); background: #fbfaf6; border: 1px solid var(--brand-gold); border-radius: 12px; overflow: auto; overscroll-behavior: contain; }
-.brandDialog::backdrop { background: #07363cb3; backdrop-filter: blur(4px); }
-.dialogHeader { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
-.dialogHeader h2 { font-size: 1.5rem; line-height: 1.4; margin: 0; }
-.brandSearch { font-size: var(--type-body); width: 100%; min-height: 48px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); background: white; }
-.houseCount { color: var(--muted); font-size: var(--type-label); margin-block: 16px; }
-.directoryGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-.directoryGrid a { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--line); border-radius: 5px; text-decoration: none; background: white; font-size: var(--type-body); }
-.directoryGrid a:hover { background: var(--sage); border-color: var(--brand-green); }
-.directoryGrid bdi { overflow-wrap: anywhere; }
-.directoryGrid span { flex-shrink: 0; color: var(--muted); }
-.noHouses { padding: 20px 0; color: var(--muted); }
+.houseName { font: 400 clamp(1.5rem, 2.4vw, 2.25rem)/1.08 var(--font-editorial); letter-spacing: -.015em; overflow-wrap: anywhere; }
+.houseMeta { color: var(--muted); font-size: var(--type-label); transition: color .3s ease; }
+.house:is(:hover, :focus-visible) { background: var(--brand-green); color: var(--brand-gold); }
+.house:is(:hover, :focus-visible) .houseMeta { color: var(--on-dark-muted); }
+.house:focus-visible { outline-offset: -2px; }
+
+.brandDialog {
+  width: min(760px, calc(100% - 32px));
+  max-height: min(760px, calc(100dvh - 32px));
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: var(--canvas);
+  color: var(--ink);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.brandDialog::backdrop { background: #042a2fcc; }
 :global(body):has(.brandDialog[open]) { overflow: hidden; }
-:global([dir="rtl"]) .brandHeading h2 { letter-spacing: 0; line-height: 1.6; }
-.categories { padding-block: 40px 48px; }
-.categoryGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.category { min-width: 0; text-decoration: none; background: #eaf1ed; border-radius: 8px; overflow: hidden; }
-.category:nth-child(2) { background: #f5eddf; }
-.category:nth-child(3) { background: #e1e9e4; }
-.categoryImage { height: 290px; padding: 32px 42px 12px; display: grid; place-items: center; }
-.bottle { width: 100%; height: 100%; min-height: 0; object-fit: contain; mix-blend-mode: multiply; }
-.categoryCaption { display: flex; align-items: center; justify-content: space-between; padding: 24px; border-top: 1px solid #07363c12; }
-.categoryCaption h3 { font: 600 1.5rem/1.4 var(--body); margin: 0; }
-.categoryCaption > div { min-width: 0; }
-.categoryCaption p { overflow-wrap: anywhere; font-size: var(--type-label); line-height: var(--leading-body); color: var(--muted); margin: 7px 0 0; }
-.categoryArrow { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; border-radius: 50%; background: var(--brand-green); color: white; }
-:global(html[data-design="gallery"]) .category,
-:global(html[data-design="gallery"]) .brandCard { border-radius: 0; }
-:global(html[data-design="linen"]) .categoryImage { background: #ffffff44; border-radius: 140px 140px 0 0; }
-/* Atelier house links are a quiet index, not a second catalogue of boxed cards. */
-:global(html[data-design="atelier"]) .brandCard {
-  background: transparent; border: 0; border-bottom: 1px solid var(--line);
-  border-radius: 0; padding: 16px 0;
+.dialogHeader { position: sticky; top: 0; z-index: 1; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 24px 12px; background: var(--canvas); }
+.dialogHeader h2 { margin: 0; font: 400 clamp(1.75rem, 3vw, 2.25rem)/1.1 var(--display); letter-spacing: var(--tracking-display); }
+:global(html[lang="ar"]) .dialogHeader h2 { font-weight: 600; }
+.dialogSearch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 24px;
+  padding-inline: 16px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-pill);
+  background: var(--white);
+  color: var(--muted);
 }
-:global(html[data-design="atelier"]) .houseName { font-size: clamp(1.25rem, 2vw, 1.75rem); }
-:global(html[data-design="atelier"]) .houseMeta { color: var(--ink); }
-:global(html[data-design="atelier"]) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 900px) {
-  .brandGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .brandHeading { align-items: start; flex-direction: column; gap: 18px; }
-  .categoryImage { height: 240px; padding: 24px 18px 12px; }
-  .categoryCaption { padding: 18px; }
-  .categoryCaption h3 { font-size: 1.25rem; }
+.dialogSearch:focus-within { border-color: var(--brand-green); box-shadow: 0 0 0 3px #07363c14; }
+.dialogSearch svg { flex-shrink: 0; }
+.brandSearch { width: 100%; min-width: 0; min-height: 50px; border: 0; background: none; color: var(--ink); font-size: var(--type-body); }
+.brandSearch:focus-visible { outline: none; }
+.houseCount { margin: 14px 24px 8px; color: var(--muted); font-size: var(--type-label); }
+.directoryGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; padding: 0 24px 24px; }
+.directoryGrid a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-size: var(--type-body);
+  text-decoration: none;
 }
-@media (max-width: 650px) {
-  .brands { padding-block: 32px 16px; }
-  .brandGrid { gap: 10px; }
-  .brandCard { padding: 15px; gap: 14px; }
-  .houseName { font-size: var(--type-card); }
-  .houseMeta { font-size: var(--type-label); }
-  .brandDialog { padding: 20px; }
-  .dialogHeader h2 { font-size: 1.5rem; }
-  .directoryGrid { grid-template-columns: 1fr; }
-  .categories { padding-block: 32px; }
-  .categoryGrid { grid-template-columns: 1fr; gap: 16px; }
-  .category { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; }
-  .categoryImage { height: 220px; padding: 22px; }
-  .categoryCaption { border: 0; padding-inline: 4px 24px; gap: 12px; }
+.directoryGrid a span { color: var(--muted); font-size: var(--type-label); font-variant-numeric: tabular-nums; }
+.directoryGrid a:hover bdi { text-decoration: underline; text-underline-offset: 4px; }
+.noHouses { display: grid; justify-items: start; gap: 4px; padding: 8px 24px 28px; }
+.noHouses p { margin: 0 0 12px; color: var(--muted); }
+
+/* ---------- For him / for her / for everyone ---------- */
+.categoryGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); }
+.category {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 16px 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.categoryImage {
+  grid-column: 1 / -1;
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  isolation: isolate;
+}
+.categoryImage::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 64%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 42%, #fffdf8 0 40%, #f8f2e7 100%);
+  transition: transform .6s var(--motion-ease), background-color .3s ease;
+}
+.category:nth-child(2) .categoryImage { background: var(--green-mist); }
+.category:nth-child(3) .categoryImage { background: var(--sand); }
+.bottle { width: 54%; height: 76%; object-fit: contain; filter: drop-shadow(0 16px 16px #07363c26); transition: transform .6s var(--motion-ease); }
+.categoryCaption { display: grid; gap: 2px; min-width: 0; }
+.categoryLabel { font: 400 clamp(1.75rem, 2.6vw, 2.5rem)/1.05 var(--display); letter-spacing: var(--tracking-display); }
+:global(html[lang="ar"]) .categoryLabel { font-weight: 600; }
+.categoryNote { color: var(--muted); font-size: var(--type-label); overflow-wrap: anywhere; }
+.categoryArrow {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+.category:is(:hover, :focus-visible) .categoryArrow { border-color: var(--brand-green); background: var(--brand-green); color: var(--canvas); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .category:hover .categoryImage::before { transform: scale(1.08); }
+  .category:hover .bottle { transform: translateY(-6px) scale(1.04); }
+}
+
+@media (max-width: 1000px) {
+  .houseIndex { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .houseIndex { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .houseIndex li:nth-child(odd) { border-inline-end: 1px solid var(--line); }
+  .categoryGrid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .category { grid-template-columns: 112px minmax(0, 1fr) auto; align-items: center; gap: 16px; }
+  .categoryImage { grid-column: auto; aspect-ratio: 1; }
+  .categoryLabel { font-size: 1.75rem; }
+  .categoryArrow { width: 44px; height: 44px; }
+}
+@media (max-width: 560px) {
+  .directoryGrid { grid-template-columns: minmax(0, 1fr); }
+  .dialogHeader { padding: 16px 16px 10px; }
+  .dialogSearch { margin-inline: 16px; }
+  .houseCount { margin-inline: 16px; }
+  .directoryGrid { padding-inline: 16px; }
+  .noHouses { padding-inline: 16px; }
 }
