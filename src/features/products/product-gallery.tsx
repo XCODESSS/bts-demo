@@ -16,12 +16,11 @@ export function ProductGallery({ product, locale }: { product: Product; locale: 
   const pricing = getDemoPricing(product.id);
   return <div className={styles.gallery}>
     <div className={styles.detailStage}>
-      <span className={styles.photoLabel}>{d.demoPrice}</span>
-      <span className={styles.detailDiscount}>{formatDiscount(pricing.discountPercent, locale)}</span>
+      <span className={styles.detailDiscount}>{formatDiscount(pricing.discountPercent, locale)} · {d.demoPrice}</span>
       <button type="button" ref={trigger} className={styles.imageButton} aria-label={d.zoomImage}
         aria-haspopup="dialog" onClick={() => dialog.current?.showModal()}>
         <ProductImage product={product} locale={locale} priority transition className={styles.detailImage} />
-        <span className={styles.zoomMark}><Icon name="plus" size={22} /></span>
+        <span className={styles.zoomMark}><Icon name="zoom" size={22} /></span>
       </button>
     </div>
     <p className={styles.caveat}>{product.image.caveat[locale]}</p>
