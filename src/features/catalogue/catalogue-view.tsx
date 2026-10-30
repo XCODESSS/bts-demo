@@ -12,6 +12,7 @@ import {
 import { CatalogueControls } from "./catalogue-controls";
 import { Icon } from "../../components/icon";
 import styles from "./catalogue.module.css";
+
 export function CatalogueView({
   locale,
   params,
@@ -32,8 +33,11 @@ export function CatalogueView({
   const noteOptions = getNoteOptions(products).sort((a, b) =>
     a.label[locale].localeCompare(b.label[locale], locale),
   );
-  const href = (page: number) =>
-    `/${locale}/catalogue?${serializeCatalogueQuery({ ...query, page })}`;
+  const number = (value: number) => new Intl.NumberFormat(locale).format(value);
+  const href = (page: number) => {
+    const serialized = serializeCatalogueQuery({ ...query, page });
+    return `/${locale}/catalogue${serialized ? `?${serialized}` : ""}`;
+  };
   const pages = Array.from(
     { length: result.totalPages },
     (_, i) => i + 1,
@@ -50,29 +54,31 @@ export function CatalogueView({
           {d.home}
         </Link>
         <h1>{d.allTitle}</h1>
-        <p>{d.allCopy}</p>
-        <p>{d.demoPricingDisclaimer}</p>
+        <div className={styles.pageIntro}>
+          <p>{d.allCopy}</p>
+          <p className={styles.disclaimer}>{d.demoPricingDisclaimer}</p>
+        </div>
       </header>
       <CatalogueControls
         locale={locale}
         query={effectiveQuery}
+        total={result.total}
         brands={brands}
         familyIds={familyIds}
         noteOptions={noteOptions}
       />
       <div className={styles.resultLine} role="status">
         <span>
-          <b>{new Intl.NumberFormat(locale).format(result.total)}</b>{" "}
-          {d.results}
+          <b>{number(result.total)}</b>{" "}
+          {result.total === 1 ? d.resultSingular : d.results}
         </span>
-        <span>
-          {d.page} {new Intl.NumberFormat(locale).format(result.page)} {d.of}{" "}
-          {new Intl.NumberFormat(locale).format(result.totalPages)}
-        </span>
+        {result.totalPages > 1 && <span>
+          {d.page} {number(result.page)} {d.of} {number(result.totalPages)}
+        </span>}
       </div>
       {result.total === 0 ? (
         <section className={styles.empty}>
-          <Icon name="search" size={40} />
+          <span className={styles.emptyMark}><Icon name="search" size={30} /></span>
           <h2>{d.emptyTitle}</h2>
           <p>{d.emptyCopy}</p>
           <Link href={`/${locale}/catalogue`} className="button button-light">
@@ -95,53 +101,45 @@ export function CatalogueView({
       {result.totalPages > 1 && (
         <nav className={styles.pagination} aria-label={d.pagination}>
           {result.page > 1 ? (
-            <Link
-              className={styles.prev}
-              href={href(result.page - 1)}
-              aria-label={d.previous}
-            >
-              <Icon name="chevron" size={15} />
+            <Link className={styles.step} href={href(result.page - 1)} aria-label={d.previous}>
+              <Icon name="chevron" size={16} className={styles.previousIcon} />
               <span>{d.previous}</span>
             </Link>
           ) : (
-            <span className={styles.pageDisabled}>
-              <Icon name="chevron" size={15} />
+            <span className={`${styles.step} ${styles.stepDisabled}`} aria-hidden="true">
+              <Icon name="chevron" size={16} className={styles.previousIcon} />
+              <span>{d.previous}</span>
             </span>
           )}
-          {pages.map((page, index) => (
-            <span className={styles.pageGroup} key={page}>
-              {index > 0 && page - pages[index - 1] > 1 && (
-                <span className={styles.ellipsis}>…</span>
-              )}
-              <Link
-                href={href(page)}
-                aria-label={`${d.page} ${page}`}
-                aria-current={page === result.page ? "page" : undefined}
-              >
-                {new Intl.NumberFormat(locale).format(page)}
-              </Link>
-            </span>
-          ))}
+          <span className={styles.pageNumbers}>
+            {pages.map((page, index) => (
+              <span className={styles.pageGroup} key={page}>
+                {index > 0 && page - pages[index - 1] > 1 && (
+                  <span className={styles.ellipsis} aria-hidden="true">…</span>
+                )}
+                <Link
+                  href={href(page)}
+                  aria-label={`${d.page} ${page}`}
+                  aria-current={page === result.page ? "page" : undefined}
+                >
+                  {number(page)}
+                </Link>
+              </span>
+            ))}
+          </span>
           {result.page < result.totalPages ? (
-            <Link
-              className={styles.next}
-              href={href(result.page + 1)}
-              aria-label={d.next}
-            >
+            <Link className={styles.step} href={href(result.page + 1)} aria-label={d.next}>
               <span>{d.next}</span>
-              <Icon name="chevron" size={15} />
+              <Icon name="chevron" size={16} className="directional" />
             </Link>
           ) : (
-            <span className={styles.pageDisabled}>
-              <Icon name="chevron" size={15} />
+            <span className={`${styles.step} ${styles.stepDisabled}`} aria-hidden="true">
+              <span>{d.next}</span>
+              <Icon name="chevron" size={16} className="directional" />
             </span>
           )}
         </nav>
       )}
-      <div className={styles.collectionEnd}>
-        <span>✳</span>
-        <p>{d.footerLine}</p>
-      </div>
     </div>
   );
 }

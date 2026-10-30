@@ -4,6 +4,7 @@ import {
   queryCatalogue,
   getNoteOptions,
   serializeCatalogueQuery,
+  PAGE_SIZE,
 } from "../../src/features/catalogue/query";
 import { getProducts } from "../../src/features/products/repository";
 const products = getProducts().filter((p) =>
@@ -77,13 +78,14 @@ test("Arabic note URLs normalize to the same locale-independent selection", () =
 test("note pagination retains the selection and unknown notes are ignored", () => {
   const all = getProducts();
   const query = parseCatalogueQuery(
-    new URLSearchParams("note=Vanilla&page=2"),
+    new URLSearchParams("note=Bergamot&page=2"),
     all,
   );
   const result = queryCatalogue(all, query, "en");
-  expect(result.total).toBe(13);
-  expect(result.items).toHaveLength(1);
-  expect(serializeCatalogueQuery(query)).toBe("note=vanilla&page=2");
+  expect(result.total).toBe(29);
+  expect(result.page).toBe(2);
+  expect(result.items).toHaveLength(29 - PAGE_SIZE);
+  expect(serializeCatalogueQuery(query)).toBe("note=bergamot&page=2");
   const unknown = parseCatalogueQuery(
     new URLSearchParams("note=not-a-real-note"),
     all,
@@ -115,12 +117,13 @@ test("unsupported filters and malformed pagination return safe defaults", () => 
     page: 1,
   });
 });
-test("last page contains four records and excessive page numbers clamp", () => {
+test("the last page holds the remainder and excessive page numbers clamp", () => {
   const all = getProducts();
   const query = parseCatalogueQuery(new URLSearchParams("page=999"), all);
   const result = queryCatalogue(all, query, "en");
-  expect(result.page).toBe(9);
-  expect(result.items).toHaveLength(4);
+  const lastPage = Math.ceil(all.length / PAGE_SIZE);
+  expect(result.page).toBe(lastPage);
+  expect(result.items).toHaveLength(all.length - (lastPage - 1) * PAGE_SIZE);
 });
 test("name sorting does not mutate the source order", () => {
   const query = parseCatalogueQuery(

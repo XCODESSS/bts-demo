@@ -16,7 +16,8 @@ export type CatalogueResult = {
   page: number;
   totalPages: number;
 };
-export const PAGE_SIZE = 12;
+// Six rows on the four-column grid; scales to a ~1,000-product inventory without endless paging.
+export const PAGE_SIZE = 24;
 export function normalizeSearch(text: string): string {
   return text
     .normalize("NFD")
@@ -25,7 +26,7 @@ export function normalizeSearch(text: string): string {
     .replace(/[أإآ]/g, "ا");
 }
 export type NoteOption = { value: string; label: LocalizedText };
-function noteKey(note: string): string {
+export function noteKey(note: string): string {
   return normalizeSearch(note).replace(/[^\p{L}\p{N}]/gu, "");
 }
 export function getNoteOptions(products: readonly Product[]): NoteOption[] {
