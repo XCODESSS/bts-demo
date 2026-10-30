@@ -7,24 +7,27 @@ import { EnquiryLink } from "../features/enquiry/enquiry-link";
 import { INSTAGRAM_URL } from "../lib/site-links";
 import { FooterInformation } from "./footer-information";
 import { Icon } from "./icon";
-import { DesignChooser } from "./language-switch";
 
 export function SiteFooter({ locale }: { locale: Locale }) {
   const d = getDictionary(locale);
   return (
     <footer className="site-footer">
-      <p className="salon-close page-width" dir="ltr" translate="no" aria-hidden="true">Beyond the Space</p>
+      <div className="page-width">
+        <p className="footer-mark" dir="ltr" translate="no" aria-hidden="true">Beyond the Space</p>
+      </div>
       <div className="footer-main page-width">
         <div className="footer-brand">
-          <Image src="/brand/logo.png" width={64} height={64} alt={d.footerBrand} />
-          <h2 className="footer-brand-name" translate="no">{d.footerBrand}</h2>
-          <p className="footer-line">{d.footerLine}</p>
+          <Image src="/brand/logo.png" width={72} height={72} alt="" />
+          <div>
+            <h2 className="footer-brand-name" translate="no">{d.footerBrand}</h2>
+            <p className="footer-line">{d.footerLine}</p>
+          </div>
         </div>
         <Suspense fallback={null}><FooterInformation locale={locale} contactAction={<EnquiryLink locale={locale} />} /></Suspense>
         <nav className="footer-links" aria-label={d.shopBy}>
           <h2>{d.shopBy}</h2>
-          <a href={`/${locale}#houses`}>{d.brand}</a>
           <Link href={`/${locale}/catalogue`}>{d.viewAll}</Link>
+          <a href={`/${locale}#houses`}>{d.brand}</a>
           <a href={`/${locale}#scents`}>{d.noteFilter}</a>
           {(["men", "women", "unisex"] as const).map((gender) =>
             <Link key={gender} href={`/${locale}/catalogue?gender=${gender}`}>{d[gender]}</Link>)}
@@ -39,7 +42,6 @@ export function SiteFooter({ locale }: { locale: Locale }) {
       </div>
       <div className="footer-bottom page-width">
         <small>{d.disclosure}</small><small>© {new Date().getFullYear()} <span translate="no">{d.footerBrand}</span></small>
-        <DesignChooser locale={locale} />
       </div>
     </footer>
   );

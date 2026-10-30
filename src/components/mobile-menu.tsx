@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import type { Locale } from "../i18n/config";
 import { getDictionary } from "../i18n/dictionaries";
 import { Icon } from "./icon";
+import { siteNavigation } from "./site-navigation";
 import styles from "./site-header.module.css";
 export function MobileMenu({ locale }: { locale: Locale }) {
   const pathname = usePathname();
@@ -47,15 +48,13 @@ function MobileMenuContent({ locale }: { locale: Locale }) {
           inert={!open}
           aria-label={d.menu}
         >
-          <Link onClick={() => setOpen(false)} href={`/${locale}/catalogue`}>
-            {d.collection}
-          </Link>
-          <a onClick={() => setOpen(false)} href={`/${locale}#scents`}>
-            {d.discover}
-          </a>
-          <a onClick={() => setOpen(false)} href={`/${locale}#approach`}>
-            {d.approach}
-          </a>
+          {siteNavigation(locale).map((item) => item.route
+            ? <Link key={item.href} onClick={() => setOpen(false)} href={item.href}>
+              {item.label}<Icon name="arrow" size={18} className="directional" />
+            </Link>
+            : <a key={item.href} onClick={() => setOpen(false)} href={item.href}>
+              {item.label}<Icon name="arrow" size={18} className="directional" />
+            </a>)}
         </nav>
     </div>
   );

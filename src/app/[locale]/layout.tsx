@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { manrope, bodoni, arabic } from "../../styles/fonts";
+import { manrope, bodoni, arabic, arabicDisplay } from "../../styles/fonts";
 import { Suspense } from "react";
 import { AnalyticsProvider } from "../../features/analytics/analytics-provider";
 import { siteOrigin } from "../../features/seo/metadata";
@@ -12,8 +12,6 @@ import { getDictionary } from "../../i18n/dictionaries";
 import { SiteHeader } from "../../components/site-header";
 import { SiteFooter } from "../../components/site-footer";
 import { HashNavigation } from "../../components/hash-navigation";
-import { designIds } from "../../components/designs";
-import "../../styles/salon.css";
 import "../../styles/transitions.css";
 export const viewport: Viewport = {
   width: "device-width", initialScale: 1, viewportFit: "cover",
@@ -46,17 +44,8 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
-      data-design="atelier"
-      className={`${manrope.variable} ${bodoni.variable} ${arabic.variable}`}
-      suppressHydrationWarning
+      className={`${manrope.variable} ${bodoni.variable} ${arabic.variable} ${arabicDisplay.variable}`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(()=>{try{const design=localStorage.getItem('bts-demo-design');if(${JSON.stringify(designIds)}.includes(design))document.documentElement.setAttribute('data-design',design)}catch{}})()`,
-          }}
-        />
-      </head>
       <body>
         <a className="skip-link" href="#main-content">
           {getDictionary(locale).skip}

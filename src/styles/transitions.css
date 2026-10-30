@@ -20,14 +20,6 @@
   to { opacity: 1; transform: none; }
 }
 
-/* The chooser's imperative design switch is not a route transition. */
-:root:active-view-transition-type(design-switch)::view-transition-old(root) {
-  opacity: 1;
-  animation: design-fade-out 180ms ease-out both;
-}
-:root:active-view-transition-type(design-switch)::view-transition-new(root) {
-  animation: design-fade-in 400ms var(--motion-ease) both;
-}
 
 /* Browser snapshots supply the real endpoint geometry, never a cloned DOM image. */
 ::view-transition-group(.bts-bottle) {

@@ -6,27 +6,46 @@
   --body: var(--font-ui);
   --display: var(--font-editorial);
   --type-legal: .8125rem;
+  --type-eyebrow: .8125rem;
   --type-label: .875rem;
   --type-body: 1rem;
-  --type-card: 1.125rem;
-  --type-price: 1.25rem;
-  --type-price-detail: 1.875rem;
-  --type-product-title: clamp(1.875rem, 3vw, 2.5rem);
-  --type-section: clamp(1.75rem, 2.8vw, 2.5rem);
-  --type-page: clamp(2.25rem, 4.5vw, 4rem);
-  --type-campaign: clamp(2.25rem, 4vw, 3.5rem);
-  --type-salon-hero: clamp(3rem, 6.5vw, 5.5rem);
+  --type-lead: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  --type-card: 1.0625rem;
+  --type-price: 1.1875rem;
+  --type-price-detail: 1.75rem;
+  --type-product-title: clamp(2.375rem, 4.2vw, 3.75rem);
+  --type-section: clamp(2rem, 3.6vw, 3.25rem);
+  --type-page: clamp(2.5rem, 5.4vw, 4.75rem);
+  --type-hero: clamp(3rem, 7.2vw, 6.75rem);
   --leading-body: 1.65;
   --leading-label: 1.5;
-  --leading-display: 1.12;
+  --leading-display: 1.04;
+  --tracking-display: -.02em;
+  --tracking-eyebrow: .14em;
 }
 html[lang="ar"] {
   --font-ui: var(--font-arabic), var(--font-manrope), Arial, sans-serif;
   --body: var(--font-ui);
-  --display: var(--font-ui);
+  --display: var(--font-arabic-display), var(--font-arabic), serif;
   --leading-body: 1.85;
-  --leading-display: 1.5;
+  --leading-display: 1.45;
+  --tracking-display: 0;
+  --tracking-eyebrow: 0;
+  --type-hero: clamp(2.5rem, 5.6vw, 5rem);
+  --type-page: clamp(2.25rem, 4.4vw, 3.75rem);
+  --type-section: clamp(1.875rem, 3vw, 2.75rem);
 }
-/* Gallery deliberately retains its sans-serif editorial direction. */
-html[data-design="gallery"] { --display: var(--font-ui); }
 body { font-size: var(--type-body); line-height: var(--leading-body); }
+
+/* Small structural label. Arabic never uses Latin capitals or wide tracking. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font: 600 var(--type-eyebrow)/1.4 var(--body);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--gold-ink);
+}
+html[lang="ar"] .eyebrow { text-transform: none; font-size: var(--type-label); }
