@@ -28,7 +28,6 @@ test("navigation and discovery controls visibly respond to hover", async ({ page
   await page.goto("/en/perfumes/diptyque-philosykos-p0170");
   await feedback(page.getByRole("link", { name: d.back, exact: true }));
   await feedback(page.getByRole("navigation", { name: d.breadcrumbs }).getByRole("link").first());
-  await feedback(page.getByRole("link", { name: d.additionalInfo, exact: true }));
   await feedback(page.getByRole("button", { name: d.details, exact: true }));
   await feedback(page.getByRole("article", { name: "Philosykos", exact: true }).getByRole("link", { name: "Woody", exact: true }));
   await page.setViewportSize({ width: 390, height: 844 });

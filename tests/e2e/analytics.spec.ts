@@ -19,7 +19,7 @@ test("consent gates analytics; navigation and enquiry events are safe and single
   expect((await events()).filter((entry) => entry[1] === "page_view")).toHaveLength(1);
   await page.getByRole("link", { name: "View Club de Nuit Iconic", exact: true }).click();
   await expect.poll(async () => (await events()).filter((entry) => entry[1] === "page_view").length).toBe(2);
-  const enquiry = page.getByRole("link", { name: "Inquire on WhatsApp", exact: true });
+  const enquiry = page.getByRole("link", { name: "Enquire on WhatsApp", exact: true });
   if (await enquiry.count()) {
     // Prevent external navigation without replacing React's click handler.
     await enquiry.evaluate((anchor) => anchor.addEventListener("click", (event) => event.preventDefault()));

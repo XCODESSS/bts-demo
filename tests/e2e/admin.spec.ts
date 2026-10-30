@@ -134,9 +134,6 @@ test("admin login, search, edit, add, authorization and actual process-restart p
   const updated = featured.getByRole("link", { name: "View Updated Sample Fragrance", exact: true });
   await expect(updated).toBeVisible();
   await expect(updated.locator("img")).toHaveAttribute("src", /\/perfumes\/P0574\.webp$/);
-  const campaign = page.getByRole("region", { name: getDictionary("en").campaignProducts, exact: true });
-  await expect(campaign.getByRole("link", { name: "View Updated Sample Fragrance", exact: true })
-    .locator("img")).toHaveAttribute("src", /\/perfumes\/P0574\.webp$/);
   // Header search works from an admin route without conflicting with admin Search.
   await page.goto("/en/admin/products");
   await page.getByRole("banner").getByRole("searchbox", { name: getDictionary("en").headerSearch, exact: true }).fill("Updated Sample");

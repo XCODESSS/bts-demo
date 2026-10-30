@@ -10,7 +10,7 @@ test("local font failure leaves readable bilingual content and navigation", asyn
     await expectDocumentFits(page);
     await page.goto(`/${locale}/catalogue`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(getDictionary(locale).allTitle);
-    await expect(page.getByTestId("product-card")).toHaveCount(12);
+    await expect(page.getByTestId("product-card")).toHaveCount(24);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
     await page.getByTestId("product-card").first().getByRole("link").click();
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
@@ -58,5 +58,5 @@ test("official identities are protected from automatic translation", async ({ pa
 
 test("catalogue product headings do not skip a level", async ({ page }) => {
   await page.goto("/en/catalogue");
-  await expect(page.getByTestId("product-card").getByRole("heading", { level: 2 })).toHaveCount(12);
+  await expect(page.getByTestId("product-card").getByRole("heading", { level: 2 })).toHaveCount(24);
 });

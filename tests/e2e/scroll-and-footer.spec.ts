@@ -1,21 +1,22 @@
 import { expect, test } from "@playwright/test";
+import { getDictionary } from "../../src/i18n/dictionaries";
 import { revealHomeSection } from "./helpers/home-sections";
 
 test("server-rendered sections keep stable geometry while product photographs lazy-load", async ({ page }) => {
+  const d = getDictionary("en");
   await page.goto("/en");
   await page.evaluate(() => document.fonts.ready);
-  const section = page.locator("#customer-experiences");
+  const section = page.locator("#houses");
   const height = await section.evaluate((element) => element.getBoundingClientRect().height);
-  await expect(page.getByRole("region", { name: "Customer Experiences", exact: true })).toHaveCount(1);
+  await expect(page.getByRole("region", { name: d.brandsTitle, exact: true })).toHaveCount(1);
   await expect(page.locator('#featured img').first()).toHaveAttribute("loading", "lazy");
-  await revealHomeSection(page, "customer-experiences");
+  await revealHomeSection(page, "houses");
   expect(Math.abs((await section.evaluate((element) => element.getBoundingClientRect().height)) - height)).toBeLessThan(1);
   await expect(section.locator('[data-slot="skeleton"]')).toHaveCount(0);
-  await expect(section.locator('[data-slot="card"]')).toHaveCount(3);
-  await expect(section.getByText("Sample review", { exact: true })).toHaveCount(3);
-  await expect(section.getByText("Demo testimonials for layout preview only. These are not verified customer reviews.", { exact: true })).toBeVisible();
+  // Unverifiable testimonials are not shown at all.
+  await expect(page.getByText("Sample review", { exact: true })).toHaveCount(0);
   await revealHomeSection(page, "approach");
-  await expect(page.getByRole("region", { name: "The Best Fragrance Is Personal.", exact: true }).getByRole("heading", { level: 2 })).toContainText("100 fragrances.");
+  await expect(page.getByRole("region", { name: d.personalTitle, exact: true }).getByRole("heading", { level: 2 })).toHaveText(d.personalTitle);
 });
 
 test("shadcn scent tabs highlight on hover and smoothly slide the selected green pill in both directions", async ({ page }) => {
@@ -66,9 +67,8 @@ test("the complete catalogue remains accessible when JavaScript is disabled", as
     const page = await context.newPage();
     await page.goto("/en");
     await expect(page.getByTestId("product-card")).toHaveCount(8);
-    await expect(page.getByRole("region", { name: "Customer Experiences", exact: true })).toHaveCount(1);
     await page.getByRole("main").getByRole("link", { name: "View the Collection", exact: true }).click();
     await expect(page).toHaveURL(/\/en\/catalogue$/);
-    await expect(page.getByTestId("product-card")).toHaveCount(12);
+    await expect(page.getByTestId("product-card")).toHaveCount(24);
   } finally { await context.close(); }
 });

@@ -1,24 +1,19 @@
 import { expect, test } from "@playwright/test";
+import { getDictionary } from "../../src/i18n/dictionaries";
 
-test("footer has no reserved floating-control space and its design picker stays inline", async ({ page }) => {
+test("footer has no reserved floating-control space and no retired design picker", async ({ page }) => {
   await page.goto("/en");
   const footer = page.getByRole("contentinfo");
   expect(await footer.locator(".footer-bottom").evaluate((element) => parseFloat(getComputedStyle(element).paddingBottom))).toBeLessThanOrEqual(20);
-  const chooser = footer.getByRole("button", { name: "Choose Design", exact: true });
-  await expect(chooser).toHaveCount(1);
-  await expect(chooser).not.toHaveCSS("position", "fixed");
-  await chooser.click();
-  await expect(page.getByRole("dialog", { name: "Choose a Design", exact: true })).toBeVisible();
-  await page.keyboard.press("Escape");
-  await expect(chooser).toBeFocused();
+  await expect(footer.getByRole("button", { name: "Choose Design", exact: true })).toHaveCount(0);
 });
 
-test("fragrance profile groups labels and values into compact factual tiles", async ({ page }) => {
+test("fragrance profile groups labels and values into one factual list", async ({ page }) => {
   for (const locale of ["en", "ar"]) {
     await page.goto(`/${locale}/perfumes/diptyque-philosykos-p0170`);
-    const profile = page.getByRole("region", { name: locale === "en" ? "Fragrance Profile" : "بطاقة العطر", exact: true });
+    const profile = page.getByRole("region", { name: locale === "en" ? "Fragrance profile" : "بطاقة العطر", exact: true });
     await expect(profile).toBeVisible();
-    await expect(profile.locator("dl > div")).toHaveCount(4);
+    await expect(profile.locator("dl > div")).toHaveCount(5);
     await expect(profile).toContainText("Diptyque");
     await expect(profile).toContainText("75 ml");
     await expect(profile.getByRole("link", { name: "Diptyque", exact: true })).toHaveAttribute("href", `/${locale}/catalogue?brand=Diptyque`);
@@ -36,7 +31,7 @@ test("description and selected notes animate on closing as well as opening", asy
       }, true);
     });
     const article = page.getByRole("article", { name: "Philosykos", exact: true });
-    for (const name of locale === "en" ? ["About This Fragrance", "Selected Notes"] : ["عن هذا العطر", "نفحات مختارة"]) {
+    for (const name of [getDictionary(locale as "en" | "ar").details, getDictionary(locale as "en" | "ar").notes]) {
       const trigger = article.getByRole("button", { name, exact: true });
       await expect(trigger).toHaveAttribute("aria-expanded", "true");
       const contentId = await trigger.getAttribute("aria-controls");

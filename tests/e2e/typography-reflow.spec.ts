@@ -1,6 +1,5 @@
 import { mkdirSync } from "node:fs";
 import { expect, test } from "@playwright/test";
-import { designIds } from "../../src/components/designs";
 import { expectDocumentFits, expectMinSize } from "./helpers/typography";
 
 for (const locale of ["en", "ar"] as const) {
@@ -21,16 +20,15 @@ for (const locale of ["en", "ar"] as const) {
   });
 }
 
-for (const design of designIds) {
+{
   for (const locale of ["en", "ar"] as const) {
-    test(`${design}/${locale} type reflows without clipping`, async ({ page }, info) => {
+    test(`${locale} type reflows without clipping`, async ({ page }, info) => {
       test.skip(info.project.name !== "desktop", "Explicit multi-width matrix; mobile project separately exercises touch flows.");
       test.setTimeout(120000);
       await page.emulateMedia({ reducedMotion: "reduce" });
-      await page.addInitScript(id => localStorage.setItem("bts-demo-design", id), design);
       const directory = process.env.BTS_TYPOGRAPHY_ARTIFACTS || "artifacts/typography/after";
       mkdirSync(directory, { recursive: true });
-      for (const width of [320, 390, 768, 1440]) {
+      for (const width of [320, 390, 768, 1024, 1440]) {
         await page.setViewportSize({ width, height: 1000 });
         for (const [name, route] of [
           ["home", ""], ["catalogue", "/catalogue"],
@@ -46,7 +44,7 @@ for (const design of designIds) {
             expect(await heading.evaluate(el => el.scrollHeight - el.clientHeight)).toBeLessThanOrEqual(1);
           }
           if (width === 390 || width === 1440) {
-            await page.screenshot({ path: `${directory}/${design}-${locale}-${name}-${width}.png`, fullPage: true });
+            await page.screenshot({ path: `${directory}/${locale}-${name}-${width}.png`, fullPage: true });
           }
         }
       }

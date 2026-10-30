@@ -72,7 +72,7 @@ test("query changes do not replay page arrival", async ({ page }) => {
   await expectNoPageArrival(page);
   await page.goto("/en#scents");
   await startMotionObservation(page);
-  await page.locator('[data-placement="discovery"] a[href*="note=rose"]').click();
+  await page.locator('[data-spotlight] a[href*="note=rose"]').click();
   await expect(page).toHaveURL(/scent=rose/);
   await expectNoPageArrival(page);
   await startMotionObservation(page);
@@ -162,10 +162,9 @@ for (const width of [360, 390]) {
     expect((await readMotionObservation(page)).flatMap(frame => frame.names)
       .some(name => name.includes("group-anim-bts-bottle"))).toBe(false);
     const article = page.getByRole("article", { name: "Spice Blend", exact: true });
-    const enquiry = await article.locator('.button').boundingBox();
+    // Phones lead with the photograph in the opening viewport; nothing scrolls to chase it.
     const photo = await article.locator('button:has(img)').boundingBox();
-    expect(enquiry!.y + enquiry!.height).toBeLessThan(844);
-    expect(enquiry!.y).toBeLessThan(photo!.y);
+    expect(photo!.y).toBeLessThan(844);
     expect(await page.evaluate(() => scrollY)).toBe(0);
   });
 }
@@ -298,7 +297,7 @@ for (const locale of ["en", "ar"] as const) {
   });
 }
 
-for (const surface of ["house", "footer", "photo", "design"] as const) {
+for (const surface of ["house", "footer", "photo"] as const) {
   test(`native dialogs share a gentle entrance and immediate close semantics: ${surface}`, async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.emulateMedia({ reducedMotion: "no-preference" });
@@ -306,11 +305,10 @@ for (const surface of ["house", "footer", "photo", "design"] as const) {
     await page.goto(surface === "photo" ? "/en/perfumes/dior-spice-blend-p0168" : "/en#houses");
     const trigger = surface === "house" ? page.getByRole("button", { name: d.allHousesAction, exact: true })
       : surface === "footer" ? page.getByRole("contentinfo").getByRole("button", { name: d.shippingInfo, exact: true })
-      : surface === "photo" ? page.getByRole("button", { name: d.zoomImage, exact: true })
-      : page.getByRole("button", { name: d.chooseDesign, exact: true });
+      : page.getByRole("button", { name: d.zoomImage, exact: true });
     const selector = surface === "house" ? 'dialog[aria-labelledby="brand-directory-title"]'
       : surface === "footer" ? 'dialog[aria-labelledby="footer-information-title"]'
-      : surface === "photo" ? `dialog[aria-label="${d.zoomImage}"]` : '.design-dialog';
+      : `dialog[aria-label="${d.zoomImage}"]`;
     await trigger.scrollIntoViewIfNeeded();
     await startMotionObservation(page, { targetSelector: selector });
     await trigger.click();
@@ -357,12 +355,9 @@ for (const locale of ["en", "ar"] as const) for (const reducedMotion of ["reduce
     await page.getByRole("button", { name: d.allHousesAction, exact: true }).click();
     await expect(page.getByRole("dialog", { name: d.brandsTitle, exact: true })).toBeVisible();
     await page.keyboard.press("Escape");
-    await page.getByRole("button", { name: d.chooseDesign, exact: true }).click();
-    await page.getByRole("button", { name: `${d.previewDesign} ${d.designGallery}`, exact: true }).click();
-    await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
     await page.getByRole("main").getByRole("link", { name: d.campaignAction, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/catalogue$`));
-    await expect(page.getByTestId("product-card")).toHaveCount(12);
+    await expect(page.getByTestId("product-card")).toHaveCount(24);
     await expect.poll(() => page.evaluate(() => document.getAnimations().filter(animation =>
       animation.effect instanceof KeyframeEffect && animation.effect.pseudoElement?.startsWith("::view-transition")).length)).toBe(0);
     await expect(page.locator("dialog[open]")).toHaveCount(0);
@@ -424,9 +419,8 @@ test("public page arrival moves content, not the header", async ({ page }, testI
     .some(frame => frame.names.includes("bts-page-enter"))).toBe(true);
   const frames = await readMotionObservation(page);
   await testInfo.attach("page-frames", { body: JSON.stringify(frames, null, 2), contentType: "application/json" });
-  expect(frames.some(frame => frame.names.includes("design-fade-in"))).toBe(false);
-  // This header is deliberately non-fixed: native scroll may move it out of
-  // view. Its document position must stay still, not its viewport coordinate.
+  // The header is sticky on desktop and static on phones; either way its document
+  // position must stay still during arrival, not just its viewport coordinate.
   expect(frames.filter(frame => frame.headerTop !== null)
     .every(frame => Math.abs(frame.headerTop! + frame.scrollY) < 1)).toBe(true);
 });

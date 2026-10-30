@@ -25,11 +25,12 @@ for (const reduced of [false, true]) {
   });
 }
 
-test("decorative campaign motion ends without a pause control", async ({ page }) => {
+test("hero motion ends on its own without a pause control", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
-  const stage = page.getByRole("region", { name: getDictionary("en").campaignProducts, exact: true });
-  await expect.poll(() => stage.evaluate(el => el.getAnimations({ subtree: true }).some(a => a.playState === "running"))).toBe(true);
+  const stage = page.getByRole("region", { name: getDictionary("en").spotlightLabel, exact: true });
+  await stage.getByRole("navigation").getByRole("link", { name: "Rose", exact: true }).click();
+  await expect.poll(() => stage.evaluate(el => el.getAnimations({ subtree: true }).some(a => a.playState === "running")), { intervals: [16, 32, 64] }).toBe(true);
   await page.waitForTimeout(4500); // Deliberately measure the maximum autoplay interval.
   expect(await stage.evaluate(el => el.getAnimations({ subtree: true }).some(a => a.playState === "running"))).toBe(false);
   await expect(stage.getByRole("button", { name: /Pause|Resume/ })).toHaveCount(0);

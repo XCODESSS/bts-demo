@@ -35,12 +35,10 @@ for (const locale of ["en", "ar"] as const) {
   });
 }
 
-test("Atelier Notes previews real fragrances while Families retains distinct category illustrations", async ({ page }) => {
+test("discovery tiles are illustrated categories with real counts, never mislabelled bottles", async ({ page }) => {
   await page.goto("/en#scents");
-  const section = page.getByRole("region", { name: "Shop Perfume Collections", exact: true });
-  await expect(section.getByRole("navigation").getByRole("link")).toHaveCount(4);
-  await expect(section.getByRole("figure")).toHaveCount(1);
-  for (const tab of ["Fragrance Family"]) {
+  const section = page.getByRole("region", { name: getDictionary("en").collectionsTitle, exact: true });
+  for (const tab of ["Fragrance Note", "Fragrance Family"]) {
     await section.getByRole("tab", { name: tab, exact: true }).click();
     await expect(section.locator('img[src*="/perfumes/"]')).toHaveCount(0);
     const cards = section.getByRole("tabpanel").getByRole("link");
@@ -49,20 +47,20 @@ test("Atelier Notes previews real fragrances while Families retains distinct cat
     expect(new Set(ids).size).toBe(8);
     for (const card of await cards.all()) {
       await expect(card.getByRole("img")).toHaveAccessibleName(await card.getAttribute("aria-label") || "");
-      await expect(card).toContainText(/\d+ fragrances/);
+      await expect(card).toContainText(/\d+ fragrances?/);
     }
   }
 });
 
-test("perfume houses use compact cards and a searchable, keyboard-dismissible directory", async ({ page, isMobile }) => {
+test("perfume houses use a typographic index and a searchable, keyboard-dismissible directory", async ({ page, isMobile }) => {
   await page.goto("/en#houses");
-  const brands = page.getByRole("region", { name: "Shop by Perfume House", exact: true });
-  await expect(brands.getByRole("link")).toHaveCount(8);
-  await expect(brands.getByRole("link", { name: "Dior", exact: true })).toContainText(/1 fragrance$/);
+  const brands = page.getByRole("region", { name: getDictionary("en").brandsTitle, exact: true });
+  await expect(brands.getByRole("listitem")).toHaveCount(12);
+  await expect(brands.getByRole("link", { name: /^Dior\b/ })).toContainText(/1 fragrance$/);
   await expect(brands.locator("details")).toHaveCount(0);
   const trigger = brands.getByRole("button", { name: "View All Perfume Houses", exact: true });
   await trigger.click();
-  const dialog = page.getByRole("dialog", { name: "Shop by Perfume House", exact: true });
+  const dialog = page.getByRole("dialog", { name: getDictionary("en").brandsTitle, exact: true });
   const search = dialog.getByRole("searchbox", { name: "Search Perfume Houses", exact: true });
   if (isMobile) await expect(dialog.getByRole("button", { name: getDictionary("en").closeHouses })).toBeFocused();
   else await expect(search).toBeFocused();
@@ -90,34 +88,33 @@ test("perfume houses use compact cards and a searchable, keyboard-dismissible di
   await expect(page.getByRole("heading", { level: 1 })).toBeInViewport();
 });
 
-test("header and main campaign share aligned gutters at wide and phone widths", async ({ page }) => {
+test("header and hero share aligned gutters while the hero spans the full width", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   for (const width of [1880, 1440, 390]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto("/en");
     const brand = page.getByRole("banner").getByRole("link", { name: "Beyond the Space Perfume — Home", exact: true });
-    const campaign = page.getByRole("region", { name: "Fragrances in Focus", exact: true });
+    const hero = page.getByRole("region", { name: getDictionary("en").storefrontTitle, exact: true });
     const left = (locator: Locator) => locator.evaluate((el) => el.getBoundingClientRect().left);
-    expect(Math.abs((await left(brand)) - (await left(campaign.locator(".."))))).toBeLessThan(1);
-    expect(await page.getByRole("region", { name: "Customer Experiences", exact: true }).evaluate((el) =>
-      Math.abs(el.getBoundingClientRect().width - innerWidth))).toBeLessThan(1);
+    expect(Math.abs((await left(brand)) - (await left(hero.getByRole("heading", { level: 1 }))))).toBeLessThan(2);
+    expect(await hero.evaluate((el) => Math.abs(el.getBoundingClientRect().width - innerWidth))).toBeLessThan(1);
     expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
   }
 });
 
-test("product and discovery cards share the same hover lift", async ({ page, isMobile }) => {
+test("product cards lift their photograph and discovery tiles turn brand green on hover", async ({ page, isMobile }) => {
   test.skip(isMobile, "Touch has no persistent hover interaction.");
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
-  await page.getByRole("tab", { name: "Fragrance Family", exact: true }).click();
-  const note = page.getByRole("region", { name: "Shop Perfume Collections", exact: true }).getByRole("link", { name: "Woody", exact: true });
   const product = page.locator("#featured").getByTestId("product-card").first().getByRole("link");
-  for (const card of [note, product]) {
-    await card.hover();
-    await expect.poll(() => card.evaluate((el) => {
-      const transform = getComputedStyle(el).transform;
-      return transform === "none" ? 0 : new DOMMatrix(transform).m42;
-    })).toBe(-6);
-    await page.mouse.move(0, 0);
-  }
+  await product.hover();
+  await expect.poll(() => product.locator("img").evaluate((el) => {
+    const transform = getComputedStyle(el).transform;
+    return transform === "none" ? 0 : new DOMMatrix(transform).m42;
+  })).toBeLessThan(-3);
+  await page.mouse.move(0, 0);
+  await page.getByRole("tab", { name: "Fragrance Family", exact: true }).click();
+  const tile = page.getByRole("region", { name: getDictionary("en").collectionsTitle, exact: true }).getByRole("link", { name: "Woody", exact: true });
+  await tile.hover();
+  await expect.poll(() => tile.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe("rgb(7, 54, 60)");
 });
