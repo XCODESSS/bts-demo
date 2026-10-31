@@ -44,7 +44,7 @@ for (const width of [320, 360, 390, 768, 1440]) {
       const names = { atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon, gilded: d.designGilded, noir: d.designNoir, souk: d.designSouk, verdant: d.designVerdant };
       for (const route of ["", "/catalogue", "/perfumes/diptyque-philosykos-p0170"]) {
         await page.goto(`/${locale}${route}`);
-        for (const design of designIds) {
+        for (const design of designIds.filter(id => id !== "gallery" && id !== "linen")) {
           await page.getByRole("button", { name: d.chooseDesign, exact: true }).click();
           await page.getByRole("button", { name: `${d.previewDesign} ${names[design]}`, exact: true }).click();
           await expect(page.locator("html")).toHaveAttribute("data-design", design);

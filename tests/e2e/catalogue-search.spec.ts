@@ -4,7 +4,7 @@ import { getDictionary } from "../../src/i18n/dictionaries";
 test("one catalogue search fits all designs and responsive widths", async ({ page }) => {
   test.setTimeout(90000);
   await page.emulateMedia({ reducedMotion: "reduce" });
-  for (const design of ["Botanical Atelier", "Modern Gallery", "Linen Boutique", "Scent Salon"]) {
+  for (const design of ["Botanical Atelier", "Scent Salon"]) {
     await page.goto("/en");
     await page.getByRole("button", { name: "Choose Design", exact: true }).click();
     await page.getByRole("button", { name: `Preview ${design}`, exact: true }).click();

@@ -123,8 +123,6 @@ test("sort, combined filters and browser back preserve query state", async ({
 
 for (const design of [
   "Botanical Atelier",
-  "Modern Gallery",
-  "Linen Boutique",
   "Scent Salon",
 ]) {
   test(`dedicated note filtering preserves the full bilingual journey in ${design}`, async ({
@@ -247,33 +245,33 @@ test("design cards switch the same site and preserve filters, locale and reload"
   });
   await expect(chooser).toBeVisible();
   await expect(chooser.getByRole("button", { name: /^Preview / })).toHaveCount(
-    4,
+    6,
   );
   await chooser
-    .getByRole("button", { name: "Preview Modern Gallery", exact: true })
+    .getByRole("button", { name: "Preview Scent Salon", exact: true })
     .click();
   await expect(chooser).not.toBeVisible();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await expect(page).toHaveURL(originalUrl);
   await page.reload();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await expect(page.getByTestId("product-card").first()).toContainText(
     "Burberry",
   );
   await page.getByRole("link", { name: "العربية", exact: true }).click();
   await expect(page).toHaveURL(/\/ar\/catalogue\?brand=Burberry/);
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await page.getByRole("button", { name: "اختر التصميم", exact: true }).click();
   await page
-    .getByRole("button", { name: "معاينة بوتيك الكتان", exact: true })
+    .getByRole("button", { name: "معاينة مُذهَّب", exact: true })
     .click();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "linen");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "gilded");
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
   await page.getByRole("link", { name: "عرض Her", exact: true }).click();
   await expect(
     page.getByRole("heading", { name: "Her", exact: true }),
   ).toBeVisible();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "linen");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "gilded");
 });
 
 test("design switching still works when browser storage is blocked", async ({
@@ -291,12 +289,12 @@ test("design switching still works when browser storage is blocked", async ({
     .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
-    .getByRole("button", { name: "Preview Modern Gallery", exact: true })
+    .getByRole("button", { name: "Preview Scent Salon", exact: true })
     .click();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await page.getByRole("link", { name: "العربية", exact: true }).click();
   await expect(page.locator("html")).toHaveAttribute("dir", "rtl");
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
 });
 
 test("an invalid saved design falls back to the light default", async ({

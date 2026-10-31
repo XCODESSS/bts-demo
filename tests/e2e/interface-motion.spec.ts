@@ -28,9 +28,9 @@ for (const reduced of [false, true]) {
 test("campaign star keeps rotating after the opening animation settles", async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
+  // The retired design is still supported for saved preferences, not menu selection.
+  await page.addInitScript(() => localStorage.setItem("bts-demo-design", "gallery"));
   await page.goto("/en");
-  await page.getByRole("button", { name: "Choose Design", exact: true }).click();
-  await page.getByRole("button", { name: "Preview Modern Gallery", exact: true }).click();
   const stage = page.getByRole("region", { name: getDictionary("en").campaignProducts, exact: true });
   const star = stage.getByText("✧", { exact: true });
   await expect(star).toBeVisible();

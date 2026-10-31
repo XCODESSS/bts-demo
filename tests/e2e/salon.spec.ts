@@ -6,7 +6,7 @@ test("Scent Salon is an additional persisted option; existing designs and filter
   await page.getByRole("button", { name: "Choose Design", exact: true }).click();
   const dialog = page.getByRole("dialog", { name: "Choose a Design", exact: true });
   await expect(dialog.getByRole("button", { name: /^Preview / })).toHaveCount(4);
-  for (const design of ["Botanical Atelier", "Modern Gallery", "Linen Boutique", "Scent Salon"]) {
+  for (const design of ["Botanical Atelier", "Scent Salon"]) {
     await expect(dialog.getByRole("button", { name: `Preview ${design}`, exact: true })).toHaveCount(1);
   }
   await dialog.getByRole("button", { name: "Preview Scent Salon", exact: true }).click();

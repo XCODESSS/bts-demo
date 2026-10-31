@@ -183,11 +183,11 @@ test("discovery tabs lead to actual note and family results", async ({ page }) =
   await expect(page.getByTestId("product-card").first()).toBeVisible();
 });
 
-test("all three designs use logo green and gold on a light page", async ({ page }) => {
-  await page.goto("/en");
-  for (const name of ["Botanical Atelier", "Modern Gallery", "Linen Boutique"]) {
-    await page.getByRole("button", { name: "Choose Design", exact: true }).click();
-    await page.getByRole("button", { name: `Preview ${name}`, exact: true }).click();
+test("classic saved designs use logo green and gold on a light page", async ({ page }) => {
+  for (const [design, name] of [["atelier", "Botanical Atelier"], ["gallery", "Modern Gallery"], ["linen", "Linen Boutique"]]) {
+    await page.goto("/en");
+    await page.evaluate(id => localStorage.setItem("bts-demo-design", id), design);
+    await page.reload();
     const tokens = await page.evaluate(() => {
       const style = getComputedStyle(document.documentElement);
       return { green: style.getPropertyValue("--brand-green").trim(), gold: style.getPropertyValue("--brand-gold").trim() };

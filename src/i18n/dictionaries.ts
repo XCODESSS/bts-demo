@@ -175,7 +175,7 @@ const en = {
   choose: "Choose a Fragrance",
   chooseDesign: "Choose Design",
   designTitle: "Choose a Design",
-  designHelp: "Four light directions. One complete fragrance experience.",
+  designHelp: "Six designs. One complete fragrance experience.",
   designCriteria:
     "Every design keeps the same live catalogue, English/Arabic, search, filters and WhatsApp enquiries.",
   designShort: "Design Previews",
@@ -380,7 +380,7 @@ const ar: Dictionary = {
   choose: "اختر عطراً",
   chooseDesign: "اختر التصميم",
   designTitle: "اختر تصميماً",
-  designHelp: "أربعة تصاميم فاتحة. تجربة عطرية متكاملة واحدة.",
+  designHelp: "ستة تصاميم. تجربة عطرية متكاملة واحدة.",
   designCriteria:
     "يحتفظ كل تصميم بالكتالوج الحالي نفسه، والعربية والإنجليزية، والبحث والتصفية والاستفسارات عبر واتساب.",
   designShort: "معاينة التصاميم",

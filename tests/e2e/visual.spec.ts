@@ -7,7 +7,7 @@ test("design crossfades stay isolated from subsequent route navigation", async (
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.goto("/en");
   await page.getByRole("button", { name: "Choose Design", exact: true }).click();
-  await page.getByRole("button", { name: "Preview Modern Gallery", exact: true }).click();
+  await page.getByRole("button", { name: "Preview Scent Salon", exact: true }).click();
   await expect.poll(() => page.evaluate(() => document.getAnimations().some(animation =>
     animation instanceof CSSAnimation && animation.animationName === "design-fade-in")),
   { intervals: [16, 32, 64] }).toBe(true);
@@ -38,13 +38,9 @@ for (const [design, name] of [
     page.on("console", (message) => {
       if (message.type() === "error") errors.push(message.text());
     });
+    // Retired designs remain available as saved preferences, not menu options.
+    await page.addInitScript(id => localStorage.setItem("bts-demo-design", id), design);
     await page.goto("/en");
-    await page
-      .getByRole("button", { name: "Choose Design", exact: true })
-      .click();
-    await page
-      .getByRole("button", { name: `Preview ${name}`, exact: true })
-      .click();
     for (const locale of ["en", "ar"]) {
       for (const route of [
         `/${locale}`,
@@ -133,9 +129,9 @@ test("design changes animate without overriding reduced-motion preferences", asy
     .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
-    .getByRole("button", { name: "Preview Modern Gallery", exact: true })
+    .getByRole("button", { name: "Preview Scent Salon", exact: true })
     .click();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await expect
     .poll(
       () =>
@@ -156,9 +152,9 @@ test("design changes animate without overriding reduced-motion preferences", asy
     .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
-    .getByRole("button", { name: "Preview Linen Boutique", exact: true })
+    .getByRole("button", { name: "Preview Botanical Atelier", exact: true })
     .click();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "linen");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "atelier");
   await expect
     .poll(() =>
       page.evaluate(
@@ -188,9 +184,9 @@ test("design selection still works without native view-transition support", asyn
     .getByRole("button", { name: "Choose Design", exact: true })
     .click();
   await page
-    .getByRole("button", { name: "Preview Modern Gallery", exact: true })
+    .getByRole("button", { name: "Preview Scent Salon", exact: true })
     .click();
-  await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+  await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await page
     .getByRole("link", { name: "Explore Collection", exact: true })

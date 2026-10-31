@@ -15,7 +15,7 @@ test("critical local assets and design canvas colors have discovery hints", asyn
   for (const font of await fonts.all()) {
     expect(new URL((await font.getAttribute("href"))!, page.url()).origin).toBe(new URL(page.url()).origin);
   }
-  for (const [name, color] of [[d.designGallery, "#ffffff"], [d.designLinen, "#fcf9f3"], [d.designSalon, "#fbfaf6"], [d.designGilded, "#f6eedb"], [d.designNoir, "#07211d"], [d.designSouk, "#e3ecdc"], [d.designVerdant, "#ffffff"], [d.designAtelier, "#fbfaf6"]]) {
+  for (const [name, color] of [[d.designSalon, "#fbfaf6"], [d.designGilded, "#f6eedb"], [d.designNoir, "#07211d"], [d.designSouk, "#e3ecdc"], [d.designVerdant, "#ffffff"], [d.designAtelier, "#fbfaf6"]]) {
     await page.getByRole("button", { name: d.chooseDesign, exact: true }).click();
     await page.getByRole("button", { name: `${d.previewDesign} ${name}`, exact: true }).click();
     await expect(theme).toHaveAttribute("content", color);

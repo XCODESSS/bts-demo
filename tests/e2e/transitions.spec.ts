@@ -361,8 +361,8 @@ for (const locale of ["en", "ar"] as const) for (const reducedMotion of ["reduce
     await expect(page.getByRole("dialog", { name: d.brandsTitle, exact: true })).toBeVisible();
     await page.keyboard.press("Escape");
     await page.getByRole("button", { name: d.chooseDesign, exact: true }).click();
-    await page.getByRole("button", { name: `${d.previewDesign} ${d.designGallery}`, exact: true }).click();
-    await expect(page.locator("html")).toHaveAttribute("data-design", "gallery");
+    await page.getByRole("button", { name: `${d.previewDesign} ${d.designSalon}`, exact: true }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-design", "salon");
     await page.getByRole("main").getByRole("link", { name: d.campaignAction, exact: true }).click();
     await expect(page).toHaveURL(new RegExp(`/${locale}/catalogue$`));
     await expect(page.getByTestId("product-card")).toHaveCount(12);

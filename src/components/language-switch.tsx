@@ -209,7 +209,7 @@ export function DesignChooser({ locale }: { locale: Locale }) {
           </button>
         </div>
         <div className="design-options">
-          {designs.map((design) => (
+          {designs.filter((design) => design.id !== "gallery" && design.id !== "linen").map((design) => (
             <button
               key={design.id}
               type="button"
