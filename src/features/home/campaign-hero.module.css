@@ -86,7 +86,7 @@
   25% { opacity: 1; }
   65%, 100% { transform: translateX(650%) skewX(-18deg); opacity: 0; }
 }
-@keyframes campaign-star { to { rotate: 180deg; } }
+@keyframes campaign-star { to { rotate: 360deg; } }
 @keyframes campaign-intro {
   from { opacity: .35; translate: 0 16px; }
   to { opacity: 1; translate: 0 0; }
@@ -95,7 +95,7 @@
   .bottle { animation: campaign-float 3.2s ease-in-out 1; }
   .product:nth-child(2) .bottle { animation-delay: .15s; }
   .product:nth-child(3) .bottle { animation-delay: .3s; }
-  .signature { animation: campaign-star 3.2s ease-out 1 both; }
+  .signature { animation: campaign-star 18s linear infinite; }
   .intro { animation: campaign-intro .75s var(--motion-ease) both; }
   .stage::after { content: ""; position: absolute; z-index: -1; pointer-events: none; top: 0; bottom: 0; left: 0; width: 38%; background: linear-gradient(90deg, transparent, #d4b99138, transparent); animation: campaign-light 3.2s ease-in-out 1 both; }
 }

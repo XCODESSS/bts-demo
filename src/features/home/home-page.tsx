@@ -49,7 +49,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </section>
     </ScrollSection>
     {!!model.categories.length && <ScrollSection id="for-you"><StorefrontCategories locale={locale} items={model.categories} /></ScrollSection>}
-    <ScrollSection id="approach"><CollectionPromise locale={locale} count={model.total} /></ScrollSection>
+    <ScrollSection id="approach"><CollectionPromise locale={locale} /></ScrollSection>
     <ScrollSection id="customer-experiences"><CustomerExperiences locale={locale} /></ScrollSection>
   </>;
 }

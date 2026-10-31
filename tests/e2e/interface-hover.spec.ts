@@ -1,6 +1,17 @@
 import { expect, test, type Locator } from "@playwright/test";
 import { getDictionary } from "../../src/i18n/dictionaries";
 
+test("header brand text stays un-underlined on hover", async ({ page }) => {
+  await page.goto("/en");
+  const brand = page.getByRole("banner").getByRole("link", { name: "Beyond the Space Perfume — Home", exact: true });
+  await brand.hover();
+  const wordmark = brand.getByText("Beyond the Space", { exact: false }).first();
+  await expect(wordmark).toHaveCSS("text-decoration-line", "none");
+  await expect(wordmark.locator("span")).toHaveCSS("text-decoration-line", "none");
+  await brand.focus();
+  expect(await brand.evaluate(element => getComputedStyle(element).outlineStyle)).not.toBe("none");
+});
+
 test("navigation and discovery controls visibly respond to hover", async ({ page, isMobile }) => {
   test.skip(isMobile, "Persistent hover is a fine-pointer interaction.");
   const d = getDictionary("en");

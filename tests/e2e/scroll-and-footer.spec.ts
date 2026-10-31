@@ -1,5 +1,25 @@
 import { expect, test } from "@playwright/test";
 import { revealHomeSection } from "./helpers/home-sections";
+import { getDictionary } from "../../src/i18n/dictionaries";
+
+for (const locale of ["en", "ar"] as const) {
+  test(`${locale} fragrance banner describes the business rather than website features`, async ({ page }, testInfo) => {
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.goto(`/${locale}#approach`);
+    await page.evaluate(() => document.fonts.ready);
+    const banner = page.getByRole("region", { name: getDictionary(locale).personalTitle, exact: true });
+    await expect(banner.getByRole("heading", { level: 2 }).locator("span")).toHaveText(locale === "en"
+      ? ["Beyond the Space.", "Your Signature Scent."]
+      : ["بيوند ذا سبيس.", "بصمتك العطرية."]);
+    await expect(banner.getByRole("heading", { level: 3 })).toHaveText(locale === "en"
+      ? ["Designer & Niche", "Fragrance Guidance", "Gifts & Occasions", "WhatsApp Enquiries"]
+      : ["عطور شهيرة ومتخصصة", "نصيحة عطرية", "هدايا ومناسبات", "استفسر عبر واتساب"]);
+    await expect(banner).not.toContainText(/100|١٠٠|demo collection|English & Arabic|right-to-left|المجموعة التجريبية|العربية والإنجليزية/);
+    await expect(banner.getByText(getDictionary(locale).personalCopy, { exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+    await banner.screenshot({ path: `artifacts/screenshots/business-banner-${locale}-${testInfo.project.name}.png` });
+  });
+}
 
 test("server-rendered sections keep stable geometry while product photographs lazy-load", async ({ page }) => {
   await page.goto("/en");
@@ -15,7 +35,7 @@ test("server-rendered sections keep stable geometry while product photographs la
   await expect(section.getByText("Sample review", { exact: true })).toHaveCount(3);
   await expect(section.getByText("Demo testimonials for layout preview only. These are not verified customer reviews.", { exact: true })).toBeVisible();
   await revealHomeSection(page, "approach");
-  await expect(page.getByRole("region", { name: "The Best Fragrance Is Personal.", exact: true }).getByRole("heading", { level: 2 })).toContainText("100 fragrances.");
+  await expect(page.getByRole("region", { name: "The Best Fragrance Is Personal.", exact: true }).getByRole("heading", { level: 2 })).toContainText("Your Signature Scent.");
 });
 
 test("shadcn scent tabs highlight on hover and smoothly slide the selected green pill in both directions", async ({ page }) => {

@@ -1,0 +1,1328 @@
+From d77ee9282dbbe94c2235f4b6447602053665a376 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 31 Oct 2026 05:27:13 +0000
+Subject: [PATCH] Add three new designs: Emerald Noir, Souk, Verdant Pop; fix
+ RTL selector in Gilded
+
+---
+ package-lock.json                            |  30 ++++
+ package.json                                 |   3 +
+ src/app/[locale]/layout.tsx                  |   7 +-
+ src/components/design-preview.tsx            |   2 +-
+ src/components/designs.ts                    |   4 +-
+ src/components/language-switch.tsx           |   5 +-
+ src/components/site-header.module.css        |  40 ++++-
+ src/features/catalogue/catalogue.module.css  |  66 +++----
+ src/features/home/campaign-hero.module.css   |  66 +++++--
+ src/features/home/collections.module.css     | 112 ++++++++----
+ src/features/home/discovery.module.css       | 114 ++++++++----
+ src/features/home/home-extras.module.css     |  58 +++++--
+ src/features/home/home.module.css            |  65 +++++--
+ src/features/home/scent-spotlight.module.css |  25 ++-
+ src/features/products/product.module.css     | 174 +++++++++++--------
+ src/i18n/dictionaries.ts                     |  12 ++
+ src/styles/fonts.ts                          |  19 ++
+ src/styles/noir.css                          |  19 ++
+ src/styles/salon.css                         |  80 ++++-----
+ src/styles/souk.css                          |  19 ++
+ src/styles/verdant.css                       |  17 ++
+ tests/e2e/interface-layout.spec.ts           |   2 +-
+ 22 files changed, 655 insertions(+), 284 deletions(-)
+ create mode 100644 src/styles/noir.css
+ create mode 100644 src/styles/souk.css
+ create mode 100644 src/styles/verdant.css
+
+diff --git a/package-lock.json b/package-lock.json
+index a6ed85d..f824ea2 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -8,10 +8,13 @@
+       "name": "beyond-the-space-demo",
+       "version": "0.1.0",
+       "dependencies": {
++        "@fontsource/bricolage-grotesque": "5.3.0",
++        "@fontsource/cinzel": "5.3.0",
+         "@fontsource/cormorant-garamond": "5.3.0",
+         "@fontsource/fraunces": "5.3.0",
+         "@fontsource/manrope": "5.3.0",
+         "@fontsource/noto-sans-arabic": "5.3.0",
++        "@fontsource/playfair-display": "5.3.0",
+         "class-variance-authority": "0.7.1",
+         "cn": "0.5.0",
+         "next": "16.4.3",
+@@ -944,6 +947,24 @@
+       "integrity": "sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==",
+       "license": "MIT"
+     },
++    "node_modules/@fontsource/bricolage-grotesque": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/bricolage-grotesque/-/bricolage-grotesque-5.3.0.tgz",
++      "integrity": "sha512-MdOVb/5in11IfN/IQJOExMuu6AroCIQbirl0yX7NUvKk+h0HYIKfGaVAXRS/gCPil4aFxWhjZnOw28tUwv7tFw==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
++    "node_modules/@fontsource/cinzel": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/cinzel/-/cinzel-5.3.0.tgz",
++      "integrity": "sha512-KEOYTsrRppW0uRIPWBDPrQgunCS6f8u4nzZxYRBfo9SCknKojLYjK7B0ZoVmJhyVLefz271ZQRF9EOpHZlfhRw==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
+     "node_modules/@fontsource/cormorant-garamond": {
+       "version": "5.3.0",
+       "resolved": "https://registry.npmjs.org/@fontsource/cormorant-garamond/-/cormorant-garamond-5.3.0.tgz",
+@@ -980,6 +1001,15 @@
+         "url": "https://github.com/sponsors/ayuhito"
+       }
+     },
++    "node_modules/@fontsource/playfair-display": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/playfair-display/-/playfair-display-5.3.0.tgz",
++      "integrity": "sha512-uJSABalvdWc10fEPppQjQocamT21LEyRfzzWfRfqbkPz+sRv+kKpYDKyluBUskvJREkJTos9epj1WjQROGu99Q==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
+     "node_modules/@humanfs/core": {
+       "version": "0.19.2",
+       "resolved": "https://registry.npmjs.org/@humanfs/core/-/core-0.19.2.tgz",
+diff --git a/package.json b/package.json
+index 65cf72b..4fbdd62 100644
+--- a/package.json
++++ b/package.json
+@@ -18,10 +18,13 @@
+     "test:e2e:admin": "playwright test --config=playwright.admin.config.ts"
+   },
+   "dependencies": {
++    "@fontsource/bricolage-grotesque": "5.3.0",
++    "@fontsource/cinzel": "5.3.0",
+     "@fontsource/cormorant-garamond": "5.3.0",
+     "@fontsource/fraunces": "5.3.0",
+     "@fontsource/manrope": "5.3.0",
+     "@fontsource/noto-sans-arabic": "5.3.0",
++    "@fontsource/playfair-display": "5.3.0",
+     "class-variance-authority": "0.7.1",
+     "cn": "0.5.0",
+     "next": "16.4.3",
+diff --git a/src/app/[locale]/layout.tsx b/src/app/[locale]/layout.tsx
+index 5f378c4..4edb785 100644
+--- a/src/app/[locale]/layout.tsx
++++ b/src/app/[locale]/layout.tsx
+@@ -1,5 +1,5 @@
+ import type { Metadata, Viewport } from "next";
+-import { manrope, cormorant, arabic, fraunces } from "../../styles/fonts";
++import { manrope, cormorant, arabic, fraunces, cinzel, playfair, bricolage } from "../../styles/fonts";
+ import { Suspense } from "react";
+ import { AnalyticsProvider } from "../../features/analytics/analytics-provider";
+ import { siteOrigin } from "../../features/seo/metadata";
+@@ -14,6 +14,9 @@ import { HashNavigation } from "../../components/hash-navigation";
+ import { designIds } from "../../components/designs";
+ import "../../styles/salon.css";
+ import "../../styles/gilded.css";
++import "../../styles/noir.css";
++import "../../styles/souk.css";
++import "../../styles/verdant.css";
+ export const viewport: Viewport = {
+   width: "device-width", initialScale: 1, viewportFit: "cover",
+   themeColor: "#fbfaf6", colorScheme: "light",
+@@ -46,7 +49,7 @@ export default async function LocaleLayout({
+       lang={locale}
+       dir={locale === "ar" ? "rtl" : "ltr"}
+       data-design="gilded"
+-      className={`${manrope.variable} ${cormorant.variable} ${arabic.variable} ${fraunces.variable}`}
++      className={`${manrope.variable} ${cormorant.variable} ${arabic.variable} ${fraunces.variable} ${cinzel.variable} ${playfair.variable} ${bricolage.variable}`}
+       suppressHydrationWarning
+     >
+       <head>
+diff --git a/src/components/design-preview.tsx b/src/components/design-preview.tsx
+index 49b88bf..c4528a7 100644
+--- a/src/components/design-preview.tsx
++++ b/src/components/design-preview.tsx
+@@ -4,7 +4,7 @@ import type { DesignId } from "./designs";
+ 
+ /** Decorative miniatures, not a second storefront or dataset. */
+ export function DesignPreview({ design }: { design: DesignId }) {
+-  if (design === "salon" || design === "gilded") return <div className={styles.salonPreview} aria-hidden="true">
++  if (design !== "atelier" && design !== "gallery" && design !== "linen") return <div className={styles.salonPreview} aria-hidden="true">
+     <div className={styles.salonNav}>Beyond the Space</div>
+     <div className={styles.salonCampaign}>
+       <div><p>A space for<br />your scent.</p><span>Explore collection →</span></div>
+diff --git a/src/components/designs.ts b/src/components/designs.ts
+index e540d2b..12d96bb 100644
+--- a/src/components/designs.ts
++++ b/src/components/designs.ts
+@@ -1,8 +1,8 @@
+ /** Shared by the picker and the pre-paint restoration script. */
+-export const designIds = ["gilded", "atelier", "gallery", "linen", "salon"] as const;
++export const designIds = ["gilded", "noir", "souk", "verdant", "atelier", "gallery", "linen", "salon"] as const;
+ export type DesignId = (typeof designIds)[number];
+ export const designCanvas: Record<DesignId, string> = {
+-  gilded: "#f6eedb", atelier: "#fbfaf6", gallery: "#ffffff", linen: "#fcf9f3", salon: "#fbfaf6",
++  gilded: "#f6eedb", noir: "#07211d", souk: "#e3ecdc", verdant: "#ffffff", atelier: "#fbfaf6", gallery: "#ffffff", linen: "#fcf9f3", salon: "#fbfaf6",
+ };
+ 
+ export function isDesign(value: string | null | undefined): value is DesignId {
+diff --git a/src/components/language-switch.tsx b/src/components/language-switch.tsx
+index 56cdef6..3e5c05a 100644
+--- a/src/components/language-switch.tsx
++++ b/src/components/language-switch.tsx
+@@ -103,7 +103,7 @@ function subscribeDesign(onChange: () => void): () => void {
+ /** A single text node, so each design keeps one semantic title and copy deck. */
+ export function DesignText({ classic, salon }: { classic: string; salon: string }) {
+   const design = useSyncExternalStore(subscribeDesign, readDesign, () => "gilded");
+-  return design === "salon" || design === "gilded" ? salon : classic;
++  return design === "salon" || design === "gilded" || design === "noir" || design === "souk" || design === "verdant" ? salon : classic;
+ }
+ 
+ export function DesignChooser({ locale }: { locale: Locale }) {
+@@ -123,6 +123,9 @@ export function DesignChooser({ locale }: { locale: Locale }) {
+   const trigger = useRef<HTMLButtonElement>(null);
+   const designs = [
+     { id: "gilded", name: d.designGilded, description: d.designGildedDescription },
++    { id: "noir", name: d.designNoir, description: d.designNoirDescription },
++    { id: "souk", name: d.designSouk, description: d.designSoukDescription },
++    { id: "verdant", name: d.designVerdant, description: d.designVerdantDescription },
+     {
+       id: "atelier",
+       name: d.designAtelier,
+diff --git a/src/components/site-header.module.css b/src/components/site-header.module.css
+index 00520ec..a383c51 100644
+--- a/src/components/site-header.module.css
++++ b/src/components/site-header.module.css
+@@ -70,13 +70,13 @@
+   background: var(--forest);
+   color: white;
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .header { border-bottom: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .navigation a { font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .search { border-radius: 0; background: var(--sage); border: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .search input { font-size: 16px; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .search button { border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .actions :global(.language-switch) { font-size: 14px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .mobileNavigation { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .header { border-bottom: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .navigation a { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .search { border-radius: 0; background: var(--sage); border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .search input { font-size: 16px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .search button { border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .actions :global(.language-switch) { font-size: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .mobileNavigation { font-size: 16px; }
+ .mobileMenu { display: none; }
+ .mobileNavigation {
+   position: absolute;
+@@ -117,3 +117,29 @@
+ :global(html:root[data-design="gilded"]) .search { border: 2px solid var(--ink); border-radius: 999px; background: var(--photo); overflow: hidden; }
+ :global(html:root[data-design="gilded"]) .search button { background: var(--brand-green); color: var(--cream); border-radius: 999px; }
+ :global(html:root[data-design="gilded"]) .wordmark { font-family: var(--display); font-weight: 700; }
++
++/* Noir */
++:global(html:root[data-design="noir"]) .header { background:#07211dee; border-bottom:1px solid #d6b25e; }
++:global(html:root[data-design="noir"]) .navigation a { text-transform:uppercase; letter-spacing:.16em; font-size:12.5px; font-weight:600; }
++:global(html:root[data-design="noir"]) .navigation a:hover { color:#e7cf84; }
++:global(html:root[data-design="noir"]) .search { background:#0d2f29; border:1px solid #d6b25e; border-radius:0; }
++:global(html:root[data-design="noir"]) .search input { color:#f1e6c6; }
++:global(html:root[data-design="noir"]) .search button { background:#d6b25e; color:#07211d; border-radius:0; }
++:global(html:root[data-design="noir"]) .wordmark { font-family:var(--display); text-transform:uppercase; letter-spacing:.1em; font-size:18px; }
++
++/* Souk */
++:global(html:root[data-design="souk"]) .header { background:var(--canvas); border-bottom:0; }
++:global(html:root[data-design="souk"]) .header::after { content:""; display:block; height:14px; background-color:#0f4a3b; background-image:var(--zellige); background-size:14px 14px; background-position:0 0,7px 7px; border-bottom:2px solid #b88a2b; }
++:global(html:root[data-design="souk"]) .navigation a { font-weight:600; }
++:global(html:root[data-design="souk"]) .navigation a:hover { color:#b88a2b; }
++:global(html:root[data-design="souk"]) .search { background:#fffdf4; border:2px solid #b88a2b; border-radius:12px; }
++:global(html:root[data-design="souk"]) .search button { background:#0f4a3b; color:#f6ecd0; border-radius:8px; }
++:global(html:root[data-design="souk"]) .wordmark { font-family:var(--display); font-weight:800; font-style:italic; }
++
++/* Verdant */
++:global(html:root[data-design="verdant"]) .header { background:#fff; border-bottom:0; box-shadow:0 2px 0 #0b2b21; }
++:global(html:root[data-design="verdant"]) .navigation a { font-weight:700; padding:8px 14px; border-radius:99px; transition:background .2s; }
++:global(html:root[data-design="verdant"]) .navigation a:hover { background:#ffd84d; }
++:global(html:root[data-design="verdant"]) .search { background:#eef7e9; border:2px solid #0b2b21; border-radius:999px; }
++:global(html:root[data-design="verdant"]) .search button { background:#0a7a55; color:#fff; border-radius:999px; }
++:global(html:root[data-design="verdant"]) .wordmark { font-family:var(--display); font-weight:800; letter-spacing:-.02em; }
+diff --git a/src/features/catalogue/catalogue.module.css b/src/features/catalogue/catalogue.module.css
+index 1c10bf0..c71bd36 100644
+--- a/src/features/catalogue/catalogue.module.css
++++ b/src/features/catalogue/catalogue.module.css
+@@ -1,37 +1,37 @@
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader { display: grid; grid-template-columns: 1.1fr 1fr; column-gap: 56px; row-gap: 18px; max-width: none; padding-block: 40px 48px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .breadcrumb { grid-column: 1 / -1; font-size: 14px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { grid-column: 1; grid-row: 2 / 4; font: 500 clamp(48px, 5.5vw, 80px)/1 var(--display); margin: 0; letter-spacing: -.03em; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader p { grid-column: 2; font-size: 16px; line-height: 1.6; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .controls { border: 0; padding: 24px; background: var(--sage); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm { border: 0; border-radius: 0; max-width: 620px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm input { font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm button { font-size: 16px; min-height: 44px; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .filterRow { gap: 20px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .filterRow label > span { font-size: 14px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .filterRow select { font-size: 16px; border-bottom: 0; background: var(--white); padding-inline: 10px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .activeFilters button { font-size: 14px; min-height: 44px; border: 0; border-radius: 0; background: var(--white); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .resultLine { font-size: 16px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .pagination { font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .pagination a { min-width: 44px; min-height: 44px; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .collectionEnd { font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .collectionEnd > span { display: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .empty p { font-size: 16px; color: var(--ink); }
+-:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { font-family: var(--body); font-size: 48px; line-height: 1.4; letter-spacing: 0; }
+-@media (max-width: 900px) { :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader { column-gap: 28px; } }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader { display: grid; grid-template-columns: 1.1fr 1fr; column-gap: 56px; row-gap: 18px; max-width: none; padding-block: 40px 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .breadcrumb { grid-column: 1 / -1; font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader h1 { grid-column: 1; grid-row: 2 / 4; font: 500 clamp(48px, 5.5vw, 80px)/1 var(--display); margin: 0; letter-spacing: -.03em; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader p { grid-column: 2; font-size: 16px; line-height: 1.6; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .controls { border: 0; padding: 24px; background: var(--sage); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .searchForm { border: 0; border-radius: 0; max-width: 620px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .searchForm input { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .searchForm button { font-size: 16px; min-height: 44px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .filterRow { gap: 20px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .filterRow label > span { font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .filterRow select { font-size: 16px; border-bottom: 0; background: var(--white); padding-inline: 10px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .activeFilters button { font-size: 14px; min-height: 44px; border: 0; border-radius: 0; background: var(--white); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .resultLine { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pagination { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pagination a { min-width: 44px; min-height: 44px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collectionEnd { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collectionEnd > span { display: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .empty p { font-size: 16px; color: var(--ink); }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader h1 { font-family: var(--body); font-size: 48px; line-height: 1.4; letter-spacing: 0; }
++@media (max-width: 900px) { :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader { column-gap: 28px; } }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader { display: block; padding-block: 24px 32px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { font-size: 48px; margin-block: 22px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader p + p { margin-top: 14px; }
+-  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { font-size: 34px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .controls { padding: 16px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm { padding-inline: 10px 4px; gap: 4px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm > svg { display: none; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm button { font-size: 14px; padding-inline: 8px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .filterToggle { font-size: 14px; border: 0; background: var(--white); gap: 4px; padding-inline: 8px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .resultLine { font-size: 14px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pagination { gap: 2px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageGroup { gap: 2px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageDisabled { width: 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader { display: block; padding-block: 24px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader h1 { font-size: 48px; margin-block: 22px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader p + p { margin-top: 14px; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageHeader h1 { font-size: 34px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .controls { padding: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .searchForm { padding-inline: 10px 4px; gap: 4px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .searchForm > svg { display: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .searchForm button { font-size: 14px; padding-inline: 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .filterToggle { font-size: 14px; border: 0; background: var(--white); gap: 4px; padding-inline: 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .resultLine { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pagination { gap: 2px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageGroup { gap: 2px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pageDisabled { width: 20px; }
+ }
+ .pageHeader {
+   padding-block: 38px 48px;
+diff --git a/src/features/home/campaign-hero.module.css b/src/features/home/campaign-hero.module.css
+index a93daa1..41a4af4 100644
+--- a/src/features/home/campaign-hero.module.css
++++ b/src/features/home/campaign-hero.module.css
+@@ -101,48 +101,48 @@
+   .product:hover .bottle { transform: translateY(-4px); }
+ }
+ /* The original three campaign compositions remain unchanged. */
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .hero {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .hero {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   padding-block: 24px 0;
+   margin-bottom: 0;
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .stage { display: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .intro {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .stage { display: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro {
+   display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+   min-width: 0; max-width: none; min-height: 600px;
+   margin: 0; padding: 48px 42px;
+   text-align: start; background: var(--brand-green); color: var(--white);
+   animation: none;
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .intro h1 {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro h1 {
+   font: 500 clamp(64px, 6.5vw, 96px)/.96 var(--display);
+   letter-spacing: -.035em; max-width: 11ch; margin: 0;
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .intro > p {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro > p {
+   margin: 36px 0 28px; max-width: 39ch;
+   font-size: 18px; line-height: 1.6; color: var(--white);
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .action {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .action {
+   border-radius: 0; font-size: 16px; min-height: 54px; padding: 14px 24px;
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .intro :focus-visible { outline-color: var(--brand-gold); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .action:active { transform: translateY(2px); }
+-:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .intro h1 {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro :focus-visible { outline-color: var(--brand-gold); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .action:active { transform: translateY(2px); }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro h1 {
+   font-family: var(--body); font-size: clamp(48px, 5vw, 72px); line-height: 1.25; letter-spacing: 0; max-width: 12ch;
+ }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .hero:not(.withSpotlight) { grid-template-columns: 1fr; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .hero:not(.withSpotlight) { grid-template-columns: 1fr; }
+ @media (max-width: 1100px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro { padding: 32px 28px; min-height: 580px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro h1 { font-size: clamp(54px, 7.3vw, 80px); }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro > p { font-size: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro { padding: 32px 28px; min-height: 580px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro h1 { font-size: clamp(54px, 7.3vw, 80px); }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro > p { font-size: 16px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .hero { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 0; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro { min-height: 0; padding: 24px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro h1 { font-size: clamp(48px, 13.3vw, 56px); max-width: 11ch; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro > p { margin: 20px 0; font-size: 16px; line-height: 1.5; }
+-  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .intro h1 { font-size: 42px; line-height: 1.35; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .hero { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro { min-height: 0; padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro h1 { font-size: clamp(48px, 13.3vw, 56px); max-width: 11ch; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro > p { margin: 20px 0; font-size: 16px; line-height: 1.5; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .intro h1 { font-size: 42px; line-height: 1.35; }
+ }
+ @media (max-width: 950px) {
+   .stage { grid-template-columns: .8fr 1.3fr; gap: 18px; padding: 30px; min-height: 350px; }
+@@ -177,3 +177,33 @@
+ :global(html:root[data-design="gilded"]) .action { background: var(--gold-grad); color: var(--ink); border: 2px solid var(--brand-gold); border-radius: 999px; min-height: 58px; padding: 16px 32px; font-weight: 600; transition: transform .2s, box-shadow .2s; }
+ :global(html:root[data-design="gilded"]) .action:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(--cream); }
+ @media (max-width: 900px) { :global(html:root[data-design="gilded"]) .hero { border-radius: 24px; box-shadow: 5px 5px 0 var(--brand-gold); } :global(html:root[data-design="gilded"]) .intro { padding: 36px 26px; min-height: 0; } :global(html:root[data-design="gilded"]) .intro h1 { font-size: clamp(3rem, 15vw, 4.6rem); } }
++
++/* Noir: centred, framed */
++:global(html:root[data-design="noir"]) .hero { grid-template-columns:1fr; gap:24px; padding-top:28px; }
++:global(html:root[data-design="noir"]) .intro { align-items:center; text-align:center; min-height:600px; background:radial-gradient(70% 70% at 50% 0,#14463b,#082823); border:1px solid #d6b25e; box-shadow:inset 0 0 0 10px #07211d,inset 0 0 0 11px #d6b25e99; padding:72px 40px; }
++:global(html:root[data-design="noir"]) .intro h1 { font:700 clamp(2.4rem,5.8vw,5.2rem)/1.08 var(--display); text-transform:uppercase; letter-spacing:.07em; max-width:15ch; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
++:global(html:root[data-design="noir"]) .intro > p { color:#d9e0d0; max-width:50ch; text-align:center; }
++:global(html:root[data-design="noir"]) .action { border:1px solid #d6b25e; border-radius:0; background:transparent; color:#f1e6c6; text-transform:uppercase; letter-spacing:.14em; font-size:13px; }
++:global(html:root[data-design="noir"]) .action:hover { background:#d6b25e; color:#07211d; }
++:global(html:root[lang="ar"][data-design="noir"]) .intro h1 { font-family:var(--body); text-transform:none; letter-spacing:0; line-height:1.3; }
++
++/* Souk: arch panel and zellige edge */
++:global(html:root[data-design="souk"]) .hero { gap:0; padding-top:36px; }
++:global(html:root[data-design="souk"]) .intro { position:relative; background:#0f4a3b; border:3px solid #b88a2b; border-right:0; border-radius:28px 0 0 28px; padding:56px 48px 70px; color:#f6ecd0; overflow:hidden; }
++:global(html:root[data-design="souk"]) .intro::after { content:""; position:absolute; inset:auto 0 0 0; height:20px; background-color:#0f4a3b; background-image:var(--zellige); background-size:20px 20px; background-position:0 0,10px 10px; border-top:2px solid #b88a2b; }
++:global(html:root[data-design="souk"]) .intro h1 { font:800 clamp(2.8rem,6vw,5.4rem)/1.03 var(--display); letter-spacing:-.015em; color:#f6ecd0; max-width:10ch; }
++:global(html:root[data-design="souk"]) .intro > p { color:#e5ecd9; }
++:global(html:root[data-design="souk"]) .action { background:#e3c374; color:#123a2f; border:2px solid #e3c374; border-radius:12px; font-weight:600; }
++:global(html:root[data-design="souk"]) .action:hover { background:#f6ecd0; border-color:#f6ecd0; }
++:global(html:root[lang="ar"][data-design="souk"]) .intro h1 { font-family:var(--body); font-weight:700; line-height:1.3; }
++:global(html:root[dir="rtl"][data-design="souk"]) .intro { border-radius:0 28px 28px 0; border-right:3px solid #b88a2b; border-left:0; }
++
++/* Verdant: two floating blocks */
++:global(html:root[data-design="verdant"]) .hero { gap:20px; padding-top:28px; }
++:global(html:root[data-design="verdant"]) .intro { background:#0a7a55; border-radius:40px; padding:56px 48px; color:#fff; min-height:620px; }
++:global(html:root[data-design="verdant"]) .intro h1 { font:800 clamp(3.2rem,7.2vw,6.4rem)/.9 var(--display); letter-spacing:-.04em; color:#fff; max-width:8ch; }
++:global(html:root[data-design="verdant"]) .intro > p { color:#e4f5ec; font-size:19px; }
++:global(html:root[data-design="verdant"]) .action { background:#f2b705; color:#0b2b21; border-radius:999px; border:0; min-height:58px; font-weight:700; box-shadow:0 6px 0 #b88a00; transition:transform .12s,box-shadow .12s; }
++:global(html:root[data-design="verdant"]) .action:hover { transform:translateY(-1px); }
++:global(html:root[data-design="verdant"]) .action:active { transform:translateY(5px); box-shadow:0 1px 0 #b88a00; }
++:global(html:root[lang="ar"][data-design="verdant"]) .intro h1 { font-family:var(--body); font-weight:800; line-height:1.25; letter-spacing:0; }
+diff --git a/src/features/home/collections.module.css b/src/features/home/collections.module.css
+index 9c30a95..4a9d375 100644
+--- a/src/features/home/collections.module.css
++++ b/src/features/home/collections.module.css
+@@ -1,36 +1,36 @@
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .browser { display: contents; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .tabs { grid-column: 1; grid-row: 2; align-self: start; margin: 0; border: 0; border-radius: 0; padding: 4px; background: var(--sage); justify-content: flex-start; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .tab { border-radius: 0; font-size: 16px; padding: 12px 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .indicator { border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .panel { grid-column: 2; grid-row: 1 / 3; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .grid { grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .tile { display: grid; grid-template-columns: 76px 1fr; align-items: center; background: var(--sage); border: 0; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .tile:nth-child(even) { background: var(--stone); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { height: 100px; padding: 10px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .image { width: 100%; height: 80px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .caption { border: 0; padding: 14px 16px 14px 0; gap: 8px; }
+-:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .caption { padding: 14px 0 14px 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .caption h3 { font-size: 20px; margin: 0 0 6px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .caption div > span { font-size: 14px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .arrow { width: 24px; background: none; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .browser { display: contents; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tabs { grid-column: 1; grid-row: 2; align-self: start; margin: 0; border: 0; border-radius: 0; padding: 4px; background: var(--sage); justify-content: flex-start; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tab { border-radius: 0; font-size: 16px; padding: 12px 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .indicator { border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .panel { grid-column: 2; grid-row: 1 / 3; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .grid { grid-template-columns: 1fr 1fr; gap: 12px 24px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile { display: grid; grid-template-columns: 76px 1fr; align-items: center; background: var(--sage); border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile:nth-child(even) { background: var(--stone); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { height: 100px; padding: 10px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .image { width: 100%; height: 80px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { border: 0; padding: 14px 16px 14px 0; gap: 8px; }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { padding: 14px 0 14px 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption h3 { font-size: 20px; margin: 0 0 6px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption div > span { font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .arrow { width: 24px; background: none; color: var(--ink); }
+ @media (max-width: 1100px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .tile { grid-template-columns: 58px 1fr; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption h3 { font-size: 18px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .grid { column-gap: 12px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption div > span { white-space: nowrap; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .arrow { display: none; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .tab { font-size: 14px; padding-inline: 10px; gap: 5px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile { grid-template-columns: 58px 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption h3 { font-size: 18px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .grid { column-gap: 12px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption div > span { white-space: nowrap; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .arrow { display: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tab { font-size: 14px; padding-inline: 10px; gap: 5px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .tabs { margin: 24px 0; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .grid { gap: 10px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .tile { grid-template-columns: 48px 1fr; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { height: 90px; padding: 4px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption { padding: 10px 8px 10px 0; }
+-  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .caption { padding: 10px 0 10px 8px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption h3 { font-size: 16px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption div > span { font-size: 13px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .arrow { display: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tabs { margin: 24px 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .grid { gap: 10px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile { grid-template-columns: 48px 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { height: 90px; padding: 4px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { padding: 10px 8px 10px 0; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { padding: 10px 0 10px 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption h3 { font-size: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption div > span { font-size: 13px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .arrow { display: none; }
+ }
+ .tabs {
+   position: relative; isolation: isolate; display: flex; align-items: stretch;
+@@ -87,3 +87,55 @@
+ :global(html:root[data-design="gilded"]) .tabs { background: transparent; border: 2px solid var(--ink); border-radius: 999px; padding: 4px; }
+ :global(html:root[data-design="gilded"]) .tab { border-radius: 999px; font-weight: 600; }
+ :global(html:root[data-design="gilded"]) .indicator { border-radius: 999px; background: var(--brand-green); }
++
++/* Noir: outlined medallion tiles */
++:global(html:root[data-design="noir"]) .tile { background:transparent !important; border:1px solid #d6b25e; border-radius:0; color:#f1e6c6; transition:background .25s; }
++:global(html:root[data-design="noir"]) .tile:hover { background:#d6b25e22 !important; }
++:global(html:root[data-design="noir"]) .caption h3 { font-family:var(--display); text-transform:uppercase; letter-spacing:.06em; font-size:15px; color:#f1e6c6; }
++:global(html:root[data-design="noir"]) .caption div > span,:global(html:root[data-design="noir"]) .arrow { color:#b8c3b2; }
++:global(html:root[data-design="noir"]) .tabs { background:transparent; border:1px solid #d6b25e; border-radius:0; justify-self:center; }
++:global(html:root[data-design="noir"]) .tab { text-transform:uppercase; letter-spacing:.1em; font-size:12.5px; color:#f1e6c6; border-radius:0; }
++:global(html:root[data-design="noir"]) .indicator { background:#d6b25e; border-radius:0; }
++
++/* Souk: arch gallery */
++:global(html:root[data-design="souk"]) .grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; }
++:global(html:root[data-design="souk"]) .tile { display:flex; flex-direction:column; text-align:center; background:#f3ead2; border:2px solid #b88a2b; border-radius:999px 999px 18px 18px; padding:30px 12px 16px; transition:transform .25s,background .25s; }
++:global(html:root[data-design="souk"]) .tile:nth-child(even) { background:#0f4a3b; color:#f6ecd0; }
++:global(html:root[data-design="souk"]) .tile:hover { transform:translateY(-6px); }
++:global(html:root[data-design="souk"]) .tile:nth-child(even) .caption h3,:global(html:root[data-design="souk"]) .tile:nth-child(even) .caption div > span { color:#f6ecd0; }
++:global(html:root[data-design="souk"]) .imageStage { height:120px; }
++:global(html:root[data-design="souk"]) .image { height:100px; }
++:global(html:root[data-design="souk"]) .caption { padding:10px 4px 0; text-align:center; align-items:center; }
++:global(html:root[data-design="souk"]) .caption h3 { font-family:var(--display); font-weight:700; font-size:21px; }
++:global(html:root[data-design="souk"]) .arrow { display:none; }
++:global(html:root[data-design="souk"]) .tabs { background:#f3ead2; border:2px solid #b88a2b; border-radius:12px; justify-self:center; }
++:global(html:root[data-design="souk"]) .tab { border-radius:8px; font-weight:600; }
++:global(html:root[data-design="souk"]) .indicator { border-radius:8px; background:#0f4a3b; }
++@media (max-width:860px) { :global(html:root[data-design="souk"]) .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
++
++/* Verdant: coloured pills */
++:global(html:root[data-design="verdant"]) .tile { border:0; border-radius:999px; padding:6px 12px 6px 6px; transition:transform .2s; }
++:global(html:root[data-design="verdant"]) .tile:hover { transform:scale(1.03); }
++:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) { background:#0a7a55; color:#fff; }
++:global(html:root[data-design="verdant"]) .tile:nth-child(4n+2) { background:#ffd84d; color:#0b2b21; }
++:global(html:root[data-design="verdant"]) .tile:nth-child(4n+3) { background:#dff0d8; color:#0b2b21; }
++:global(html:root[data-design="verdant"]) .tile:nth-child(4n) { background:#fff; color:#0b2b21; box-shadow:inset 0 0 0 2px #0b2b21; }
++:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) .caption h3,:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) .caption div > span,:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) .arrow { color:#fff; }
++:global(html:root[data-design="verdant"]) .imageStage { background:#fff; border-radius:50%; width:84px; height:84px; padding:8px; margin:4px; }
++:global(html:root[data-design="verdant"]) .image { height:68px; }
++:global(html:root[data-design="verdant"]) .tile { grid-template-columns:92px 1fr !important; }
++:global(html:root[data-design="verdant"]) .caption h3 { font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:-.02em; }
++:global(html:root[data-design="verdant"]) .tabs { background:#dff0d8; border:0; border-radius:999px; }
++:global(html:root[data-design="verdant"]) .tab { border-radius:999px; font-weight:700; }
++:global(html:root[data-design="verdant"]) .indicator { background:#0b2b21; border-radius:999px; }
++:global(html:root[data-design="verdant"]) .tab[aria-selected="true"] { color:#fff; }
++
++/* noir: centred single column */
++:global(html:root[data-design="noir"]) .tabs { grid-column:1; grid-row:2; justify-self:center; }
++:global(html:root[data-design="noir"]) .panel { grid-column:1; grid-row:3; }
++
++/* souk: centred single column */
++:global(html:root[data-design="souk"]) .tabs { grid-column:1; grid-row:2; justify-self:center; }
++:global(html:root[data-design="souk"]) .panel { grid-column:1; grid-row:3; }
++
++:global(html:root[data-design="noir"]) .grid { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+diff --git a/src/features/home/discovery.module.css b/src/features/home/discovery.module.css
+index c336d33..2e1d9c0 100644
+--- a/src/features/home/discovery.module.css
++++ b/src/features/home/discovery.module.css
+@@ -1,44 +1,44 @@
+ .brands { padding-block: 40px 20px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brands { padding-block: 64px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading { margin-bottom: 48px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin-bottom: 20px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 45ch; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .allBrands { font-size: 16px; padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .allBrands b { border-radius: 0; padding: 0; background: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandGrid { gap: 32px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .houseName { font-size: 34px; line-height: 1.1; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .houseMeta { font-size: 16px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .houseArrow { background: none; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandDialog { border: 0; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandDialog::backdrop { backdrop-filter: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandSearch, :global(html:is([data-design="salon"],[data-design="gilded"])) .directoryGrid a, :global(html:is([data-design="salon"],[data-design="gilded"])) .houseCount { font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categories { padding-block: 80px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryGrid { gap: 0; background: var(--gold-surface); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryImage { height: 210px; padding: 28px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
+-:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .categoryCaption { padding: 20px 0 20px 24px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption h3 { font: 500 32px/1.1 var(--display); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption p { font-size: 14px; line-height: 1.5; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryArrow { background: none; color: var(--ink); width: 24px; }
+-:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font-family: var(--body); font-size: 44px; line-height: 1.4; letter-spacing: 0; }
+-:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .categoryCaption h3 { font-family: var(--body); font-size: 26px; line-height: 1.5; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brands { padding-block: 64px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading { margin-bottom: 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin-bottom: 20px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 45ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .allBrands { font-size: 16px; padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .allBrands b { border-radius: 0; padding: 0; background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandGrid { gap: 32px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseName { font-size: 34px; line-height: 1.1; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseMeta { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseArrow { background: none; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandDialog { border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandDialog::backdrop { backdrop-filter: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandSearch, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .directoryGrid a, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseCount { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categories { padding-block: 80px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryGrid { gap: 0; background: var(--gold-surface); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryImage { height: 210px; padding: 28px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption { padding: 20px 0 20px 24px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption h3 { font: 500 32px/1.1 var(--display); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption p { font-size: 14px; line-height: 1.5; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryArrow { background: none; color: var(--ink); width: 24px; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font-family: var(--body); font-size: 44px; line-height: 1.4; letter-spacing: 0; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption h3 { font-family: var(--body); font-size: 26px; line-height: 1.5; }
+ @media (max-width: 900px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .brandGrid { gap: 24px 32px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .categoryGrid { grid-template-columns: 1fr; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .category { grid-template-columns: 160px 1fr; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .categoryImage { height: 180px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandGrid { gap: 24px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryGrid { grid-template-columns: 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .category { grid-template-columns: 160px 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryImage { height: 180px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .brands { padding-block: 40px 48px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading { margin-bottom: 32px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font-size: 36px; }
+-  :global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font-size: 30px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .houseName { font-size: 28px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .categories { padding-block: 56px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption { padding-inline-end: 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brands { padding-block: 40px 48px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading { margin-bottom: 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font-size: 36px; }
++  :global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font-size: 30px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseName { font-size: 28px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categories { padding-block: 56px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption { padding-inline-end: 20px; }
+ }
+ .brandHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+ .brandHeading h2 { font: 600 clamp(28px, 2.8vw, 40px)/1.25 var(--body); letter-spacing: -1px; margin: 0 0 12px; }
+@@ -109,3 +109,43 @@
+ :global(html:root[data-design="gilded"]) .brandCard:hover { border-top-color: var(--ink); }
+ :global(html:root[data-design="gilded"]) .houseName { font-family: var(--display); font-weight: 700; font-size: 38px; }
+ :global(html:root[data-design="gilded"]) .allBrands { background: transparent; border: 2px solid var(--ink); border-radius: 999px; font-weight: 600; }
++
++/* Noir */
++:global(html:root[data-design="noir"]) .brandHeading { text-align:center; }
++:global(html:root[data-design="noir"]) .brandHeading h2 { font:700 clamp(1.9rem,3.8vw,3.2rem)/1.15 var(--display); text-transform:uppercase; letter-spacing:.08em; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
++:global(html:root[data-design="noir"]) .brandHeading p { margin-inline:auto; color:#b8c3b2; }
++:global(html:root[data-design="noir"]) .brandCard { border:1px solid #d6b25e66; text-align:center; padding:26px 14px; align-items:center; transition:background .25s,border-color .25s; }
++:global(html:root[data-design="noir"]) .brandCard:hover { background:#123a33; border-color:#d6b25e; }
++:global(html:root[data-design="noir"]) .houseName { font-family:var(--display); font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:22px; }
++:global(html:root[data-design="noir"]) .houseMeta { color:#b8c3b2; justify-content:center; }
++:global(html:root[data-design="noir"]) .allBrands { background:transparent; border:1px solid #d6b25e; border-radius:0; color:#f1e6c6; text-transform:uppercase; letter-spacing:.1em; font-size:13px; }
++
++/* Souk */
++:global(html:root[data-design="souk"]) .brandHeading { text-align:center; }
++:global(html:root[data-design="souk"]) .brandHeading h2 { font:800 clamp(2.2rem,4.6vw,3.9rem)/1.08 var(--display); color:#0f4a3b; }
++:global(html:root[data-design="souk"]) .brandHeading p { margin-inline:auto; }
++:global(html:root[data-design="souk"]) .brandGrid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px 36px; }
++:global(html:root[data-design="souk"]) .brandCard { border:0; border-bottom:1px dashed #b88a2b; border-radius:0; padding:14px 0 14px 26px; position:relative; }
++:global(html:root[data-design="souk"]) .brandCard::before { content:"\25C6"; position:absolute; inset-inline-start:0; top:22px; color:#b88a2b; font-size:13px; }
++:global(html:root[data-design="souk"]) .houseName { font-family:var(--display); font-style:italic; font-weight:700; font-size:30px; }
++:global(html:root[data-design="souk"]) .allBrands { background:#f3ead2; border:2px solid #b88a2b; border-radius:12px; font-weight:600; }
++@media (max-width:860px) { :global(html:root[data-design="souk"]) .brandGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
++
++/* Verdant: chunky house chips */
++:global(html:root[data-design="verdant"]) .brandHeading h2 { font:800 clamp(2.5rem,5.6vw,4.8rem)/.95 var(--display); letter-spacing:-.035em; }
++:global(html:root[data-design="verdant"]) .brandGrid { gap:16px; }
++:global(html:root[data-design="verdant"]) .brandCard { background:#dff0d8; border-radius:26px; padding:22px 22px 20px; transition:background .2s,color .2s,transform .2s; }
++:global(html:root[data-design="verdant"]) .brandCard:nth-child(3n+2) { background:#fff1b8; }
++:global(html:root[data-design="verdant"]) .brandCard:hover { background:#0a7a55; color:#fff; transform:translateY(-3px); }
++:global(html:root[data-design="verdant"]) .brandCard:hover .houseMeta,:global(html:root[data-design="verdant"]) .brandCard:hover .houseArrow { color:#fff; }
++:global(html:root[data-design="verdant"]) .brandCard:hover .houseName { text-decoration:none; }
++:global(html:root[data-design="verdant"]) .houseName { font-family:var(--display); font-weight:800; font-size:27px; letter-spacing:-.02em; }
++:global(html:root[data-design="verdant"]) .allBrands { background:#0b2b21; color:#fff; border-radius:999px; font-weight:700; }
++
++/* noir: centred brand heading */
++:global(html:root[data-design="noir"]) .brandHeading { flex-direction:column; align-items:center; text-align:center; gap:28px; }
++:global(html:root[data-design="noir"]) .brandHeading p { margin-inline:auto; }
++
++/* souk: centred brand heading */
++:global(html:root[data-design="souk"]) .brandHeading { flex-direction:column; align-items:center; text-align:center; gap:28px; }
++:global(html:root[data-design="souk"]) .brandHeading p { margin-inline:auto; }
+diff --git a/src/features/home/home-extras.module.css b/src/features/home/home-extras.module.css
+index cacb495..d234015 100644
+--- a/src/features/home/home-extras.module.css
++++ b/src/features/home/home-extras.module.css
+@@ -1,21 +1,21 @@
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promise { border: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promise::before { content: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promiseInner { padding-block: 80px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promise h2 { font-size: clamp(56px, 6.4vw, 92px); max-width: none; letter-spacing: -.025em; color: var(--white); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promise h2 > span:last-child { color: inherit; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promiseIntro { font-size: 18px; line-height: 1.6; color: var(--white); max-width: 65ch; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-top: 48px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .features > div { border: 0; padding: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .features h3 { font: 500 30px/1.15 var(--display); color: var(--white); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .features p { font-size: 16px; line-height: 1.6; color: var(--white); max-width: 42ch; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .promiseAction { margin-top: 40px; }
+-:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .features h3 { font-family: var(--body); font-size: 24px; line-height: 1.6; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise { border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise::before { content: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseInner { padding-block: 80px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 { font-size: clamp(56px, 6.4vw, 92px); max-width: none; letter-spacing: -.025em; color: var(--white); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 > span:last-child { color: inherit; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseIntro { font-size: 18px; line-height: 1.6; color: var(--white); max-width: 65ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-top: 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features > div { border: 0; padding: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features h3 { font: 500 30px/1.15 var(--display); color: var(--white); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features p { font-size: 16px; line-height: 1.6; color: var(--white); max-width: 42ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseAction { margin-top: 40px; }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features h3 { font-family: var(--body); font-size: 24px; line-height: 1.6; }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .promiseInner { padding-block: 48px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .promise h2 { font-size: clamp(32px, 10vw, 40px); line-height: 1.1; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .promiseIntro { font-size: 16px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .features { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+-  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .promise h2 { font-size: 30px; line-height: 1.5; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseInner { padding-block: 48px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 { font-size: clamp(32px, 10vw, 40px); line-height: 1.1; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseIntro { font-size: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 { font-size: 30px; line-height: 1.5; }
+ }
+ .promise { position: relative; overflow: hidden; isolation: isolate; color: #fbfaf6; background: var(--brand-green); border-block: 2px solid var(--brand-gold); }
+ .promise::before { content: ""; position: absolute; z-index: -1; width: 640px; height: 640px; top: -280px; inset-inline-end: -160px; border: 2px solid var(--brand-gold); border-radius: 50%; box-shadow: 0 0 0 46px #d4b99113; }
+@@ -70,3 +70,27 @@
+ :global(html:root[data-design="gilded"]) .promiseIntro, :global(html:root[data-design="gilded"]) .features p { color: var(--ink); }
+ :global(html:root[data-design="gilded"]) .features > div { border-top: 3px solid var(--brand-gold); padding-top: 14px; }
+ :global(html:root[data-design="gilded"]) .features h3 { font: 700 28px/1.15 var(--display); color: var(--brand-green); }
++
++/* Noir */
++:global(html:root[data-design="noir"]) .promise { background:#0a2a25; border-block:1px solid #d6b25e; color:#f1e6c6; }
++:global(html:root[data-design="noir"]) .promise h2 { font:700 clamp(2rem,4.6vw,3.8rem)/1.12 var(--display); text-transform:uppercase; letter-spacing:.07em; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
++:global(html:root[data-design="noir"]) .promise h2 > span:last-child { color:inherit; }
++:global(html:root[data-design="noir"]) .promiseIntro,:global(html:root[data-design="noir"]) .features p { color:#d9e0d0; }
++:global(html:root[data-design="noir"]) .features > div { border-top:1px solid #d6b25e; padding-top:14px; }
++:global(html:root[data-design="noir"]) .features h3 { font:600 20px/1.2 var(--display); text-transform:uppercase; letter-spacing:.06em; color:#e7cf84; }
++
++/* Souk */
++:global(html:root[data-design="souk"]) .promise { background:#0f4a3b; color:#f6ecd0; border-block:3px solid #b88a2b; }
++:global(html:root[data-design="souk"]) .promise h2 { font:800 clamp(2.4rem,5.4vw,4.6rem)/1.05 var(--display); color:#f6ecd0; }
++:global(html:root[data-design="souk"]) .promise h2 > span:last-child { color:#e3c374; font-style:italic; }
++:global(html:root[data-design="souk"]) .promiseIntro,:global(html:root[data-design="souk"]) .features p { color:#e5ecd9; }
++:global(html:root[data-design="souk"]) .features > div { border-top:2px dashed #e3c374; padding-top:14px; }
++:global(html:root[data-design="souk"]) .features h3 { font:700 italic 26px/1.15 var(--display); color:#e3c374; }
++
++/* Verdant */
++:global(html:root[data-design="verdant"]) .promise { background:#0a7a55; color:#fff; border:0; border-radius:40px; margin-inline:var(--page-gutter); }
++:global(html:root[data-design="verdant"]) .promise h2 { font:800 clamp(2.8rem,6.6vw,5.8rem)/.92 var(--display); letter-spacing:-.04em; color:#fff; }
++:global(html:root[data-design="verdant"]) .promise h2 > span:last-child { color:#ffd84d; }
++:global(html:root[data-design="verdant"]) .promiseIntro,:global(html:root[data-design="verdant"]) .features p { color:#e4f5ec; }
++:global(html:root[data-design="verdant"]) .features > div { background:#ffffff1c; border-radius:22px; padding:20px 22px; }
++:global(html:root[data-design="verdant"]) .features h3 { font:800 26px/1.1 var(--display); letter-spacing:-.02em; color:#ffd84d; }
+diff --git a/src/features/home/home.module.css b/src/features/home/home.module.css
+index d673632..5d54a65 100644
+--- a/src/features/home/home.module.css
++++ b/src/features/home/home.module.css
+@@ -1,26 +1,26 @@
+ .home { padding-bottom: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .collectionsBand { background: var(--canvas); border: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .collections { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 64px; row-gap: 24px; padding-block: 112px 64px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .collections :global(.section-heading h2) { max-width: 13ch; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .featured { padding-block: 64px 96px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .demoDisclaimer { margin: 0 0 28px; font-size: 14px; color: var(--ink); max-width: 70ch; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .guideBand { background: var(--gold-surface); border: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .guide h2 { font: 500 40px/1.05 var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .guide ul { grid-template-columns: 1fr; gap: 12px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .guide li { justify-content: start; border: 0; padding: 0; font-size: 16px; }
+-:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .guide h2 { font-family: var(--body); font-size: 32px; line-height: 1.5; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collectionsBand { background: var(--canvas); border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 64px; row-gap: 24px; padding-block: 112px 64px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections :global(.section-heading h2) { max-width: 13ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .featured { padding-block: 64px 96px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .demoDisclaimer { margin: 0 0 28px; font-size: 14px; color: var(--ink); max-width: 70ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guideBand { background: var(--gold-surface); border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide h2 { font: 500 40px/1.05 var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide ul { grid-template-columns: 1fr; gap: 12px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide li { justify-content: start; border: 0; padding: 0; font-size: 16px; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide h2 { font-family: var(--body); font-size: 32px; line-height: 1.5; }
+ @media (max-width: 900px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections { column-gap: 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections { column-gap: 32px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections { display: block; padding-block: 64px 32px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections > :global(.section-heading) { gap: 18px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections :global(.section-heading h2) { max-width: none; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .featured { padding-block: 48px 64px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .guide h2 { font-size: 36px; max-width: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections { display: block; padding-block: 64px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections > :global(.section-heading) { gap: 18px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections :global(.section-heading h2) { max-width: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .featured { padding-block: 48px 64px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide h2 { font-size: 36px; max-width: none; }
+ }
+ .collectionsBand { background: var(--gold-surface); border-block: 1px solid #d4b991; }
+ .collections { padding-block: 48px; }
+@@ -57,3 +57,30 @@
+ :global(html:root[data-design="gilded"]) .collectionsBand { background: var(--sage); border-block: 2px solid var(--ink); }
+ :global(html:root[data-design="gilded"]) .guideBand { background: var(--gold-grad); border-block: 2px solid var(--ink); }
+ :global(html:root[data-design="gilded"]) .guide h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.05 var(--display); color: var(--ink); }
++
++/* Noir: single centred column */
++:global(html:root[data-design="noir"]) .collections { grid-template-columns:1fr; padding-block:96px 48px; }
++:global(html:root[data-design="noir"]) .collections > :global(.section-heading) { grid-column:1; grid-row:1; align-self:center; align-items:center; }
++:global(html:root[data-design="noir"]) .collections .tabs { grid-column:1; grid-row:2; }
++:global(html:root[data-design="noir"]) .collections .panel { grid-column:1; grid-row:3; }
++:global(html:root[data-design="noir"]) .collectionsBand { background:#0a2a25; border-block:1px solid #d6b25e66; }
++:global(html:root[data-design="noir"]) .guideBand { background:#0d2f29; border-block:1px solid #d6b25e; }
++:global(html:root[data-design="noir"]) .guide h2 { font:700 clamp(1.6rem,3vw,2.4rem)/1.2 var(--display); text-transform:uppercase; letter-spacing:.08em; color:#e7cf84; }
++
++/* Souk */
++:global(html:root[data-design="souk"]) .collections { grid-template-columns:1fr; padding-block:96px 48px; }
++:global(html:root[data-design="souk"]) .collections > :global(.section-heading) { grid-column:1; grid-row:1; align-self:center; align-items:center; }
++:global(html:root[data-design="souk"]) .collections .tabs { grid-column:1; grid-row:2; }
++:global(html:root[data-design="souk"]) .collections .panel { grid-column:1; grid-row:3; }
++:global(html:root[data-design="souk"]) .collectionsBand { background:#d2e0c6; border-block:2px solid #b88a2b; }
++:global(html:root[data-design="souk"]) .guideBand { background:#e3c374; border-block:2px solid #0f4a3b; }
++:global(html:root[data-design="souk"]) .guide h2 { font:800 clamp(1.8rem,3.4vw,2.8rem)/1.1 var(--display); color:#0f4a3b; font-style:italic; }
++
++/* Verdant */
++:global(html:root[data-design="verdant"]) .collectionsBand { background:#fff; }
++:global(html:root[data-design="verdant"]) .guideBand { background:#ffd84d; }
++:global(html:root[data-design="verdant"]) .guide h2 { font:800 clamp(2rem,4vw,3.4rem)/.95 var(--display); letter-spacing:-.035em; }
++
++:global(html:root[data-design="noir"]) .collections :global(.section-heading h2) { max-width:none; overflow-wrap:normal; }
++
++:global(html:root[data-design="souk"]) .collections :global(.section-heading h2) { max-width:none; overflow-wrap:normal; }
+diff --git a/src/features/home/scent-spotlight.module.css b/src/features/home/scent-spotlight.module.css
+index c06ee28..80e1bc9 100644
+--- a/src/features/home/scent-spotlight.module.css
++++ b/src/features/home/scent-spotlight.module.css
+@@ -1,5 +1,5 @@
+ .spotlight { display: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .spotlight {
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .spotlight {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+@@ -32,13 +32,13 @@
+ @keyframes scent-arrival { from { opacity: .65; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+ @media (prefers-reduced-motion: no-preference) { .product { animation: scent-arrival .65s var(--motion-ease) both; } .product:hover .bottle { transform: scale(1.025); } .bottle { transition: transform .45s var(--motion-ease); } }
+ @media (max-width: 1100px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .spotlight { padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .spotlight { padding: 24px; }
+   .selection { display: block; }
+   .prompt { margin-bottom: 8px; }
+   .bottle { height: 280px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .spotlight { padding: 16px 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .spotlight { padding: 16px 20px; }
+   .selection { display: flex; gap: 8px; }
+   .prompt { font-size: 16px; margin-bottom: 0; }
+   .notes { width: 100%; justify-content: space-between; }
+@@ -52,6 +52,23 @@
+ 
+ /* Gilded: gold panel */
+ :global(html:root[data-design="gilded"]) .spotlight { background: var(--gold-grad); color: var(--ink); border-left: 2px solid var(--ink); }
+-html[dir="rtl"] :global(html:root[data-design="gilded"]) .spotlight { border-left: 0; border-right: 2px solid var(--ink); }
++:global(html:root[dir="rtl"][data-design="gilded"]) .spotlight { border-left: 0; border-right: 2px solid var(--ink); }
+ :global(html:root[data-design="gilded"]) .name { font-family: var(--display); font-weight: 800; }
+ :global(html:root[data-design="gilded"]) .prompt, :global(html:root[data-design="gilded"]) .house, :global(html:root[data-design="gilded"]) .count { color: var(--ink); }
++
++/* Noir */
++:global(html:root[data-design="noir"]) .spotlight { background:#0d2f29; border:1px solid #d6b25e; color:#f1e6c6; max-width:820px; margin-inline:auto; width:100%; }
++:global(html:root[data-design="noir"]) .name { font-family:var(--display); text-transform:uppercase; letter-spacing:.06em; color:#e7cf84; }
++:global(html:root[data-design="noir"]) .prompt,:global(html:root[data-design="noir"]) .house,:global(html:root[data-design="noir"]) .count { color:#d9e0d0; }
++
++/* Souk */
++:global(html:root[data-design="souk"]) .spotlight { background:#f3ead2; color:#123a2f; border:3px solid #b88a2b; border-radius:0 28px 28px 0; }
++:global(html:root[dir="rtl"][data-design="souk"]) .spotlight { border-radius:28px 0 0 28px; }
++:global(html:root[data-design="souk"]) .figure { background:#e3c374; border:3px solid #0f4a3b; border-radius:999px 999px 14px 14px; overflow:hidden; }
++:global(html:root[data-design="souk"]) .name { font-family:var(--display); font-weight:800; font-style:italic; }
++
++/* Verdant: mint panel with a sun behind the bottle */
++:global(html:root[data-design="verdant"]) .spotlight { position:relative; overflow:hidden; background:#dff0d8; color:#0b2b21; border-radius:40px; }
++:global(html:root[data-design="verdant"]) .spotlight::before { content:""; position:absolute; width:68%; aspect-ratio:1; border-radius:50%; background:#f2b705; left:50%; top:40%; transform:translate(-50%,-50%); }
++:global(html:root[data-design="verdant"]) .spotlight > * { position:relative; }
++:global(html:root[data-design="verdant"]) .name { font-family:var(--display); font-weight:800; letter-spacing:-.02em; }
+diff --git a/src/features/products/product.module.css b/src/features/products/product.module.css
+index e04d1c6..b0813c1 100644
+--- a/src/features/products/product.module.css
++++ b/src/features/products/product.module.css
+@@ -1,82 +1,82 @@
+ .card { min-width: 0; height: 100%; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink { padding: 0; border: 0; border-radius: 0; background: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink:hover { box-shadow: none; transform: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { border-radius: 0; background: var(--photo); aspect-ratio: 1 / 1.1; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardImage { width: 86%; height: 88%; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardBody { padding: 22px 0 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardTitle { font-size: 18px; line-height: 1.35; min-height: 2.7em; margin-bottom: 10px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brand { font-size: 16px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .meta { font-size: 14px; color: var(--ink); gap: 10px; margin-block: 10px 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .meta span + span { border: 0; padding: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .discountBadge { border-radius: 0; padding: 8px 10px; font-size: 14px; background: var(--stone); color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .viewCircle { border: 0; border-radius: 0; background: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues strong { font-size: 24px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues del { font-size: 16px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .demoPrice small { font-size: 13px; background: none; padding: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardAction { justify-content: start; padding: 8px 0; border-radius: 0; background: none; color: var(--ink); font-size: 16px; min-height: 48px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink:hover .cardAction { background: none; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1 { font: 500 clamp(40px, 4vw, 64px)/1.05 var(--display); letter-spacing: -.025em; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .detailBrand { font-size: 16px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .pricingDisclaimer { font-size: 14px; line-height: 1.6; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .variantLine { font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .variantLine > bdi { border: 0; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .familyList a { border: 0; border-radius: 0; padding: 6px 10px; background: var(--sage); font-size: 14px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .purchaseActions :global(.button) { border-radius: 0; font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .detailsLink { border: 0; border-radius: 0; background: var(--sage); font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .priceConfirmation { font-size: 14px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .brandRow { border: 0; font-size: 16px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .accordionItem { border: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .accordionTrigger { font-size: 18px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .description { font-size: 16px; line-height: 1.6; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .notes li { font-size: 16px; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .notes small, :global(html:is([data-design="salon"],[data-design="gilded"])) .caveat { font-size: 14px; color: var(--ink); line-height: 1.6; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .detailStage { border: 0; border-radius: 0; background: var(--photo); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .photoLabel, :global(html:is([data-design="salon"],[data-design="gilded"])) .detailDiscount { border-radius: 0; font-size: 14px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .profile { border: 0; border-radius: 0; background: var(--sage); padding: 32px; margin-block: 24px 64px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .profileHeading h2 { font: 500 36px/1.1 var(--display); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .profileMark { background: none; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .profileGrid > div { border: 0; border-radius: 0; background: none; padding: 8px 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .profileGrid dt { font-size: 16px; color: var(--ink); }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .profileGrid dd { font-size: 20px; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .photoDialog { border: 0; border-radius: 0; }
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .photoDialog::backdrop { backdrop-filter: none; }
+-:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1 { font-family: var(--display); font-size: 48px; line-height: 1.1; letter-spacing: -.025em; }
+-:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .cardTitle bdi { font-family: var(--font-manrope), sans-serif; }
+-:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .profileHeading h2 { font-family: var(--body); font-size: 30px; line-height: 1.5; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink { padding: 0; border: 0; border-radius: 0; background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink:hover { box-shadow: none; transform: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { border-radius: 0; background: var(--photo); aspect-ratio: 1 / 1.1; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardImage { width: 86%; height: 88%; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardBody { padding: 22px 0 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardTitle { font-size: 18px; line-height: 1.35; min-height: 2.7em; margin-bottom: 10px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brand { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .meta { font-size: 14px; color: var(--ink); gap: 10px; margin-block: 10px 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .meta span + span { border: 0; padding: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .discountBadge { border-radius: 0; padding: 8px 10px; font-size: 14px; background: var(--stone); color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .viewCircle { border: 0; border-radius: 0; background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceValues strong { font-size: 24px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceValues del { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .demoPrice small { font-size: 13px; background: none; padding: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardAction { justify-content: start; padding: 8px 0; border-radius: 0; background: none; color: var(--ink); font-size: 16px; min-height: 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink:hover .cardAction { background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailInfo h1 { font: 500 clamp(40px, 4vw, 64px)/1.05 var(--display); letter-spacing: -.025em; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailBrand { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pricingDisclaimer { font-size: 14px; line-height: 1.6; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .variantLine { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .variantLine > bdi { border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .familyList a { border: 0; border-radius: 0; padding: 6px 10px; background: var(--sage); font-size: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .purchaseActions :global(.button) { border-radius: 0; font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailsLink { border: 0; border-radius: 0; background: var(--sage); font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceConfirmation { font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandRow { border: 0; font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .accordionItem { border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .accordionTrigger { font-size: 18px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .description { font-size: 16px; line-height: 1.6; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .notes li { font-size: 16px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .notes small, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caveat { font-size: 14px; color: var(--ink); line-height: 1.6; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailStage { border: 0; border-radius: 0; background: var(--photo); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .photoLabel, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailDiscount { border-radius: 0; font-size: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profile { border: 0; border-radius: 0; background: var(--sage); padding: 32px; margin-block: 24px 64px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileHeading h2 { font: 500 36px/1.1 var(--display); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileMark { background: none; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileGrid > div { border: 0; border-radius: 0; background: none; padding: 8px 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileGrid dt { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileGrid dd { font-size: 20px; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .photoDialog { border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .photoDialog::backdrop { backdrop-filter: none; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailInfo h1 { font-family: var(--display); font-size: 48px; line-height: 1.1; letter-spacing: -.025em; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardTitle bdi { font-family: var(--font-manrope), sans-serif; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileHeading h2 { font-family: var(--body); font-size: 30px; line-height: 1.5; }
+ /* Official names stay complete; only genuinely long titles take the compact scale. */
+-:global(html:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1.longTitle { font-size: clamp(32px, 3.05vw, 44px); line-height: 1.12; text-wrap: balance; }
++:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailInfo h1.longTitle { font-size: clamp(32px, 3.05vw, 44px); line-height: 1.12; text-wrap: balance; }
+ @media (max-width: 900px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ }
+ @media (max-width: 760px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .productTopBar { padding-block: 12px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .breadcrumbs { font-size: 14px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .back { font-size: 14px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .purchaseSummary { grid-row: 1; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .gallery { grid-row: 2; margin-block: 24px 32px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .imageButton { min-height: 300px; padding: 24px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .detailImage { height: 260px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1 { margin-block: 8px 16px; font-size: 42px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .purchasePrice .priceValues strong { font-size: 30px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .pricingDisclaimer { margin-block: 12px 16px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .variantLine { margin-block: 12px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .familyList { margin-bottom: 16px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .priceConfirmation { margin-bottom: 0; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .profile { padding: 24px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .profileHeading h2 { font-size: 30px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .productTopBar { padding-block: 12px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .breadcrumbs { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .back { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .purchaseSummary { grid-row: 1; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .gallery { grid-row: 2; margin-block: 24px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageButton { min-height: 300px; padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailImage { height: 260px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailInfo h1 { margin-block: 8px 16px; font-size: 42px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .purchasePrice .priceValues strong { font-size: 30px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pricingDisclaimer { margin-block: 12px 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .variantLine { margin-block: 12px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .familyList { margin-bottom: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceConfirmation { margin-bottom: 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profile { padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileHeading h2 { font-size: 30px; }
+ }
+ @media (max-width: 600px) {
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; column-gap: 16px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { aspect-ratio: auto; height: 248px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardBody { padding: 8px 0; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardTitle { font-size: 16px; min-height: 0; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .brand { font-size: 14px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .meta { font-size: 14px; margin-block: 8px 12px; gap: 6px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues strong { font-size: 20px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues del { font-size: 14px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .discountBadge { font-size: 13px; padding: 6px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardAction { font-size: 14px; gap: 8px; margin-top: 8px; }
+-  :global(html:is([data-design="salon"],[data-design="gilded"])) .related :global(.product-grid) { grid-template-columns: 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; column-gap: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { aspect-ratio: auto; height: 248px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardBody { padding: 8px 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardTitle { font-size: 16px; min-height: 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brand { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .meta { font-size: 14px; margin-block: 8px 12px; gap: 6px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceValues strong { font-size: 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceValues del { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .discountBadge { font-size: 13px; padding: 6px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardAction { font-size: 14px; gap: 8px; margin-top: 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .related :global(.product-grid) { grid-template-columns: 1fr; }
+ }
+ .cardLink {
+   display: flex; flex-direction: column; height: 100%; padding: 10px;
+@@ -226,3 +226,33 @@
+ :global(html:root[data-design="gilded"]) .cardTitle { font-family: var(--display); font-weight: 700; font-size: 21px; }
+ :global(html:root[data-design="gilded"]) .discountBadge { background: var(--ink); color: var(--gold-hi); border-radius: 999px; font-weight: 600; }
+ :global(html:root[data-design="gilded"]) .priceValues strong { font-family: var(--display); font-weight: 800; font-size: 28px; }
++
++/* Noir: gold-edged dark cards */
++:global(html:root[data-design="noir"]) .cardLink { background:#0d2f29; border:1px solid #d6b25e; border-radius:0; color:#f1e6c6; transition:box-shadow .25s; }
++:global(html:root[data-design="noir"]) .cardLink:hover { box-shadow:0 0 0 3px #07211d,0 0 0 4px #d6b25e; }
++:global(html:root[data-design="noir"]) .imageStage { background:#fffaf0; border-radius:0; border-bottom:1px solid #d6b25e; }
++:global(html:root[data-design="noir"]) .cardBody { padding:20px 18px 22px; }
++:global(html:root[data-design="noir"]) .cardTitle { font-family:var(--display); font-weight:600; font-size:16px; letter-spacing:.04em; text-transform:uppercase; }
++:global(html:root[data-design="noir"]) .brand,:global(html:root[data-design="noir"]) .meta,:global(html:root[data-design="noir"]) .priceValues del { color:#b8c3b2; }
++:global(html:root[data-design="noir"]) .priceValues strong { font-family:var(--display); font-weight:700; font-size:22px; color:#e7cf84; }
++:global(html:root[data-design="noir"]) .discountBadge { background:#d6b25e; color:#07211d; border-radius:0; font-weight:600; }
++
++/* Souk: arch-topped plates */
++:global(html:root[data-design="souk"]) .cardLink { background:#fffdf4; border:2px solid #b88a2b; border-radius:26px; padding:12px 12px 8px; overflow:visible; transition:transform .25s; }
++:global(html:root[data-design="souk"]) .cardLink:hover { transform:translateY(-6px); }
++:global(html:root[data-design="souk"]) .imageStage { background:#f3ead2; border:2px solid #0f4a3b; border-radius:999px 999px 14px 14px; aspect-ratio:1/1.2; }
++:global(html:root[data-design="souk"]) .cardBody { padding:18px 8px 14px; }
++:global(html:root[data-design="souk"]) .cardTitle { font-family:var(--display); font-weight:700; font-size:20px; }
++:global(html:root[data-design="souk"]) .priceValues strong { font-family:var(--display); font-weight:800; font-size:26px; color:#0f4a3b; }
++:global(html:root[data-design="souk"]) .discountBadge { background:#e3c374; color:#123a2f; border-radius:8px; font-weight:600; }
++
++/* Verdant: soft cards, sticker badges */
++:global(html:root[data-design="verdant"]) .cardLink { background:#fff; border:0; border-radius:30px; box-shadow:0 10px 32px #0a3d2b22; padding:10px 10px 6px; transition:transform .2s,box-shadow .2s; }
++:global(html:root[data-design="verdant"]) .cardLink:hover { transform:translateY(-6px) rotate(-.6deg); box-shadow:0 18px 40px #0a3d2b30; }
++:global(html:root[data-design="verdant"]) :global(.product-grid) > :nth-child(3n+1) .imageStage { background:#dff0d8; }
++:global(html:root[data-design="verdant"]) :global(.product-grid) > :nth-child(3n+2) .imageStage { background:#fff1b8; }
++:global(html:root[data-design="verdant"]) .imageStage { border-radius:22px; }
++:global(html:root[data-design="verdant"]) .cardBody { padding:18px 12px 12px; }
++:global(html:root[data-design="verdant"]) .cardTitle { font-family:var(--display); font-weight:700; font-size:20px; letter-spacing:-.01em; }
++:global(html:root[data-design="verdant"]) .priceValues strong { font-family:var(--display); font-weight:800; font-size:28px; color:#0a7a55; letter-spacing:-.02em; }
++:global(html:root[data-design="verdant"]) .discountBadge { background:#f2b705; color:#0b2b21; border-radius:999px; font-weight:700; transform:rotate(-5deg); }
+diff --git a/src/i18n/dictionaries.ts b/src/i18n/dictionaries.ts
+index a5a46ce..b5aae6d 100644
+--- a/src/i18n/dictionaries.ts
++++ b/src/i18n/dictionaries.ts
+@@ -183,6 +183,12 @@ const en = {
+   closeDesign: "Close Design Chooser",
+   designSalon: "Scent Salon",
+   designSalonDescription: "Bigger type. A personal scent discovery, with a bold green and gold stage.",
++  designNoir: "Emerald Noir",
++  designNoirDescription: "Dark and dramatic. Near-black green, gold hairlines and centred, art-deco capitals.",
++  designSouk: "Souk",
++  designSoukDescription: "Arches, gold patterns and a sage-green canvas, inspired by the Gulf market.",
++  designVerdant: "Verdant Pop",
++  designVerdantDescription: "Bright and modern. Vivid emerald, sunny gold, chunky type and pill shapes.",
+   designGilded: "Gilded",
+   designGildedDescription: "Warm cream, deep green and real gold. Big, confident type and colour-blocked sections.",
+   salonTitle: "A Space for Your Scent.",
+@@ -381,6 +387,12 @@ const ar: Dictionary = {
+   closeDesign: "إغلاق اختيار التصميم",
+   designSalon: "صالون العطر",
+   designSalonDescription: "خطوط أكبر ومساحة خضراء وذهبية لاكتشاف العطر الذي يشبهك.",
++  designNoir: "زمرد داكن",
++  designNoirDescription: "داكن ودرامي، أخضر يميل للسواد وخطوط ذهبية دقيقة وتصميم متناظر.",
++  designSouk: "السوق",
++  designSoukDescription: "أقواس ونقوش ذهبية على خلفية خضراء فاتحة مستوحاة من الأسواق الخليجية.",
++  designVerdant: "فيردانت",
++  designVerdantDescription: "مشرق وعصري، أخضر زمردي وذهبي مشمس وخطوط عريضة وأشكال دائرية.",
+   designGilded: "مُذهَّب",
+   designGildedDescription: "كريمي دافئ وأخضر عميق وذهب حقيقي، مع خطوط كبيرة وأقسام ملوّنة بجرأة.",
+   salonTitle: "مساحة تشبه عطرك.",
+diff --git a/src/styles/fonts.ts b/src/styles/fonts.ts
+index 76b04a3..66bd414 100644
+--- a/src/styles/fonts.ts
++++ b/src/styles/fonts.ts
+@@ -25,3 +25,22 @@ export const fraunces = localFont({
+     { path: "../../node_modules/@fontsource/fraunces/files/fraunces-latin-800-normal.woff2", weight: "800" },
+   ], display: "swap", preload: true, variable: "--font-fraunces",
+ });
++export const cinzel = localFont({
++  src: [
++    { path: "../../node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff2", weight: "600" },
++    { path: "../../node_modules/@fontsource/cinzel/files/cinzel-latin-700-normal.woff2", weight: "700" },
++  ], display: "swap", preload: false, variable: "--font-cinzel",
++});
++export const playfair = localFont({
++  src: [
++    { path: "../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2", weight: "700" },
++    { path: "../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-800-normal.woff2", weight: "800" },
++    { path: "../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-italic.woff2", weight: "700", style: "italic" },
++  ], display: "swap", preload: false, variable: "--font-playfair",
++});
++export const bricolage = localFont({
++  src: [
++    { path: "../../node_modules/@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff2", weight: "700" },
++    { path: "../../node_modules/@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-800-normal.woff2", weight: "800" },
++  ], display: "swap", preload: false, variable: "--font-bricolage",
++});
+diff --git a/src/styles/noir.css b/src/styles/noir.css
+new file mode 100644
+index 0000000..1fefe44
+--- /dev/null
++++ b/src/styles/noir.css
+@@ -0,0 +1,19 @@
++/* Emerald Noir: dark, symmetrical, art-deco. */
++html:root[data-design="noir"] { --canvas:#07211d; --photo:#fffaf0; --sage:#0d2f29; --stone:#123a33; --brand-green:#0a2a25; --brand-gold:#d6b25e; --gold-surface:#d6b25e;
++  --ink:#f1e6c6; --muted:#b8c3b2; --line:#d6b25e55; --white:#f1e6c6; --gold-grad:linear-gradient(180deg,#f3dc9a,#b8913a); --display:var(--font-cinzel),Georgia,serif; }
++html:root[data-design="noir"] body { background:radial-gradient(90% 40% at 50% 0,#0f4137 0,transparent 70%),var(--canvas); color:var(--ink); scrollbar-color:#d6b25e #07211d; }
++html:root[data-design="noir"] ::selection { background:#d6b25e; color:#07211d; }
++html:root[data-design="noir"] .section-heading { align-items:center; text-align:center; }
++html:root[data-design="noir"] .section-heading h2 { font:700 clamp(1.9rem,3.8vw,3.2rem)/1.15 var(--display); text-transform:uppercase; letter-spacing:.08em; max-width:20ch; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
++html:root[data-design="noir"] .section-heading h2::after { content:""; display:block; width:120px; height:1px; background:#d6b25e; margin:22px auto 0; }
++html:root[data-design="noir"] .section-heading p { color:var(--muted); max-width:52ch; }
++html:root[data-design="noir"] .button { border:1px solid #d6b25e; border-radius:0; text-transform:uppercase; letter-spacing:.14em; font-size:13px; font-weight:600; min-height:52px; padding-inline:30px; background:transparent; color:#f1e6c6; transition:background .25s,color .25s; }
++html:root[data-design="noir"] .button:hover { background:#d6b25e; color:#07211d; box-shadow:none; transform:none; }
++html:root[data-design="noir"] .button-dark { background:var(--gold-grad); color:#07211d; }
++html:root[data-design="noir"] .button-light { background:transparent; }
++html:root[data-design="noir"] .site-footer { background:#041a16; border-top:1px solid #d6b25e; }
++html:root[data-design="noir"] .footer-brand-name,html:root[data-design="noir"] .footer-links h2,html:root[data-design="noir"] .footer-contact h2 { font-family:var(--display); color:#e7cf84; text-transform:uppercase; letter-spacing:.08em; font-size:20px; }
++html:root[data-design="noir"] .footer-bottom { border-top:1px solid #d6b25e44; }
++html:root[data-design="noir"] .salon-close { font:700 clamp(2.4rem,7vw,6rem)/1 var(--font-cinzel),serif; letter-spacing:.06em; text-transform:uppercase; text-align:center; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
++html:root[data-design="noir"] :focus-visible { outline:2px solid #e7cf84; outline-offset:3px; }
++html:root[lang="ar"][data-design="noir"] .section-heading h2 { font-family:var(--body); text-transform:none; letter-spacing:0; }
+diff --git a/src/styles/salon.css b/src/styles/salon.css
+index b433f8d..bdf348c 100644
+--- a/src/styles/salon.css
++++ b/src/styles/salon.css
+@@ -1,56 +1,56 @@
+ /* Opt-in only. The three existing designs keep their original tokens and styles. */
+-html:is([data-design="salon"],[data-design="gilded"]) {
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) {
+   --canvas: #fbfaf6;
+   --photo: #f1f3ee;
+   --muted: var(--brand-green);
+ }
+-html:is([data-design="salon"],[data-design="gilded"]) body { background-image: none; }
+-html:is([data-design="salon"],[data-design="gilded"]) body { scrollbar-color: var(--brand-green) var(--sage); }
+-html:is([data-design="salon"],[data-design="gilded"]) input { caret-color: var(--brand-green); }
+-html:is([data-design="salon"],[data-design="gilded"]) ::selection { background: var(--brand-gold); color: var(--brand-green); }
+-html:is([data-design="salon"],[data-design="gilded"]) .button { border: 0; border-radius: 0; font-size: 16px; min-height: 52px; box-shadow: none; }
+-html:is([data-design="salon"],[data-design="gilded"]) .button:hover { box-shadow: none; }
+-html:is([data-design="salon"],[data-design="gilded"]) .configuration-note { font-size: 14px; }
+-html:is([data-design="salon"],[data-design="gilded"]) .section-heading { align-items: flex-start; margin-bottom: 32px; }
+-html:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
+-html:is([data-design="salon"],[data-design="gilded"]) .section-heading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 34ch; }
+-html[lang="ar"]:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font-family: var(--body); font-size: clamp(30px, 3.4vw, 48px); line-height: 1.4; letter-spacing: 0; }
+-html:is([data-design="salon"],[data-design="gilded"]) .site-footer { border: 0; }
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-main { padding-block: 48px; }
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-line,
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-links,
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-contact > p,
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-instagram { font-size: 16px; color: var(--white); line-height: 1.6; }
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-brand-name,
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-links h2,
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-contact h2 { color: var(--white); font-size: 26px; }
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-contact .button { font-size: 14px; }
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-bottom { border: 0; flex-wrap: wrap; }
+-html:is([data-design="salon"],[data-design="gilded"]) .footer-bottom small { font-size: 13px; color: var(--white); }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) body { background-image: none; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) body { scrollbar-color: var(--brand-green) var(--sage); }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) input { caret-color: var(--brand-green); }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) ::selection { background: var(--brand-gold); color: var(--brand-green); }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .button { border: 0; border-radius: 0; font-size: 16px; min-height: 52px; box-shadow: none; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .button:hover { box-shadow: none; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .configuration-note { font-size: 14px; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading { align-items: flex-start; margin-bottom: 32px; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 34ch; }
++html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading h2 { font-family: var(--body); font-size: clamp(30px, 3.4vw, 48px); line-height: 1.4; letter-spacing: 0; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .site-footer { border: 0; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-main { padding-block: 48px; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-line,
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links,
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact > p,
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-instagram { font-size: 16px; color: var(--white); line-height: 1.6; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-brand-name,
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links h2,
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact h2 { color: var(--white); font-size: 26px; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact .button { font-size: 14px; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-bottom { border: 0; flex-wrap: wrap; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-bottom small { font-size: 13px; color: var(--white); }
+ .salon-close { display: none; }
+-html:is([data-design="salon"],[data-design="gilded"]) .salon-close { display: block; margin-block: 0; padding-block: 34px 12px; color: var(--brand-gold); font: 500 clamp(58px, 10vw, 144px)/.95 var(--font-cormorant), serif; letter-spacing: -.035em; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .salon-close { display: block; margin-block: 0; padding-block: 34px 12px; color: var(--brand-gold); font: 500 clamp(58px, 10vw, 144px)/.95 var(--font-cormorant), serif; letter-spacing: -.035em; }
+ /* The sample-review fixture remains available in the original designs, not used as proof here. */
+-html:is([data-design="salon"],[data-design="gilded"]) #customer-experiences { display: none; }
++html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) #customer-experiences { display: none; }
+ @media (max-width: 900px) {
+-  html:is([data-design="salon"],[data-design="gilded"]) .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ }
+ @media (max-width: 650px) {
+-  html:is([data-design="salon"],[data-design="gilded"]) .section-heading { flex-direction: column; gap: 20px; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font-size: 36px; }
+-  html[lang="ar"]:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font-size: 30px; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-main { grid-template-columns: 1fr; gap: 32px; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-main .footer-brand { max-width: 32ch; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-line { max-width: none; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-links { grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-links h2 { grid-column: 1 / -1; margin-bottom: 8px; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-contact { max-width: 34ch; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .footer-contact .button { font-size: 16px; }
+-  html:is([data-design="salon"],[data-design="gilded"]) .salon-close { font-size: clamp(48px, 13vw, 72px); }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading { flex-direction: column; gap: 20px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading h2 { font-size: 36px; }
++  html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading h2 { font-size: 30px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-main { grid-template-columns: 1fr; gap: 32px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-main .footer-brand { max-width: 32ch; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-line { max-width: none; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links { grid-template-columns: 1fr 1fr; gap: 8px 16px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links h2 { grid-column: 1 / -1; margin-bottom: 8px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact { max-width: 34ch; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact .button { font-size: 16px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .salon-close { font-size: clamp(48px, 13vw, 72px); }
+ }
+ @media (max-width: 600px) {
+-  html:is([data-design="salon"],[data-design="gilded"]) .product-grid { grid-template-columns: 1fr; gap: 28px; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .product-grid { grid-template-columns: 1fr; gap: 28px; }
+ }
+ @media (prefers-reduced-motion: no-preference) {
+-  html:is([data-design="salon"],[data-design="gilded"]) .salon-close { animation: salon-close-entry .65s var(--motion-ease) both; }
++  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .salon-close { animation: salon-close-entry .65s var(--motion-ease) both; }
+ }
+ @keyframes salon-close-entry { from { opacity: .75; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+diff --git a/src/styles/souk.css b/src/styles/souk.css
+new file mode 100644
+index 0000000..fae523f
+--- /dev/null
++++ b/src/styles/souk.css
+@@ -0,0 +1,19 @@
++/* Souk: sage canvas, arches, gold geometric pattern. */
++html:root[data-design="souk"] { --canvas:#e2ebd9; --photo:#fffdf4; --sage:#d2e0c6; --stone:#f3ead2; --brand-green:#0f4a3b; --brand-gold:#b88a2b; --gold-surface:#e3c374;
++  --ink:#123a2f; --muted:#3d564b; --line:#b88a2b; --white:#f6ecd0; --display:var(--font-playfair),Georgia,serif;
++  --zellige:linear-gradient(45deg,#c9a043 25%,transparent 25% 75%,#c9a043 75%),linear-gradient(45deg,#c9a043 25%,transparent 25% 75%,#c9a043 75%); }
++html:root[data-design="souk"] body { background:var(--canvas); background-image:none; color:var(--ink); }
++html:root[data-design="souk"] .section-heading { align-items:center; text-align:center; }
++html:root[data-design="souk"] .section-heading h2 { font:800 clamp(2.2rem,4.6vw,3.9rem)/1.08 var(--display); color:var(--brand-green); max-width:18ch; letter-spacing:-.01em; }
++html:root[data-design="souk"] .section-heading h2::after { content:"\25C6  \25C6  \25C6"; display:block; color:#b88a2b; font-size:12px; letter-spacing:.5em; margin-top:16px; font-family:var(--body); }
++html:root[data-design="souk"] .section-heading p { max-width:50ch; }
++html:root[data-design="souk"] .button { border:2px solid #b88a2b; border-radius:12px; font-weight:600; min-height:54px; padding-inline:28px; }
++html:root[data-design="souk"] .button-dark { background:#0f4a3b; color:#f6ecd0; }
++html:root[data-design="souk"] .button-dark:hover { background:#b88a2b; color:#fff; box-shadow:none; transform:none; }
++html:root[data-design="souk"] .button-light { background:transparent; color:#0f4a3b; }
++html:root[data-design="souk"] .site-footer { background:#0f4a3b; border-top:0; }
++html:root[data-design="souk"] .site-footer::before { content:""; display:block; height:22px; background-color:#0f4a3b; background-image:var(--zellige); background-size:22px 22px; background-position:0 0,11px 11px; border-bottom:3px solid #b88a2b; }
++html:root[data-design="souk"] .footer-brand-name,html:root[data-design="souk"] .footer-links h2,html:root[data-design="souk"] .footer-contact h2 { font-family:var(--display); font-weight:700; color:#e3c374; }
++html:root[data-design="souk"] .salon-close { font:700 italic clamp(3rem,9vw,7.5rem)/1 var(--font-playfair),serif; color:#e3c374; text-align:center; }
++html:root[data-design="souk"] :focus-visible { outline:3px solid #b88a2b; outline-offset:3px; }
++html:root[lang="ar"][data-design="souk"] .section-heading h2 { font-family:var(--body); font-weight:700; letter-spacing:0; }
+diff --git a/src/styles/verdant.css b/src/styles/verdant.css
+new file mode 100644
+index 0000000..f89adb3
+--- /dev/null
++++ b/src/styles/verdant.css
+@@ -0,0 +1,17 @@
++/* Verdant Pop: bright, chunky, pill-shaped. */
++html:root[data-design="verdant"] { --canvas:#ffffff; --photo:#eef7e9; --sage:#dff0d8; --stone:#fff1b8; --brand-green:#0a7a55; --brand-gold:#f2b705; --gold-surface:#ffd84d;
++  --ink:#0b2b21; --muted:#3f5a4f; --line:#0b2b21; --white:#ffffff; --display:var(--font-bricolage),system-ui,sans-serif; }
++html:root[data-design="verdant"] body { background:#fff; background-image:none; color:var(--ink); }
++html:root[data-design="verdant"] .section-heading h2::before { content:""; width:68px; height:12px; border-radius:99px; background:#f2b705; display:block; margin-bottom:20px; }
++html:root[data-design="verdant"] .section-heading h2 { font:800 clamp(2.5rem,5.6vw,4.8rem)/.95 var(--display); letter-spacing:-.035em; color:var(--ink); max-width:12ch; }
++html:root[data-design="verdant"] .section-heading p { font-size:18px; max-width:38ch; }
++html:root[data-design="verdant"] .button { border:0; border-radius:999px; font-weight:700; min-height:58px; padding-inline:34px; background:#0a7a55; color:#fff; box-shadow:0 6px 0 #064d37; transition:transform .12s,box-shadow .12s,background .2s,color .2s; }
++html:root[data-design="verdant"] .button:hover { transform:translateY(-1px); box-shadow:0 7px 0 #064d37; background:#f2b705; color:#0b2b21; }
++html:root[data-design="verdant"] .button:active { transform:translateY(5px); box-shadow:0 1px 0 #064d37; }
++html:root[data-design="verdant"] .button-light { background:#fff; color:#0b2b21; box-shadow:0 6px 0 #0b2b21; border:2px solid #0b2b21; }
++html:root[data-design="verdant"] .site-footer { background:#064d37; border-top:8px solid #f2b705; }
++html:root[data-design="verdant"] .footer-brand-name,html:root[data-design="verdant"] .footer-links h2,html:root[data-design="verdant"] .footer-contact h2 { font-family:var(--display); font-weight:800; color:#ffd84d; }
++html:root[data-design="verdant"] .footer-contact .button { background:#f2b705; color:#0b2b21; box-shadow:0 6px 0 #b88a00; }
++html:root[data-design="verdant"] .salon-close { font:800 clamp(3rem,10vw,9rem)/.9 var(--font-bricolage),sans-serif; letter-spacing:-.04em; color:#ffd84d; }
++html:root[data-design="verdant"] :focus-visible { outline:3px solid #f2b705; outline-offset:3px; }
++html:root[lang="ar"][data-design="verdant"] .section-heading h2 { font-family:var(--body); font-weight:800; letter-spacing:0; line-height:1.25; }
+diff --git a/tests/e2e/interface-layout.spec.ts b/tests/e2e/interface-layout.spec.ts
+index bda647c..fc2c813 100644
+--- a/tests/e2e/interface-layout.spec.ts
++++ b/tests/e2e/interface-layout.spec.ts
+@@ -41,7 +41,7 @@ for (const width of [320, 360, 390, 768, 1440]) {
+     await page.setViewportSize({ width, height: 1000 });
+     for (const locale of ["en", "ar"] as const) {
+       const d = getDictionary(locale);
+-      const names = { gilded: d.designGilded, atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon };
++      const names = { gilded: d.designGilded, noir: d.designNoir, souk: d.designSouk, verdant: d.designVerdant, atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon };
+       for (const route of ["", "/catalogue", "/perfumes/diptyque-philosykos-p0170"]) {
+         await page.goto(`/${locale}${route}`);
+         for (const design of designIds) {
+-- 
+2.43.0
+

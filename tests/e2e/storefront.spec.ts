@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { mkdirSync } from "node:fs";
+import { getDictionary } from "../../src/i18n/dictionaries";
 import { loadHomeSections, revealHomeSection } from "./helpers/home-sections";
 
 test("cards show stable, clearly labelled demo discounts that match product details", async ({ page }) => {
@@ -122,8 +123,10 @@ test("Arabic header search and empty search keep safe catalogue routes", async (
   await header.getByRole("searchbox", { name: "ابحث في المجموعة", exact: true }).fill("armaf iconic");
   await header.getByRole("button", { name: "ابحث في الكتالوج", exact: true }).click();
   await expect(page.getByTestId("product-card")).toHaveCount(1);
-  await header.getByRole("button", { name: "ابحث في الكتالوج", exact: true }).click();
-  await expect(page).toHaveURL(/\/ar\/catalogue\?q=$/);
+  const catalogue = page.getByRole("main");
+  await catalogue.getByRole("searchbox", { name: getDictionary("ar").search, exact: true }).fill("");
+  await catalogue.getByRole("button", { name: getDictionary("ar").searchButton, exact: true }).click();
+  await expect(page).toHaveURL(/\/ar\/catalogue$/);
   await expect(page.getByTestId("product-card")).toHaveCount(12);
 });
 

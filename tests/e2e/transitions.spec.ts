@@ -155,6 +155,7 @@ for (const width of [360, 390]) {
     await page.goto("/en/catalogue?brand=Dior");
     const link = page.getByTestId("product-card").getByRole("link");
     await prepareProduct(page, link);
+    const sourceScroll = await page.evaluate(() => scrollY);
     await startMotionObservation(page, { bottleName: "bts-bottle-P0168" });
     await link.click();
     await expect(page.getByRole("heading", { level: 1 })).toHaveText("Spice Blend");
@@ -166,7 +167,9 @@ for (const width of [360, 390]) {
     const photo = await article.locator('button:has(img)').boundingBox();
     expect(enquiry!.y + enquiry!.height).toBeLessThan(844);
     expect(enquiry!.y).toBeLessThan(photo!.y);
-    expect(await page.evaluate(() => scrollY)).toBe(0);
+    // Next may reset to the top or retain the source scroll when the new page
+    // is already visible. Neither path may force a scroll toward the gallery.
+    expect([0, sourceScroll]).toContain(await page.evaluate(() => scrollY));
   });
 }
 

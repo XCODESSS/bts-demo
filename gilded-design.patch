@@ -1,0 +1,1096 @@
+From 0db619156625d03b24dd021b261f3649b7aed487 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 30 Oct 2026 09:06:08 +0000
+Subject: [PATCH] Add Gilded design: bold cream, green and gold; default for
+ new visitors
+
+---
+ next-env.d.ts                                |   4 +-
+ package-lock.json                            |  10 ++
+ package.json                                 |   1 +
+ src/app/[locale]/layout.tsx                  |   7 +-
+ src/components/design-preview.tsx            |   2 +-
+ src/components/designs.ts                    |   4 +-
+ src/components/language-switch.tsx           |  11 +-
+ src/components/site-header.module.css        |  22 ++-
+ src/features/catalogue/catalogue.module.css  |  66 ++++----
+ src/features/home/campaign-hero.module.css   |  45 +++---
+ src/features/home/collections.module.css     |  73 +++++----
+ src/features/home/discovery.module.css       |  81 +++++-----
+ src/features/home/home-extras.module.css     |  42 ++---
+ src/features/home/home.module.css            |  43 +++---
+ src/features/home/scent-spotlight.module.css |  12 +-
+ src/features/products/product.module.css     | 153 ++++++++++---------
+ src/i18n/dictionaries.ts                     |   4 +
+ src/styles/fonts.ts                          |   6 +
+ src/styles/gilded.css                        |  43 ++++++
+ src/styles/salon.css                         |  80 +++++-----
+ tests/e2e/interface-layout.spec.ts           |   2 +-
+ 21 files changed, 421 insertions(+), 290 deletions(-)
+ create mode 100644 src/styles/gilded.css
+
+diff --git a/next-env.d.ts b/next-env.d.ts
+index ce4e94a..a419cbe 100644
+--- a/next-env.d.ts
++++ b/next-env.d.ts
+@@ -1,7 +1,7 @@
+ /// <reference types="next" />
+ /// <reference types="next/image-types/global" />
+-import "./.next/types/routes.d.ts";
+-import "./.next/types/root-params.d.ts";
++import "./.next/dev/types/routes.d.ts";
++import "./.next/dev/types/root-params.d.ts";
+ 
+ // NOTE: This file should not be edited
+ // see https://nextjs.org/docs/app/api-reference/config/typescript for more information.
+diff --git a/package-lock.json b/package-lock.json
+index 56ec673..a6ed85d 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -9,6 +9,7 @@
+       "version": "0.1.0",
+       "dependencies": {
+         "@fontsource/cormorant-garamond": "5.3.0",
++        "@fontsource/fraunces": "5.3.0",
+         "@fontsource/manrope": "5.3.0",
+         "@fontsource/noto-sans-arabic": "5.3.0",
+         "class-variance-authority": "0.7.1",
+@@ -952,6 +953,15 @@
+         "url": "https://github.com/sponsors/ayuhito"
+       }
+     },
++    "node_modules/@fontsource/fraunces": {
++      "version": "5.3.0",
++      "resolved": "https://registry.npmjs.org/@fontsource/fraunces/-/fraunces-5.3.0.tgz",
++      "integrity": "sha512-LEHTOBiZufQzAvnAe2rZ8ZknbDS28Q9kzwb0L+gZJEmjLGr8hhZ/5NuHXwDuHBWhVXYoiGGXmrb0H6Ko/RrHTg==",
++      "license": "OFL-1.1",
++      "funding": {
++        "url": "https://github.com/sponsors/ayuhito"
++      }
++    },
+     "node_modules/@fontsource/manrope": {
+       "version": "5.3.0",
+       "resolved": "https://registry.npmjs.org/@fontsource/manrope/-/manrope-5.3.0.tgz",
+diff --git a/package.json b/package.json
+index 2d86b4b..65cf72b 100644
+--- a/package.json
++++ b/package.json
+@@ -19,6 +19,7 @@
+   },
+   "dependencies": {
+     "@fontsource/cormorant-garamond": "5.3.0",
++    "@fontsource/fraunces": "5.3.0",
+     "@fontsource/manrope": "5.3.0",
+     "@fontsource/noto-sans-arabic": "5.3.0",
+     "class-variance-authority": "0.7.1",
+diff --git a/src/app/[locale]/layout.tsx b/src/app/[locale]/layout.tsx
+index 4feae9f..5f378c4 100644
+--- a/src/app/[locale]/layout.tsx
++++ b/src/app/[locale]/layout.tsx
+@@ -1,5 +1,5 @@
+ import type { Metadata, Viewport } from "next";
+-import { manrope, cormorant, arabic } from "../../styles/fonts";
++import { manrope, cormorant, arabic, fraunces } from "../../styles/fonts";
+ import { Suspense } from "react";
+ import { AnalyticsProvider } from "../../features/analytics/analytics-provider";
+ import { siteOrigin } from "../../features/seo/metadata";
+@@ -13,6 +13,7 @@ import { SiteFooter } from "../../components/site-footer";
+ import { HashNavigation } from "../../components/hash-navigation";
+ import { designIds } from "../../components/designs";
+ import "../../styles/salon.css";
++import "../../styles/gilded.css";
+ export const viewport: Viewport = {
+   width: "device-width", initialScale: 1, viewportFit: "cover",
+   themeColor: "#fbfaf6", colorScheme: "light",
+@@ -44,8 +45,8 @@ export default async function LocaleLayout({
+     <html
+       lang={locale}
+       dir={locale === "ar" ? "rtl" : "ltr"}
+-      data-design="atelier"
+-      className={`${manrope.variable} ${cormorant.variable} ${arabic.variable}`}
++      data-design="gilded"
++      className={`${manrope.variable} ${cormorant.variable} ${arabic.variable} ${fraunces.variable}`}
+       suppressHydrationWarning
+     >
+       <head>
+diff --git a/src/components/design-preview.tsx b/src/components/design-preview.tsx
+index f44384d..49b88bf 100644
+--- a/src/components/design-preview.tsx
++++ b/src/components/design-preview.tsx
+@@ -4,7 +4,7 @@ import type { DesignId } from "./designs";
+ 
+ /** Decorative miniatures, not a second storefront or dataset. */
+ export function DesignPreview({ design }: { design: DesignId }) {
+-  if (design === "salon") return <div className={styles.salonPreview} aria-hidden="true">
++  if (design === "salon" || design === "gilded") return <div className={styles.salonPreview} aria-hidden="true">
+     <div className={styles.salonNav}>Beyond the Space</div>
+     <div className={styles.salonCampaign}>
+       <div><p>A space for<br />your scent.</p><span>Explore collection →</span></div>
+diff --git a/src/components/designs.ts b/src/components/designs.ts
+index ea40124..e540d2b 100644
+--- a/src/components/designs.ts
++++ b/src/components/designs.ts
+@@ -1,8 +1,8 @@
+ /** Shared by the picker and the pre-paint restoration script. */
+-export const designIds = ["atelier", "gallery", "linen", "salon"] as const;
++export const designIds = ["gilded", "atelier", "gallery", "linen", "salon"] as const;
+ export type DesignId = (typeof designIds)[number];
+ export const designCanvas: Record<DesignId, string> = {
+-  atelier: "#fbfaf6", gallery: "#ffffff", linen: "#fcf9f3", salon: "#fbfaf6",
++  gilded: "#f6eedb", atelier: "#fbfaf6", gallery: "#ffffff", linen: "#fcf9f3", salon: "#fbfaf6",
+ };
+ 
+ export function isDesign(value: string | null | undefined): value is DesignId {
+diff --git a/src/components/language-switch.tsx b/src/components/language-switch.tsx
+index 12f6725..56cdef6 100644
+--- a/src/components/language-switch.tsx
++++ b/src/components/language-switch.tsx
+@@ -82,12 +82,12 @@ function restoreDesign() {
+ }
+ function readDesign(): DesignId {
+   const value = document.documentElement.dataset.design;
+-  return isDesign(value) ? value : "atelier";
++  return isDesign(value) ? value : "gilded";
+ }
+ function subscribeDesign(onChange: () => void): () => void {
+   const onStorage = (event: StorageEvent) => {
+     if (event.key !== storageKey && event.key !== null) return;
+-    sessionDesign = isDesign(event.newValue) ? event.newValue : "atelier";
++    sessionDesign = isDesign(event.newValue) ? event.newValue : "gilded";
+     document.documentElement.setAttribute("data-design", sessionDesign);
+     syncThemeColor(sessionDesign);
+     onChange();
+@@ -102,8 +102,8 @@ function subscribeDesign(onChange: () => void): () => void {
+ 
+ /** A single text node, so each design keeps one semantic title and copy deck. */
+ export function DesignText({ classic, salon }: { classic: string; salon: string }) {
+-  const design = useSyncExternalStore(subscribeDesign, readDesign, () => "atelier");
+-  return design === "salon" ? salon : classic;
++  const design = useSyncExternalStore(subscribeDesign, readDesign, () => "gilded");
++  return design === "salon" || design === "gilded" ? salon : classic;
+ }
+ 
+ export function DesignChooser({ locale }: { locale: Locale }) {
+@@ -111,7 +111,7 @@ export function DesignChooser({ locale }: { locale: Locale }) {
+   const current = useSyncExternalStore(
+     subscribeDesign,
+     readDesign,
+-    () => "atelier",
++    () => "gilded",
+   );
+   const pathname = usePathname();
+   useLayoutEffect(() => {
+@@ -122,6 +122,7 @@ export function DesignChooser({ locale }: { locale: Locale }) {
+   const dialog = useRef<HTMLDialogElement>(null);
+   const trigger = useRef<HTMLButtonElement>(null);
+   const designs = [
++    { id: "gilded", name: d.designGilded, description: d.designGildedDescription },
+     {
+       id: "atelier",
+       name: d.designAtelier,
+diff --git a/src/components/site-header.module.css b/src/components/site-header.module.css
+index 88eacdf..00520ec 100644
+--- a/src/components/site-header.module.css
++++ b/src/components/site-header.module.css
+@@ -70,13 +70,13 @@
+   background: var(--forest);
+   color: white;
+ }
+-:global(html[data-design="salon"]) .header { border-bottom: 0; }
+-:global(html[data-design="salon"]) .navigation a { font-size: 16px; }
+-:global(html[data-design="salon"]) .search { border-radius: 0; background: var(--sage); border: 0; }
+-:global(html[data-design="salon"]) .search input { font-size: 16px; border-radius: 0; }
+-:global(html[data-design="salon"]) .search button { border-radius: 0; }
+-:global(html[data-design="salon"]) .actions :global(.language-switch) { font-size: 14px; }
+-:global(html[data-design="salon"]) .mobileNavigation { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .header { border-bottom: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .navigation a { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .search { border-radius: 0; background: var(--sage); border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .search input { font-size: 16px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .search button { border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .actions :global(.language-switch) { font-size: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .mobileNavigation { font-size: 16px; }
+ .mobileMenu { display: none; }
+ .mobileNavigation {
+   position: absolute;
+@@ -109,3 +109,11 @@
+   .wordmark > span { font-size: 9px; margin-top: 4px; }
+   .actions { gap: 3px; }
+ }
++
++/* Gilded */
++:global(html:root[data-design="gilded"]) .header { background: var(--canvas); border-bottom: 2px solid var(--ink); }
++:global(html:root[data-design="gilded"]) .navigation a { font-weight: 600; }
++:global(html:root[data-design="gilded"]) .navigation a:hover { color: var(--brand-green); text-decoration: underline; text-decoration-color: var(--brand-gold); text-decoration-thickness: 3px; text-underline-offset: 8px; }
++:global(html:root[data-design="gilded"]) .search { border: 2px solid var(--ink); border-radius: 999px; background: var(--photo); overflow: hidden; }
++:global(html:root[data-design="gilded"]) .search button { background: var(--brand-green); color: var(--cream); border-radius: 999px; }
++:global(html:root[data-design="gilded"]) .wordmark { font-family: var(--display); font-weight: 700; }
+diff --git a/src/features/catalogue/catalogue.module.css b/src/features/catalogue/catalogue.module.css
+index cbc6c36..1c10bf0 100644
+--- a/src/features/catalogue/catalogue.module.css
++++ b/src/features/catalogue/catalogue.module.css
+@@ -1,37 +1,37 @@
+-:global(html[data-design="salon"]) .pageHeader { display: grid; grid-template-columns: 1.1fr 1fr; column-gap: 56px; row-gap: 18px; max-width: none; padding-block: 40px 48px; }
+-:global(html[data-design="salon"]) .breadcrumb { grid-column: 1 / -1; font-size: 14px; color: var(--ink); }
+-:global(html[data-design="salon"]) .pageHeader h1 { grid-column: 1; grid-row: 2 / 4; font: 500 clamp(48px, 5.5vw, 80px)/1 var(--display); margin: 0; letter-spacing: -.03em; }
+-:global(html[data-design="salon"]) .pageHeader p { grid-column: 2; font-size: 16px; line-height: 1.6; color: var(--ink); }
+-:global(html[data-design="salon"]) .controls { border: 0; padding: 24px; background: var(--sage); }
+-:global(html[data-design="salon"]) .searchForm { border: 0; border-radius: 0; max-width: 620px; }
+-:global(html[data-design="salon"]) .searchForm input { font-size: 16px; }
+-:global(html[data-design="salon"]) .searchForm button { font-size: 16px; min-height: 44px; border-radius: 0; }
+-:global(html[data-design="salon"]) .filterRow { gap: 20px; }
+-:global(html[data-design="salon"]) .filterRow label > span { font-size: 14px; color: var(--ink); }
+-:global(html[data-design="salon"]) .filterRow select { font-size: 16px; border-bottom: 0; background: var(--white); padding-inline: 10px; }
+-:global(html[data-design="salon"]) .activeFilters button { font-size: 14px; min-height: 44px; border: 0; border-radius: 0; background: var(--white); }
+-:global(html[data-design="salon"]) .resultLine { font-size: 16px; color: var(--ink); }
+-:global(html[data-design="salon"]) .pagination { font-size: 16px; }
+-:global(html[data-design="salon"]) .pagination a { min-width: 44px; min-height: 44px; border-radius: 0; }
+-:global(html[data-design="salon"]) .collectionEnd { font-size: 16px; }
+-:global(html[data-design="salon"]) .collectionEnd > span { display: none; }
+-:global(html[data-design="salon"]) .empty p { font-size: 16px; color: var(--ink); }
+-:global(html[dir="rtl"][data-design="salon"]) .pageHeader h1 { font-family: var(--body); font-size: 48px; line-height: 1.4; letter-spacing: 0; }
+-@media (max-width: 900px) { :global(html[data-design="salon"]) .pageHeader { column-gap: 28px; } }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader { display: grid; grid-template-columns: 1.1fr 1fr; column-gap: 56px; row-gap: 18px; max-width: none; padding-block: 40px 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .breadcrumb { grid-column: 1 / -1; font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { grid-column: 1; grid-row: 2 / 4; font: 500 clamp(48px, 5.5vw, 80px)/1 var(--display); margin: 0; letter-spacing: -.03em; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader p { grid-column: 2; font-size: 16px; line-height: 1.6; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .controls { border: 0; padding: 24px; background: var(--sage); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm { border: 0; border-radius: 0; max-width: 620px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm input { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm button { font-size: 16px; min-height: 44px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .filterRow { gap: 20px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .filterRow label > span { font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .filterRow select { font-size: 16px; border-bottom: 0; background: var(--white); padding-inline: 10px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .activeFilters button { font-size: 14px; min-height: 44px; border: 0; border-radius: 0; background: var(--white); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .resultLine { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .pagination { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .pagination a { min-width: 44px; min-height: 44px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .collectionEnd { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .collectionEnd > span { display: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .empty p { font-size: 16px; color: var(--ink); }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { font-family: var(--body); font-size: 48px; line-height: 1.4; letter-spacing: 0; }
++@media (max-width: 900px) { :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader { column-gap: 28px; } }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .pageHeader { display: block; padding-block: 24px 32px; }
+-  :global(html[data-design="salon"]) .pageHeader h1 { font-size: 48px; margin-block: 22px; }
+-  :global(html[data-design="salon"]) .pageHeader p + p { margin-top: 14px; }
+-  :global(html[dir="rtl"][data-design="salon"]) .pageHeader h1 { font-size: 34px; }
+-  :global(html[data-design="salon"]) .controls { padding: 16px; }
+-  :global(html[data-design="salon"]) .searchForm { padding-inline: 10px 4px; gap: 4px; }
+-  :global(html[data-design="salon"]) .searchForm > svg { display: none; }
+-  :global(html[data-design="salon"]) .searchForm button { font-size: 14px; padding-inline: 8px; }
+-  :global(html[data-design="salon"]) .filterToggle { font-size: 14px; border: 0; background: var(--white); gap: 4px; padding-inline: 8px; }
+-  :global(html[data-design="salon"]) .resultLine { font-size: 14px; }
+-  :global(html[data-design="salon"]) .pagination { gap: 2px; }
+-  :global(html[data-design="salon"]) .pageGroup { gap: 2px; }
+-  :global(html[data-design="salon"]) .pageDisabled { width: 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader { display: block; padding-block: 24px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { font-size: 48px; margin-block: 22px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageHeader p + p { margin-top: 14px; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .pageHeader h1 { font-size: 34px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .controls { padding: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm { padding-inline: 10px 4px; gap: 4px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm > svg { display: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .searchForm button { font-size: 14px; padding-inline: 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .filterToggle { font-size: 14px; border: 0; background: var(--white); gap: 4px; padding-inline: 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .resultLine { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pagination { gap: 2px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageGroup { gap: 2px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pageDisabled { width: 20px; }
+ }
+ .pageHeader {
+   padding-block: 38px 48px;
+diff --git a/src/features/home/campaign-hero.module.css b/src/features/home/campaign-hero.module.css
+index b25283f..a93daa1 100644
+--- a/src/features/home/campaign-hero.module.css
++++ b/src/features/home/campaign-hero.module.css
+@@ -101,48 +101,48 @@
+   .product:hover .bottle { transform: translateY(-4px); }
+ }
+ /* The original three campaign compositions remain unchanged. */
+-:global(html[data-design="salon"]) .hero {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .hero {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   padding-block: 24px 0;
+   margin-bottom: 0;
+ }
+-:global(html[data-design="salon"]) .stage { display: none; }
+-:global(html[data-design="salon"]) .intro {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .stage { display: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .intro {
+   display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+   min-width: 0; max-width: none; min-height: 600px;
+   margin: 0; padding: 48px 42px;
+   text-align: start; background: var(--brand-green); color: var(--white);
+   animation: none;
+ }
+-:global(html[data-design="salon"]) .intro h1 {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .intro h1 {
+   font: 500 clamp(64px, 6.5vw, 96px)/.96 var(--display);
+   letter-spacing: -.035em; max-width: 11ch; margin: 0;
+ }
+-:global(html[data-design="salon"]) .intro > p {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .intro > p {
+   margin: 36px 0 28px; max-width: 39ch;
+   font-size: 18px; line-height: 1.6; color: var(--white);
+ }
+-:global(html[data-design="salon"]) .action {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .action {
+   border-radius: 0; font-size: 16px; min-height: 54px; padding: 14px 24px;
+ }
+-:global(html[data-design="salon"]) .intro :focus-visible { outline-color: var(--brand-gold); }
+-:global(html[data-design="salon"]) .action:active { transform: translateY(2px); }
+-:global(html[dir="rtl"][data-design="salon"]) .intro h1 {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .intro :focus-visible { outline-color: var(--brand-gold); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .action:active { transform: translateY(2px); }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .intro h1 {
+   font-family: var(--body); font-size: clamp(48px, 5vw, 72px); line-height: 1.25; letter-spacing: 0; max-width: 12ch;
+ }
+-:global(html[data-design="salon"]) .hero:not(.withSpotlight) { grid-template-columns: 1fr; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .hero:not(.withSpotlight) { grid-template-columns: 1fr; }
+ @media (max-width: 1100px) {
+-  :global(html[data-design="salon"]) .intro { padding: 32px 28px; min-height: 580px; }
+-  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(54px, 7.3vw, 80px); }
+-  :global(html[data-design="salon"]) .intro > p { font-size: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro { padding: 32px 28px; min-height: 580px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro h1 { font-size: clamp(54px, 7.3vw, 80px); }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro > p { font-size: 16px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .hero { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 0; }
+-  :global(html[data-design="salon"]) .intro { min-height: 0; padding: 24px; }
+-  :global(html[data-design="salon"]) .intro h1 { font-size: clamp(48px, 13.3vw, 56px); max-width: 11ch; }
+-  :global(html[data-design="salon"]) .intro > p { margin: 20px 0; font-size: 16px; line-height: 1.5; }
+-  :global(html[dir="rtl"][data-design="salon"]) .intro h1 { font-size: 42px; line-height: 1.35; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .hero { grid-template-columns: 1fr; padding-top: 12px; padding-bottom: 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro { min-height: 0; padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro h1 { font-size: clamp(48px, 13.3vw, 56px); max-width: 11ch; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .intro > p { margin: 20px 0; font-size: 16px; line-height: 1.5; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .intro h1 { font-size: 42px; line-height: 1.35; }
+ }
+ @media (max-width: 950px) {
+   .stage { grid-template-columns: .8fr 1.3fr; gap: 18px; padding: 30px; min-height: 350px; }
+@@ -168,3 +168,12 @@
+   .intro > p { font-size: 12px; line-height: 1.9; }
+   :global([dir="rtl"]) .statement p { font-size: 24px; line-height: 1.5; max-width: 22ch; }
+ }
++
++/* Gilded: a framed green and gold stage */
++:global(html:root[data-design="gilded"]) .hero { border: 2px solid var(--ink); border-radius: 32px; overflow: hidden; padding: 0; margin-block: 28px 36px; box-shadow: 8px 8px 0 var(--brand-gold); }
++:global(html:root[data-design="gilded"]) .intro { background: radial-gradient(120% 90% at 20% 0%, #17645a, var(--brand-green) 60%); color: var(--cream); min-height: 640px; padding: 56px 52px; }
++:global(html:root[data-design="gilded"]) .intro h1 { font: 800 clamp(3.4rem, 7.4vw, 6.6rem)/.98 var(--display); letter-spacing: -.03em; max-width: 9ch; color: var(--cream); }
++:global(html:root[data-design="gilded"]) .intro > p { color: #e6ecdf; font-size: 19px; max-width: 36ch; }
++:global(html:root[data-design="gilded"]) .action { background: var(--gold-grad); color: var(--ink); border: 2px solid var(--brand-gold); border-radius: 999px; min-height: 58px; padding: 16px 32px; font-weight: 600; transition: transform .2s, box-shadow .2s; }
++:global(html:root[data-design="gilded"]) .action:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(--cream); }
++@media (max-width: 900px) { :global(html:root[data-design="gilded"]) .hero { border-radius: 24px; box-shadow: 5px 5px 0 var(--brand-gold); } :global(html:root[data-design="gilded"]) .intro { padding: 36px 26px; min-height: 0; } :global(html:root[data-design="gilded"]) .intro h1 { font-size: clamp(3rem, 15vw, 4.6rem); } }
+diff --git a/src/features/home/collections.module.css b/src/features/home/collections.module.css
+index dd5d5b0..9c30a95 100644
+--- a/src/features/home/collections.module.css
++++ b/src/features/home/collections.module.css
+@@ -1,36 +1,36 @@
+-:global(html[data-design="salon"]) .browser { display: contents; }
+-:global(html[data-design="salon"]) .tabs { grid-column: 1; grid-row: 2; align-self: start; margin: 0; border: 0; border-radius: 0; padding: 4px; background: var(--sage); justify-content: flex-start; }
+-:global(html[data-design="salon"]) .tab { border-radius: 0; font-size: 16px; padding: 12px 16px; }
+-:global(html[data-design="salon"]) .indicator { border-radius: 0; }
+-:global(html[data-design="salon"]) .panel { grid-column: 2; grid-row: 1 / 3; }
+-:global(html[data-design="salon"]) .grid { grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+-:global(html[data-design="salon"]) .tile { display: grid; grid-template-columns: 76px 1fr; align-items: center; background: var(--sage); border: 0; border-radius: 0; }
+-:global(html[data-design="salon"]) .tile:nth-child(even) { background: var(--stone); }
+-:global(html[data-design="salon"]) .imageStage { height: 100px; padding: 10px; }
+-:global(html[data-design="salon"]) .image { width: 100%; height: 80px; }
+-:global(html[data-design="salon"]) .caption { border: 0; padding: 14px 16px 14px 0; gap: 8px; }
+-:global(html[dir="rtl"][data-design="salon"]) .caption { padding: 14px 0 14px 16px; }
+-:global(html[data-design="salon"]) .caption h3 { font-size: 20px; margin: 0 0 6px; }
+-:global(html[data-design="salon"]) .caption div > span { font-size: 14px; color: var(--ink); }
+-:global(html[data-design="salon"]) .arrow { width: 24px; background: none; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .browser { display: contents; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .tabs { grid-column: 1; grid-row: 2; align-self: start; margin: 0; border: 0; border-radius: 0; padding: 4px; background: var(--sage); justify-content: flex-start; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .tab { border-radius: 0; font-size: 16px; padding: 12px 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .indicator { border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .panel { grid-column: 2; grid-row: 1 / 3; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .grid { grid-template-columns: 1fr 1fr; gap: 12px 24px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .tile { display: grid; grid-template-columns: 76px 1fr; align-items: center; background: var(--sage); border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .tile:nth-child(even) { background: var(--stone); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { height: 100px; padding: 10px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .image { width: 100%; height: 80px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .caption { border: 0; padding: 14px 16px 14px 0; gap: 8px; }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .caption { padding: 14px 0 14px 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .caption h3 { font-size: 20px; margin: 0 0 6px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .caption div > span { font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .arrow { width: 24px; background: none; color: var(--ink); }
+ @media (max-width: 1100px) {
+-  :global(html[data-design="salon"]) .tile { grid-template-columns: 58px 1fr; }
+-  :global(html[data-design="salon"]) .caption h3 { font-size: 18px; }
+-  :global(html[data-design="salon"]) .grid { column-gap: 12px; }
+-  :global(html[data-design="salon"]) .caption div > span { white-space: nowrap; }
+-  :global(html[data-design="salon"]) .arrow { display: none; }
+-  :global(html[data-design="salon"]) .tab { font-size: 14px; padding-inline: 10px; gap: 5px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .tile { grid-template-columns: 58px 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption h3 { font-size: 18px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .grid { column-gap: 12px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption div > span { white-space: nowrap; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .arrow { display: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .tab { font-size: 14px; padding-inline: 10px; gap: 5px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .tabs { margin: 24px 0; }
+-  :global(html[data-design="salon"]) .grid { gap: 10px; }
+-  :global(html[data-design="salon"]) .tile { grid-template-columns: 48px 1fr; }
+-  :global(html[data-design="salon"]) .imageStage { height: 90px; padding: 4px; }
+-  :global(html[data-design="salon"]) .caption { padding: 10px 8px 10px 0; }
+-  :global(html[dir="rtl"][data-design="salon"]) .caption { padding: 10px 0 10px 8px; }
+-  :global(html[data-design="salon"]) .caption h3 { font-size: 16px; }
+-  :global(html[data-design="salon"]) .caption div > span { font-size: 13px; }
+-  :global(html[data-design="salon"]) .arrow { display: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .tabs { margin: 24px 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .grid { gap: 10px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .tile { grid-template-columns: 48px 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { height: 90px; padding: 4px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption { padding: 10px 8px 10px 0; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .caption { padding: 10px 0 10px 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption h3 { font-size: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .caption div > span { font-size: 13px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .arrow { display: none; }
+ }
+ .tabs {
+   position: relative; isolation: isolate; display: flex; align-items: stretch;
+@@ -74,3 +74,16 @@
+   .caption div > span { font-size: 9px; }
+   .arrow { width: 27px; height: 27px; }
+ }
++
++/* Gilded: solid colour blocks */
++:global(html:root[data-design="gilded"]) .tile { border: 2px solid var(--ink); border-radius: 22px; transition: transform .25s, box-shadow .25s; overflow: hidden; }
++:global(html:root[data-design="gilded"]) .tile:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--ink); }
++:global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) { background: var(--brand-green); color: var(--cream); }
++:global(html:root[data-design="gilded"]) .tile:nth-child(3n+2) { background: var(--gold-grad); color: var(--ink); }
++:global(html:root[data-design="gilded"]) .tile:nth-child(3n) { background: var(--photo); color: var(--ink); }
++:global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) .caption h3, :global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) .caption div > span, :global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) .arrow { color: var(--cream); }
++:global(html:root[data-design="gilded"]) .caption h3 { font-family: var(--display); font-weight: 700; font-size: 22px; }
++:global(html:root[data-design="gilded"]) .imageStage { background: transparent; }
++:global(html:root[data-design="gilded"]) .tabs { background: transparent; border: 2px solid var(--ink); border-radius: 999px; padding: 4px; }
++:global(html:root[data-design="gilded"]) .tab { border-radius: 999px; font-weight: 600; }
++:global(html:root[data-design="gilded"]) .indicator { border-radius: 999px; background: var(--brand-green); }
+diff --git a/src/features/home/discovery.module.css b/src/features/home/discovery.module.css
+index 20347f8..c336d33 100644
+--- a/src/features/home/discovery.module.css
++++ b/src/features/home/discovery.module.css
+@@ -1,44 +1,44 @@
+ .brands { padding-block: 40px 20px; }
+-:global(html[data-design="salon"]) .brands { padding-block: 64px; }
+-:global(html[data-design="salon"]) .brandHeading { margin-bottom: 48px; }
+-:global(html[data-design="salon"]) .brandHeading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin-bottom: 20px; }
+-:global(html[data-design="salon"]) .brandHeading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 45ch; }
+-:global(html[data-design="salon"]) .allBrands { font-size: 16px; padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
+-:global(html[data-design="salon"]) .allBrands b { border-radius: 0; padding: 0; background: none; }
+-:global(html[data-design="salon"]) .brandGrid { gap: 32px; }
+-:global(html[data-design="salon"]) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
+-:global(html[data-design="salon"]) .houseName { font-size: 34px; line-height: 1.1; }
+-:global(html[data-design="salon"]) .houseMeta { font-size: 16px; color: var(--ink); }
+-:global(html[data-design="salon"]) .houseArrow { background: none; color: var(--ink); }
+-:global(html[data-design="salon"]) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+-:global(html[data-design="salon"]) .brandDialog { border: 0; border-radius: 0; }
+-:global(html[data-design="salon"]) .brandDialog::backdrop { backdrop-filter: none; }
+-:global(html[data-design="salon"]) .brandSearch, :global(html[data-design="salon"]) .directoryGrid a, :global(html[data-design="salon"]) .houseCount { font-size: 16px; }
+-:global(html[data-design="salon"]) .categories { padding-block: 80px; }
+-:global(html[data-design="salon"]) .categoryGrid { gap: 0; background: var(--gold-surface); }
+-:global(html[data-design="salon"]) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
+-:global(html[data-design="salon"]) .categoryImage { height: 210px; padding: 28px; }
+-:global(html[data-design="salon"]) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
+-:global(html[dir="rtl"][data-design="salon"]) .categoryCaption { padding: 20px 0 20px 24px; }
+-:global(html[data-design="salon"]) .categoryCaption h3 { font: 500 32px/1.1 var(--display); }
+-:global(html[data-design="salon"]) .categoryCaption p { font-size: 14px; line-height: 1.5; color: var(--ink); }
+-:global(html[data-design="salon"]) .categoryArrow { background: none; color: var(--ink); width: 24px; }
+-:global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-family: var(--body); font-size: 44px; line-height: 1.4; letter-spacing: 0; }
+-:global(html[lang="ar"][data-design="salon"]) .categoryCaption h3 { font-family: var(--body); font-size: 26px; line-height: 1.5; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brands { padding-block: 64px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading { margin-bottom: 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin-bottom: 20px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 45ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .allBrands { font-size: 16px; padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .allBrands b { border-radius: 0; padding: 0; background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandGrid { gap: 32px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .houseName { font-size: 34px; line-height: 1.1; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .houseMeta { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .houseArrow { background: none; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandDialog { border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandDialog::backdrop { backdrop-filter: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandSearch, :global(html:is([data-design="salon"],[data-design="gilded"])) .directoryGrid a, :global(html:is([data-design="salon"],[data-design="gilded"])) .houseCount { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categories { padding-block: 80px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryGrid { gap: 0; background: var(--gold-surface); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryImage { height: 210px; padding: 28px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .categoryCaption { padding: 20px 0 20px 24px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption h3 { font: 500 32px/1.1 var(--display); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption p { font-size: 14px; line-height: 1.5; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .categoryArrow { background: none; color: var(--ink); width: 24px; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font-family: var(--body); font-size: 44px; line-height: 1.4; letter-spacing: 0; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .categoryCaption h3 { font-family: var(--body); font-size: 26px; line-height: 1.5; }
+ @media (max-width: 900px) {
+-  :global(html[data-design="salon"]) .brandGrid { gap: 24px 32px; }
+-  :global(html[data-design="salon"]) .categoryGrid { grid-template-columns: 1fr; }
+-  :global(html[data-design="salon"]) .category { grid-template-columns: 160px 1fr; }
+-  :global(html[data-design="salon"]) .categoryImage { height: 180px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .brandGrid { gap: 24px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .categoryGrid { grid-template-columns: 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .category { grid-template-columns: 160px 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .categoryImage { height: 180px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .brands { padding-block: 40px 48px; }
+-  :global(html[data-design="salon"]) .brandHeading { margin-bottom: 32px; }
+-  :global(html[data-design="salon"]) .brandHeading h2 { font-size: 36px; }
+-  :global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-size: 30px; }
+-  :global(html[data-design="salon"]) .houseName { font-size: 28px; }
+-  :global(html[data-design="salon"]) .categories { padding-block: 56px; }
+-  :global(html[data-design="salon"]) .categoryCaption { padding-inline-end: 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .brands { padding-block: 40px 48px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading { margin-bottom: 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font-size: 36px; }
++  :global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .brandHeading h2 { font-size: 30px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .houseName { font-size: 28px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .categories { padding-block: 56px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .categoryCaption { padding-inline-end: 20px; }
+ }
+ .brandHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+ .brandHeading h2 { font: 600 clamp(28px, 2.8vw, 40px)/1.25 var(--body); letter-spacing: -1px; margin: 0 0 12px; }
+@@ -102,3 +102,10 @@
+   .categoryImage { height: 220px; padding: 22px; }
+   .categoryCaption { border: 0; padding-inline: 4px 24px; gap: 12px; }
+ }
++
++/* Gilded */
++:global(html:root[data-design="gilded"]) .brandHeading h2 { font: 800 clamp(2.5rem, 5.6vw, 4.8rem)/1.02 var(--display); }
++:global(html:root[data-design="gilded"]) .brandCard { border-top: 3px solid var(--brand-gold); border-radius: 0; padding-top: 16px; transition: border-color .2s; }
++:global(html:root[data-design="gilded"]) .brandCard:hover { border-top-color: var(--ink); }
++:global(html:root[data-design="gilded"]) .houseName { font-family: var(--display); font-weight: 700; font-size: 38px; }
++:global(html:root[data-design="gilded"]) .allBrands { background: transparent; border: 2px solid var(--ink); border-radius: 999px; font-weight: 600; }
+diff --git a/src/features/home/home-extras.module.css b/src/features/home/home-extras.module.css
+index 3e657e4..cacb495 100644
+--- a/src/features/home/home-extras.module.css
++++ b/src/features/home/home-extras.module.css
+@@ -1,21 +1,21 @@
+-:global(html[data-design="salon"]) .promise { border: 0; }
+-:global(html[data-design="salon"]) .promise::before { content: none; }
+-:global(html[data-design="salon"]) .promiseInner { padding-block: 80px; }
+-:global(html[data-design="salon"]) .promise h2 { font-size: clamp(56px, 6.4vw, 92px); max-width: none; letter-spacing: -.025em; color: var(--white); }
+-:global(html[data-design="salon"]) .promise h2 > span:last-child { color: inherit; }
+-:global(html[data-design="salon"]) .promiseIntro { font-size: 18px; line-height: 1.6; color: var(--white); max-width: 65ch; }
+-:global(html[data-design="salon"]) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-top: 48px; }
+-:global(html[data-design="salon"]) .features > div { border: 0; padding: 0; }
+-:global(html[data-design="salon"]) .features h3 { font: 500 30px/1.15 var(--display); color: var(--white); }
+-:global(html[data-design="salon"]) .features p { font-size: 16px; line-height: 1.6; color: var(--white); max-width: 42ch; }
+-:global(html[data-design="salon"]) .promiseAction { margin-top: 40px; }
+-:global(html[dir="rtl"][data-design="salon"]) .features h3 { font-family: var(--body); font-size: 24px; line-height: 1.6; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promise { border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promise::before { content: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promiseInner { padding-block: 80px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promise h2 { font-size: clamp(56px, 6.4vw, 92px); max-width: none; letter-spacing: -.025em; color: var(--white); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promise h2 > span:last-child { color: inherit; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promiseIntro { font-size: 18px; line-height: 1.6; color: var(--white); max-width: 65ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-top: 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .features > div { border: 0; padding: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .features h3 { font: 500 30px/1.15 var(--display); color: var(--white); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .features p { font-size: 16px; line-height: 1.6; color: var(--white); max-width: 42ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .promiseAction { margin-top: 40px; }
++:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .features h3 { font-family: var(--body); font-size: 24px; line-height: 1.6; }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .promiseInner { padding-block: 48px; }
+-  :global(html[data-design="salon"]) .promise h2 { font-size: clamp(32px, 10vw, 40px); line-height: 1.1; }
+-  :global(html[data-design="salon"]) .promiseIntro { font-size: 16px; }
+-  :global(html[data-design="salon"]) .features { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+-  :global(html[dir="rtl"][data-design="salon"]) .promise h2 { font-size: 30px; line-height: 1.5; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .promiseInner { padding-block: 48px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .promise h2 { font-size: clamp(32px, 10vw, 40px); line-height: 1.1; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .promiseIntro { font-size: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .features { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
++  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"])) .promise h2 { font-size: 30px; line-height: 1.5; }
+ }
+ .promise { position: relative; overflow: hidden; isolation: isolate; color: #fbfaf6; background: var(--brand-green); border-block: 2px solid var(--brand-gold); }
+ .promise::before { content: ""; position: absolute; z-index: -1; width: 640px; height: 640px; top: -280px; inset-inline-end: -160px; border: 2px solid var(--brand-gold); border-radius: 50%; box-shadow: 0 0 0 46px #d4b99113; }
+@@ -62,3 +62,11 @@
+   .instagram > div { flex: 1; }
+   .instagram a { margin-inline-start: 0; width: 100%; }
+ }
++
++/* Gilded: a cream band so only the hero and footer are deep green */
++:global(html:root[data-design="gilded"]) .promise { background: var(--sage); color: var(--ink); border-block: 2px solid var(--ink); }
++:global(html:root[data-design="gilded"]) .promise h2 { font: 800 clamp(2.8rem, 6.4vw, 5.6rem)/1 var(--display); color: var(--ink); }
++:global(html:root[data-design="gilded"]) .promise h2 > span:last-child { color: var(--brand-green); }
++:global(html:root[data-design="gilded"]) .promiseIntro, :global(html:root[data-design="gilded"]) .features p { color: var(--ink); }
++:global(html:root[data-design="gilded"]) .features > div { border-top: 3px solid var(--brand-gold); padding-top: 14px; }
++:global(html:root[data-design="gilded"]) .features h3 { font: 700 28px/1.15 var(--display); color: var(--brand-green); }
+diff --git a/src/features/home/home.module.css b/src/features/home/home.module.css
+index 999fd10..d673632 100644
+--- a/src/features/home/home.module.css
++++ b/src/features/home/home.module.css
+@@ -1,26 +1,26 @@
+ .home { padding-bottom: 0; }
+-:global(html[data-design="salon"]) .collectionsBand { background: var(--canvas); border: 0; }
+-:global(html[data-design="salon"]) .collections { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 64px; row-gap: 24px; padding-block: 112px 64px; }
+-:global(html[data-design="salon"]) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
+-:global(html[data-design="salon"]) .collections :global(.section-heading h2) { max-width: 13ch; }
+-:global(html[data-design="salon"]) .featured { padding-block: 64px 96px; }
+-:global(html[data-design="salon"]) .demoDisclaimer { margin: 0 0 28px; font-size: 14px; color: var(--ink); max-width: 70ch; }
+-:global(html[data-design="salon"]) .guideBand { background: var(--gold-surface); border: 0; }
+-:global(html[data-design="salon"]) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
+-:global(html[data-design="salon"]) .guide h2 { font: 500 40px/1.05 var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
+-:global(html[data-design="salon"]) .guide ul { grid-template-columns: 1fr; gap: 12px; }
+-:global(html[data-design="salon"]) .guide li { justify-content: start; border: 0; padding: 0; font-size: 16px; }
+-:global(html[lang="ar"][data-design="salon"]) .guide h2 { font-family: var(--body); font-size: 32px; line-height: 1.5; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .collectionsBand { background: var(--canvas); border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .collections { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 64px; row-gap: 24px; padding-block: 112px 64px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .collections :global(.section-heading h2) { max-width: 13ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .featured { padding-block: 64px 96px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .demoDisclaimer { margin: 0 0 28px; font-size: 14px; color: var(--ink); max-width: 70ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .guideBand { background: var(--gold-surface); border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .guide h2 { font: 500 40px/1.05 var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .guide ul { grid-template-columns: 1fr; gap: 12px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .guide li { justify-content: start; border: 0; padding: 0; font-size: 16px; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .guide h2 { font-family: var(--body); font-size: 32px; line-height: 1.5; }
+ @media (max-width: 900px) {
+-  :global(html[data-design="salon"]) .collections { column-gap: 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections { column-gap: 32px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .collections { display: block; padding-block: 64px 32px; }
+-  :global(html[data-design="salon"]) .collections > :global(.section-heading) { gap: 18px; }
+-  :global(html[data-design="salon"]) .collections :global(.section-heading h2) { max-width: none; }
+-  :global(html[data-design="salon"]) .featured { padding-block: 48px 64px; }
+-  :global(html[data-design="salon"]) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
+-  :global(html[data-design="salon"]) .guide h2 { font-size: 36px; max-width: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections { display: block; padding-block: 64px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections > :global(.section-heading) { gap: 18px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .collections :global(.section-heading h2) { max-width: none; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .featured { padding-block: 48px 64px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .guide h2 { font-size: 36px; max-width: none; }
+ }
+ .collectionsBand { background: var(--gold-surface); border-block: 1px solid #d4b991; }
+ .collections { padding-block: 48px; }
+@@ -52,3 +52,8 @@
+   .guide li { justify-content: flex-start; padding: 8px 12px; font-size: 12px; }
+   .guide li + li { border: 0; }
+ }
++
++/* Gilded: banded sections */
++:global(html:root[data-design="gilded"]) .collectionsBand { background: var(--sage); border-block: 2px solid var(--ink); }
++:global(html:root[data-design="gilded"]) .guideBand { background: var(--gold-grad); border-block: 2px solid var(--ink); }
++:global(html:root[data-design="gilded"]) .guide h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.05 var(--display); color: var(--ink); }
+diff --git a/src/features/home/scent-spotlight.module.css b/src/features/home/scent-spotlight.module.css
+index 572ac5c..c06ee28 100644
+--- a/src/features/home/scent-spotlight.module.css
++++ b/src/features/home/scent-spotlight.module.css
+@@ -1,5 +1,5 @@
+ .spotlight { display: none; }
+-:global(html[data-design="salon"]) .spotlight {
++:global(html:is([data-design="salon"],[data-design="gilded"])) .spotlight {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+@@ -32,13 +32,13 @@
+ @keyframes scent-arrival { from { opacity: .65; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+ @media (prefers-reduced-motion: no-preference) { .product { animation: scent-arrival .65s var(--motion-ease) both; } .product:hover .bottle { transform: scale(1.025); } .bottle { transition: transform .45s var(--motion-ease); } }
+ @media (max-width: 1100px) {
+-  :global(html[data-design="salon"]) .spotlight { padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .spotlight { padding: 24px; }
+   .selection { display: block; }
+   .prompt { margin-bottom: 8px; }
+   .bottle { height: 280px; }
+ }
+ @media (max-width: 650px) {
+-  :global(html[data-design="salon"]) .spotlight { padding: 16px 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .spotlight { padding: 16px 20px; }
+   .selection { display: flex; gap: 8px; }
+   .prompt { font-size: 16px; margin-bottom: 0; }
+   .notes { width: 100%; justify-content: space-between; }
+@@ -49,3 +49,9 @@
+   .caption { gap: 5px; }
+ }
+ @media (prefers-reduced-motion: reduce) { .notes a { transition: none; } }
++
++/* Gilded: gold panel */
++:global(html:root[data-design="gilded"]) .spotlight { background: var(--gold-grad); color: var(--ink); border-left: 2px solid var(--ink); }
++html[dir="rtl"] :global(html:root[data-design="gilded"]) .spotlight { border-left: 0; border-right: 2px solid var(--ink); }
++:global(html:root[data-design="gilded"]) .name { font-family: var(--display); font-weight: 800; }
++:global(html:root[data-design="gilded"]) .prompt, :global(html:root[data-design="gilded"]) .house, :global(html:root[data-design="gilded"]) .count { color: var(--ink); }
+diff --git a/src/features/products/product.module.css b/src/features/products/product.module.css
+index af0fdd4..e04d1c6 100644
+--- a/src/features/products/product.module.css
++++ b/src/features/products/product.module.css
+@@ -1,82 +1,82 @@
+ .card { min-width: 0; height: 100%; }
+-:global(html[data-design="salon"]) .cardLink { padding: 0; border: 0; border-radius: 0; background: none; }
+-:global(html[data-design="salon"]) .cardLink:hover { box-shadow: none; transform: none; }
+-:global(html[data-design="salon"]) .imageStage { border-radius: 0; background: var(--photo); aspect-ratio: 1 / 1.1; }
+-:global(html[data-design="salon"]) .cardImage { width: 86%; height: 88%; }
+-:global(html[data-design="salon"]) .cardBody { padding: 22px 0 0; }
+-:global(html[data-design="salon"]) .cardTitle { font-size: 18px; line-height: 1.35; min-height: 2.7em; margin-bottom: 10px; }
+-:global(html[data-design="salon"]) .brand { font-size: 16px; color: var(--ink); }
+-:global(html[data-design="salon"]) .meta { font-size: 14px; color: var(--ink); gap: 10px; margin-block: 10px 16px; }
+-:global(html[data-design="salon"]) .meta span + span { border: 0; padding: 0; }
+-:global(html[data-design="salon"]) .discountBadge { border-radius: 0; padding: 8px 10px; font-size: 14px; background: var(--stone); color: var(--ink); }
+-:global(html[data-design="salon"]) .viewCircle { border: 0; border-radius: 0; background: none; }
+-:global(html[data-design="salon"]) .priceValues strong { font-size: 24px; }
+-:global(html[data-design="salon"]) .priceValues del { font-size: 16px; color: var(--ink); }
+-:global(html[data-design="salon"]) .demoPrice small { font-size: 13px; background: none; padding: 0; }
+-:global(html[data-design="salon"]) .cardAction { justify-content: start; padding: 8px 0; border-radius: 0; background: none; color: var(--ink); font-size: 16px; min-height: 48px; }
+-:global(html[data-design="salon"]) .cardLink:hover .cardAction { background: none; }
+-:global(html[data-design="salon"]) .detailInfo h1 { font: 500 clamp(40px, 4vw, 64px)/1.05 var(--display); letter-spacing: -.025em; }
+-:global(html[data-design="salon"]) .detailBrand { font-size: 16px; color: var(--ink); }
+-:global(html[data-design="salon"]) .pricingDisclaimer { font-size: 14px; line-height: 1.6; color: var(--ink); }
+-:global(html[data-design="salon"]) .variantLine { font-size: 16px; }
+-:global(html[data-design="salon"]) .variantLine > bdi { border: 0; border-radius: 0; }
+-:global(html[data-design="salon"]) .familyList a { border: 0; border-radius: 0; padding: 6px 10px; background: var(--sage); font-size: 14px; }
+-:global(html[data-design="salon"]) .purchaseActions :global(.button) { border-radius: 0; font-size: 16px; }
+-:global(html[data-design="salon"]) .detailsLink { border: 0; border-radius: 0; background: var(--sage); font-size: 16px; }
+-:global(html[data-design="salon"]) .priceConfirmation { font-size: 14px; color: var(--ink); }
+-:global(html[data-design="salon"]) .brandRow { border: 0; font-size: 16px; }
+-:global(html[data-design="salon"]) .accordionItem { border: 0; }
+-:global(html[data-design="salon"]) .accordionTrigger { font-size: 18px; }
+-:global(html[data-design="salon"]) .description { font-size: 16px; line-height: 1.6; color: var(--ink); }
+-:global(html[data-design="salon"]) .notes li { font-size: 16px; border-radius: 0; }
+-:global(html[data-design="salon"]) .notes small, :global(html[data-design="salon"]) .caveat { font-size: 14px; color: var(--ink); line-height: 1.6; }
+-:global(html[data-design="salon"]) .detailStage { border: 0; border-radius: 0; background: var(--photo); }
+-:global(html[data-design="salon"]) .photoLabel, :global(html[data-design="salon"]) .detailDiscount { border-radius: 0; font-size: 14px; }
+-:global(html[data-design="salon"]) .profile { border: 0; border-radius: 0; background: var(--sage); padding: 32px; margin-block: 24px 64px; }
+-:global(html[data-design="salon"]) .profileHeading h2 { font: 500 36px/1.1 var(--display); }
+-:global(html[data-design="salon"]) .profileMark { background: none; color: var(--ink); }
+-:global(html[data-design="salon"]) .profileGrid > div { border: 0; border-radius: 0; background: none; padding: 8px 0; }
+-:global(html[data-design="salon"]) .profileGrid dt { font-size: 16px; color: var(--ink); }
+-:global(html[data-design="salon"]) .profileGrid dd { font-size: 20px; }
+-:global(html[data-design="salon"]) .photoDialog { border: 0; border-radius: 0; }
+-:global(html[data-design="salon"]) .photoDialog::backdrop { backdrop-filter: none; }
+-:global(html[lang="ar"][data-design="salon"]) .detailInfo h1 { font-family: var(--display); font-size: 48px; line-height: 1.1; letter-spacing: -.025em; }
+-:global(html[lang="ar"][data-design="salon"]) .cardTitle bdi { font-family: var(--font-manrope), sans-serif; }
+-:global(html[lang="ar"][data-design="salon"]) .profileHeading h2 { font-family: var(--body); font-size: 30px; line-height: 1.5; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink { padding: 0; border: 0; border-radius: 0; background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink:hover { box-shadow: none; transform: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { border-radius: 0; background: var(--photo); aspect-ratio: 1 / 1.1; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardImage { width: 86%; height: 88%; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardBody { padding: 22px 0 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardTitle { font-size: 18px; line-height: 1.35; min-height: 2.7em; margin-bottom: 10px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brand { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .meta { font-size: 14px; color: var(--ink); gap: 10px; margin-block: 10px 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .meta span + span { border: 0; padding: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .discountBadge { border-radius: 0; padding: 8px 10px; font-size: 14px; background: var(--stone); color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .viewCircle { border: 0; border-radius: 0; background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues strong { font-size: 24px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues del { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .demoPrice small { font-size: 13px; background: none; padding: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardAction { justify-content: start; padding: 8px 0; border-radius: 0; background: none; color: var(--ink); font-size: 16px; min-height: 48px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink:hover .cardAction { background: none; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1 { font: 500 clamp(40px, 4vw, 64px)/1.05 var(--display); letter-spacing: -.025em; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .detailBrand { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .pricingDisclaimer { font-size: 14px; line-height: 1.6; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .variantLine { font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .variantLine > bdi { border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .familyList a { border: 0; border-radius: 0; padding: 6px 10px; background: var(--sage); font-size: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .purchaseActions :global(.button) { border-radius: 0; font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .detailsLink { border: 0; border-radius: 0; background: var(--sage); font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .priceConfirmation { font-size: 14px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .brandRow { border: 0; font-size: 16px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .accordionItem { border: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .accordionTrigger { font-size: 18px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .description { font-size: 16px; line-height: 1.6; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .notes li { font-size: 16px; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .notes small, :global(html:is([data-design="salon"],[data-design="gilded"])) .caveat { font-size: 14px; color: var(--ink); line-height: 1.6; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .detailStage { border: 0; border-radius: 0; background: var(--photo); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .photoLabel, :global(html:is([data-design="salon"],[data-design="gilded"])) .detailDiscount { border-radius: 0; font-size: 14px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .profile { border: 0; border-radius: 0; background: var(--sage); padding: 32px; margin-block: 24px 64px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .profileHeading h2 { font: 500 36px/1.1 var(--display); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .profileMark { background: none; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .profileGrid > div { border: 0; border-radius: 0; background: none; padding: 8px 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .profileGrid dt { font-size: 16px; color: var(--ink); }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .profileGrid dd { font-size: 20px; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .photoDialog { border: 0; border-radius: 0; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .photoDialog::backdrop { backdrop-filter: none; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1 { font-family: var(--display); font-size: 48px; line-height: 1.1; letter-spacing: -.025em; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .cardTitle bdi { font-family: var(--font-manrope), sans-serif; }
++:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"])) .profileHeading h2 { font-family: var(--body); font-size: 30px; line-height: 1.5; }
+ /* Official names stay complete; only genuinely long titles take the compact scale. */
+-:global(html[data-design="salon"]) .detailInfo h1.longTitle { font-size: clamp(32px, 3.05vw, 44px); line-height: 1.12; text-wrap: balance; }
++:global(html:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1.longTitle { font-size: clamp(32px, 3.05vw, 44px); line-height: 1.12; text-wrap: balance; }
+ @media (max-width: 900px) {
+-  :global(html[data-design="salon"]) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ }
+ @media (max-width: 760px) {
+-  :global(html[data-design="salon"]) .productTopBar { padding-block: 12px; }
+-  :global(html[data-design="salon"]) .breadcrumbs { font-size: 14px; }
+-  :global(html[data-design="salon"]) .back { font-size: 14px; }
+-  :global(html[data-design="salon"]) .purchaseSummary { grid-row: 1; }
+-  :global(html[data-design="salon"]) .gallery { grid-row: 2; margin-block: 24px 32px; }
+-  :global(html[data-design="salon"]) .imageButton { min-height: 300px; padding: 24px; }
+-  :global(html[data-design="salon"]) .detailImage { height: 260px; }
+-  :global(html[data-design="salon"]) .detailInfo h1 { margin-block: 8px 16px; font-size: 42px; }
+-  :global(html[data-design="salon"]) .purchasePrice .priceValues strong { font-size: 30px; }
+-  :global(html[data-design="salon"]) .pricingDisclaimer { margin-block: 12px 16px; }
+-  :global(html[data-design="salon"]) .variantLine { margin-block: 12px; }
+-  :global(html[data-design="salon"]) .familyList { margin-bottom: 16px; }
+-  :global(html[data-design="salon"]) .priceConfirmation { margin-bottom: 0; }
+-  :global(html[data-design="salon"]) .profile { padding: 24px; }
+-  :global(html[data-design="salon"]) .profileHeading h2 { font-size: 30px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .productTopBar { padding-block: 12px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .breadcrumbs { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .back { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .purchaseSummary { grid-row: 1; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .gallery { grid-row: 2; margin-block: 24px 32px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .imageButton { min-height: 300px; padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .detailImage { height: 260px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .detailInfo h1 { margin-block: 8px 16px; font-size: 42px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .purchasePrice .priceValues strong { font-size: 30px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .pricingDisclaimer { margin-block: 12px 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .variantLine { margin-block: 12px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .familyList { margin-bottom: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .priceConfirmation { margin-bottom: 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .profile { padding: 24px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .profileHeading h2 { font-size: 30px; }
+ }
+ @media (max-width: 600px) {
+-  :global(html[data-design="salon"]) .cardLink { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; column-gap: 16px; }
+-  :global(html[data-design="salon"]) .imageStage { aspect-ratio: auto; height: 248px; }
+-  :global(html[data-design="salon"]) .cardBody { padding: 8px 0; }
+-  :global(html[data-design="salon"]) .cardTitle { font-size: 16px; min-height: 0; }
+-  :global(html[data-design="salon"]) .brand { font-size: 14px; }
+-  :global(html[data-design="salon"]) .meta { font-size: 14px; margin-block: 8px 12px; gap: 6px; }
+-  :global(html[data-design="salon"]) .priceValues strong { font-size: 20px; }
+-  :global(html[data-design="salon"]) .priceValues del { font-size: 14px; }
+-  :global(html[data-design="salon"]) .discountBadge { font-size: 13px; padding: 6px; }
+-  :global(html[data-design="salon"]) .cardAction { font-size: 14px; gap: 8px; margin-top: 8px; }
+-  :global(html[data-design="salon"]) .related :global(.product-grid) { grid-template-columns: 1fr; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardLink { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; column-gap: 16px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .imageStage { aspect-ratio: auto; height: 248px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardBody { padding: 8px 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardTitle { font-size: 16px; min-height: 0; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .brand { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .meta { font-size: 14px; margin-block: 8px 12px; gap: 6px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues strong { font-size: 20px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .priceValues del { font-size: 14px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .discountBadge { font-size: 13px; padding: 6px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .cardAction { font-size: 14px; gap: 8px; margin-top: 8px; }
++  :global(html:is([data-design="salon"],[data-design="gilded"])) .related :global(.product-grid) { grid-template-columns: 1fr; }
+ }
+ .cardLink {
+   display: flex; flex-direction: column; height: 100%; padding: 10px;
+@@ -217,3 +217,12 @@
+ @media (prefers-reduced-motion: reduce) {
+   .cardLink:hover, .cardLink:hover .cardImage, .imageButton:hover .detailImage { transform: none; }
+ }
++
++/* Gilded: outlined cards with a gold lift */
++:global(html:root[data-design="gilded"]) .cardLink { background: #fffaf0; border: 2px solid var(--ink); border-radius: 24px; overflow: hidden; transition: transform .25s, box-shadow .25s; }
++:global(html:root[data-design="gilded"]) .cardLink:hover { transform: translateY(-6px); box-shadow: 8px 8px 0 var(--brand-gold); }
++:global(html:root[data-design="gilded"]) .imageStage { border-radius: 0; background: var(--photo); border-bottom: 2px solid var(--ink); }
++:global(html:root[data-design="gilded"]) .cardBody { padding: 20px 20px 22px; }
++:global(html:root[data-design="gilded"]) .cardTitle { font-family: var(--display); font-weight: 700; font-size: 21px; }
++:global(html:root[data-design="gilded"]) .discountBadge { background: var(--ink); color: var(--gold-hi); border-radius: 999px; font-weight: 600; }
++:global(html:root[data-design="gilded"]) .priceValues strong { font-family: var(--display); font-weight: 800; font-size: 28px; }
+diff --git a/src/i18n/dictionaries.ts b/src/i18n/dictionaries.ts
+index 6b86fb9..a5a46ce 100644
+--- a/src/i18n/dictionaries.ts
++++ b/src/i18n/dictionaries.ts
+@@ -183,6 +183,8 @@ const en = {
+   closeDesign: "Close Design Chooser",
+   designSalon: "Scent Salon",
+   designSalonDescription: "Bigger type. A personal scent discovery, with a bold green and gold stage.",
++  designGilded: "Gilded",
++  designGildedDescription: "Warm cream, deep green and real gold. Big, confident type and colour-blocked sections.",
+   salonTitle: "A Space for Your Scent.",
+   salonIntro: "Discover designer and niche perfumes by the notes you love. Ask us about prices and availability.",
+   spotlightPrompt: "Start with a Note.",
+@@ -379,6 +381,8 @@ const ar: Dictionary = {
+   closeDesign: "إغلاق اختيار التصميم",
+   designSalon: "صالون العطر",
+   designSalonDescription: "خطوط أكبر ومساحة خضراء وذهبية لاكتشاف العطر الذي يشبهك.",
++  designGilded: "مُذهَّب",
++  designGildedDescription: "كريمي دافئ وأخضر عميق وذهب حقيقي، مع خطوط كبيرة وأقسام ملوّنة بجرأة.",
+   salonTitle: "مساحة تشبه عطرك.",
+   salonIntro: "اكتشف العطور الشهيرة والمتخصصة حسب النفحات التي تحبها. اسألنا عن الأسعار والتوفر.",
+   spotlightPrompt: "ابدأ بنفحة تحبها.",
+diff --git a/src/styles/fonts.ts b/src/styles/fonts.ts
+index 90912e9..76b04a3 100644
+--- a/src/styles/fonts.ts
++++ b/src/styles/fonts.ts
+@@ -19,3 +19,9 @@ export const arabic = localFont({
+     { path: "../../node_modules/@fontsource/noto-sans-arabic/files/noto-sans-arabic-arabic-600-normal.woff2", weight: "600" },
+   ], display: "swap", preload: true, variable: "--font-arabic", adjustFontFallback: false,
+ });
++export const fraunces = localFont({
++  src: [
++    { path: "../../node_modules/@fontsource/fraunces/files/fraunces-latin-700-normal.woff2", weight: "700" },
++    { path: "../../node_modules/@fontsource/fraunces/files/fraunces-latin-800-normal.woff2", weight: "800" },
++  ], display: "swap", preload: true, variable: "--font-fraunces",
++});
+diff --git a/src/styles/gilded.css b/src/styles/gilded.css
+new file mode 100644
+index 0000000..27e93cf
+--- /dev/null
++++ b/src/styles/gilded.css
+@@ -0,0 +1,43 @@
++/* Gilded: warm cream, deep green, real gold. Shares Salon's layout; this file and the
++   "gilded" blocks in the module CSS files are the only places it differs. */
++html:root[data-design="gilded"] {
++  --canvas: #f6eedb; --photo: #fffaf0; --sage: #eadcba; --stone: #f1e2bd;
++  --brand-green: #0d4339; --brand-gold: #c9a043; --gold-surface: #e7cf84;
++  --ink: #17231f; --muted: #4a554f; --line: #17231f;
++  --gold-hi: #f0dc9c; --cream: #f6eedb; --gold-grad: linear-gradient(135deg, #f0dc9c, #c9a043);
++  --display: var(--font-fraunces), Georgia, serif;
++}
++html:root[data-design="gilded"] body { background: var(--canvas); background-image: none; color: var(--ink); scrollbar-color: var(--brand-green) var(--sage); }
++html:root[data-design="gilded"] ::selection { background: var(--brand-gold); color: var(--ink); }
++
++/* Type: heavy and confident */
++html:root[data-design="gilded"] .section-heading h2 { font: 800 clamp(2.5rem, 5.6vw, 4.8rem)/1.02 var(--display); letter-spacing: -.025em; color: var(--ink); max-width: 14ch; }
++html:root[data-design="gilded"] .section-heading p { font-size: 18px; color: var(--muted); max-width: 40ch; }
++
++/* Buttons: pills with a firm outline */
++html:root[data-design="gilded"] .button { border: 2px solid var(--brand-green); border-radius: 999px; font-weight: 600; min-height: 54px; padding-inline: 30px; transition: transform .2s, background .2s, color .2s, box-shadow .2s; }
++html:root[data-design="gilded"] .button:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(--brand-gold); }
++html:root[data-design="gilded"] .button-dark { background: var(--brand-green); color: var(--cream); }
++html:root[data-design="gilded"] .button-dark:hover { background: var(--brand-green); color: var(--gold-hi); }
++html:root[data-design="gilded"] .button-light { background: transparent; color: var(--ink); border-color: var(--ink); }
++
++/* Product grid */
++html:root[data-design="gilded"] .product-grid { gap: 24px; }
++
++/* Footer: one deep-green anchor with a gold edge */
++html:root[data-design="gilded"] .site-footer { background: var(--brand-green); border-top: 6px solid var(--brand-gold); }
++html:root[data-design="gilded"] .footer-brand-name,
++html:root[data-design="gilded"] .footer-links h2,
++html:root[data-design="gilded"] .footer-contact h2 { color: var(--gold-hi); font-family: var(--display); font-weight: 700; }
++html:root[data-design="gilded"] .footer-line,
++html:root[data-design="gilded"] .footer-links,
++html:root[data-design="gilded"] .footer-contact > p,
++html:root[data-design="gilded"] .footer-instagram,
++html:root[data-design="gilded"] .footer-bottom small { color: #dfe7de; }
++html:root[data-design="gilded"] .footer-bottom { border-top: 1px solid #f0dc9c40; }
++html:root[data-design="gilded"] .salon-close { color: var(--gold-hi); font: 800 clamp(58px, 10vw, 144px)/.95 var(--font-fraunces), serif; }
++html:root[data-design="gilded"] .footer-contact .button { background: var(--gold-grad); color: var(--ink); border-color: var(--brand-gold); }
++
++html:root[data-design="gilded"] :focus-visible { outline: 3px solid var(--brand-gold); outline-offset: 3px; }
++html[lang="ar"]:root[data-design="gilded"] .section-heading h2 { font-family: var(--body); font-weight: 700; letter-spacing: 0; max-width: none; }
++@media (prefers-reduced-motion: reduce) { html:root[data-design="gilded"] * { transition: none !important; } }
+diff --git a/src/styles/salon.css b/src/styles/salon.css
+index fe6aad6..b433f8d 100644
+--- a/src/styles/salon.css
++++ b/src/styles/salon.css
+@@ -1,56 +1,56 @@
+ /* Opt-in only. The three existing designs keep their original tokens and styles. */
+-html[data-design="salon"] {
++html:is([data-design="salon"],[data-design="gilded"]) {
+   --canvas: #fbfaf6;
+   --photo: #f1f3ee;
+   --muted: var(--brand-green);
+ }
+-html[data-design="salon"] body { background-image: none; }
+-html[data-design="salon"] body { scrollbar-color: var(--brand-green) var(--sage); }
+-html[data-design="salon"] input { caret-color: var(--brand-green); }
+-html[data-design="salon"] ::selection { background: var(--brand-gold); color: var(--brand-green); }
+-html[data-design="salon"] .button { border: 0; border-radius: 0; font-size: 16px; min-height: 52px; box-shadow: none; }
+-html[data-design="salon"] .button:hover { box-shadow: none; }
+-html[data-design="salon"] .configuration-note { font-size: 14px; }
+-html[data-design="salon"] .section-heading { align-items: flex-start; margin-bottom: 32px; }
+-html[data-design="salon"] .section-heading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
+-html[data-design="salon"] .section-heading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 34ch; }
+-html[lang="ar"][data-design="salon"] .section-heading h2 { font-family: var(--body); font-size: clamp(30px, 3.4vw, 48px); line-height: 1.4; letter-spacing: 0; }
+-html[data-design="salon"] .site-footer { border: 0; }
+-html[data-design="salon"] .footer-main { padding-block: 48px; }
+-html[data-design="salon"] .footer-line,
+-html[data-design="salon"] .footer-links,
+-html[data-design="salon"] .footer-contact > p,
+-html[data-design="salon"] .footer-instagram { font-size: 16px; color: var(--white); line-height: 1.6; }
+-html[data-design="salon"] .footer-brand-name,
+-html[data-design="salon"] .footer-links h2,
+-html[data-design="salon"] .footer-contact h2 { color: var(--white); font-size: 26px; }
+-html[data-design="salon"] .footer-contact .button { font-size: 14px; }
+-html[data-design="salon"] .footer-bottom { border: 0; flex-wrap: wrap; }
+-html[data-design="salon"] .footer-bottom small { font-size: 13px; color: var(--white); }
++html:is([data-design="salon"],[data-design="gilded"]) body { background-image: none; }
++html:is([data-design="salon"],[data-design="gilded"]) body { scrollbar-color: var(--brand-green) var(--sage); }
++html:is([data-design="salon"],[data-design="gilded"]) input { caret-color: var(--brand-green); }
++html:is([data-design="salon"],[data-design="gilded"]) ::selection { background: var(--brand-gold); color: var(--brand-green); }
++html:is([data-design="salon"],[data-design="gilded"]) .button { border: 0; border-radius: 0; font-size: 16px; min-height: 52px; box-shadow: none; }
++html:is([data-design="salon"],[data-design="gilded"]) .button:hover { box-shadow: none; }
++html:is([data-design="salon"],[data-design="gilded"]) .configuration-note { font-size: 14px; }
++html:is([data-design="salon"],[data-design="gilded"]) .section-heading { align-items: flex-start; margin-bottom: 32px; }
++html:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font: 500 clamp(36px, 4.4vw, 64px)/1.04 var(--display); letter-spacing: -.025em; margin: 0; text-wrap: balance; }
++html:is([data-design="salon"],[data-design="gilded"]) .section-heading p { font-size: 16px; line-height: 1.6; color: var(--ink); max-width: 34ch; }
++html[lang="ar"]:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font-family: var(--body); font-size: clamp(30px, 3.4vw, 48px); line-height: 1.4; letter-spacing: 0; }
++html:is([data-design="salon"],[data-design="gilded"]) .site-footer { border: 0; }
++html:is([data-design="salon"],[data-design="gilded"]) .footer-main { padding-block: 48px; }
++html:is([data-design="salon"],[data-design="gilded"]) .footer-line,
++html:is([data-design="salon"],[data-design="gilded"]) .footer-links,
++html:is([data-design="salon"],[data-design="gilded"]) .footer-contact > p,
++html:is([data-design="salon"],[data-design="gilded"]) .footer-instagram { font-size: 16px; color: var(--white); line-height: 1.6; }
++html:is([data-design="salon"],[data-design="gilded"]) .footer-brand-name,
++html:is([data-design="salon"],[data-design="gilded"]) .footer-links h2,
++html:is([data-design="salon"],[data-design="gilded"]) .footer-contact h2 { color: var(--white); font-size: 26px; }
++html:is([data-design="salon"],[data-design="gilded"]) .footer-contact .button { font-size: 14px; }
++html:is([data-design="salon"],[data-design="gilded"]) .footer-bottom { border: 0; flex-wrap: wrap; }
++html:is([data-design="salon"],[data-design="gilded"]) .footer-bottom small { font-size: 13px; color: var(--white); }
+ .salon-close { display: none; }
+-html[data-design="salon"] .salon-close { display: block; margin-block: 0; padding-block: 34px 12px; color: var(--brand-gold); font: 500 clamp(58px, 10vw, 144px)/.95 var(--font-cormorant), serif; letter-spacing: -.035em; }
++html:is([data-design="salon"],[data-design="gilded"]) .salon-close { display: block; margin-block: 0; padding-block: 34px 12px; color: var(--brand-gold); font: 500 clamp(58px, 10vw, 144px)/.95 var(--font-cormorant), serif; letter-spacing: -.035em; }
+ /* The sample-review fixture remains available in the original designs, not used as proof here. */
+-html[data-design="salon"] #customer-experiences { display: none; }
++html:is([data-design="salon"],[data-design="gilded"]) #customer-experiences { display: none; }
+ @media (max-width: 900px) {
+-  html[data-design="salon"] .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  html:is([data-design="salon"],[data-design="gilded"]) .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+ }
+ @media (max-width: 650px) {
+-  html[data-design="salon"] .section-heading { flex-direction: column; gap: 20px; }
+-  html[data-design="salon"] .section-heading h2 { font-size: 36px; }
+-  html[lang="ar"][data-design="salon"] .section-heading h2 { font-size: 30px; }
+-  html[data-design="salon"] .footer-main { grid-template-columns: 1fr; gap: 32px; }
+-  html[data-design="salon"] .footer-main .footer-brand { max-width: 32ch; }
+-  html[data-design="salon"] .footer-line { max-width: none; }
+-  html[data-design="salon"] .footer-links { grid-template-columns: 1fr 1fr; gap: 8px 16px; }
+-  html[data-design="salon"] .footer-links h2 { grid-column: 1 / -1; margin-bottom: 8px; }
+-  html[data-design="salon"] .footer-contact { max-width: 34ch; }
+-  html[data-design="salon"] .footer-contact .button { font-size: 16px; }
+-  html[data-design="salon"] .salon-close { font-size: clamp(48px, 13vw, 72px); }
++  html:is([data-design="salon"],[data-design="gilded"]) .section-heading { flex-direction: column; gap: 20px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font-size: 36px; }
++  html[lang="ar"]:is([data-design="salon"],[data-design="gilded"]) .section-heading h2 { font-size: 30px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-main { grid-template-columns: 1fr; gap: 32px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-main .footer-brand { max-width: 32ch; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-line { max-width: none; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-links { grid-template-columns: 1fr 1fr; gap: 8px 16px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-links h2 { grid-column: 1 / -1; margin-bottom: 8px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-contact { max-width: 34ch; }
++  html:is([data-design="salon"],[data-design="gilded"]) .footer-contact .button { font-size: 16px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .salon-close { font-size: clamp(48px, 13vw, 72px); }
+ }
+ @media (max-width: 600px) {
+-  html[data-design="salon"] .product-grid { grid-template-columns: 1fr; gap: 28px; }
++  html:is([data-design="salon"],[data-design="gilded"]) .product-grid { grid-template-columns: 1fr; gap: 28px; }
+ }
+ @media (prefers-reduced-motion: no-preference) {
+-  html[data-design="salon"] .salon-close { animation: salon-close-entry .65s var(--motion-ease) both; }
++  html:is([data-design="salon"],[data-design="gilded"]) .salon-close { animation: salon-close-entry .65s var(--motion-ease) both; }
+ }
+ @keyframes salon-close-entry { from { opacity: .75; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+diff --git a/tests/e2e/interface-layout.spec.ts b/tests/e2e/interface-layout.spec.ts
+index 0ee53f2..bda647c 100644
+--- a/tests/e2e/interface-layout.spec.ts
++++ b/tests/e2e/interface-layout.spec.ts
+@@ -41,7 +41,7 @@ for (const width of [320, 360, 390, 768, 1440]) {
+     await page.setViewportSize({ width, height: 1000 });
+     for (const locale of ["en", "ar"] as const) {
+       const d = getDictionary(locale);
+-      const names = { atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon };
++      const names = { gilded: d.designGilded, atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon };
+       for (const route of ["", "/catalogue", "/perfumes/diptyque-philosykos-p0170"]) {
+         await page.goto(`/${locale}${route}`);
+         for (const design of designIds) {
+-- 
+2.43.0
+

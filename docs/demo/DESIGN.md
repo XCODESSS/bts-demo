@@ -82,7 +82,7 @@ Desktop uses four-column discovery/product/brand groups and three gender categor
 - Note/family tiles represent categories, not products: original SVG illustrations match their labels and real result counts use existing catalogue query matching. Their data shape deliberately has no representative product/photo, preventing ingredient labels being paired with unrelated bottle names.
 - Product names and photos, including campaign photos, come from records. There is no hard-coded Torino21 image attached to an unrelated fallback product.
 - `CollectionsBrowser` is a small client boundary receiving bounded category links/counts and locale for original accessible illustrations. Tabs support click, native Enter/Space, roving focus, Home/End and RTL-aware arrows.
-- Header search is a native GET form. It starts a fresh catalogue query; the main catalogue search continues to combine existing filters. No autocomplete backend was added.
+- Header search is a native GET form. It starts a fresh catalogue query on other routes; on the catalogue it is hidden so the filter-aware main search is the only visible search. Server-rendered DOM-based styling applies before hydration and without JavaScript, with a compact responsive header. The brand wordmark uses colour feedback on hover rather than underlining its two text lines. No autocomplete backend was added.
 - Brand browsing shows eight compact actual-house cards and a searchable native modal directory. Search normalizes accents/case; Escape, backdrop dismissal and focus restoration work. It never expands a giant table into the page. Every category/brand/tile links to a supported catalogue filter.
 - Existing `ProductImage`, `ProductCard` and `EnquiryLink` preserve safe fallbacks, exact enquiry-price wording and consent-gated click analytics.
 
@@ -133,7 +133,7 @@ Settled layouts, typography, native filters/search, URL behavior, English/Arabic
 
 ## Motion, accessibility and critique
 
-At the user's request, the homepage now has three gently floating hero bottles, a moving gold light sweep, a slow decorative-star turn, an introductory entrance and one-time section reveals. Card hover lifts the card and enlarges the photo, while the full-width action changes from green to gold. The user subsequently requested removal of the Pause/Resume animations button; it is now absent. System reduced motion still disables decorative motion; existing chooser crossfades retain their reduced-motion/fallback behavior.
+At the user's request, the homepage now has three gently floating hero bottles, a moving gold light sweep, a continuous 18-second decorative-star rotation where the star is shown, an introductory entrance and one-time section reveals. Card hover lifts the card and enlarges the photo, while the full-width action changes from green to gold. The user subsequently requested removal of the Pause/Resume animations button; it is now absent. System reduced motion still disables decorative motion; existing chooser crossfades retain their reduced-motion/fallback behavior.
 
 `storefront-motion.tsx` exports `ScrollSection`: all semantic sections/links and their real geometry are server-rendered. Product photographs use native lazy loading; `tw-animate-css` adds one-time viewport reveals without replacing page-sized placeholders. Explicit hash destinations skip entry movement, and unsupported IntersectionObserver leaves content visible. The earlier whole-section deferral caused an approximately 83 px anchor drift and is superseded by this stable layout. The complete homepage is now present without JavaScript, not just a catalogue fallback. Reduced motion disables entry/indicator transitions.
 
@@ -145,7 +145,7 @@ Scent tabs now have a green hover wash and a measured selected pill that moves/r
 
 ## Added feature, experience and footer sections
 
-The green/gold feature banner follows the supplied large-display/four-column composition. It uses the actual live catalogue count (100 in seed mode), not an unsupported claim of 1,000 available products or worldwide delivery. Its four factual features cover designer/niche discovery, English/Arabic, direct enquiries and fragrance details. The existing WhatsApp action remains functional.
+The green/gold business banner keeps the supplied large-display/four-column composition, now with “Beyond the Space. / Your Signature Scent.” instead of a catalogue-count headline. The four columns describe designer/niche fragrances, fragrance guidance, gifts/occasions and WhatsApp enquiries—not website-language support or demo inventory. English/Arabic copy invites a conversation about notes, preferences, occasions, current prices and availability without claiming verified stock, delivery, gift wrapping or other unconfirmed services. The existing WhatsApp action remains functional.
 
 Three shadcn review cards match the supplied warm cards/gold-star treatment but explicitly say Sample review / Sample customer, with a section-wide statement that they are not verified customer reviews. No rating schema or invented identities are emitted. A linked Instagram callout and the dark footer use the exact owner-supplied profile URL; no Instagram embed or third-party tracking loads before a click.
 

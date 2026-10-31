@@ -16,6 +16,10 @@
   gap: 30px;
   align-items: center;
 }
+/* The catalogue already has a filter-aware search; do not show a second one.
+   DOM-based styling also applies before hydration and without JavaScript. */
+.header:has(+ main :global(#catalogue-filters)) .search { display: none; }
+.header:has(+ main :global(#catalogue-filters)) .inner { grid-template-columns: auto minmax(0, 1fr) auto; }
 .brand {
   min-width: 0;
   display: inline-flex;
@@ -23,7 +27,7 @@
   align-items: center;
   text-decoration: none;
 }
-.brand:hover .wordmark { text-decoration: underline; text-underline-offset: 4px; }
+.brand:hover .wordmark { color: #1e534d; }
 .search button:hover { background: #1e392f; }
 .mobileNavigation a:hover { text-decoration: underline; background: var(--sage); }
 .brand img { border-radius: 50%; flex-shrink: 0; }
@@ -110,6 +114,7 @@
 }
 @media (max-width: 1100px) {
   .inner { grid-template-columns: auto minmax(160px, 1fr) auto; }
+  .header:has(+ main :global(#catalogue-filters)) .inner { grid-template-columns: minmax(0, 1fr) auto; }
   .navigation { display: none; }
   .mobileMenu { display: block; }
   .actions { gap: 8px; }
