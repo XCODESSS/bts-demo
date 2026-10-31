@@ -75,13 +75,13 @@
   background: var(--forest);
   color: white;
 }
-:global(html[data-design="salon"]) .header { border-bottom: 0; }
-:global(html[data-design="salon"]) .navigation a { font-size: var(--type-body); }
-:global(html[data-design="salon"]) .search { border-radius: 0; background: var(--sage); border: 0; }
-:global(html[data-design="salon"]) .search input { font-size: var(--type-body); border-radius: 0; }
-:global(html[data-design="salon"]) .search button { border-radius: 0; }
-:global(html[data-design="salon"]) .actions :global(.language-switch) { font-size: var(--type-label); }
-:global(html[data-design="salon"]) .mobileNavigation { font-size: var(--type-body); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .header { border-bottom: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .navigation a { font-size: var(--type-body); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .search { border-radius: 0; background: var(--sage); border: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .search input { font-size: var(--type-body); border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .search button { border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .actions :global(.language-switch) { font-size: var(--type-label); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .mobileNavigation { font-size: var(--type-body); }
 .mobileMenu { display: none; }
 .mobileNavigation {
   position: absolute;
@@ -128,3 +128,37 @@
   .wordmark > span { font-size: var(--type-label); margin-top: 4px; }
   .actions { gap: 3px; }
 }
+
+/* Gilded */
+:global(html:root[data-design="gilded"]) .header { background: var(--canvas); border-bottom: 2px solid var(--ink); }
+:global(html:root[data-design="gilded"]) .navigation a { font-weight: 600; }
+:global(html:root[data-design="gilded"]) .navigation a:hover { color: var(--brand-green); text-decoration: underline; text-decoration-color: var(--brand-gold); text-decoration-thickness: 3px; text-underline-offset: 8px; }
+:global(html:root[data-design="gilded"]) .search { border: 2px solid var(--ink); border-radius: 999px; background: var(--photo); overflow: hidden; }
+:global(html:root[data-design="gilded"]) .search button { background: var(--brand-green); color: var(--cream); border-radius: 999px; }
+:global(html:root[data-design="gilded"]) .wordmark { font-family: var(--display); font-weight: 700; }
+
+/* Noir */
+:global(html:root[data-design="noir"]) .header { background:#07211dee; border-bottom:1px solid #d6b25e; }
+:global(html:root[data-design="noir"]) .navigation a { text-transform:uppercase; letter-spacing:.16em; font-size:12.5px; font-weight:600; }
+:global(html:root[data-design="noir"]) .navigation a:hover { color:#e7cf84; }
+:global(html:root[data-design="noir"]) .search { background:#0d2f29; border:1px solid #d6b25e; border-radius:0; }
+:global(html:root[data-design="noir"]) .search input { color:#f1e6c6; }
+:global(html:root[data-design="noir"]) .search button { background:#d6b25e; color:#07211d; border-radius:0; }
+:global(html:root[data-design="noir"]) .wordmark { font-family:var(--display); text-transform:uppercase; letter-spacing:.1em; font-size:18px; }
+
+/* Souk */
+:global(html:root[data-design="souk"]) .header { background:var(--canvas); border-bottom:0; }
+:global(html:root[data-design="souk"]) .header::after { content:""; display:block; height:14px; background-color:#0f4a3b; background-image:var(--zellige); background-size:14px 14px; background-position:0 0,7px 7px; border-bottom:2px solid #b88a2b; }
+:global(html:root[data-design="souk"]) .navigation a { font-weight:600; }
+:global(html:root[data-design="souk"]) .navigation a:hover { color:#b88a2b; }
+:global(html:root[data-design="souk"]) .search { background:#fffdf4; border:2px solid #b88a2b; border-radius:12px; }
+:global(html:root[data-design="souk"]) .search button { background:#0f4a3b; color:#f6ecd0; border-radius:8px; }
+:global(html:root[data-design="souk"]) .wordmark { font-family:var(--display); font-weight:800; font-style:italic; }
+
+/* Verdant */
+:global(html:root[data-design="verdant"]) .header { background:#fff; border-bottom:0; box-shadow:0 2px 0 #0b2b21; }
+:global(html:root[data-design="verdant"]) .navigation a { font-weight:700; padding:8px 14px; border-radius:99px; transition:background .2s; }
+:global(html:root[data-design="verdant"]) .navigation a:hover { background:#ffd84d; }
+:global(html:root[data-design="verdant"]) .search { background:#eef7e9; border:2px solid #0b2b21; border-radius:999px; }
+:global(html:root[data-design="verdant"]) .search button { background:#0a7a55; color:#fff; border-radius:999px; }
+:global(html:root[data-design="verdant"]) .wordmark { font-family:var(--display); font-weight:800; letter-spacing:-.02em; }

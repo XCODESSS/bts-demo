@@ -1,0 +1,19 @@
+/* Emerald Noir: dark, symmetrical, art-deco. */
+html:root[data-design="noir"] { --canvas:#07211d; --photo:#fffaf0; --sage:#0d2f29; --stone:#123a33; --brand-green:#0a2a25; --brand-gold:#d6b25e; --gold-surface:#d6b25e;
+  --ink:#f1e6c6; --muted:#b8c3b2; --line:#d6b25e55; --white:#f1e6c6; --gold-grad:linear-gradient(180deg,#f3dc9a,#b8913a); --display:var(--font-cinzel),Georgia,serif; }
+html:root[data-design="noir"] body { background:radial-gradient(90% 40% at 50% 0,#0f4137 0,transparent 70%),var(--canvas); color:var(--ink); scrollbar-color:#d6b25e #07211d; }
+html:root[data-design="noir"] ::selection { background:#d6b25e; color:#07211d; }
+html:root[data-design="noir"] .section-heading { align-items:center; text-align:center; }
+html:root[data-design="noir"] .section-heading h2 { font:700 clamp(1.9rem,3.8vw,3.2rem)/1.15 var(--display); text-transform:uppercase; letter-spacing:.08em; max-width:20ch; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+html:root[data-design="noir"] .section-heading h2::after { content:""; display:block; width:120px; height:1px; background:#d6b25e; margin:22px auto 0; }
+html:root[data-design="noir"] .section-heading p { color:var(--muted); max-width:52ch; }
+html:root[data-design="noir"] .button { border:1px solid #d6b25e; border-radius:0; text-transform:uppercase; letter-spacing:.14em; font-size:13px; font-weight:600; min-height:52px; padding-inline:30px; background:transparent; color:#f1e6c6; transition:background .25s,color .25s; }
+html:root[data-design="noir"] .button:hover { background:#d6b25e; color:#07211d; box-shadow:none; transform:none; }
+html:root[data-design="noir"] .button-dark { background:var(--gold-grad); color:#07211d; }
+html:root[data-design="noir"] .button-light { background:transparent; }
+html:root[data-design="noir"] .site-footer { background:#041a16; border-top:1px solid #d6b25e; }
+html:root[data-design="noir"] .footer-brand-name,html:root[data-design="noir"] .footer-links h2,html:root[data-design="noir"] .footer-contact h2 { font-family:var(--display); color:#e7cf84; text-transform:uppercase; letter-spacing:.08em; font-size:20px; }
+html:root[data-design="noir"] .footer-bottom { border-top:1px solid #d6b25e44; }
+html:root[data-design="noir"] .salon-close { font:700 clamp(2.4rem,7vw,6rem)/1 var(--font-cinzel),serif; letter-spacing:.06em; text-transform:uppercase; text-align:center; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+html:root[data-design="noir"] :focus-visible { outline:2px solid #e7cf84; outline-offset:3px; }
+html:root[lang="ar"][data-design="noir"] .section-heading h2 { font-family:var(--body); text-transform:none; letter-spacing:0; }

@@ -99,38 +99,38 @@
 :global(html[data-design="linen"]) .related :global(.product-grid) { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
 /* Salon keeps its unboxed framing, not a separate undersized typography system. */
-:global(html[data-design="salon"]) .cardLink { padding: 0; border: 0; border-radius: 0; background: none; }
-:global(html[data-design="salon"]) .cardLink:hover { box-shadow: none; transform: none; }
-:global(html[data-design="salon"]) .imageStage { border-radius: 0; background: var(--photo); aspect-ratio: 1 / 1.1; }
-:global(html[data-design="salon"]) .cardImage { width: 86%; height: 88%; }
-:global(html[data-design="salon"]) .cardBody { padding: 22px 0 0; }
-:global(html[data-design="salon"]) .cardTitle { margin-bottom: 10px; }
-:global(html[data-design="salon"]) .brand { color: var(--ink); }
-:global(html[data-design="salon"]) .meta { color: var(--ink); gap: 10px; margin-block: 10px 16px; }
-:global(html[data-design="salon"]) .meta span + span { border: 0; padding: 0; }
-:global(html[data-design="salon"]) .discountBadge { border-radius: 0; padding: 8px 10px; background: var(--stone); color: var(--ink); }
-:global(html[data-design="salon"]) .viewCircle { border: 0; border-radius: 0; background: none; }
-:global(html[data-design="salon"]) .priceValues del { color: var(--ink); }
-:global(html[data-design="salon"]) .demoPrice small { background: none; padding: 0; }
-:global(html[data-design="salon"]) .cardAction { justify-content: start; padding: 8px 0; border-radius: 0; background: none; color: var(--ink); min-height: 48px; }
-:global(html[data-design="salon"]) .cardLink:hover .cardAction { background: none; }
-:global(html[data-design="salon"]) .detailBrand, :global(html[data-design="salon"]) .pricingDisclaimer,
-:global(html[data-design="salon"]) .priceConfirmation, :global(html[data-design="salon"]) .description,
-:global(html[data-design="salon"]) .notes small, :global(html[data-design="salon"]) .caveat { color: var(--ink); }
-:global(html[data-design="salon"]) .variantLine > bdi { border: 0; border-radius: 0; }
-:global(html[data-design="salon"]) .familyList a { border: 0; border-radius: 0; padding: 6px 10px; background: var(--sage); }
-:global(html[data-design="salon"]) .purchaseActions :global(.button) { border-radius: 0; }
-:global(html[data-design="salon"]) .detailsLink { border: 0; border-radius: 0; background: var(--sage); }
-:global(html[data-design="salon"]) .brandRow, :global(html[data-design="salon"]) .accordionItem { border: 0; }
-:global(html[data-design="salon"]) .notes li, :global(html[data-design="salon"]) .photoLabel,
-:global(html[data-design="salon"]) .detailDiscount { border-radius: 0; }
-:global(html[data-design="salon"]) .detailStage { border: 0; border-radius: 0; background: var(--photo); }
-:global(html[data-design="salon"]) .profile { border: 0; border-radius: 0; background: var(--sage); padding: 32px; margin-block: 24px 64px; }
-:global(html[data-design="salon"]) .profileMark { background: none; color: var(--ink); }
-:global(html[data-design="salon"]) .profileGrid > div { border: 0; border-radius: 0; background: none; padding: 8px 0; }
-:global(html[data-design="salon"]) .profileGrid dt { color: var(--ink); }
-:global(html[data-design="salon"]) .photoDialog { border: 0; border-radius: 0; }
-:global(html[data-design="salon"]) .photoDialog::backdrop { backdrop-filter: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink { padding: 0; border: 0; border-radius: 0; background: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink:hover { box-shadow: none; transform: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { border-radius: 0; background: var(--photo); aspect-ratio: 1 / 1.1; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardImage { width: 86%; height: 88%; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardBody { padding: 22px 0 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardTitle { margin-bottom: 10px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brand { color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .meta { color: var(--ink); gap: 10px; margin-block: 10px 16px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .meta span + span { border: 0; padding: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .discountBadge { border-radius: 0; padding: 8px 10px; background: var(--stone); color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .viewCircle { border: 0; border-radius: 0; background: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceValues del { color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .demoPrice small { background: none; padding: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardAction { justify-content: start; padding: 8px 0; border-radius: 0; background: none; color: var(--ink); min-height: 48px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink:hover .cardAction { background: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailBrand, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pricingDisclaimer,
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceConfirmation, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .description,
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .notes small, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caveat { color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .variantLine > bdi { border: 0; border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .familyList a { border: 0; border-radius: 0; padding: 6px 10px; background: var(--sage); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .purchaseActions :global(.button) { border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailsLink { border: 0; border-radius: 0; background: var(--sage); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandRow, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .accordionItem { border: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .notes li, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .photoLabel,
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailDiscount { border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailStage { border: 0; border-radius: 0; background: var(--photo); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profile { border: 0; border-radius: 0; background: var(--sage); padding: 32px; margin-block: 24px 64px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileMark { background: none; color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileGrid > div { border: 0; border-radius: 0; background: none; padding: 8px 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profileGrid dt { color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .photoDialog { border: 0; border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .photoDialog::backdrop { backdrop-filter: none; }
 
 @media (max-width: 900px) {
   .detail { grid-template-columns: 1fr 1fr; column-gap: 28px; }
@@ -139,7 +139,7 @@
   .detailImage { height: 400px; }
   :global(html[data-design="atelier"]) .related :global(.product-grid),
   :global(html[data-design="linen"]) .related :global(.product-grid),
-  :global(html[data-design="salon"]) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .related :global(.product-grid) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .cardLink { padding: 7px; }
@@ -167,27 +167,27 @@
   .profileGrid > div { padding: 14px 12px; }
   .profileGrid dt { gap: 6px; flex-wrap: wrap; }
   .related { padding-bottom: 50px; }
-  :global(html[data-design="salon"]) .productTopBar { padding-block: 12px; }
-  :global(html[data-design="salon"]) .purchaseSummary { grid-row: 1; }
-  :global(html[data-design="salon"]) .gallery { grid-row: 2; margin-block: 24px 32px; }
-  :global(html[data-design="salon"]) .imageButton { min-height: 300px; padding: 24px; }
-  :global(html[data-design="salon"]) .detailImage { height: 260px; }
-  :global(html[data-design="salon"]) .detailInfo h1 { margin-block: 8px 16px; }
-  :global(html[data-design="salon"]) .pricingDisclaimer { margin-block: 12px 16px; }
-  :global(html[data-design="salon"]) .variantLine { margin-block: 12px; }
-  :global(html[data-design="salon"]) .familyList { margin-bottom: 16px; }
-  :global(html[data-design="salon"]) .priceConfirmation { margin-bottom: 0; }
-  :global(html[data-design="salon"]) .profile { padding: 24px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .productTopBar { padding-block: 12px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .purchaseSummary { grid-row: 1; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .gallery { grid-row: 2; margin-block: 24px 32px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageButton { min-height: 300px; padding: 24px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailImage { height: 260px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .detailInfo h1 { margin-block: 8px 16px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .pricingDisclaimer { margin-block: 12px 16px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .variantLine { margin-block: 12px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .familyList { margin-bottom: 16px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .priceConfirmation { margin-bottom: 0; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .profile { padding: 24px; }
 }
 @media (max-width: 600px) {
-  :global(html[data-design="salon"]) .cardLink { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; column-gap: 16px; }
-  :global(html[data-design="salon"]) .imageStage { aspect-ratio: auto; height: 248px; }
-  :global(html[data-design="salon"]) .cardBody { padding: 8px 0; }
-  :global(html[data-design="salon"]) .cardTitle { min-height: 0; }
-  :global(html[data-design="salon"]) .meta { margin-block: 8px 12px; gap: 6px; }
-  :global(html[data-design="salon"]) .discountBadge { padding: 6px; }
-  :global(html[data-design="salon"]) .cardAction { gap: 8px; margin-top: 8px; }
-  :global(html[data-design="salon"]) .related :global(.product-grid) { grid-template-columns: 1fr; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardLink { display: grid; grid-template-columns: .72fr 1.28fr; align-items: center; column-gap: 16px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { aspect-ratio: auto; height: 248px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardBody { padding: 8px 0; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardTitle { min-height: 0; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .meta { margin-block: 8px 12px; gap: 6px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .discountBadge { padding: 6px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .cardAction { gap: 8px; margin-top: 8px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .related :global(.product-grid) { grid-template-columns: 1fr; }
 }
 /* Atelier borrows the early enquiry, retaining its rounded green/gold framing. */
 @media (max-width: 760px) {
@@ -213,3 +213,42 @@
 @media (prefers-reduced-motion: reduce) {
   .cardLink:hover, .cardLink:hover .cardImage, .imageButton:hover .detailImage { transform: none; }
 }
+
+/* Gilded: outlined cards with a gold lift */
+:global(html:root[data-design="gilded"]) .cardLink { background: #fffaf0; border: 2px solid var(--ink); border-radius: 24px; overflow: hidden; transition: transform .25s, box-shadow .25s; }
+:global(html:root[data-design="gilded"]) .cardLink:hover { transform: translateY(-6px); box-shadow: 8px 8px 0 var(--brand-gold); }
+:global(html:root[data-design="gilded"]) .imageStage { border-radius: 0; background: var(--photo); border-bottom: 2px solid var(--ink); }
+:global(html:root[data-design="gilded"]) .cardBody { padding: 20px 20px 22px; }
+:global(html:root[data-design="gilded"]) .cardTitle { font-family: var(--display); font-weight: 700; font-size: 21px; }
+:global(html:root[data-design="gilded"]) .discountBadge { background: var(--ink); color: var(--gold-hi); border-radius: 999px; font-weight: 600; }
+:global(html:root[data-design="gilded"]) .priceValues strong { font-family: var(--display); font-weight: 800; font-size: 28px; }
+
+/* Noir: gold-edged dark cards */
+:global(html:root[data-design="noir"]) .cardLink { background:#0d2f29; border:1px solid #d6b25e; border-radius:0; color:#f1e6c6; transition:box-shadow .25s; }
+:global(html:root[data-design="noir"]) .cardLink:hover { box-shadow:0 0 0 3px #07211d,0 0 0 4px #d6b25e; }
+:global(html:root[data-design="noir"]) .imageStage { background:#fffaf0; border-radius:0; border-bottom:1px solid #d6b25e; }
+:global(html:root[data-design="noir"]) .cardBody { padding:20px 18px 22px; }
+:global(html:root[data-design="noir"]) .cardTitle { font-family:var(--display); font-weight:600; font-size:16px; letter-spacing:.04em; text-transform:uppercase; }
+:global(html:root[data-design="noir"]) .brand,:global(html:root[data-design="noir"]) .meta,:global(html:root[data-design="noir"]) .priceValues del { color:#b8c3b2; }
+:global(html:root[data-design="noir"]) .priceValues strong { font-family:var(--display); font-weight:700; font-size:22px; color:#e7cf84; }
+:global(html:root[data-design="noir"]) .discountBadge { background:#d6b25e; color:#07211d; border-radius:0; font-weight:600; }
+
+/* Souk: arch-topped plates */
+:global(html:root[data-design="souk"]) .cardLink { background:#fffdf4; border:2px solid #b88a2b; border-radius:26px; padding:12px 12px 8px; overflow:visible; transition:transform .25s; }
+:global(html:root[data-design="souk"]) .cardLink:hover { transform:translateY(-6px); }
+:global(html:root[data-design="souk"]) .imageStage { background:#f3ead2; border:2px solid #0f4a3b; border-radius:999px 999px 14px 14px; aspect-ratio:1/1.2; }
+:global(html:root[data-design="souk"]) .cardBody { padding:18px 8px 14px; }
+:global(html:root[data-design="souk"]) .cardTitle { font-family:var(--display); font-weight:700; font-size:20px; }
+:global(html:root[data-design="souk"]) .priceValues strong { font-family:var(--display); font-weight:800; font-size:26px; color:#0f4a3b; }
+:global(html:root[data-design="souk"]) .discountBadge { background:#e3c374; color:#123a2f; border-radius:8px; font-weight:600; }
+
+/* Verdant: soft cards, sticker badges */
+:global(html:root[data-design="verdant"]) .cardLink { background:#fff; border:0; border-radius:30px; box-shadow:0 10px 32px #0a3d2b22; padding:10px 10px 6px; transition:transform .2s,box-shadow .2s; }
+:global(html:root[data-design="verdant"]) .cardLink:hover { transform:translateY(-6px) rotate(-.6deg); box-shadow:0 18px 40px #0a3d2b30; }
+:global(html:root[data-design="verdant"]) :global(.product-grid) > :nth-child(3n+1) .imageStage { background:#dff0d8; }
+:global(html:root[data-design="verdant"]) :global(.product-grid) > :nth-child(3n+2) .imageStage { background:#fff1b8; }
+:global(html:root[data-design="verdant"]) .imageStage { border-radius:22px; }
+:global(html:root[data-design="verdant"]) .cardBody { padding:18px 12px 12px; }
+:global(html:root[data-design="verdant"]) .cardTitle { font-family:var(--display); font-weight:700; font-size:20px; letter-spacing:-.01em; }
+:global(html:root[data-design="verdant"]) .priceValues strong { font-family:var(--display); font-weight:800; font-size:28px; color:#0a7a55; letter-spacing:-.02em; }
+:global(html:root[data-design="verdant"]) .discountBadge { background:#f2b705; color:#0b2b21; border-radius:999px; font-weight:700; transform:rotate(-5deg); }

@@ -1,36 +1,36 @@
-:global(html[data-design="salon"]) .browser { display: contents; }
-:global(html[data-design="salon"]) .tabs { grid-column: 1; grid-row: 2; align-self: start; margin: 0; border: 0; border-radius: 0; padding: 4px; background: var(--sage); justify-content: flex-start; }
-:global(html[data-design="salon"]) .tab { border-radius: 0; font-size: var(--type-body); padding: 12px 16px; }
-:global(html[data-design="salon"]) .indicator { border-radius: 0; }
-:global(html[data-design="salon"]) .panel { grid-column: 2; grid-row: 1 / 3; }
-:global(html[data-design="salon"]) .grid { grid-template-columns: 1fr 1fr; gap: 12px 24px; }
-:global(html[data-design="salon"]) .tile { display: grid; grid-template-columns: 76px 1fr; align-items: center; background: var(--sage); border: 0; border-radius: 0; }
-:global(html[data-design="salon"]) .tile:nth-child(even) { background: var(--stone); }
-:global(html[data-design="salon"]) .imageStage { height: 100px; padding: 10px; }
-:global(html[data-design="salon"]) .image { width: 100%; height: 80px; }
-:global(html[data-design="salon"]) .caption { border: 0; padding: 14px 16px 14px 0; gap: 8px; }
-:global(html[dir="rtl"][data-design="salon"]) .caption { padding: 14px 0 14px 16px; }
-:global(html[data-design="salon"]) .caption h3 { font-size: var(--type-price); margin: 0 0 6px; }
-:global(html[data-design="salon"]) .caption div > span { font-size: var(--type-label); color: var(--ink); }
-:global(html[data-design="salon"]) .arrow { width: 24px; background: none; color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .browser { display: contents; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tabs { grid-column: 1; grid-row: 2; align-self: start; margin: 0; border: 0; border-radius: 0; padding: 4px; background: var(--sage); justify-content: flex-start; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tab { border-radius: 0; font-size: var(--type-body); padding: 12px 16px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .indicator { border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .panel { grid-column: 2; grid-row: 1 / 3; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .grid { grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile { display: grid; grid-template-columns: 76px 1fr; align-items: center; background: var(--sage); border: 0; border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile:nth-child(even) { background: var(--stone); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { height: 100px; padding: 10px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .image { width: 100%; height: 80px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { border: 0; padding: 14px 16px 14px 0; gap: 8px; }
+:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { padding: 14px 0 14px 16px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption h3 { font-size: var(--type-price); margin: 0 0 6px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption div > span { font-size: var(--type-label); color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .arrow { width: 24px; background: none; color: var(--ink); }
 @media (max-width: 1100px) {
-  :global(html[data-design="salon"]) .tile { grid-template-columns: 58px 1fr; }
-  :global(html[data-design="salon"]) .caption h3 { font-size: var(--type-card); }
-  :global(html[data-design="salon"]) .grid { column-gap: 12px; }
-  :global(html[data-design="salon"]) .caption div > span { white-space: nowrap; }
-  :global(html[data-design="salon"]) .arrow { display: none; }
-  :global(html[data-design="salon"]) .tab { font-size: var(--type-label); padding-inline: 10px; gap: 5px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile { grid-template-columns: 58px 1fr; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption h3 { font-size: var(--type-card); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .grid { column-gap: 12px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption div > span { white-space: nowrap; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .arrow { display: none; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tab { font-size: var(--type-label); padding-inline: 10px; gap: 5px; }
 }
 @media (max-width: 650px) {
-  :global(html[data-design="salon"]) .tabs { margin: 24px 0; }
-  :global(html[data-design="salon"]) .grid { gap: 10px; }
-  :global(html[data-design="salon"]) .tile { grid-template-columns: 48px 1fr; }
-  :global(html[data-design="salon"]) .imageStage { height: 90px; padding: 4px; }
-  :global(html[data-design="salon"]) .caption { padding: 10px 8px 10px 0; }
-  :global(html[dir="rtl"][data-design="salon"]) .caption { padding: 10px 0 10px 8px; }
-  :global(html[data-design="salon"]) .caption h3 { font-size: var(--type-body); }
-  :global(html[data-design="salon"]) .caption div > span { font-size: var(--type-label); }
-  :global(html[data-design="salon"]) .arrow { display: none; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tabs { margin: 24px 0; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .grid { gap: 10px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .tile { grid-template-columns: 48px 1fr; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .imageStage { height: 90px; padding: 4px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { padding: 10px 8px 10px 0; }
+  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption { padding: 10px 0 10px 8px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption h3 { font-size: var(--type-body); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .caption div > span { font-size: var(--type-label); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .arrow { display: none; }
 }
 .tabs {
   position: relative; isolation: isolate; display: flex; align-items: stretch;
@@ -77,3 +77,68 @@
   .caption div > span { font-size: var(--type-label); }
   .arrow { width: 27px; height: 27px; }
 }
+
+/* Gilded: solid colour blocks */
+:global(html:root[data-design="gilded"]) .tile { border: 2px solid var(--ink); border-radius: 22px; transition: transform .25s, box-shadow .25s; overflow: hidden; }
+:global(html:root[data-design="gilded"]) .tile:hover { transform: translateY(-4px); box-shadow: 6px 6px 0 var(--ink); }
+:global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) { background: var(--brand-green); color: var(--cream); }
+:global(html:root[data-design="gilded"]) .tile:nth-child(3n+2) { background: var(--gold-grad); color: var(--ink); }
+:global(html:root[data-design="gilded"]) .tile:nth-child(3n) { background: var(--photo); color: var(--ink); }
+:global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) .caption h3, :global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) .caption div > span, :global(html:root[data-design="gilded"]) .tile:nth-child(3n+1) .arrow { color: var(--cream); }
+:global(html:root[data-design="gilded"]) .caption h3 { font-family: var(--display); font-weight: 700; font-size: 22px; }
+:global(html:root[data-design="gilded"]) .imageStage { background: transparent; }
+:global(html:root[data-design="gilded"]) .tabs { background: transparent; border: 2px solid var(--ink); border-radius: 999px; padding: 4px; }
+:global(html:root[data-design="gilded"]) .tab { border-radius: 999px; font-weight: 600; }
+:global(html:root[data-design="gilded"]) .indicator { border-radius: 999px; background: var(--brand-green); }
+
+/* Noir: outlined medallion tiles */
+:global(html:root[data-design="noir"]) .tile { background:transparent !important; border:1px solid #d6b25e; border-radius:0; color:#f1e6c6; transition:background .25s; }
+:global(html:root[data-design="noir"]) .tile:hover { background:#d6b25e22 !important; }
+:global(html:root[data-design="noir"]) .caption h3 { font-family:var(--display); text-transform:uppercase; letter-spacing:.06em; font-size:15px; color:#f1e6c6; }
+:global(html:root[data-design="noir"]) .caption div > span,:global(html:root[data-design="noir"]) .arrow { color:#b8c3b2; }
+:global(html:root[data-design="noir"]) .tabs { background:transparent; border:1px solid #d6b25e; border-radius:0; justify-self:center; }
+:global(html:root[data-design="noir"]) .tab { text-transform:uppercase; letter-spacing:.1em; font-size:12.5px; color:#f1e6c6; border-radius:0; }
+:global(html:root[data-design="noir"]) .indicator { background:#d6b25e; border-radius:0; }
+
+/* Souk: arch gallery */
+:global(html:root[data-design="souk"]) .grid { grid-template-columns:repeat(4,minmax(0,1fr)); gap:22px; }
+:global(html:root[data-design="souk"]) .tile { display:flex; flex-direction:column; text-align:center; background:#f3ead2; border:2px solid #b88a2b; border-radius:999px 999px 18px 18px; padding:30px 12px 16px; transition:transform .25s,background .25s; }
+:global(html:root[data-design="souk"]) .tile:nth-child(even) { background:#0f4a3b; color:#f6ecd0; }
+:global(html:root[data-design="souk"]) .tile:hover { transform:translateY(-6px); }
+:global(html:root[data-design="souk"]) .tile:nth-child(even) .caption h3,:global(html:root[data-design="souk"]) .tile:nth-child(even) .caption div > span { color:#f6ecd0; }
+:global(html:root[data-design="souk"]) .imageStage { height:120px; }
+:global(html:root[data-design="souk"]) .image { height:100px; }
+:global(html:root[data-design="souk"]) .caption { padding:10px 4px 0; text-align:center; align-items:center; }
+:global(html:root[data-design="souk"]) .caption h3 { font-family:var(--display); font-weight:700; font-size:21px; }
+:global(html:root[data-design="souk"]) .arrow { display:none; }
+:global(html:root[data-design="souk"]) .tabs { background:#f3ead2; border:2px solid #b88a2b; border-radius:12px; justify-self:center; }
+:global(html:root[data-design="souk"]) .tab { border-radius:8px; font-weight:600; }
+:global(html:root[data-design="souk"]) .indicator { border-radius:8px; background:#0f4a3b; }
+@media (max-width:860px) { :global(html:root[data-design="souk"]) .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* Verdant: coloured pills */
+:global(html:root[data-design="verdant"]) .tile { border:0; border-radius:999px; padding:6px 12px 6px 6px; transition:transform .2s; }
+:global(html:root[data-design="verdant"]) .tile:hover { transform:scale(1.03); }
+:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) { background:#0a7a55; color:#fff; }
+:global(html:root[data-design="verdant"]) .tile:nth-child(4n+2) { background:#ffd84d; color:#0b2b21; }
+:global(html:root[data-design="verdant"]) .tile:nth-child(4n+3) { background:#dff0d8; color:#0b2b21; }
+:global(html:root[data-design="verdant"]) .tile:nth-child(4n) { background:#fff; color:#0b2b21; box-shadow:inset 0 0 0 2px #0b2b21; }
+:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) .caption h3,:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) .caption div > span,:global(html:root[data-design="verdant"]) .tile:nth-child(4n+1) .arrow { color:#fff; }
+:global(html:root[data-design="verdant"]) .imageStage { background:#fff; border-radius:50%; width:84px; height:84px; padding:8px; margin:4px; }
+:global(html:root[data-design="verdant"]) .image { height:68px; }
+:global(html:root[data-design="verdant"]) .tile { grid-template-columns:92px 1fr !important; }
+:global(html:root[data-design="verdant"]) .caption h3 { font-family:var(--display); font-weight:800; font-size:21px; letter-spacing:-.02em; }
+:global(html:root[data-design="verdant"]) .tabs { background:#dff0d8; border:0; border-radius:999px; }
+:global(html:root[data-design="verdant"]) .tab { border-radius:999px; font-weight:700; }
+:global(html:root[data-design="verdant"]) .indicator { background:#0b2b21; border-radius:999px; }
+:global(html:root[data-design="verdant"]) .tab[aria-selected="true"] { color:#fff; }
+
+/* noir: centred single column */
+:global(html:root[data-design="noir"]) .tabs { grid-column:1; grid-row:2; justify-self:center; }
+:global(html:root[data-design="noir"]) .panel { grid-column:1; grid-row:3; }
+
+/* souk: centred single column */
+:global(html:root[data-design="souk"]) .tabs { grid-column:1; grid-row:2; justify-self:center; }
+:global(html:root[data-design="souk"]) .panel { grid-column:1; grid-row:3; }
+
+:global(html:root[data-design="noir"]) .grid { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }

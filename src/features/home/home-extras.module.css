@@ -1,21 +1,21 @@
-:global(html[data-design="salon"]) .promise { border: 0; }
-:global(html[data-design="salon"]) .promise::before { content: none; }
-:global(html[data-design="salon"]) .promiseInner { padding-block: 80px; }
-:global(html[data-design="salon"]) .promise h2 { font-size: clamp(3rem, 6.4vw, 5.5rem); max-width: none; letter-spacing: -.015em; color: var(--white); }
-:global(html[data-design="salon"]) .promise h2 > span:last-child { color: inherit; }
-:global(html[data-design="salon"]) .promiseIntro { font-size: var(--type-card); line-height: 1.6; color: var(--white); max-width: 65ch; }
-:global(html[data-design="salon"]) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-top: 48px; }
-:global(html[data-design="salon"]) .features > div { border: 0; padding: 0; }
-:global(html[data-design="salon"]) .features h3 { font: 600 1.5rem/1.4 var(--body); color: var(--white); }
-:global(html[data-design="salon"]) .features p { font-size: var(--type-body); line-height: 1.6; color: var(--white); max-width: 42ch; }
-:global(html[data-design="salon"]) .promiseAction { margin-top: 40px; }
-:global(html[dir="rtl"][data-design="salon"]) .features h3 { font-family: var(--body); font-size: 1.5rem; line-height: 1.6; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise { border: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise::before { content: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseInner { padding-block: 80px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 { font-size: clamp(3rem, 6.4vw, 5.5rem); max-width: none; letter-spacing: -.015em; color: var(--white); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 > span:last-child { color: inherit; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseIntro { font-size: var(--type-card); line-height: 1.6; color: var(--white); max-width: 65ch; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 64px; margin-top: 48px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features > div { border: 0; padding: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features h3 { font: 600 1.5rem/1.4 var(--body); color: var(--white); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features p { font-size: var(--type-body); line-height: 1.6; color: var(--white); max-width: 42ch; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseAction { margin-top: 40px; }
+:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features h3 { font-family: var(--body); font-size: 1.5rem; line-height: 1.6; }
 @media (max-width: 650px) {
-  :global(html[data-design="salon"]) .promiseInner { padding-block: 48px; }
-  :global(html[data-design="salon"]) .promise h2 { font-size: clamp(2rem, 10vw, 2.5rem); line-height: var(--leading-display); }
-  :global(html[data-design="salon"]) .promiseIntro { font-size: var(--type-body); }
-  :global(html[data-design="salon"]) .features { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
-  :global(html[dir="rtl"][data-design="salon"]) .promise h2 { font-size: 2rem; line-height: var(--leading-display); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseInner { padding-block: 48px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 { font-size: clamp(2rem, 10vw, 2.5rem); line-height: var(--leading-display); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promiseIntro { font-size: var(--type-body); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .features { grid-template-columns: 1fr; gap: 28px; margin-top: 32px; }
+  :global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .promise h2 { font-size: 2rem; line-height: var(--leading-display); }
 }
 .promise { position: relative; overflow: hidden; isolation: isolate; color: #fbfaf6; background: var(--brand-green); border-block: 2px solid var(--brand-gold); }
 .promise::before { content: ""; position: absolute; z-index: -1; width: 640px; height: 640px; top: -280px; inset-inline-end: -160px; border: 2px solid var(--brand-gold); border-radius: 50%; box-shadow: 0 0 0 46px #d4b99113; }
@@ -62,3 +62,35 @@
   .instagram > div { flex: 1; }
   .instagram a { margin-inline-start: 0; width: 100%; }
 }
+
+/* Gilded: a cream band so only the hero and footer are deep green */
+:global(html:root[data-design="gilded"]) .promise { background: var(--sage); color: var(--ink); border-block: 2px solid var(--ink); }
+:global(html:root[data-design="gilded"]) .promise h2 { font: 800 clamp(2.8rem, 6.4vw, 5.6rem)/1 var(--display); color: var(--ink); }
+:global(html:root[data-design="gilded"]) .promise h2 > span:last-child { color: var(--brand-green); }
+:global(html:root[data-design="gilded"]) .promiseIntro, :global(html:root[data-design="gilded"]) .features p { color: var(--ink); }
+:global(html:root[data-design="gilded"]) .features > div { border-top: 3px solid var(--brand-gold); padding-top: 14px; }
+:global(html:root[data-design="gilded"]) .features h3 { font: 700 28px/1.15 var(--display); color: var(--brand-green); }
+
+/* Noir */
+:global(html:root[data-design="noir"]) .promise { background:#0a2a25; border-block:1px solid #d6b25e; color:#f1e6c6; }
+:global(html:root[data-design="noir"]) .promise h2 { font:700 clamp(2rem,4.6vw,3.8rem)/1.12 var(--display); text-transform:uppercase; letter-spacing:.07em; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+:global(html:root[data-design="noir"]) .promise h2 > span:last-child { color:inherit; }
+:global(html:root[data-design="noir"]) .promiseIntro,:global(html:root[data-design="noir"]) .features p { color:#d9e0d0; }
+:global(html:root[data-design="noir"]) .features > div { border-top:1px solid #d6b25e; padding-top:14px; }
+:global(html:root[data-design="noir"]) .features h3 { font:600 20px/1.2 var(--display); text-transform:uppercase; letter-spacing:.06em; color:#e7cf84; }
+
+/* Souk */
+:global(html:root[data-design="souk"]) .promise { background:#0f4a3b; color:#f6ecd0; border-block:3px solid #b88a2b; }
+:global(html:root[data-design="souk"]) .promise h2 { font:800 clamp(2.4rem,5.4vw,4.6rem)/1.05 var(--display); color:#f6ecd0; }
+:global(html:root[data-design="souk"]) .promise h2 > span:last-child { color:#e3c374; font-style:italic; }
+:global(html:root[data-design="souk"]) .promiseIntro,:global(html:root[data-design="souk"]) .features p { color:#e5ecd9; }
+:global(html:root[data-design="souk"]) .features > div { border-top:2px dashed #e3c374; padding-top:14px; }
+:global(html:root[data-design="souk"]) .features h3 { font:700 italic 26px/1.15 var(--display); color:#e3c374; }
+
+/* Verdant */
+:global(html:root[data-design="verdant"]) .promise { background:#0a7a55; color:#fff; border:0; border-radius:40px; margin-inline:var(--page-gutter); }
+:global(html:root[data-design="verdant"]) .promise h2 { font:800 clamp(2.8rem,6.6vw,5.8rem)/.92 var(--display); letter-spacing:-.04em; color:#fff; }
+:global(html:root[data-design="verdant"]) .promise h2 > span:last-child { color:#ffd84d; }
+:global(html:root[data-design="verdant"]) .promiseIntro,:global(html:root[data-design="verdant"]) .features p { color:#e4f5ec; }
+:global(html:root[data-design="verdant"]) .features > div { background:#ffffff1c; border-radius:22px; padding:20px 22px; }
+:global(html:root[data-design="verdant"]) .features h3 { font:800 26px/1.1 var(--display); letter-spacing:-.02em; color:#ffd84d; }

@@ -1,44 +1,44 @@
 .brands { padding-block: 40px 20px; }
-:global(html[data-design="salon"]) .brands { padding-block: 64px; }
-:global(html[data-design="salon"]) .brandHeading { margin-bottom: 48px; }
-:global(html[data-design="salon"]) .brandHeading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin-bottom: 20px; }
-:global(html[data-design="salon"]) .brandHeading p { font-size: var(--type-body); line-height: 1.6; color: var(--ink); max-width: 45ch; }
-:global(html[data-design="salon"]) .allBrands { font-size: var(--type-body); padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
-:global(html[data-design="salon"]) .allBrands b { border-radius: 0; padding: 0; background: none; }
-:global(html[data-design="salon"]) .brandGrid { gap: 32px; }
-:global(html[data-design="salon"]) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
-:global(html[data-design="salon"]) .houseName { font-size: 1.25rem; line-height: 1.4; }
-:global(html[data-design="salon"]) .houseMeta { font-size: var(--type-label); color: var(--ink); }
-:global(html[data-design="salon"]) .houseArrow { background: none; color: var(--ink); }
-:global(html[data-design="salon"]) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
-:global(html[data-design="salon"]) .brandDialog { border: 0; border-radius: 0; }
-:global(html[data-design="salon"]) .brandDialog::backdrop { backdrop-filter: none; }
-:global(html[data-design="salon"]) .brandSearch, :global(html[data-design="salon"]) .directoryGrid a, :global(html[data-design="salon"]) .houseCount { font-size: var(--type-body); }
-:global(html[data-design="salon"]) .categories { padding-block: 80px; }
-:global(html[data-design="salon"]) .categoryGrid { gap: 0; background: var(--gold-surface); }
-:global(html[data-design="salon"]) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
-:global(html[data-design="salon"]) .categoryImage { height: 210px; padding: 28px; }
-:global(html[data-design="salon"]) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
-:global(html[dir="rtl"][data-design="salon"]) .categoryCaption { padding: 20px 0 20px 24px; }
-:global(html[data-design="salon"]) .categoryCaption h3 { font: 600 1.5rem/1.4 var(--body); }
-:global(html[data-design="salon"]) .categoryCaption p { font-size: var(--type-label); line-height: 1.5; color: var(--ink); }
-:global(html[data-design="salon"]) .categoryArrow { background: none; color: var(--ink); width: 24px; }
-:global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-family: var(--body); font-size: var(--type-section); line-height: var(--leading-display); letter-spacing: 0; }
-:global(html[lang="ar"][data-design="salon"]) .categoryCaption h3 { font-family: var(--body); font-size: 1.5rem; line-height: 1.5; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brands { padding-block: 64px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading { margin-bottom: 48px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin-bottom: 20px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading p { font-size: var(--type-body); line-height: 1.6; color: var(--ink); max-width: 45ch; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .allBrands { font-size: var(--type-body); padding: 14px 20px; border: 0; border-radius: 0; background: var(--sage); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .allBrands b { border-radius: 0; padding: 0; background: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandGrid { gap: 32px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandCard { padding: 0; border: 0; border-radius: 0; background: none; gap: 14px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseName { font-size: 1.25rem; line-height: 1.4; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseMeta { font-size: var(--type-label); color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseArrow { background: none; color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandCard:hover .houseName { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandDialog { border: 0; border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandDialog::backdrop { backdrop-filter: none; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandSearch, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .directoryGrid a, :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseCount { font-size: var(--type-body); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categories { padding-block: 80px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryGrid { gap: 0; background: var(--gold-surface); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .category { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; background: none; border-radius: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryImage { height: 210px; padding: 28px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption { border: 0; padding: 20px 24px 20px 0; gap: 8px; }
+:global(html[dir="rtl"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption { padding: 20px 0 20px 24px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption h3 { font: 600 1.5rem/1.4 var(--body); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption p { font-size: var(--type-label); line-height: 1.5; color: var(--ink); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryArrow { background: none; color: var(--ink); width: 24px; }
+:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font-family: var(--body); font-size: var(--type-section); line-height: var(--leading-display); letter-spacing: 0; }
+:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption h3 { font-family: var(--body); font-size: 1.5rem; line-height: 1.5; }
 @media (max-width: 900px) {
-  :global(html[data-design="salon"]) .brandGrid { gap: 24px 32px; }
-  :global(html[data-design="salon"]) .categoryGrid { grid-template-columns: 1fr; }
-  :global(html[data-design="salon"]) .category { grid-template-columns: 160px 1fr; }
-  :global(html[data-design="salon"]) .categoryImage { height: 180px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandGrid { gap: 24px 32px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryGrid { grid-template-columns: 1fr; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .category { grid-template-columns: 160px 1fr; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryImage { height: 180px; }
 }
 @media (max-width: 650px) {
-  :global(html[data-design="salon"]) .brands { padding-block: 40px 48px; }
-  :global(html[data-design="salon"]) .brandHeading { margin-bottom: 32px; }
-  :global(html[data-design="salon"]) .brandHeading h2 { font-size: var(--type-section); }
-  :global(html[lang="ar"][data-design="salon"]) .brandHeading h2 { font-size: var(--type-section); }
-  :global(html[data-design="salon"]) .houseName { font-size: 1.25rem; }
-  :global(html[data-design="salon"]) .categories { padding-block: 56px; }
-  :global(html[data-design="salon"]) .categoryCaption { padding-inline-end: 20px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brands { padding-block: 40px 48px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading { margin-bottom: 32px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font-size: var(--type-section); }
+  :global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .brandHeading h2 { font-size: var(--type-section); }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .houseName { font-size: 1.25rem; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categories { padding-block: 56px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .categoryCaption { padding-inline-end: 20px; }
 }
 .brandHeading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
 .brandHeading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin: 0 0 12px; }
@@ -110,3 +110,50 @@
   .categoryImage { height: 220px; padding: 22px; }
   .categoryCaption { border: 0; padding-inline: 4px 24px; gap: 12px; }
 }
+
+/* Gilded */
+:global(html:root[data-design="gilded"]) .brandHeading h2 { font: 800 clamp(2.5rem, 5.6vw, 4.8rem)/1.02 var(--display); }
+:global(html:root[data-design="gilded"]) .brandCard { border-top: 3px solid var(--brand-gold); border-radius: 0; padding-top: 16px; transition: border-color .2s; }
+:global(html:root[data-design="gilded"]) .brandCard:hover { border-top-color: var(--ink); }
+:global(html:root[data-design="gilded"]) .houseName { font-family: var(--display); font-weight: 700; font-size: 38px; }
+:global(html:root[data-design="gilded"]) .allBrands { background: transparent; border: 2px solid var(--ink); border-radius: 999px; font-weight: 600; }
+
+/* Noir */
+:global(html:root[data-design="noir"]) .brandHeading { text-align:center; }
+:global(html:root[data-design="noir"]) .brandHeading h2 { font:700 clamp(1.9rem,3.8vw,3.2rem)/1.15 var(--display); text-transform:uppercase; letter-spacing:.08em; background:var(--gold-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+:global(html:root[data-design="noir"]) .brandHeading p { margin-inline:auto; color:#b8c3b2; }
+:global(html:root[data-design="noir"]) .brandCard { border:1px solid #d6b25e66; text-align:center; padding:26px 14px; align-items:center; transition:background .25s,border-color .25s; }
+:global(html:root[data-design="noir"]) .brandCard:hover { background:#123a33; border-color:#d6b25e; }
+:global(html:root[data-design="noir"]) .houseName { font-family:var(--display); font-weight:600; text-transform:uppercase; letter-spacing:.06em; font-size:22px; }
+:global(html:root[data-design="noir"]) .houseMeta { color:#b8c3b2; justify-content:center; }
+:global(html:root[data-design="noir"]) .allBrands { background:transparent; border:1px solid #d6b25e; border-radius:0; color:#f1e6c6; text-transform:uppercase; letter-spacing:.1em; font-size:13px; }
+
+/* Souk */
+:global(html:root[data-design="souk"]) .brandHeading { text-align:center; }
+:global(html:root[data-design="souk"]) .brandHeading h2 { font:800 clamp(2.2rem,4.6vw,3.9rem)/1.08 var(--display); color:#0f4a3b; }
+:global(html:root[data-design="souk"]) .brandHeading p { margin-inline:auto; }
+:global(html:root[data-design="souk"]) .brandGrid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px 36px; }
+:global(html:root[data-design="souk"]) .brandCard { border:0; border-bottom:1px dashed #b88a2b; border-radius:0; padding:14px 0 14px 26px; position:relative; }
+:global(html:root[data-design="souk"]) .brandCard::before { content:"\25C6"; position:absolute; inset-inline-start:0; top:22px; color:#b88a2b; font-size:13px; }
+:global(html:root[data-design="souk"]) .houseName { font-family:var(--display); font-style:italic; font-weight:700; font-size:30px; }
+:global(html:root[data-design="souk"]) .allBrands { background:#f3ead2; border:2px solid #b88a2b; border-radius:12px; font-weight:600; }
+@media (max-width:860px) { :global(html:root[data-design="souk"]) .brandGrid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+
+/* Verdant: chunky house chips */
+:global(html:root[data-design="verdant"]) .brandHeading h2 { font:800 clamp(2.5rem,5.6vw,4.8rem)/.95 var(--display); letter-spacing:-.035em; }
+:global(html:root[data-design="verdant"]) .brandGrid { gap:16px; }
+:global(html:root[data-design="verdant"]) .brandCard { background:#dff0d8; border-radius:26px; padding:22px 22px 20px; transition:background .2s,color .2s,transform .2s; }
+:global(html:root[data-design="verdant"]) .brandCard:nth-child(3n+2) { background:#fff1b8; }
+:global(html:root[data-design="verdant"]) .brandCard:hover { background:#0a7a55; color:#fff; transform:translateY(-3px); }
+:global(html:root[data-design="verdant"]) .brandCard:hover .houseMeta,:global(html:root[data-design="verdant"]) .brandCard:hover .houseArrow { color:#fff; }
+:global(html:root[data-design="verdant"]) .brandCard:hover .houseName { text-decoration:none; }
+:global(html:root[data-design="verdant"]) .houseName { font-family:var(--display); font-weight:800; font-size:27px; letter-spacing:-.02em; }
+:global(html:root[data-design="verdant"]) .allBrands { background:#0b2b21; color:#fff; border-radius:999px; font-weight:700; }
+
+/* noir: centred brand heading */
+:global(html:root[data-design="noir"]) .brandHeading { flex-direction:column; align-items:center; text-align:center; gap:28px; }
+:global(html:root[data-design="noir"]) .brandHeading p { margin-inline:auto; }
+
+/* souk: centred brand heading */
+:global(html:root[data-design="souk"]) .brandHeading { flex-direction:column; align-items:center; text-align:center; gap:28px; }
+:global(html:root[data-design="souk"]) .brandHeading p { margin-inline:auto; }

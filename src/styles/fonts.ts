@@ -20,3 +20,28 @@ export const arabic = localFont({
     { path: "../../node_modules/@fontsource/noto-sans-arabic/files/noto-sans-arabic-arabic-600-normal.woff2", weight: "600" },
   ], display: "swap", preload: true, variable: "--font-arabic", adjustFontFallback: false,
 });
+export const fraunces = localFont({
+  src: [
+    { path: "../../node_modules/@fontsource/fraunces/files/fraunces-latin-700-normal.woff2", weight: "700" },
+    { path: "../../node_modules/@fontsource/fraunces/files/fraunces-latin-800-normal.woff2", weight: "800" },
+  ], display: "swap", preload: true, variable: "--font-fraunces",
+});
+export const cinzel = localFont({
+  src: [
+    { path: "../../node_modules/@fontsource/cinzel/files/cinzel-latin-600-normal.woff2", weight: "600" },
+    { path: "../../node_modules/@fontsource/cinzel/files/cinzel-latin-700-normal.woff2", weight: "700" },
+  ], display: "swap", preload: false, variable: "--font-cinzel",
+});
+export const playfair = localFont({
+  src: [
+    { path: "../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2", weight: "700" },
+    { path: "../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-800-normal.woff2", weight: "800" },
+    { path: "../../node_modules/@fontsource/playfair-display/files/playfair-display-latin-700-italic.woff2", weight: "700", style: "italic" },
+  ], display: "swap", preload: false, variable: "--font-playfair",
+});
+export const bricolage = localFont({
+  src: [
+    { path: "../../node_modules/@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-700-normal.woff2", weight: "700" },
+    { path: "../../node_modules/@fontsource/bricolage-grotesque/files/bricolage-grotesque-latin-800-normal.woff2", weight: "800" },
+  ], display: "swap", preload: false, variable: "--font-bricolage",
+});

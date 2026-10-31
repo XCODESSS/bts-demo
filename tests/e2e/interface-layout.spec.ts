@@ -41,7 +41,7 @@ for (const width of [320, 360, 390, 768, 1440]) {
     await page.setViewportSize({ width, height: 1000 });
     for (const locale of ["en", "ar"] as const) {
       const d = getDictionary(locale);
-      const names = { atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon };
+      const names = { atelier: d.designAtelier, gallery: d.designGallery, linen: d.designLinen, salon: d.designSalon, gilded: d.designGilded, noir: d.designNoir, souk: d.designSouk, verdant: d.designVerdant };
       for (const route of ["", "/catalogue", "/perfumes/diptyque-philosykos-p0170"]) {
         await page.goto(`/${locale}${route}`);
         for (const design of designIds) {

@@ -1,26 +1,26 @@
 .home { padding-bottom: 0; }
-:global(html[data-design="salon"]) .collectionsBand { background: var(--canvas); border: 0; }
-:global(html[data-design="salon"]) .collections { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 64px; row-gap: 24px; padding-block: 112px 64px; }
-:global(html[data-design="salon"]) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
-:global(html[data-design="salon"]) .collections :global(.section-heading h2) { max-width: 13ch; }
-:global(html[data-design="salon"]) .featured { padding-block: 64px 96px; }
-:global(html[data-design="salon"]) .demoDisclaimer { margin: 0 0 28px; font-size: var(--type-label); color: var(--ink); max-width: 70ch; }
-:global(html[data-design="salon"]) .guideBand { background: var(--gold-surface); border: 0; }
-:global(html[data-design="salon"]) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
-:global(html[data-design="salon"]) .guide h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
-:global(html[data-design="salon"]) .guide ul { grid-template-columns: 1fr; gap: 12px; }
-:global(html[data-design="salon"]) .guide li { justify-content: start; border: 0; padding: 0; font-size: var(--type-body); }
-:global(html[lang="ar"][data-design="salon"]) .guide h2 { font-family: var(--body); font-size: 2rem; line-height: var(--leading-display); }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collectionsBand { background: var(--canvas); border: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections { display: grid; grid-template-columns: .8fr 1.2fr; column-gap: 64px; row-gap: 24px; padding-block: 112px 64px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections > :global(.section-heading) { display: flex; flex-direction: column; gap: 24px; grid-column: 1; grid-row: 1; align-self: end; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections :global(.section-heading h2) { max-width: 13ch; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .featured { padding-block: 64px 96px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .demoDisclaimer { margin: 0 0 28px; font-size: var(--type-label); color: var(--ink); max-width: 70ch; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guideBand { background: var(--gold-surface); border: 0; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide { display: grid; grid-template-columns: .8fr 1.2fr; gap: 48px; padding-block: 48px; align-items: center; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); text-align: start; margin: 0; letter-spacing: -.02em; max-width: 15ch; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide ul { grid-template-columns: 1fr; gap: 12px; }
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide li { justify-content: start; border: 0; padding: 0; font-size: var(--type-body); }
+:global(html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide h2 { font-family: var(--body); font-size: 2rem; line-height: var(--leading-display); }
 @media (max-width: 900px) {
-  :global(html[data-design="salon"]) .collections { column-gap: 32px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections { column-gap: 32px; }
 }
 @media (max-width: 650px) {
-  :global(html[data-design="salon"]) .collections { display: block; padding-block: 64px 32px; }
-  :global(html[data-design="salon"]) .collections > :global(.section-heading) { gap: 18px; }
-  :global(html[data-design="salon"]) .collections :global(.section-heading h2) { max-width: none; }
-  :global(html[data-design="salon"]) .featured { padding-block: 48px 64px; }
-  :global(html[data-design="salon"]) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
-  :global(html[data-design="salon"]) .guide h2 { font-size: var(--type-section); max-width: none; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections { display: block; padding-block: 64px 32px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections > :global(.section-heading) { gap: 18px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .collections :global(.section-heading h2) { max-width: none; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .featured { padding-block: 48px 64px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide { grid-template-columns: 1fr; gap: 28px; padding-block: 36px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .guide h2 { font-size: var(--type-section); max-width: none; }
 }
 .collectionsBand { background: var(--gold-surface); border-block: 1px solid #d4b991; }
 .collections { padding-block: 48px; }
@@ -53,3 +53,35 @@
   .guide li { justify-content: flex-start; padding: 8px 12px; font-size: var(--type-body); }
   .guide li + li { border: 0; }
 }
+
+/* Gilded: banded sections */
+:global(html:root[data-design="gilded"]) .collectionsBand { background: var(--sage); border-block: 2px solid var(--ink); }
+:global(html:root[data-design="gilded"]) .guideBand { background: var(--gold-grad); border-block: 2px solid var(--ink); }
+:global(html:root[data-design="gilded"]) .guide h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.05 var(--display); color: var(--ink); }
+
+/* Noir: single centred column */
+:global(html:root[data-design="noir"]) .collections { grid-template-columns:1fr; padding-block:96px 48px; }
+:global(html:root[data-design="noir"]) .collections > :global(.section-heading) { grid-column:1; grid-row:1; align-self:center; align-items:center; }
+:global(html:root[data-design="noir"]) .collections .tabs { grid-column:1; grid-row:2; }
+:global(html:root[data-design="noir"]) .collections .panel { grid-column:1; grid-row:3; }
+:global(html:root[data-design="noir"]) .collectionsBand { background:#0a2a25; border-block:1px solid #d6b25e66; }
+:global(html:root[data-design="noir"]) .guideBand { background:#0d2f29; border-block:1px solid #d6b25e; }
+:global(html:root[data-design="noir"]) .guide h2 { font:700 clamp(1.6rem,3vw,2.4rem)/1.2 var(--display); text-transform:uppercase; letter-spacing:.08em; color:#e7cf84; }
+
+/* Souk */
+:global(html:root[data-design="souk"]) .collections { grid-template-columns:1fr; padding-block:96px 48px; }
+:global(html:root[data-design="souk"]) .collections > :global(.section-heading) { grid-column:1; grid-row:1; align-self:center; align-items:center; }
+:global(html:root[data-design="souk"]) .collections .tabs { grid-column:1; grid-row:2; }
+:global(html:root[data-design="souk"]) .collections .panel { grid-column:1; grid-row:3; }
+:global(html:root[data-design="souk"]) .collectionsBand { background:#d2e0c6; border-block:2px solid #b88a2b; }
+:global(html:root[data-design="souk"]) .guideBand { background:#e3c374; border-block:2px solid #0f4a3b; }
+:global(html:root[data-design="souk"]) .guide h2 { font:800 clamp(1.8rem,3.4vw,2.8rem)/1.1 var(--display); color:#0f4a3b; font-style:italic; }
+
+/* Verdant */
+:global(html:root[data-design="verdant"]) .collectionsBand { background:#fff; }
+:global(html:root[data-design="verdant"]) .guideBand { background:#ffd84d; }
+:global(html:root[data-design="verdant"]) .guide h2 { font:800 clamp(2rem,4vw,3.4rem)/.95 var(--display); letter-spacing:-.035em; }
+
+:global(html:root[data-design="noir"]) .collections :global(.section-heading h2) { max-width:none; overflow-wrap:normal; }
+
+:global(html:root[data-design="souk"]) .collections :global(.section-heading h2) { max-width:none; overflow-wrap:normal; }

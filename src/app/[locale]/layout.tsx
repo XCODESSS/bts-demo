@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { manrope, bodoni, arabic } from "../../styles/fonts";
+import { manrope, bodoni, arabic, fraunces, cinzel, playfair, bricolage } from "../../styles/fonts";
 import { Suspense } from "react";
 import { AnalyticsProvider } from "../../features/analytics/analytics-provider";
 import { siteOrigin } from "../../features/seo/metadata";
@@ -14,6 +14,10 @@ import { SiteFooter } from "../../components/site-footer";
 import { HashNavigation } from "../../components/hash-navigation";
 import { designIds } from "../../components/designs";
 import "../../styles/salon.css";
+import "../../styles/gilded.css";
+import "../../styles/noir.css";
+import "../../styles/souk.css";
+import "../../styles/verdant.css";
 import "../../styles/transitions.css";
 export const viewport: Viewport = {
   width: "device-width", initialScale: 1, viewportFit: "cover",
@@ -47,7 +51,7 @@ export default async function LocaleLayout({
       lang={locale}
       dir={locale === "ar" ? "rtl" : "ltr"}
       data-design="atelier"
-      className={`${manrope.variable} ${bodoni.variable} ${arabic.variable}`}
+      className={`${manrope.variable} ${bodoni.variable} ${arabic.variable} ${fraunces.variable} ${cinzel.variable} ${playfair.variable} ${bricolage.variable}`}
       suppressHydrationWarning
     >
       <head>

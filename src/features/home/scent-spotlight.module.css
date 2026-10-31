@@ -1,5 +1,5 @@
 .spotlight { display: none; }
-:global(html[data-design="salon"]) .spotlight {
+:global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .spotlight {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,13 +32,13 @@
 @keyframes scent-arrival { from { opacity: .65; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: no-preference) { .product { animation: scent-arrival .65s var(--motion-ease) both; } .product:hover .bottle { transform: scale(1.025); } .bottle { transition: transform .45s var(--motion-ease); } }
 @media (max-width: 1100px) {
-  :global(html[data-design="salon"]) .spotlight { padding: 24px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .spotlight { padding: 24px; }
   .selection { display: block; }
   .prompt { margin-bottom: 8px; }
   .bottle { height: 280px; }
 }
 @media (max-width: 650px) {
-  :global(html[data-design="salon"]) .spotlight { padding: 16px 20px; }
+  :global(html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"])) .spotlight { padding: 16px 20px; }
   .selection { display: flex; gap: 8px; }
   .prompt { font-size: var(--type-body); margin-bottom: 0; }
   .notes { width: 100%; justify-content: space-between; }
@@ -78,3 +78,29 @@
   .discovery .product { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) { .notes a { transition: none; } }
+
+/* Gilded: gold panel */
+:global(html:root[data-design="gilded"]) .spotlight { background: var(--gold-grad); color: var(--ink); border-left: 2px solid var(--ink); }
+:global(html:root[dir="rtl"][data-design="gilded"]) .spotlight { border-left: 0; border-right: 2px solid var(--ink); }
+:global(html:root[data-design="gilded"]) .name { font-family: var(--display); font-weight: 800; }
+:global(html:root[data-design="gilded"]) .prompt, :global(html:root[data-design="gilded"]) .house, :global(html:root[data-design="gilded"]) .count { color: var(--ink); }
+
+/* Noir */
+:global(html:root[data-design="noir"]) .spotlight { background:#0d2f29; border:1px solid #d6b25e; color:#f1e6c6; max-width:820px; margin-inline:auto; width:100%; }
+:global(html:root[data-design="noir"]) .name { font-family:var(--display); text-transform:uppercase; letter-spacing:.06em; color:#e7cf84; }
+:global(html:root[data-design="noir"]) .prompt,:global(html:root[data-design="noir"]) .house,:global(html:root[data-design="noir"]) .count { color:#d9e0d0; }
+
+/* Souk */
+:global(html:root[data-design="souk"]) .spotlight { background:#f3ead2; color:#123a2f; border:3px solid #b88a2b; border-radius:0 28px 28px 0; }
+:global(html:root[dir="rtl"][data-design="souk"]) .spotlight { border-radius:28px 0 0 28px; }
+:global(html:root[data-design="souk"]) .figure { background:#e3c374; border:3px solid #0f4a3b; border-radius:999px 999px 14px 14px; overflow:hidden; }
+:global(html:root[data-design="souk"]) .name { font-family:var(--display); font-weight:800; font-style:italic; }
+
+/* Verdant: mint panel with a sun behind the bottle */
+:global(html:root[data-design="verdant"]) .spotlight { position:relative; overflow:hidden; background:#dff0d8; color:#0b2b21; border-radius:40px; }
+:global(html:root[data-design="verdant"]) .spotlight::before { content:""; position:absolute; width:68%; aspect-ratio:1; border-radius:50%; background:#f2b705; left:50%; top:40%; transform:translate(-50%,-50%); }
+:global(html:root[data-design="verdant"]) .spotlight > * { position:relative; }
+:global(html:root[data-design="verdant"]) .name { font-family:var(--display); font-weight:800; letter-spacing:-.02em; }
+
+/* Noir: the photo has a white background, so show it as a framed print instead of multiplying it into the dark panel */
+:global(html:root[data-design="noir"]) .bottle { mix-blend-mode: normal; background: #fffaf0; border: 1px solid #d6b25e; padding: 10px; max-width: 340px; margin-inline: auto; display: block; }

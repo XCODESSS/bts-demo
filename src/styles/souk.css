@@ -1,0 +1,19 @@
+/* Souk: sage canvas, arches, gold geometric pattern. */
+html:root[data-design="souk"] { --canvas:#e2ebd9; --photo:#fffdf4; --sage:#d2e0c6; --stone:#f3ead2; --brand-green:#0f4a3b; --brand-gold:#b88a2b; --gold-surface:#e3c374;
+  --ink:#123a2f; --muted:#3d564b; --line:#b88a2b; --white:#f6ecd0; --display:var(--font-playfair),Georgia,serif;
+  --zellige:linear-gradient(45deg,#c9a043 25%,transparent 25% 75%,#c9a043 75%),linear-gradient(45deg,#c9a043 25%,transparent 25% 75%,#c9a043 75%); }
+html:root[data-design="souk"] body { background:var(--canvas); background-image:none; color:var(--ink); }
+html:root[data-design="souk"] .section-heading { align-items:center; text-align:center; }
+html:root[data-design="souk"] .section-heading h2 { font:800 clamp(2.2rem,4.6vw,3.9rem)/1.08 var(--display); color:var(--brand-green); max-width:18ch; letter-spacing:-.01em; }
+html:root[data-design="souk"] .section-heading h2::after { content:"\25C6  \25C6  \25C6"; display:block; color:#b88a2b; font-size:12px; letter-spacing:.5em; margin-top:16px; font-family:var(--body); }
+html:root[data-design="souk"] .section-heading p { max-width:50ch; }
+html:root[data-design="souk"] .button { border:2px solid #b88a2b; border-radius:12px; font-weight:600; min-height:54px; padding-inline:28px; }
+html:root[data-design="souk"] .button-dark { background:#0f4a3b; color:#f6ecd0; }
+html:root[data-design="souk"] .button-dark:hover { background:#b88a2b; color:#fff; box-shadow:none; transform:none; }
+html:root[data-design="souk"] .button-light { background:transparent; color:#0f4a3b; }
+html:root[data-design="souk"] .site-footer { background:#0f4a3b; border-top:0; }
+html:root[data-design="souk"] .site-footer::before { content:""; display:block; height:22px; background-color:#0f4a3b; background-image:var(--zellige); background-size:22px 22px; background-position:0 0,11px 11px; border-bottom:3px solid #b88a2b; }
+html:root[data-design="souk"] .footer-brand-name,html:root[data-design="souk"] .footer-links h2,html:root[data-design="souk"] .footer-contact h2 { font-family:var(--display); font-weight:700; color:#e3c374; }
+html:root[data-design="souk"] .salon-close { font:700 italic clamp(3rem,9vw,7.5rem)/1 var(--font-playfair),serif; color:#e3c374; text-align:center; }
+html:root[data-design="souk"] :focus-visible { outline:3px solid #b88a2b; outline-offset:3px; }
+html:root[lang="ar"][data-design="souk"] .section-heading h2 { font-family:var(--body); font-weight:700; letter-spacing:0; }

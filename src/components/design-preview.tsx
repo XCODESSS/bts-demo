@@ -4,7 +4,7 @@ import type { DesignId } from "./designs";
 
 /** Decorative miniatures, not a second storefront or dataset. */
 export function DesignPreview({ design }: { design: DesignId }) {
-  if (design === "salon") return <div className={styles.salonPreview} aria-hidden="true">
+  if (design !== "atelier" && design !== "gallery" && design !== "linen") return <div className={styles.salonPreview} aria-hidden="true">
     <div className={styles.salonNav}>Beyond the Space</div>
     <div className={styles.salonCampaign}>
       <div><p>A space for<br />your scent.</p><span>Explore collection →</span></div>

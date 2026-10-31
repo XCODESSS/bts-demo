@@ -1,0 +1,43 @@
+/* Gilded: warm cream, deep green, real gold. Shares Salon's layout; this file and the
+   "gilded" blocks in the module CSS files are the only places it differs. */
+html:root[data-design="gilded"] {
+  --canvas: #f6eedb; --photo: #fffaf0; --sage: #eadcba; --stone: #f1e2bd;
+  --brand-green: #0d4339; --brand-gold: #c9a043; --gold-surface: #e7cf84;
+  --ink: #17231f; --muted: #4a554f; --line: #17231f;
+  --gold-hi: #f0dc9c; --cream: #f6eedb; --gold-grad: linear-gradient(135deg, #f0dc9c, #c9a043);
+  --display: var(--font-fraunces), Georgia, serif;
+}
+html:root[data-design="gilded"] body { background: var(--canvas); background-image: none; color: var(--ink); scrollbar-color: var(--brand-green) var(--sage); }
+html:root[data-design="gilded"] ::selection { background: var(--brand-gold); color: var(--ink); }
+
+/* Type: heavy and confident */
+html:root[data-design="gilded"] .section-heading h2 { font: 800 clamp(2.5rem, 5.6vw, 4.8rem)/1.02 var(--display); letter-spacing: -.025em; color: var(--ink); max-width: 14ch; }
+html:root[data-design="gilded"] .section-heading p { font-size: 18px; color: var(--muted); max-width: 40ch; }
+
+/* Buttons: pills with a firm outline */
+html:root[data-design="gilded"] .button { border: 2px solid var(--brand-green); border-radius: 999px; font-weight: 600; min-height: 54px; padding-inline: 30px; transition: transform .2s, background .2s, color .2s, box-shadow .2s; }
+html:root[data-design="gilded"] .button:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(--brand-gold); }
+html:root[data-design="gilded"] .button-dark { background: var(--brand-green); color: var(--cream); }
+html:root[data-design="gilded"] .button-dark:hover { background: var(--brand-green); color: var(--gold-hi); }
+html:root[data-design="gilded"] .button-light { background: transparent; color: var(--ink); border-color: var(--ink); }
+
+/* Product grid */
+html:root[data-design="gilded"] .product-grid { gap: 24px; }
+
+/* Footer: one deep-green anchor with a gold edge */
+html:root[data-design="gilded"] .site-footer { background: var(--brand-green); border-top: 6px solid var(--brand-gold); }
+html:root[data-design="gilded"] .footer-brand-name,
+html:root[data-design="gilded"] .footer-links h2,
+html:root[data-design="gilded"] .footer-contact h2 { color: var(--gold-hi); font-family: var(--display); font-weight: 700; }
+html:root[data-design="gilded"] .footer-line,
+html:root[data-design="gilded"] .footer-links,
+html:root[data-design="gilded"] .footer-contact > p,
+html:root[data-design="gilded"] .footer-instagram,
+html:root[data-design="gilded"] .footer-bottom small { color: #dfe7de; }
+html:root[data-design="gilded"] .footer-bottom { border-top: 1px solid #f0dc9c40; }
+html:root[data-design="gilded"] .salon-close { color: var(--gold-hi); font: 800 clamp(58px, 10vw, 144px)/.95 var(--font-fraunces), serif; }
+html:root[data-design="gilded"] .footer-contact .button { background: var(--gold-grad); color: var(--ink); border-color: var(--brand-gold); }
+
+html:root[data-design="gilded"] :focus-visible { outline: 3px solid var(--brand-gold); outline-offset: 3px; }
+html[lang="ar"]:root[data-design="gilded"] .section-heading h2 { font-family: var(--body); font-weight: 700; letter-spacing: 0; max-width: none; }
+@media (prefers-reduced-motion: reduce) { html:root[data-design="gilded"] * { transition: none !important; } }

@@ -106,7 +106,7 @@ function subscribeDesign(onChange: () => void): () => void {
 /** A single text node, so each design keeps one semantic title and copy deck. */
 export function DesignText({ classic, salon }: { classic: string; salon: string }) {
   const design = useSyncExternalStore(subscribeDesign, readDesign, () => "atelier");
-  return design === "salon" ? salon : classic;
+  return design === "salon" || design === "gilded" || design === "noir" || design === "souk" || design === "verdant" ? salon : classic;
 }
 
 export function DesignChooser({ locale }: { locale: Locale }) {
@@ -137,6 +137,10 @@ export function DesignChooser({ locale }: { locale: Locale }) {
     },
     { id: "linen", name: d.designLinen, description: d.designLinenDescription },
     { id: "salon", name: d.designSalon, description: d.designSalonDescription },
+    { id: "gilded", name: d.designGilded, description: d.designGildedDescription },
+    { id: "noir", name: d.designNoir, description: d.designNoirDescription },
+    { id: "souk", name: d.designSouk, description: d.designSoukDescription },
+    { id: "verdant", name: d.designVerdant, description: d.designVerdantDescription },
   ] as const;
   function selectDesign(id: DesignId) {
     // Exclude the chooser's exit frame from the website crossfade.

@@ -1,53 +1,53 @@
 /* Salon shares readable roles with the other previews, retaining its unboxed geometry. */
-html[data-design="salon"] {
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) {
   --canvas: #fbfaf6;
   --photo: #f1f3ee;
   --muted: var(--brand-green);
 }
-html[data-design="salon"] body { background-image: none; scrollbar-color: var(--brand-green) var(--sage); }
-html[data-design="salon"] input { caret-color: var(--brand-green); }
-html[data-design="salon"] ::selection { background: var(--brand-gold); color: var(--brand-green); }
-html[data-design="salon"] .button { border: 0; border-radius: 0; font-size: var(--type-body); min-height: 52px; box-shadow: none; }
-html[data-design="salon"] .button:hover { box-shadow: none; }
-html[data-design="salon"] .configuration-note { font-size: var(--type-label); }
-html[data-design="salon"] .section-heading { align-items: flex-start; margin-bottom: 32px; }
-html[data-design="salon"] .section-heading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
-html[data-design="salon"] .section-heading p { font-size: var(--type-body); line-height: var(--leading-body); color: var(--ink); max-width: 34ch; }
-html[lang="ar"][data-design="salon"] .section-heading h2 { font-family: var(--body); font-weight: 600; line-height: var(--leading-display); letter-spacing: 0; }
-html[data-design="salon"] .site-footer { border: 0; }
-html[data-design="salon"] .footer-main { padding-block: 48px; }
-html[data-design="salon"] .footer-line,
-html[data-design="salon"] .footer-links,
-html[data-design="salon"] .footer-contact > p,
-html[data-design="salon"] .footer-instagram { font-size: var(--type-body); color: var(--white); line-height: var(--leading-body); }
-html[data-design="salon"] .footer-brand-name,
-html[data-design="salon"] .footer-links h2,
-html[data-design="salon"] .footer-contact h2 { color: var(--white); font: 600 1.25rem/1.5 var(--body); }
-html[data-design="salon"] .footer-contact .button { font-size: var(--type-label); }
-html[data-design="salon"] .footer-bottom { border: 0; flex-wrap: wrap; }
-html[data-design="salon"] .footer-bottom small { font-size: var(--type-legal); color: var(--white); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) body { background-image: none; scrollbar-color: var(--brand-green) var(--sage); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) input { caret-color: var(--brand-green); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) ::selection { background: var(--brand-gold); color: var(--brand-green); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .button { border: 0; border-radius: 0; font-size: var(--type-body); min-height: 52px; box-shadow: none; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .button:hover { box-shadow: none; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .configuration-note { font-size: var(--type-label); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading { align-items: flex-start; margin-bottom: 32px; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading h2 { font: 500 var(--type-section)/var(--leading-display) var(--display); letter-spacing: -.015em; margin: 0; text-wrap: balance; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading p { font-size: var(--type-body); line-height: var(--leading-body); color: var(--ink); max-width: 34ch; }
+html[lang="ar"]:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading h2 { font-family: var(--body); font-weight: 600; line-height: var(--leading-display); letter-spacing: 0; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .site-footer { border: 0; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-main { padding-block: 48px; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-line,
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links,
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact > p,
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-instagram { font-size: var(--type-body); color: var(--white); line-height: var(--leading-body); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-brand-name,
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links h2,
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact h2 { color: var(--white); font: 600 1.25rem/1.5 var(--body); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact .button { font-size: var(--type-label); }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-bottom { border: 0; flex-wrap: wrap; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-bottom small { font-size: var(--type-legal); color: var(--white); }
 .salon-close { display: none; }
-html[data-design="salon"] .salon-close { display: block; margin-block: 0; padding-block: 34px 12px; color: var(--brand-gold); font: 500 clamp(3.625rem, 10vw, 9rem)/1.08 var(--font-editorial); letter-spacing: -.015em; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .salon-close { display: block; margin-block: 0; padding-block: 34px 12px; color: var(--brand-gold); font: 500 clamp(3.625rem, 10vw, 9rem)/1.08 var(--font-editorial); letter-spacing: -.015em; }
 /* These are labelled layout fixtures, not customer proof in this alternative. */
-html[data-design="salon"] #customer-experiences { display: none; }
+html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) #customer-experiences { display: none; }
 @media (max-width: 900px) {
-  html[data-design="salon"] .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 650px) {
-  html[data-design="salon"] .section-heading { flex-direction: column; gap: 20px; }
-  html[data-design="salon"] .footer-main { grid-template-columns: 1fr; gap: 32px; }
-  html[data-design="salon"] .footer-main .footer-brand { max-width: 32ch; }
-  html[data-design="salon"] .footer-line { max-width: none; }
-  html[data-design="salon"] .footer-links { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 16px; }
-  html[data-design="salon"] .footer-links h2 { grid-column: 1 / -1; margin-bottom: 8px; }
-  html[data-design="salon"] .footer-contact { max-width: 34ch; }
-  html[data-design="salon"] .footer-contact .button { font-size: var(--type-body); }
-  html[data-design="salon"] .salon-close { font-size: clamp(3rem, 13vw, 4.5rem); }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .section-heading { flex-direction: column; gap: 20px; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-main { grid-template-columns: 1fr; gap: 32px; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-main .footer-brand { max-width: 32ch; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-line { max-width: none; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 16px; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-links h2 { grid-column: 1 / -1; margin-bottom: 8px; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact { max-width: 34ch; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .footer-contact .button { font-size: var(--type-body); }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .salon-close { font-size: clamp(3rem, 13vw, 4.5rem); }
 }
 @media (max-width: 600px) {
-  html[data-design="salon"] .product-grid { grid-template-columns: 1fr; gap: 28px; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .product-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 @media (prefers-reduced-motion: no-preference) {
-  html[data-design="salon"] .salon-close { animation: salon-close-entry .65s var(--motion-ease) both; }
+  html:is([data-design="salon"],[data-design="gilded"],[data-design="noir"],[data-design="souk"],[data-design="verdant"]) .salon-close { animation: salon-close-entry .65s var(--motion-ease) both; }
 }
 @keyframes salon-close-entry { from { opacity: .75; transform: translateY(12px); } to { opacity: 1; transform: none; } }
